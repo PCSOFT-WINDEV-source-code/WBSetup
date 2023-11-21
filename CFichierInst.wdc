@@ -1,0 +1,143 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CFichierInst
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x175d0f4a06071fb1
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAACHcUbNtRupYivAy27Ay7iJZ3EkMIjRI59rVtcsdNG3z9XgBlRzvIHhHP9PkLyKna47zsK84BhcrvwzoncuskAag0terQumKgqi5ByWJGRqsBEjAsUIHUhJjvb/1t0LuWqrj4kbeOA25ujKeyA=
+     code : |1+
+      // Description d'un fichier de l'installation
+      CFichierInst est une classe
+      	m_bAuto est un booleen					// Vrai si c'est un fichier automatique
+      	m_sNomFichier est une chaine				// Nom du fichier
+      	m_sCheminSource est une chaine			// Chemin complet du fichier à installer (sauf nom et extension)
+      	m_sCheminSourceComplet est une chaine	// Chemin complet du fichier à installer (avec nom et extension)
+      	m_sCheminDistant est une chaine			// Chemin complet du fichier sur le serveur (sauf nom et extension)
+      	m_sCheminDistantComplet est une chaine	// Chemin complet du fichier sur le serveur (avec nom et extension)
+      	
+      	m_nTaille est un entier				// Taille du fichier (octets)
+      	m_dhDateHeureModif est un dateheure	// Timestamp de dernière modification
+      	m_nGroupe est un entier				// Groupe d'installation
+      Fin
+      
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1683518646309625777
+     type_code : 27
+     code : |1+
+      Procédure Constructeur()
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1683518646309691313
+     type_code : 28
+     code : |1+
+      Procédure Destructeur()
+      
+     type : 655360
+   -
+     name : VerifRepDestination
+     internal_properties : CAAAAAgAAAD6WdcDf75ivWNRJVbDn+NGbd57LMFGxSuCsnOI9tTKtXtkIDL+gFHdV5SIh0PG7z/5cSv1B2uoy8PH1tPCKB9LGDMAnGjHZUnwayxcsDEW3SOxfz4edF5tfwDI+GLQ1Jo6KP3ukuAQCQMCUWunmxm5sALOhuP47rX+58eZj1v2o7e7HQBWYlGC7Xzn8cdHXoRwud2EiitKMbvP6Wp+VrFH0gM1gUpF12Y=
+     procedure_id : 1710968525524795104
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //VerifRepDestination ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      Procédure VerifRepDestination()
+      
+      si pas ChaîneCommencePar(:m_sCheminDistant,"\\") ALORS
+      	:m_sCheminDistant = Remplace(:m_sCheminDistant,"\\","\",SansCasse)
+      FIN
+      SI PAS ChaîneCommencePar(:m_sCheminDistantComplet,"\\") ALORS
+      	:m_sCheminDistantComplet = Remplace(:m_sCheminDistantComplet,"\\","\",SansCasse)
+      fin
+      // Le répertoire de destination d'un fichier doit obligatoirement commencer par <Site>, <Data>
+      sMajChemin est une chaine = Majuscule(:m_sCheminDistant)
+      si sMajChemin[=majuscule(META_DATA) alors 
+      	// QW186377 : Force la casse des meta répertoires
+      	:m_sCheminDistant = remplace(:m_sCheminDistant,META_DATA,META_DATA,SansCasse)
+      	:m_sCheminDistantComplet = remplace(:m_sCheminDistantComplet,META_DATA,META_DATA,SansCasse)
+      	retour
+      FIN
+      si sMajChemin[=majuscule(META_SITE) alors 
+      	// QW186377 : Force la casse des meta répertoires
+      	:m_sCheminDistant = Remplace(:m_sCheminDistant,META_SITE,META_SITE,SansCasse)
+      	:m_sCheminDistantComplet = Remplace(:m_sCheminDistantComplet,META_SITE,META_SITE,SansCasse)
+      	retour
+      FIN
+      si sMajChemin[=majuscule(META_WEBSERVICE_SOAP) alors 
+      	// QW186377 : Force la casse des meta répertoires
+      	:m_sCheminDistant = Remplace(:m_sCheminDistant,META_WEBSERVICE_SOAP,META_WEBSERVICE_SOAP,SansCasse)
+      	:m_sCheminDistantComplet = Remplace(:m_sCheminDistantComplet,META_WEBSERVICE_SOAP,META_WEBSERVICE_SOAP,SansCasse)
+      	retour
+      FIN
+      SI sMajChemin[=Majuscule(META_WEBSERVICE_REST) ALORS 
+      	// QW186377 : Force la casse des meta répertoires
+      	:m_sCheminDistant = Remplace(:m_sCheminDistant,META_WEBSERVICE_REST,META_WEBSERVICE_REST,SansCasse)
+      	:m_sCheminDistantComplet = Remplace(:m_sCheminDistantComplet,META_WEBSERVICE_REST,META_WEBSERVICE_REST,SansCasse)
+      	RETOUR
+      FIN
+      SI sMajChemin[=Majuscule(META_SOCKET) ALORS 
+      	// QW186377 : Force la casse des meta répertoires
+      	:m_sCheminDistant = Remplace(:m_sCheminDistant,META_SOCKET,META_SOCKET,SansCasse)
+      	:m_sCheminDistantComplet = Remplace(:m_sCheminDistantComplet,META_SOCKET,META_SOCKET,SansCasse)
+      	RETOUR
+      FIN
+      // On replace le fichier dans <Site> par défaut
+      :m_sCheminDistantComplet = remplace(:m_sCheminDistantComplet,:m_sCheminDistant,META_SITE+"\")
+      :m_sCheminDistant = META_SITE+"\"
+      
+     type : 458752
+   -
+     name : ActualiseInfosLocales
+     procedure_id : 1768134471227951354
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //ActualiseInfosLocales ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      Procédure ActualiseInfosLocales()
+      
+      SI fFichierExiste(:m_sCheminSourceComplet) ALORS
+      	m_dhDateHeureModif = fDate(:m_sCheminSourceComplet)+fHeure(:m_sCheminSourceComplet)
+      	m_nTaille = ftaille(:m_sCheminSourceComplet)
+      sinon
+      	m_nTaille=-1
+      FIN
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+resources :
+ string_res :
+  identifier : 0x10d4759a03a443d8
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

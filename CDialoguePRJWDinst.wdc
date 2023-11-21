@@ -1,0 +1,84 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CDialoguePRJWDinst
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x14ad08ad1399c607
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     code : |1+
+      
+      CDialoguePRJWDinst est une Classe
+      
+      FIN
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1489856591180776967
+     type_code : 27
+     code : |1+
+      PROCEDURE Constructeur()
+      
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1489856591180842503
+     type_code : 28
+     code : |1+
+      PROCEDURE Destructeur()
+      
+     type : 655360
+   -
+     name : bIsOK
+     procedure_id : 1489859876962202816
+     type_code : 12
+     code : |1+
+      PROCEDURE bIsOK() : booleen
+      renvoyer faux
+     type : 458752
+   -
+     name : bufGetPartieWDP
+     internal_properties : CAAAAAgAAADXobb99UuVgptwq774Q5D5P6EUwFgRE4fjng+EtKHndzU4rox7BMmRbD/v4HRCNW5D/oJMABioSlD/5osaNtS2n5dKuReKNnbGwHBqkIhOXF3PLgGkgURVEoITmrkvnQb3uwX3tGBWFtj6K3A=
+     procedure_id : 1510012661942837699
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] bufGetPartieWDP (<sCheminWDP> est chaîne, <sOutNomLogiqueWDP> est chaîne)
+      //
+      // Paramètres :
+      //	sCheminWDP (chaîne UNICODE) : <indiquez ici le rôle de sCheminWDP>
+      //	sOutNomLogiqueWDP (chaîne UNICODE) : <indiquez ici le rôle de sOutNomLogiqueWDP>
+      // Valeur de retour :
+      // 	buffer : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE bufGetPartieWDP(sCheminWDP est chaine <utile>, sOutNomLogiqueWDP est chaine <utile>) : buffer
+      
+      bufResult est buffer
+      
+      RENVOYER bufResult
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : Classe1
+resources :
+ string_res :
+  identifier : 0x10d4759a04834511
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

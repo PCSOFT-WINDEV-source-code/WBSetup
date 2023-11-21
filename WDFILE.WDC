@@ -1,0 +1,393 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CWDFile
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x3a7ee3c15224f08b
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAAAxeWvGudf2Phn1xHtsvrDnEkOttVmSxNrI98mrNPpvknpBYBXBQJZ+kjx32t4TjKhoBUSzIiadbHoOy6v9WT3pyoPRKmHNrUPGzkLjPbdsUvNgw4URf76NS30wxy4yEzqnTURfFk89S4tdVR0uI1yzyXayWVvwlWumm5td42enY2U1vVPTGQQDbctAlTKW797t7rvHpZgiyfcB5AvCvFFy5cnXDA0pFnGjqK4q7NNidVXB1t8Qq/YRJ0zRfCR55XNimEDja7vsGJtG4eo=
+     code : |1+
+      CWDFile est une Classe
+      
+      	CONSTANT
+      		IdInconnu			= 0x00000000	// Fichier de type inconnu
+      		
+      		//--- 0x0000 --- Famille Elements WinDev
+      		BeginProjet		= 0x00000001
+      		
+      		BeginWinDev		= 0x00000001
+      		IdProjet			= 0x00000001
+      		IdFenetre			= 0x00000002
+      		IdEtat			= 0x00000003
+      		IdClasse			= 0x00000004
+      		IdRequete			= 0x00000005
+      		IdAide			= 0x00000006
+      		IdCollProc		= 0x00000007
+      		IdProjetPocket	= 0x00000101
+      		IdFenetrePocket	= 0x00000102
+      		EndWinDev			= 0x00000102	// dernier element de la famille WinDev
+      		
+      		//--- 0x0001 --- Famille Elements WEBDEV
+      		BeginWebDev		= 0x00010001
+      		IdProjetWeb		= 0x00010001
+      		IdPage			= 0x00010002
+      		IdCollNav			= 0x00010003
+      		IdCollPHP			= 0x00010004
+      		EndWebDev			= 0x00010004	// dernier element de la famille WEBDEV
+      		
+      		EndProjet			= 0x00010004	// dernier element de la famille Projet
+      		
+      		//--- 0x0006 --- Famille des fichiers UML
+      		BeginUML			= 0x00060001
+      		IdUML			= 0x00060001
+      		EndUML			= 0x00060001
+      		
+      		//--- 0x0007 --- Famille des fichiers HF
+      		BeginHF			= 0x00070001
+      		IdHFFic			= 0x00070001
+      		IdHFNdx			= 0x00070002
+      		IdHFMmo			= 0x00070003
+      		IdHFWdd			= 0x00070004
+      		IdHFRad			= 0x00070005
+      		EndHF			= 0x00070005	// dernier element de la famille HF
+      		
+      		//--- 0x0008 --- Famille des fichiers Analyse
+      		BeginAnalyse		= 0x00080001
+      		IdMCD			= 0x00080001  //MCD
+      		IdAnalyse			= 0x00080002  //MLD
+      		EndAnalyse		= 0x00080002
+      		
+      		//--- 0x000A --- Famille des fichiers Crypte
+      		BeginCrypte		= 0x000A0001
+      		IdCrypte			= 0x000A0001
+      		EndCrypte			= 0x000A0001
+      		
+      		//--- 0x000B --- Famille des fichiers Gabarit
+      		BeginGabarit		= 0x000B0001
+      		IdGabChamp7		= 0x000B0001
+      		IdGabSkin			= 0x000B0002
+      		IdGabCSS			= 0x000B0003
+      		IdGabWinDev		= 0x000B0004
+      		EndGabarit		= 0x000B0004
+      		
+      		//--- 0x000C --- Famille des fichiers CPL
+      		BeginCPL			= 0x000C0001
+      		IdCpl			= 0x000C0001
+      		IdBrowser			= 0x000C0002
+      		IdShaper			= 0x000C0003
+      		IdTmp			= 0x000C0004
+      		IdErreur			= 0x000C0005
+      		EndCPL			= 0x000C0005	// dernier element de la famille CPL
+      		
+      		//--- 0x000D --- Famille des fichiers WDL
+      		BeginWDL			= 0x000D0001
+      		IdBibli			= 0x000D0001
+      		EndWDL			= 0x000D0001
+      		
+      		//--- Ox000E --- Famille des fichiers composant
+      		BeginCompo		= 0x000E0001
+      		IdComposant		= 0x000E0001
+      		EndCompo			= 0x000E0001
+      		
+      		//--- Ox000F --- Famille des fichiers edition
+      		BeginEdit			= 0x000F0001
+      		IdEdMarque		= 0x000F0001
+      		EndEdit			= 0x000F0001
+      		
+      		//--- 0x0010 --- Fichiers WDINT
+      		BeginWDM			= 0x00100001
+      		IdWDM			= 0x00100001
+      		IdConfig			= 0x00100002
+      		EndWDM			= 0x00100002
+      		
+      		//--- 0x0011 --- Fichiers Profiler
+      		BeginProf			= 0x00110001
+      		IdStatProf		= 0x00110001
+      		EndProf			= 0x00110001
+      		
+      		//
+      		gdwTailleEntete = 20
+      	FIN
+      
+      	m_szFichier est une chaine
+      	m_dwType est un entier sans signe
+      	m_wVersionMajeureWD est un entier sans signe
+      	m_wVersionMineureWD est un entier sans signe
+      	m_wParam est un entier sans signe
+      	
+      	m_hFic est un entier
+      Fin
+      
+     type : 131072
+   -
+     code : |1-
+      
+     type : 131074
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 4215056719486120095
+     type_code : 27
+     code : |1+
+      Procédure CWDFile::Constructeur(szFichier)
+      
+      :m_dwType=CWDFile::IDINCONNU
+      :m_szFichier=szFichier
+      :m_hFic=-1
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 4215056719376871583
+     type_code : 28
+     code : |1+
+      // Referme le fichier s'il a été ouvert
+      SI :m_hFic<>-1 ALORS
+      	fferme(:m_hFic)
+      FIN
+     type : 655360
+   -
+     name : bFamilleCPL
+     procedure_id : 4215056728725518450
+     type_code : 12
+     code : |1+
+      Procédure CWDFile::bFamilleCPL()
+      
+      si :m_dwType>=CWDFile::BEGINCPL et :m_dwType<=CWDFile::ENDCPL alors
+      	renvoyer vrai
+      sinon
+      	renvoyer faux
+      FIN
+      
+     type : 458752
+   -
+     name : bFamilleHF
+     procedure_id : 4215056728947095686
+     type_code : 12
+     code : |1+
+      Procédure CWDFile::bFamilleHF()
+      
+      si :m_dwType>=CWDFile::BEGINHF et :m_dwType<=CWDFile::ENDHF alors
+      	renvoyer vrai
+      sinon
+      	renvoyer faux
+      FIN
+      
+     type : 458752
+   -
+     name : bFamilleProjet
+     procedure_id : 4215056729818396826
+     type_code : 12
+     code : |1+
+      Procédure CWDFile::bFamilleProjet()
+      
+      si :m_dwType>=CWDFile::BEGINPROJET et :m_dwType<=CWDFile::ENDPROJET alors
+      	renvoyer vrai
+      sinon
+      	renvoyer faux
+      FIN
+      
+     type : 458752
+   -
+     name : bFamilleWDL
+     procedure_id : 4215056728794659000
+     type_code : 12
+     code : |1+
+      Procédure CWDFile::bFamilleWDL()
+      
+      si :m_dwType>=CWDFile::BEGINWDL et :m_dwType<=CWDFile::ENDWDL alors
+      	renvoyer vrai
+      sinon
+      	renvoyer faux
+      FIN
+      
+     type : 458752
+   -
+     name : bLectureEntete
+     internal_properties : CAAAAAgAAADFjNOt3nl0BqVwMLh/W5Sk+TaH0WcjGj5xxa2hzJJ2UGzhjMSN2HMd1PMecOd6ztPkE3BNj+MJR8UQb4SsG4/p+AmaNGm5iXGqLrndFshY13pi5GSkS3W+gE7awzAM+DqoJ+n9PY256ktz8Vc7GAGhY9m2rn4sES8VHxJtnghy
+     procedure_id : 4215056728902269132
+     type_code : 12
+     code : |1+
+      fonction protege CWDFile::bLectureEntete()
+                   
+      // on se positionne au debut
+      fpositionne(:m_hFic, 0, FPDebut)
+      
+      //DWORD	dwSignature;			// 0x50435300 -> "PCS\0"
+      //DWORD 	dwTailleEntete;			// tient compte de ces 20 octets
+      //DWORD	dwTypeFichier;			// type du fichier
+      //WORD 	wVersionMineure;		// version mineur du produit qui a crée ce fichier
+      //BYTE	byVersionMajeure;		// version majeur du produit qui a crée ce fichier
+      //BYTE	byCodeProduit;			// Code produit
+      //WORD	wFlags;					// format du fichier
+      //WORD	wLangID;				// language lors de la sauvegarde
+      
+      szSignature est une chaine ANSI
+      dwTailleEntete est un entier sans signe
+      dwTypeFichier est un entier sans signe
+      dwVersionWinDev est un entier sans signe
+      nParam est un entier sur 2 octets
+      
+      szBuff est une chaine ansi
+      
+      // lit la signature
+      szSignature=flit(:m_hFic, 4)
+      si szSignature="<§&00000001§>" alors renvoyer faux
+      
+      si szSignature<>"<§&00000002§>PCS"+caract(0) alors
+      	// fichier non WD
+      	renvoyer vrai
+      FIN
+      
+      
+      szBuff=flit(:m_hFic, 4)
+      si szBuff="<§&00000003§>" alors renvoyer faux
+      dwTailleEntete=:dwChaine2DWord(szBuff)
+      
+      si dwTailleEntete<>CWDFile::gdwTailleEntete alors
+      	renvoyer vrai
+      FIN
+      
+      szBuff=flit(:m_hFic, 4)
+      si szBuff="<§&00000004§>" alors renvoyer faux
+      dwTypeFichier=:dwChaine2DWord(szBuff)
+      
+      szBuff=flit(:m_hFic, 4)
+      si szBuff="<§&00000005§>" alors renvoyer faux
+      // Ignore le code produit
+      szBuff[[4]]=Caract(0)
+      dwVersionWinDev=:dwChaine2DWord(szBuff)
+      
+      szBuff=flit(:m_hFic, 2)
+      nParam=:dwChaine2DWord(szBuff)
+      
+      :m_dwType=dwTypeFichier
+      
+      :m_wVersionMajeureWD=dwVersionWinDev/0x10000
+      :m_wVersionMineureWD=dwVersionWinDev modulo 0x10000
+      
+      :m_wParam=nParam
+      
+      renvoyer vrai
+      
+     type : 458752
+   -
+     name : bOuvre
+     internal_properties : CAAAAAgAAAAhEyRvW9TlltFqh4gsJ0ZfMWtuLAZ3h4tJMIumiFVJyVtWmFglQnXhkvnPFsxyC5yB/FgUhlq5fQ1Ud2hFC4frQoqb7s6Tm/3XqVFf4yUp+UjCOxJXls3sZz8Ev8QklEcWAtZMi7kMhEpsncY=
+     procedure_id : 4215056737418871204
+     type_code : 12
+     code : |1+
+      Procédure virtuelle CWDFile::bOuvre()
+      
+      si pas fFichierExiste(:m_szFichier) ALORS
+      	renvoyer faux
+      FIN
+      
+      // ouvre le fichier en lecture
+      :m_hFic=fouvre(:m_szFichier, FOLecture)
+      
+      si :m_hFic=-1 alors renvoyer faux
+      
+      // lecture de l'entete
+      bRet est un booleen 
+      bRet=:bLectureEntete()
+      
+      si (bRet=Faux) alors 
+      	fferme(:m_hFic)
+      	:m_hFic=-1
+      FIN
+      
+      renvoyer bRet
+      
+     type : 458752
+   -
+     name : dwChaine2DWord
+     procedure_id : 4215056738117812724
+     type_code : 12
+     code : |1+
+      fonction protege CWDFile::dwChaine2DWord(szBuff)
+       
+      dwVal est un entier sans signe
+      
+      i est un entier
+      pour i=1 a 4
+      	n est un entier =asc(szBuff[[i]])
+      	dwVal+=n*puissance(256,i-1)
+      FIN
+      
+      renvoyer dwVal
+      
+     type : 458752
+   -
+     name : dwIdFichier
+     procedure_id : 4215056742711166169
+     type_code : 12
+     code : |1+
+      Procédure CWDFile::dwIdFichier()
+      
+      renvoyer :m_dwType
+      
+     type : 458752
+   -
+     name : Ferme
+     internal_properties : CAAAAAgAAADnQw3pmlMWJ2SiI12hFWJxfOAi9mEQFuNCiKcz3ZaQ99GvK0i5am/mZMu/k/IhOXlaVOveC/tSedBZCMfFj+LPS0DEWcmI6h/n7yDhINNyCrX4ZZMoZ12bxK+CyJaWjlypseIUEefYbmiti0fO1nzp/gTnwJonLF6q/QoBctkuJq6xg/5FxUsW3FJORmh5zZcYTHoERCUoN951AGGsXq/jWrUw0NPiMHrZgg7NuHzwOSK3hJAOQu1u
+     procedure_id : 4215056741386159331
+     type_code : 12
+     code : |1+
+      Procédure CWDFile::Ferme()
+      
+      si :m_hFic<>-1 alors 
+      	fferme(:m_hFic)
+      	:m_hFic=-1
+      FIN
+      
+     type : 458752
+   -
+     name : wParam
+     procedure_id : 4215056742488999159
+     type_code : 12
+     code : |1+
+      Procédure CWDFile::wParam()
+      
+      renvoyer :m_wParam
+      
+     type : 458752
+   -
+     name : wVersionMajeureWD
+     procedure_id : 4215056742029067521
+     type_code : 12
+     code : |1+
+      Procédure CWDFile::wVersionMajeureWD()
+      
+      renvoyer :m_wVersionMajeureWD
+      
+     type : 458752
+   -
+     name : wVersionMineureWD
+     procedure_id : 4215056742503875851
+     type_code : 12
+     code : |1+
+      Procédure CWDFile::wVersionMineureWD()
+      
+      renvoyer :m_wVersionMineureWD
+      
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+resources :
+ string_res :
+  identifier : 0x107973c212491ef5
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

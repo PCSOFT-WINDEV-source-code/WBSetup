@@ -1,0 +1,262 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CEltProjetFile
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x3a7efc114070e8d9
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     code : |1-
+      CEltProjetFile est une Classe
+      	un objet CWDFile
+      		
+      	m_sNomLogique est une chaine
+      	m_sLibelle est une chaine
+      	m_dwCptEnreg est un entier sans signe
+      	m_dwNbPartie est un entier sans signe
+      	m_TabTaillePartie est un tableau statique de 20 entier sans signe
+      	m_TabOptionPartie est un tableau statique de 20 entier
+      Fin
+     type : 131072
+   -
+     code : |1-
+      
+     type : 131074
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 4215083452880775395
+     type_code : 27
+     code : |1+
+      Procédure CEltProjetFile::Constructeur(szFichier)
+      
+      Constructeur CWDFile(szFichier)
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 4215083452663785699
+     type_code : 28
+     code : |1+
+      Procedure Destructeur()
+     type : 655360
+   -
+     name : bLectureInfo
+     internal_properties : CAAAAAgAAABZGwyH36xlFlHqZyiEzz5/GWverDa3V1MxWPPe6GUpYRsOQGA9Wr3hconfVvTK0/ypXKgUJmpdoXmIc6QZJ9Ovhu4fQjK/XzGDHc3bJ+H1/WzWr/arcpEg0xOgO1iwEDtK1spQj734PDKEpf4=
+     procedure_id : 4215083882013421387
+     type_code : 12
+     code : |1+
+      fonction prive CEltProjetFile::bLectureInfo()
+      szBuff est une buffer
+      
+      // on se positionne sur le cpt d'enreg
+      si fPositionne(:m_hFic, CWDfile::gdwTailleEntete, fpdebut)=-1 alors renvoyer eot
+      szBuff=flit(:m_hFic,4)
+      :m_dwCptEnreg=:dwChaine2DWord(szBuff)	
+      
+      
+      szBuff=:sGetPartie(0)
+      szBuff=szBuff[[5 A]]
+      
+      // lit le nom logique
+      //On passe par un WDBuffer pour gérer la nouvelle sérialisation des chaines
+      clWDBuf est un CWDBuffer(szBuff)
+      
+      sTMP est un chaine unicode
+      clWDBuf.GetStr(sTMP)
+      m_sNomLogique = sTMP
+      
+      clWDBuf.GetStr(sTMP)
+      :m_sLibelle=sTMP
+      
+      renvoyer vrai
+      
+     type : 458752
+   -
+     name : bOuvre
+     procedure_id : 4215083988166299576
+     type_code : 12
+     code : |1+
+      Procédure virtuelle CEltProjetFile::bOuvre()
+      
+      si :CWDFile::bOuvre() alors
+      	// si c'est un fichier WDx
+      	si :bFamilleProjet() alors
+      		// lecture des infos
+      		renvoyer :bLectureInfo()
+      	fin		
+      Fin
+      
+      renvoyer faux
+      
+     type : 458752
+   -
+     name : byOptionPartie
+     procedure_id : 4215084087371967738
+     type_code : 12
+     code : |1+
+      Procédure CEltProjetFile::byOptionPartie(nPartie)
+      
+      renvoyer :m_TabOptionPartie[nPartie]
+      
+     type : 458752
+   -
+     name : dwCptEnreg
+     procedure_id : 4215084186023986701
+     type_code : 12
+     code : |1+
+      Procédure CEltProjetFile::dwCptEnreg()
+      
+      renvoyer :M_DWCPTENREG
+      
+     type : 458752
+   -
+     name : dbNbPartie
+     procedure_id : 4215084246390848151
+     type_code : 12
+     code : |1+
+      Procédure CEltProjetFile::dwNbPartie()
+      
+      renvoyer :m_dwNbPartie
+      
+     type : 458752
+   -
+     name : dwTaillePartie
+     procedure_id : 4215084319124815638
+     type_code : 12
+     code : |1+
+      Procédure CEltProjetFile::dwTaillePartie(nPartie)
+      
+      renvoyer :m_TabTaillePartie[nPartie]
+      
+     type : 458752
+   -
+     name : sGetPartie
+     internal_properties : CAAAAAgAAACLUkmiuFiKpxvlZrOqdUK4CwPSX195XXLl5lTBme8gCOGLe7GrQ9j8wtyKgoVLgbdbrMwdKlV2Uz3UqLC/MPxg4oyK9v18iUJbhMLnn4HkunilMLADgT5dL1y0mG2rquribBn2le+C30/JJkGSe6UvyPboYPMKKyv2D9mMVmGOwLmByYCp3me+ZnykslItpGc=
+     procedure_id : 4215084405786430963
+     type_code : 12
+     code : |1+
+      Procédure CEltProjetFile::sGetPartie(nPartie)
+      
+      // on se positionne au debut de la table de version
+      si fPositionne(:m_hFic, CWDfile::gdwTailleEntete+4, fpdebut)=-1 alors renvoyer eot
+      
+      bufBuff est une buffer
+      
+      dwOffsetVersion est un entier sans signe
+      dwOffsetDerniereVersion est un entier = 0
+      
+      // lecture de l'offset de la version suivante
+      bufBuff=flit(:m_hFic,8)
+      dwOffsetVersion=:dwChaine2DWord(bufBuff)
+      
+      	
+      tantque dwOffsetVersion<>0
+      	si fPositionne(:m_hFic, dwOffsetVersion-8, fpcourant)=-1 alors renvoyer eot
+      	
+      	// lecture de l'offset de la version suivante
+      	bufBuff=flit(:m_hFic,8)
+      	dwOffsetVersion=:dwChaine2DWord(bufBuff)	
+      FIN
+      
+      dwOffsetDerniereVersion = fPositionne(:m_hFic,0,fpCourant)-8
+      
+      // lecture taille entete
+      dwTaille est un entier sans signe
+      bufBuff=flit(:m_hFic,4)
+      dwTaille=:dwChaine2DWord(bufBuff)
+      si dwTaille<16 alors renvoyer eot
+      
+      // lecture version
+      bufBuff=flit(:m_hFic,4)
+      dwVersionEntete est un entier = :dwChaine2DWord(bufBuff)
+      si dwVersionEntete<0x00020000 alors
+      	renvoyer eot
+      FIN
+      
+      // lecture de l'offset de la table de partie
+      dwOffsetTableEntete est un entier sans signe
+      bufBuff=flit(:m_hFic,8)
+      dwOffsetTableEntete=:dwChaine2DWord(bufBuff)
+      
+      si fPositionne(:m_hFic, dwOffsetDerniereVersion+dwOffsetTableEntete, fpdebut)=-1 alors renvoyer eot
+      // on se trouve au debut de la table des parties
+      dwNbPartie est un entier sans signe
+      
+      bufBuff=flit(:m_hFic,4)
+      dwNbPartie=:dwChaine2DWord(bufBuff)
+      :m_dwNbPartie=dwNbPartie
+      
+      si nPartie>dwNbPartie alors renvoyer eot
+      
+      dwTaillePartieALire est un entier sans signe
+      // calcul l'offset
+      dwOffset est un entier sans signe
+      dwOffset=0
+      
+      n est un entier
+      pour n=0 _à_ dwNbPartie-1
+      	// lecture des options de la partie
+      	bufBuff=fLit(:m_hFic,1)
+      	:m_TabOptionPartie[n+1]=:dwChaine2DWord(bufBuff)
+      	// lecture de la taille de la partie
+      	bufBuff=flit(:m_hFic,4)
+      	dwTaille=:dwChaine2DWord(bufBuff)
+      	:m_TabTaillePartie[n+1]=dwTaille;
+      	
+      	si n<nPartie alors
+      		dwOffset+=dwTaille
+      	sinon
+      		si n=nPartie alors
+      			dwTaillePartieALire=dwTaille
+      		FIN
+      	FIN
+      fin
+      
+      // A partir de la version 15, il faut sauter la table d'encodage des parties
+      si :m_wVersionMajeureWD>=15 ALORS
+      	dwOffset += dwNbPartie*8	// Deux DWORD par partie
+      FIN
+      
+      si fPositionne(:m_hFic, dwOffset, fpcourant)=-1 alors renvoyer eot
+      
+      renvoyer flit(:m_hFic, dwTaillePartieALire)
+      
+     type : 458752
+   -
+     name : sLibelle
+     procedure_id : 4215084504243676623
+     type_code : 12
+     code : |1+
+      Procédure CEltProjetFile::sLibelle()
+      
+      renvoyer :m_sLibelle
+      
+     type : 458752
+   -
+     name : sNomLogique
+     procedure_id : 4215084576854763389
+     type_code : 12
+     code : |1+
+      Procédure CEltProjetFile::szNomLogique()
+      
+      renvoyer :m_sNomLogique
+      
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+resources :
+ string_res :
+  identifier : 0x10d4759a03ec4446
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

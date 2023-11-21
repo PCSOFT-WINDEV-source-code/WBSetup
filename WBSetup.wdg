@@ -1,0 +1,375 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : WBSetup
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x1766ad4c007c374d
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  internal_properties : CAAAAAgAAAC9GbGX1/t62EVADJtzFFSdTGrTyT6DLWQNTOSTZ62xMKzcGLYMiN5xFVzBDVs701RihAVvFa7t44qiRvJ2YHJBtDOpSxgDJDaeQPPecEL3FxDqwtfqpW8n+VKgVav60Q1BPMHpgjeSvMnAnedhA4Ni7UMm+hjVHpPPqzZjwJ0MkL1LKFWHd/qqzSbe0B4BQHqa0c0r+jT2WOUvqS6+rza7vgBOv9ZWshJ3ETmPKMak9TfJR9kKYeLD66CFf1TRgZZyHhilzczIgX7YCc7x3ylad5rUoUDq05MejAiQYHYOSt5i8S81rcS8tKVAn9qPQ5OU1YfSL2UkdnYYPFYM8vgQKavntukNpCc2u4Y4hm/LQG/YJIwfx8UTE14uBmBcT2VdVpurU4dqPhmQBuczlcSJvMzHc6xF4V91
+  type_code : 31
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAABzRaU974F/VtFqh8hsZwbfsSvubMa3R4sJ8EsmiNVJiZvW2NglwnWhEvlP1oyyS5wBvFjUxhqZXS3014hlayfLYup7ju7ze913STH/A4VJWWgiGzJ39i1MB9/k3+SENKe2Yjbsq7PRa8ueTxQ=
+     code : |1-
+      constant
+      	MDP_ANALYSE			= ""		
+      	EXT_WDL 			= ".wdl"
+      fin
+      	
+     type : 720896
+  procedures :
+   -
+     name : IHM_Init
+     procedure_id : 1694268000165803900
+     type_code : 15
+     group : 1
+     code : |1+
+      // Résumé : Ouverture de la jauge d'IHM
+      // Syntaxe :
+      //IHM_Init ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      Procédure IHM_Init()
+      
+      // Ouvre la fenêtre de jauge
+      IHM_Jauge_OuvreFenetre()
+      	
+      gclInstallUtil:m_nNumEtape = 1	// Commence toujours à l'étape 1
+      gclInstallUtil:m_nTotalEtape = 1 // Il y a nécessairement l'étape d'installation du site
+      SI PAS gclInstallServeur:m_bServeurWebPrésent _ET_ gclInstallServeur:m_bInstallerServeurWeb ALORS 
+      		// Si on installe un serveur web
+      	gclInstallUtil:m_nTotalEtape++
+      	FIN
+      SI PAS gclInstall:m_bMoteurWebDevPresent _ET_ gclInstall:m_clData:m_nSupportInstallation=3 ALORS 
+      	// Si on installe un moteur WEBDEV
+      	gclInstallUtil:m_nTotalEtape++
+      	FIN
+     type : 458752
+   -
+     name : IHM_Term
+     procedure_id : 1694268429662567992
+     type_code : 15
+     group : 1
+     code : |1+
+      // Résumé : Fermeture de la jauge d'IHM
+      // Syntaxe :
+      //IHM_Term ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      Procédure IHM_Term()
+      
+      IHM_Jauge_FermeFenetre()
+      
+     type : 458752
+   -
+     name : INSTALL_Init
+     internal_properties : CAAAAAgAAABsasYw3x62PHqnofXMCdcNUk1HdIfGoAx7rjsbLxwsnwE2Lt7iXAMYznNRxANtogEDk06WxVLylkBc7AHZcrxprm5F4iHA2vsniwVtVxIlRRlU+rtSzGaldqmaie7ON+WZJowNOPRgnImukLolKoV/DahVzROKLw502dZC7Tdi1fRhggC06z6xSaGngKUDdWdct+vygGgDcg0E5z3tHGCjRdRcpowuUmXtLC5RFsM7svJ35t2TsHSjNQ/s0P6rgZcfucrvOw==
+     procedure_id : 1895113701886345291
+     type_code : 15
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      Procédure INSTALL_Init()
+      
+      // Mode particulier pour l'install d'un Webservice sur un poste de dev
+      gclInstall:m_bModeInstallWebserviceLocal = (position(LigneCommande(),"/LOCALWS")>0)
+      //info(LigneCommande(),"mode local="+gclInstall:m_bModeInstallWebserviceLocal)
+      
+      // Récupération du compte sur la ligne de commande
+      gclInstall:m_sCompteWebDev = LigneCommande("CPT")
+      
+      //initialisation du produit en cours d'utilisation, pour une installation en mode local
+      sProductCode est une chaîne = LigneCommande("ProductCode")
+      SI sProductCode<>"" ALORS
+      	nProduit est un entier=0
+      	SELON Val(sProductCode)
+      		CAS 30 :
+      			nProduit=2 //2 pour webdev
+      		CAS 0:
+      			nProduit=1 //1 pour windev
+      	FIN
+      	
+      	SI nProduit<>0 ALORS
+      		nNation est un entier= nRenvoyerNationProduit();
+      		ForcerProduit(nProduit,nNation)
+      	FIN
+      FIN
+      
+      si Val(ConstantesWebDev.gpclConfigGlobale.sGetValeur(VALREG_CLUSTER_ACTIVATION))>0 ALORS
+      	//installation par media physique sur un noeud de cluster
+      	//c'est interdit
+      	IHM_Info("L'installation par media physique n'est pas disponible sur un noeud de cluster")
+      	FinProgramme()
+      FIN
+      
+      // Init de la collection de procédures
+      SI PAS gclInstall:INSTALL_bChargeDescription() ALORS
+      	FinProgramme()
+      FIN
+      
+      // Sélection de la langue
+      gclInstall:INSTALL_SelectionLangue()
+      
+      // Init des objets de l'installation
+      bInstallServeurPrésente est un booleen = (gclInstall:m_clData:m_nSupportInstallation=3)
+      
+      SI PAS gclInstall:INSTALL_bInitInstallation() ALORS 
+      	FinProgramme()
+      FIN
+      SI PAS gclInstallServeur:SERVEUR_bInitInstallation(bInstallServeurPrésente) ALORS 
+      	FinProgramme()
+      FIN
+      SI PAS gclInstallMoteur:MOTEUR_bInitInstallation() ALORS 
+      	FinProgramme()
+      FIN
+     type : 458752
+   -
+     name : INSTALL_bExec
+     internal_properties : CAAAAAgAAAA+D5HJZ7jO8XZqZwAHcbN26KGm9doHYaRFC4rkUDHAB0672VmP4+Fkwc7j4cCIXrGse4XgmmTxUO8XnB7PlqEUcWfb5LhGP/Lv8B4he3YftKMI4+YN+Ne8nnDVjlPuj14LMFphQo9Mge4yGoHl
+     procedure_id : 1895113929519665447
+     type_code : 15
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      // [ <Résultat> = ] INSTALL_bExec (<bWarning> est booléen, <pclServeurWeb> est CServeurWeb dynamique)
+      //
+      // Paramètres :
+      //	bWarning (booléen) : <indiquez ici le rôle de bWarning>
+      //	pclServeurWeb (CServeurWeb dynamique) : <indiquez ici le rôle de pclServeurWeb>
+      // Valeur de retour :
+      // 	booléen : <indiquez ici les valeurs possibles ainsi que leur interprétation>
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure INSTALL_bExec (bWarning est un booleen, pclServeurWeb est un CServeurWeb dynamique)
+      
+      // Init de l'IHM
+      IHM_Init()
+      
+      clTransactionEcriture est un CWebDevConfigTransactionEcriture( CWebDevConfigGlobale.nVERSION_CLUSTER_SANS,ConstantesWebDev.gpclConfigGlobale)
+      si pas clTransactionEcriture.Valide ALORS
+      	IHM_Erreur(clTransactionEcriture.MessageErreur)
+      	renvoyer faux
+      FIN
+      
+      // Installation du serveur web
+      SI PAS gclInstallServeur:m_bServeurWebPrésent _ET_ gclInstallServeur:m_bInstallerServeurWeb ALORS
+      	SI PAS gclInstallServeur:SERVEURWEB_bInstall( bWarning ) ALORS
+      		RENVOYER Faux
+      	FIN
+      FIN
+      
+      // Installation du moteur WEBDEV
+      SI PAS gclInstall:m_bMoteurWebDevPresent   ALORS
+      	si gclInstall:m_clData:m_nSupportInstallation=3
+      		SI PAS gclInstallMoteur:MOTEUR_bInstall( bWarning, pclServeurWeb ,clTransactionEcriture) ALORS
+      			RENVOYER Faux
+      		FIN
+      	sinon
+      		si pas gclInstall.m_bModeInstallWebserviceLocal ALORS
+      			si IHM_bDisponible() ALORS
+      				IHM_Erreur(<§@176692ab000431a0002d§>)
+      				renvoyer faux
+      			FIN
+      		FIN
+      	fin
+      FIN
+      
+      
+      // Installation du site
+      SI PAS gclInstall:SITE_bInstall( bWarning, pclServeurWeb ,clTransactionEcriture) ALORS
+      	RENVOYER Faux
+      FIN
+      
+      RENVOYER Vrai
+      
+      FIN:
+      	// Fermeture de l'IHM
+      	IHM_Term()
+     type : 458752
+   -
+     name : IHM_ConstruitLib
+     internal_properties : CAAAAAgAAACw27QoFTL7vLFoQZ1nlU1rbaMqvUTgi6FbWq5YPJB68hdS+uVpXat8ByEtVzNWlMKMdBMPqnk+jWi9nurQUcu1vlvX53Xs9+xGTIjtDZ+5zxCwzV/m3NA6DKy+ifJiyrdsSxQnK79vp3VgFrcUk6nUFkljoRoxd58wFHaa1fFhR6Kg
+     procedure_id : 1935895241028179282
+     type_code : 15
+     group : 1
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	sChaine : <indiquez ici le rôle de sLib>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE IHM_ConstruitLib( sChaine )
+      
+      SELON gclInstall:m_clData:m_nObjetDep
+      	CAS CInstallWBData::OBJET_WEBSERVICE_SOAP, CInstallWBData::OBJET_WEBSERVICE_REST
+      		sChaine = Remplace(sChaine,"[%OBJ_DEP%]",<§@176692ab000431a0002a§>)
+      		sChaine = Remplace(sChaine,"[%OBJ_DEP_PROD%]",<§@176692ab000431a0002a§>)
+      	cas CInstallWBData::OBJET_SOCKET
+      		sChaine	= Remplace(sChaine,"[%OBJ_DEP%]",<§@176692ab000431a0002f§>)
+      		sChaine	= Remplace(sChaine,"[%OBJ_DEP_PROD%]",<§@176692ab000431a00030§>)
+      		
+      	AUTRE CAS
+      		sChaine = Remplace(sChaine,"[%OBJ_DEP%]",<§@176692ab000431a0002b§>)
+      		sChaine = Remplace(sChaine,"[%OBJ_DEP_PROD%]",<§@176692ab000431a0002c§>)
+      FIN
+     type : 458752
+   -
+     name : sDecrypteMDP
+     procedure_id : 2211957846122425478
+     type_code : 15
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] sDecrypteMDP (<sMDPCrypte>)
+      //
+      // Paramètres :
+      //	sMDPCrypte : <indiquez ici le rôle de sMDP>
+      // Valeur de retour :
+      // 	chaîne ANSI : // 	Aucune
+      //
+      PROCEDURE sDecrypteMDP( sMDPCrypte )
+      
+      sMDPClair est une chaîne = Décrypte(sMDPCrypte,MDP_ANALYSE,crypteSécurisé,Vrai)
+      
+      // Blindage : dans certain cas, on se retrouve avec le caractère 0 dans la chaine ce qui perturbe la sérialisation XML (TB
+      sMDPClair = Remplace(sMDPClair,CaractUnicode(0),"")
+      
+      RENVOYER sMDPClair
+      
+     type : 458752
+   -
+     name : nRenvoyerNationProduit
+     procedure_id : 1173733357319362893
+     type_code : 15
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] nRenvoyerNationProduit ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	entier : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      //Procédure utilisée pour savoir dans WDInst si la version est chinoise
+      PROCEDURE nRenvoyerNationProduit()
+      
+      //On renvoie FR : il ne faut pas de limitation dans WBSetup
+      RENVOYER nationFrançais
+      
+      
+     type : 458752
+   -
+     name : gSansGuillemets
+     procedure_id : 1510010136700446371
+     type_code : 15
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //gSansGuillemets (<s> est chaîne)
+      //
+      // Paramètres :
+      //	s (chaîne UNICODE) : <indiquez ici le rôle de s>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE gSansGuillemets(s est une chaine)
+      
+      SI s[[1]]="""" ALORS s = s[[2 A]]
+      SI Droite(s,1)="""" ALORS s = s[[1 A Taille(s)-1]]
+      
+     type : 458752
+   -
+     name : nConversionOperation
+     procedure_id : 1824295005599618116
+     type_code : 15
+     code : |1+
+      PROCEDURE nConversionOperation(nAction)
+      renvoyer nAction
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+resources :
+ string_res :
+  identifier : 0x176692ab000431a0
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+  strings :
+   -
+     text :
+      fr-FR : webservice
+      en-GB : webservice
+      es-ES : webservice
+     index : 42
+   -
+     text :
+      fr-FR : site
+      en-GB : site
+      es-ES : sitio
+     index : 43
+   -
+     text :
+      fr-FR : site WEBDEV
+      en-GB : WEBDEV site
+      es-ES : Sitio WEBDEV
+     index : 44
+   -
+     text :
+      fr-FR : "Aucun moteur WEBDEV trouvé.\r\nCette installation ne contient pas de moteur WEBDEV.\r\nInstallation annulée."
+      en-GB : "No WEBDEV engine found.\r\nThis setup does not contain a WEBDEV engine.\r\nSetup canceled."
+      es-ES : "No se encontró ningún motor WEBDEV.\r\nEsta instalación no contiene ningún motor WEBDEV.\r\nInstalación cancelada."
+     index : 45
+   -
+     text :
+      fr-FR : webservice
+      en-GB : webservice
+      es-ES : webservice
+     index : 46
+   -
+     text :
+      fr-FR : WebSocket
+      en-GB : WebSocket
+      es-ES : WebSocket
+     index : 47
+   -
+     text :
+      fr-FR : WebSocket
+      en-GB : WebSocket
+      es-ES : WebSocket
+     index : 48
+   -
+     text :
+      fr-FR : "Aucun moteur WEBDEV trouvé.\r\nCette installation ne contient pas de moteur WEBDEV.\r\nInstallation annulée."
+      en-GB : "No WEBDEV engine found.\r\nThis setup does not contain a WEBDEV engine.\r\nSetup canceled."
+      es-ES : "No se encontró ningún motor WEBDEV.\r\nEsta instalación no contiene ningún motor WEBDEV.\r\nInstalación cancelada."
+     index : 49
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

@@ -1,0 +1,303 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CAssist
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x3d16cc906bdf0113
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAABfGQ6FMRM9IivASy6AC/iJ5zGkcMgRYx+rlpcs9NE3D5XgxlRzvAGhnP/PUHxKXS47jsJ8IFg8jhxTApdOEuB6Iyu+zasGCmpChPw2RMSKEDEDYmUo/agpLpbf9v3rWUpL72k7mEwaPjCCo/g=
+     code : |1+
+      constant
+      	PLAN_TERMINER = -1
+      FIN
+      
+      CAssist est une Classe
+      	
+      	// Classe permettant la gestion d'une fenêtre assistant standard WinDev
+      	
+      	m_nPlanActif est un entier		 		// Numero du plan actif (entre 1 et 30)
+      	
+      	m_tabPlan est un tableau fixe de 30 entier	// Tableau contenant l'enchainement des plans "précédents"
+      	m_nIndPlanPrecedent est un entier		// Indice du plan précédent dans le tableau
+      	m_nPlanFinal est un entier
+      	
+      	
+      Fin
+      
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 4401930605271253277
+     type_code : 27
+     code : |1+
+      Procédure CAssist::Constructeur()
+      
+      :m_nIndPlanPrecedent=0 			// pas de plan précédent dans le tableau d'enchainement
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 4401930605626917149
+     type_code : 28
+     type : 655360
+   -
+     name : ChangePlan
+     internal_properties : CAAAAAgAAABfGQ6FsRM9IivASy6AC/iJ5zGkcMgRYx+rlpcs9NE3D5XgxlRzvAGhnP/PUHxKXS47jsJ8IFi8DpzTghfOkmD6o6s+TSuGiurCBHy2xEQKkLGD4uWofSiprhZfdn1r2crLb+m7GMyaPjCCo/g=
+     procedure_id : 4401931554632588550
+     type_code : 12
+     code : |1+
+      PROCEDURE PUBLIQUE  ChangePlan(nPlan)
+      // Change le plan en cours dans la fenêtre assistant
+      
+      EXTERNE PRECEDENT
+      EXTERNE SUIVANT
+      EXTERNE TERMINER
+      EXTerne SUITERMINER
+      
+      // controle de dépassement
+      SI nPlan<1 OU nPlan >30 ALORS
+      	IHM_Erreur(<§Rff0003e37a005bce¤fr-FR¤ASSERT¤en-GB¤ASSERT¤es-ES¤ASSERT¤zh-CN¤ASSERT§>,<§Rff0004e379fe5bce¤fr-FR¤CAssist:ChangePlan: Dépassement du nombre maximum de plan¤en-GB¤CWizard:ChangePlane: Maximum number of planes exceeded¤es-ES¤CAsistente:ChangePlane: Número máximo de planos excedidos¤zh-CN¤CAssist:ChangePlan: Dépassement du nombre maximum de plan§>)	
+      SINON
+      	// si on passe au premier le bouton <précédent> est grisé
+      	SI nPlan=1 
+      		PRECEDENT..Etat=Grisé
+      	SINON
+      		PRECEDENT..Etat=Actif
+      	FIN
+      
+      	si nPlan=:m_nPlanFinal ALORS
+      		SI ChampExiste("SUITERMINER") ALORS
+      			TERMINER..visible=Faux
+      			SUITERMINER..visible=vrai
+      			SUIVANT..Visible = faux
+      		sinon
+      			SUIVANT..etat = grise
+      		fin
+      	sinon
+      		SI ChampExiste("SUITERMINER") ALORS
+      			TERMINER..Visible=vrai
+      			SUITERMINER..Visible=faux
+      			SUIVANT..visible = vrai
+      		sinon
+      			SUIVANT..etat = actif
+      		fin
+      	FIN
+      		
+      	// activation du plan
+      	MaFenêtre..plan = nPlan
+      	
+      	// le plan actif devient le nouveau plan
+      	:m_nPlanActif=nPlan
+      fin
+      
+     type : 458752
+   -
+     name : Initialisation
+     internal_properties : CAAAAAgAAADdl4gDK+lMguU2YzyIMzbPTYfWoB57j18dvMcK7HEpcbd66PxtlsVtNnXTaqgWeyTt2Pi4xj7zJ3OiKZpL5aFBSPyl0MydxYdVH8sBKe/bJ0bsNXRV0O+ORS1mERJ2xm2MlOiW0TIEqK4AIXo=
+     procedure_id : 4401931554502565246
+     type_code : 12
+     code : |1+
+      Procédure CAssist::Initialisation( nPlanFinal )
+      
+      
+      EXTERNE OnInitPlan
+      
+      :m_nPlanFinal = nPlanFinal
+      
+      clSablier est un CXWaitCursor<utile>
+      
+      // Initialisatin générale (effectuée une seule fois au début)
+      OnInitPlan(0)
+      
+      // l'assistant commence sur le premier plan
+      :ChangePlan(1)
+      
+      // Initialisation du premier plan
+      OnInitPlan(1)
+      
+      
+      
+     type : 458752
+   -
+     name : OnAnnuler
+     internal_properties : CAAAAAgAAAA+OfrE11oFWEP+cy5S96z/28AB/RSFBC7ZgzejVU+2T3foPDnNDReP7rqbeTXiL5RXAO8/I401ND8Qoi0fYEO7qJP6J+res1BFKcJgRYDpnX7F1P01nSVrJ72v/vyv7qGSWQufr+nUXe4HLw==
+     procedure_id : 4401931555613531548
+     type_code : 12
+     code : |1+
+      // Procedure appeléepar le bouton "annuler" de l'assistant
+      Procédure virtuelle CAssist::OnAnnuler()
+      
+      gnCodeRetourExe = 0
+      
+      // fermeture de l'assistant
+      Ferme
+      
+     type : 458752
+   -
+     name : OnPrecedent
+     procedure_id : 4401931554493718196
+     type_code : 12
+     code : |1+
+      Procédure CAssist::OnPrecedent()
+      // Méthode appelée par le bouton précédent de l'assistant
+      EXTERNE OnInitPlan
+      
+      //blindage
+      si m_nIndPlanPrecedent<=0 ALORS
+      	retour
+      FIN
+      // passe au plan précédent dans le tableau des successions de plans
+      :ChangePlan(:m_tabPlan[:m_nIndPlanPrecedent])
+      
+      // Initialisation du nouveau plan
+      OnInitPlan(:m_nPlanActif)
+      
+      // décrémentation de l'indice du plan précédent dans le tableau d'enchainement des plans
+      :m_nIndPlanPrecedent--
+      
+      // contrôle de l'indice
+      if :m_nIndPlanPrecedent<0 THEN
+      	IHM_Erreur(<§Rff0005e37a045bce¤fr-FR¤ASSERT¤en-GB¤ASSERT¤es-ES¤ASSERT¤zh-CN¤ASSERT§>,<§Rff0006e37a025bce¤fr-FR¤CAssist:PlanPrecedent: indice min du tableau dépassé¤en-GB¤CWizard:PreviousPlane: minimum array index exceeded¤es-ES¤CAsistente:PreviousPlane: índice mínimo del array excedido¤zh-CN¤CAssist:PlanPrecedent: indice min du tableau dépassé§>)
+      END
+      
+     type : 458752
+   -
+     name : OnSuivant
+     internal_properties : CAAAAAgAAADD5x8mjxF57R0Ct/LmvOWJ/QAsQD8Y1OIwQW4FtYRzVWGXqNaZla1j6GyklNMZbY7drLBnOONitiUiYnDIXLjvR9rIoaqxPAEs4w2gzt6ah6xiHVfPM6kxnznpn0hM4EGmvSIZM7cvJ3Vb+60FrJHOqPcnnSGytp0EvqBZpaaS0Ip56Wthc6bSWedwIgq/AlxW0g==
+     procedure_id : 4401931555608616658
+     type_code : 12
+     code : |1+
+      Procédure CAssist::OnSuivant()
+      // Méthode appelée par le bouton "suivant" ou "terminer" de l'assistant
+      
+      EXTERNE bOnControlPlan
+      EXTERNE bOnActionPlan
+      EXTERNE OnInitPlan
+      EXTERNE nOnPlanSuivant
+      
+      // controle des bornes
+      if (:m_nPlanActif < 1) ou (:m_nPlanActif > 30) THEN
+      	IHM_Erreur(<§Rff0007e37a085bce¤fr-FR¤ASSERT¤en-GB¤ASSERT¤es-ES¤ASSERT¤zh-CN¤ASSERT§>,<§Rff0008e37a065bce¤fr-FR¤CAssist:Suivant() : indice de plan hors borne¤en-GB¤CWizard:Next(): plane index out of bound¤es-ES¤CAsistente:Next(): índice de plano fuera del límite¤zh-CN¤CAssist:Suivant() : indice de plan hors borne§>) 
+      END
+      
+      mafenetre..etat = AffichageSeulement
+      
+      // si le controle du plan n'est pas valide on reste sur ce plan
+      Si pas bOnControlPlan(:m_nPlanActif) ALORS
+      	MaFenêtre..Etat = actif
+      	retour
+      FIN
+      
+      // si on est sur le dernier plan
+      si :m_nPlanActif=:m_nPlanFinal
+      	// Action finale
+      	:OnTerminer()
+      	MaFenêtre..Etat = Actif
+      sinon
+      	// Actionne le sablier
+      	clSablier est un CXWaitCursor<utile>
+      	// Lance l'action associé au plan actif, si c'est réussie on passe au plan suivant
+      	Si bOnActionPlan(:m_nPlanActif)
+      		// on ajoute un plan précédent dans le tableau d'enchainement des plans
+      		:m_nIndPlanPrecedent++
+          	// le plan précédent est le plan actif
+      		:m_tabPlan[:m_nIndPlanPrecedent]=:m_nPlanActif
+          	// On passe sur le plan suivant
+      		:ChangePlan(nOnPlanSuivant(:m_nPlanActif))
+      		// On appel la fonction d'init du nouveau plan
+      		OnInitPlan(:m_nPlanActif)
+      	fin
+      	MaFenêtre..Etat = Actif
+      fin
+      
+     type : 458752
+   -
+     name : OnTerminer
+     internal_properties : CAAAAAgAAAAP6Wnx0whQ8tXmY4wQO17ftefmEP7L39dF9O/yDFHJmedSUKRlHv0ttoXj6uDOw2TFCGio5n7Haz/GJUbf4Z21fICJ9HB5GWvBo/cNPcuHGwpwyeipfMPCMUECvcYikkEQaGw6RYLlrw9S86g=
+     procedure_id : 4401931555477675810
+     type_code : 12
+     code : |1+
+      Procédure virtuelle CAssist::OnTerminer()
+      
+      EXTERNE Terminer
+      EXTERNE bOnControlPlan
+      EXTERNE bOnActionPlan
+      
+      // si le controle du plan n'est pas valide on reste sur ce plan
+      // Lance l'action associé au plan actif, si c'est réussie on passe au plan suivant
+      SI PAS bOnControlPlan(:m_nPlanActif) _ou_ pas bOnActionPlan(:m_nPlanActif)ALORS
+      	MaFenêtre..Etat = Actif
+      	RETOUR
+      FIN
+      
+      // Appel du OnTerminer de la fenêtre
+      Terminer()
+      
+     type : 458752
+   -
+     name : OnTerminer_ControlToutPlan
+     internal_properties : CAAAAAgAAACFCthJhcsEo+peq3nigirzpthmdIWPLgFziOKkkK871yD9QdkGjQMfNMeElVdi+WanE2k/2nuY+6pbm6w16Y+G7tK0fv36vO7mF/GgyDjTimSZOJwGqiw7/veiXvJcL9HWiv0FbzoqYSt1FYLfbqgs5xauolTpateoadPKb1kKCQ==
+     procedure_id : 2034996869715258995
+     type_code : 12
+     code : |1+
+      PROCEDURE PUBLIQUE VIRTUELLE OnTerminer_ControlToutPlan()
+      
+      EXTERNE Terminer
+      EXTERNE bOnControlPlan
+      EXTERNE bOnActionPlan
+      EXTERNE nOnPlanSuivant
+      EXTERNE OnInitPlan
+      
+      MaFenêtre..Etat = AffichageSeulement
+      MaFenêtre..AffichageActif=Faux
+      tantque m_nPlanActif<>m_nPlanFinal
+      	
+      	// si le controle du plan n'est pas valide on reste sur ce plan
+      	SI PAS bOnControlPlan(:m_nPlanActif) ALORS
+      		MaFenêtre..Etat = Actif
+      		MaFenêtre..AffichageActif=vrai
+      		RETOUR
+      	FIN
+      	// Actionne le sablier
+      	clSablier est un CXWaitCursor<utile>
+      	
+      	// Lance l'action associé au plan actif, si c'est réussie on passe au plan suivant
+      	SI  pas bOnActionPlan(:m_nPlanActif) ALORS
+      		MaFenêtre..Etat = Actif
+      		MaFenêtre..AffichageActif=Vrai
+      		retour
+      	fin
+      	// On passe sur le plan suivant
+      	// on ajoute un plan précédent dans le tableau d'enchainement des plans
+      	:m_nIndPlanPrecedent++
+      	// le plan précédent est le plan actif
+      	:m_tabPlan[:m_nIndPlanPrecedent]=:m_nPlanActif
+      	:ChangePlan(nOnPlanSuivant(:m_nPlanActif))
+      	// On appel la fonction d'init du nouveau plan
+      	OnInitPlan(:m_nPlanActif)
+      	
+      FIN
+      MaFenêtre..Etat = Actif
+      MaFenêtre..AffichageActif=Vrai
+      onTerminer()
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+resources :
+ string_res :
+  identifier : 0x3d16cc905eb80113
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

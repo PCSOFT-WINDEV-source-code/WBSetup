@@ -1,0 +1,344 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : Langues
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x175d4b4606316f3c
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  type_code : 31
+  p_codes :
+   -
+     code : |1-
+      // Chaine des noms des langues
+      CONSTANT	
+      	GIMAGE_PAYS_GRAND = 2
+      	GIMAGE_PAYS_PETIT = 1
+      	
+      	BASE_USER_LANGUE = 200
+      	
+      	HAUTEUR_IMAGE_PAYS_GRAND = 26
+      FIN
+      
+      STLangue est une structure
+      	sNom est une chaine
+      	nNumGImage est un entier
+      	nNation est un entier
+      FIN
+      gtabLangues est un tableau de STLangue
+      gnNbLangueStandard est un entier
+      gnNbLanguePerso est un entier
+      
+      __InitTableauLangue()
+     type : 720896
+  procedures :
+   -
+     name : nImageLangue
+     procedure_id : 1683584677139625546
+     type_code : 15
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	nNumLangue (entier) : <indiquez ici le rôle de nNumLangue>
+      //	bGrande (booléen - valeur par défaut=1) : < indiquez ici le rôle de bGrande >
+      // Valeur de retour :
+      // 	chaîne : // 	Aucune
+      //
+      Procédure nImageLangue( local nNumLangue est un entier , bGrande est un booleen = vrai )
+      
+      // Sélection de l'image
+      nImage est un entier = 2
+      si pas bGrande alors nImage = 1
+      
+      pour tout stLang de gtabLangues
+      	si stLang.nNation = nNumLangue ALORS
+      		renvoyer gImage(nImage,stLang.nNumGImage)
+      	FIN
+      FIN
+      
+      renvoyer gImage(nImage,19)
+      
+      
+     type : 458752
+   -
+     name : sNomLangue
+     procedure_id : 1683585287025057847
+     type_code : 15
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] sNomLangue (<nNumLangue> est entier)
+      //
+      // Paramètres :
+      //	nNumLangue (entier) : <indiquez ici le rôle de _nNumLangue>
+      // Valeur de retour :
+      // 	chaîne : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure sNomLangue( local nNumLangue est un entier )
+      
+      POUR TOUT stLang de gtabLangues
+      	SI stLang.nNation = nNumLangue ALORS
+      		RENVOYER stLang.sNom
+      	FIN
+      FIN
+      
+      dbgAssertion(faux)
+      RENVOYER ""
+      	
+     type : 458752
+   -
+     name : InitImageLangues
+     internal_properties : CAAAAAgAAAA+D5HJB7jOsTYq58DHsbM2KOEmdVrHISTFi0rkULGAh847GRlPY2EkgY7jIYDI3nHsO4XgmiSRcM83fD7vtoF0Ecf7RFgm35JPkP7Bmxb/lENoA8YtWPfc/hA1rvOO7z4rEHpBYm/sIe4yGoHl
+     procedure_id : 1683602265085915553
+     type_code : 15
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //InitImageLangues ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure InitImageLangues()
+      
+      // Chargement des images utilisées par les tables et combos de langue
+      ChargePlancheImage(1, "petitpays.png", 16, 13)
+      ChargePlancheImage(2, "PAYS.png", 32, 26)
+      
+     type : 458752
+   -
+     name : bEstUNICODE
+     internal_properties : CAAAAAgAAADuJwI+3Gi47YuKgebd3AYZz6oFUVkSz55A+/2eT+qIP3DUEocgZrBs3fwRGuVw1shXMOAK6wZyMeYf01FARjDLToykZZUtKxvS+qEjOAmu5funjV4MWOZhDaybZxosXRqqNkY27ufXTa88Bo8DeoUSE0Tt9qWTQPf4Xp2xvHQXUeGEWTZD3RIruG/HPuxI+buq
+     procedure_id : 1702179510470982874
+     type_code : 15
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] bEstUNICODE (<bufTexte> est buffer)
+      //
+      // Paramètres :
+      //	bufTexte (buffer) : <indiquez ici le rôle de bufLicence>
+      // Valeur de retour :
+      // 	variant : // 	Aucune
+      //
+      Procédure bEstUNICODE(bufTexte est un buffer)
+      
+      nResult est un entier sur 4 octets =  NONBinaire(0)
+      
+      renvoyer api("Advapi32","IsTextUnicode",bufTexte, taille(bufTexte), &nResult)
+     type : 458752
+   -
+     name : __InitTableauLangue
+     internal_properties : CAAAAAgAAACSxZayfHQTYklGKV2FA9VbXVGCleKGnAG6zHKghuoaUsuQvpm30z3mcz/ZA1Fs8OYENkvXzHMUZ5gfZvLaex9xeghm6ISd1p2x9ScOXDCwuCuJ0NxhmUN/I9ExHn0HrfwjmMvgarAOFPDoLl7NqhJr80hgpAcURHLZVyMvIJPHKYSC
+     procedure_id : 2078705819958626632
+     type_code : 15
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      // __InitTableauLangue ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE privee __InitTableauLangue()
+      
+      //On ne le fait qu'une fois
+      si gtabLangues..Occurrence > 0 alors retour
+      
+      gnNbLangueStandard = 0
+      gnNbLanguePerso = 0
+      
+      //En version chinoise, on a que le chinois
+      si gbEditeurVersionCN() ALORS
+      	__AjouteLangue(nationChinois,<§Rff0019b588db9223¤fr-FR¤Chinois simplifié¤en-GB¤Simplified Chinese¤es-ES¤Chino simplificado§>,24)
+      	retour
+      FIN
+      
+      __AjouteLangue(nationFrançais,<§Rff0007b588dd9223¤fr-FR¤Français¤en-GB¤French¤es-ES¤Francés§>,5)
+      __AjouteLangue(nationAnglais,<§Rff0005b588df9223¤fr-FR¤Anglais¤en-GB¤English¤es-ES¤Inglés§>,3)
+      __AjouteLangue(nationAllemand,<§Rff0003b588e19223¤fr-FR¤Allemand¤en-GB¤German¤es-ES¤Alemán§>,1)
+      __AjouteLangue(nationAméricain,<§Rff0004b588e39223¤fr-FR¤Américain¤en-GB¤English (US)¤es-ES¤Inglés US§>,2)
+      __AjouteLangue(nationAustralien,<§Rff0006b588e59223¤fr-FR¤Australien¤en-GB¤English (AU)¤es-ES¤Inglés AU§>,4)
+      __AjouteLangue(nationCanadienFrançais,<§Rff000bb588e79223¤fr-FR¤Canadien français¤en-GB¤French canadian¤es-ES¤Francés canadiense§>,9)
+      __AjouteLangue(nationDanois,<§Rff0008b588e99223¤fr-FR¤Danois¤en-GB¤Danish¤es-ES¤Danés§>,6)
+      __AjouteLangue(nationEspagnol,<§Rff0009b588eb9223¤fr-FR¤Espagnol¤en-GB¤Spanish¤es-ES¤Español§>,7)
+      __AjouteLangue(nationFinnois,<§Rff000ab588ed9223¤fr-FR¤Finnois¤en-GB¤Finnish¤es-ES¤Finlandés§>,8)
+      __AjouteLangue(nationIslandais,<§Rff000cb588ef9223¤fr-FR¤Islandais¤en-GB¤Icelandic¤es-ES¤Islandés§>,10)
+      __AjouteLangue(nationItalien,<§Rff000db588f19223¤fr-FR¤Italien¤en-GB¤Italian¤es-ES¤Italiano§>,11)
+      __AjouteLangue(nationNéerlandais,<§Rff000eb588f39223¤fr-FR¤Néerlandais¤en-GB¤Dutch¤es-ES¤Neerlandés§>,12)
+      __AjouteLangue(nationNorvégien,<§Rff000fb588f59223¤fr-FR¤Norvégien¤en-GB¤Norwegian¤es-ES¤Noruego§>,13)
+      __AjouteLangue(nationPortugais,<§Rff0010b588f79223¤fr-FR¤Portugais¤en-GB¤Portuguese¤es-ES¤Portugués§>,14)
+      __AjouteLangue(nationPortugaisBrésilien,<§Rff0011b588f99223¤fr-FR¤Portugais brésilien¤en-GB¤Brazilian Portuguese¤es-ES¤Portugués Brasil§>,15)
+      __AjouteLangue(nationRusse,<§Rff0012b588fb9223¤fr-FR¤Russe¤en-GB¤Russian¤es-ES¤Ruso§>,16)
+      __AjouteLangue(nationSuédois,<§Rff0013b588fd9223¤fr-FR¤Suédois¤en-GB¤Swedish¤es-ES¤Sueco§>,17)
+      __AjouteLangue(nationTchèque,<§Rff0014b588ff9223¤fr-FR¤Tchèque¤en-GB¤Czech¤es-ES¤Checo§>,18)
+      __AjouteLangue(nationArabe,<§Rff0015b589019223¤fr-FR¤Arabe¤en-GB¤Arabic¤es-ES¤Árabe§>,20)
+      __AjouteLangue(nationBosniaque,<§Rff0016b589039223¤fr-FR¤Bosniaque¤en-GB¤Bosnian¤es-ES¤Bosnio§>,21)
+      __AjouteLangue(nationBulgare,<§Rff0017b589059223¤fr-FR¤Bulgare¤en-GB¤Bulgarian¤es-ES¤Búlgaro§>,22)
+      __AjouteLangue(nationChinoisTraditionnel,<§Rff0018b589079223¤fr-FR¤Chinois traditionnel¤en-GB¤Traditional Chinese¤es-ES¤Chino tradicional§>,23)
+      __AjouteLangue(nationChinois,<§Rff0019a376494a3c¤fr-FR¤Chinois simplifié¤en-GB¤Simplified Chinese¤es-ES¤Chino simplificado§>,24)
+      __AjouteLangue(nationCoréen,<§Rff001ab589099223¤fr-FR¤Coréen¤en-GB¤Korean¤es-ES¤Coreano§>,25)
+      __AjouteLangue(nationCroate,<§Rff001bb5890b9223¤fr-FR¤Croate¤en-GB¤Croatian¤es-ES¤Croata§>,26)
+      __AjouteLangue(nationEstonien,<§Rff001cb5890d9223¤fr-FR¤Estonien¤en-GB¤Estonian¤es-ES¤Estonio§>,27)
+      __AjouteLangue(nationGrec,<§Rff001db5890f9223¤fr-FR¤Grec¤en-GB¤Greek¤es-ES¤Griego§>,28)
+      __AjouteLangue(nationHébreux,<§Rff001eb589119223¤fr-FR¤Hébreux¤en-GB¤Hebrew¤es-ES¤hebreo§>,29)
+      __AjouteLangue(nationHongrois,<§Rff001fb589139223¤fr-FR¤Hongrois¤en-GB¤Hungarian¤es-ES¤Húngaro§>,30)
+      __AjouteLangue(nationIrlandais,<§Rff0020b589159223¤fr-FR¤Irlandais¤en-GB¤Irish¤es-ES¤Irlandés§>,31)
+      __AjouteLangue(nationJaponais,<§Rff0021b589179223¤fr-FR¤Japonais¤en-GB¤Japanese¤es-ES¤Japonés§>,32)
+      __AjouteLangue(nationLetton,<§Rff0022b589199223¤fr-FR¤Letton¤en-GB¤Latvian¤es-ES¤Letón§>,33)
+      __AjouteLangue(nationLituanien,<§Rff0023b5891b9223¤fr-FR¤Lituanien¤en-GB¤Lithuanian¤es-ES¤Lituano§>,34)
+      __AjouteLangue(nationPolonais,<§Rff0024b5891d9223¤fr-FR¤Polonais¤en-GB¤Polish¤es-ES¤Polaco§>,35)
+      __AjouteLangue(nationRoumain,<§Rff0025b5891f9223¤fr-FR¤Roumain¤en-GB¤Romanian¤es-ES¤Rumano§>,36)
+      __AjouteLangue(nationSerbe,<§Rff0026b589219223¤fr-FR¤Serbe¤en-GB¤Serbian¤es-ES¤Serbio§>,37)
+      __AjouteLangue(nationSlovaque,<§Rff0027b589239223¤fr-FR¤Slovaque¤en-GB¤Slovakian¤es-ES¤Eslovaco§>,38)
+      __AjouteLangue(nationSlovène,<§Rff0028b589259223¤fr-FR¤Slovène¤en-GB¤Slovenian¤es-ES¤Esloveno§>,39)
+      __AjouteLangue(nationThaï,<§Rff0029b589279223¤fr-FR¤Thaï¤en-GB¤Thai¤es-ES¤Tailandés§>,40)
+      __AjouteLangue(nationTurc,<§Rff002ab589299223¤fr-FR¤Turc¤en-GB¤Turkish¤es-ES¤Turco§>,41)
+      __AjouteLangue(nationVietnamien,<§Rff002bb5892b9223¤fr-FR¤Vietnamien¤en-GB¤Vietnamese¤es-ES¤Vietnamita§>,42)
+      __AjouteLangue(nationAfrikaans,<§Rff002cb5892d9223¤fr-FR¤Afrikaans¤en-GB¤Afrikaans¤es-ES¤Afrikáans§>,43)
+      __AjouteLangue(nationBengali,<§Rff002db5892f9223¤fr-FR¤Bengali¤en-GB¤Bengali¤es-ES¤Bengalí§>,45)
+      __AjouteLangue(nationBielorusse,<§Rff002eb589319223¤fr-FR¤Biélorusse¤en-GB¤Belorussian¤es-ES¤Bielorruso§>,46)
+      __AjouteLangue(nationCatalan,<§Rff002fb589339223¤fr-FR¤Catalan¤en-GB¤Catalan¤es-ES¤Catalán§>,48)
+      __AjouteLangue(nationIndonésien,<§Rff0030b589359223¤fr-FR¤Indonésien¤en-GB¤Indonesian¤es-ES¤Indonesio§>,51)
+      __AjouteLangue(nationMacédonien,<§Rff0031b589379223¤fr-FR¤Macédonien¤en-GB¤Macedonian¤es-ES¤Macedonio§>,53)
+      __AjouteLangue(nationPendjabi,<§Rff0033b589399223¤fr-FR¤Pendjabi¤en-GB¤Punjabi¤es-ES¤Punjabi§>,55)
+      __AjouteLangue(nationSindhi,<§Rff0035b5893b9223¤fr-FR¤Sindhi¤en-GB¤Sindhi¤es-ES¤Sindhi§>,56)
+      __AjouteLangue(nationHindi,<§Rff0045b5893d9223¤fr-FR¤Hindi¤en-GB¤Hindi¤es-ES¤Hindi§>,57)
+      __AjouteLangue(BASE_USER_LANGUE+1,<§Rff0036b5893f9223¤fr-FR¤Langue 1¤en-GB¤Language 1¤es-ES¤Idioma 1§>,19)
+      __AjouteLangue(BASE_USER_LANGUE+2,<§Rff0037b589419223¤fr-FR¤Langue 2¤en-GB¤Language 2¤es-ES¤Idioma 2§>,19)
+      __AjouteLangue(BASE_USER_LANGUE+3,<§Rff0038b589439223¤fr-FR¤Langue 3¤en-GB¤Language 3¤es-ES¤Idioma 3§>,19)
+      __AjouteLangue(BASE_USER_LANGUE+4,<§Rff0039b589459223¤fr-FR¤Langue 4¤en-GB¤Language 4¤es-ES¤Idioma 4§>,19)
+      __AjouteLangue(BASE_USER_LANGUE+5,<§Rff003ab589479223¤fr-FR¤Langue 5¤en-GB¤Language 5¤es-ES¤Idioma 5§>,19)
+      __AjouteLangue(BASE_USER_LANGUE+6,<§Rff003bb589499223¤fr-FR¤Langue 6¤en-GB¤Language 6¤es-ES¤Idioma 6§>,19)
+      __AjouteLangue(BASE_USER_LANGUE+7,<§Rff003cb5894b9223¤fr-FR¤Langue 7¤en-GB¤Language 7¤es-ES¤Idioma 7§>,19)
+      __AjouteLangue(BASE_USER_LANGUE+8,<§Rff003db5894d9223¤fr-FR¤Langue 8¤en-GB¤Language 8¤es-ES¤Idioma 8§>,19)
+      __AjouteLangue(BASE_USER_LANGUE+9,<§Rff003eb5894f9223¤fr-FR¤Langue 9¤en-GB¤Language 9¤es-ES¤Idioma 9§>,19)
+      __AjouteLangue(BASE_USER_LANGUE+10,<§Rff003fb589519223¤fr-FR¤Langue 10¤en-GB¤Language 10¤es-ES¤Idioma 10§>,19)
+      __AjouteLangue(BASE_USER_LANGUE+11,<§Rff0040b589539223¤fr-FR¤Langue 11¤en-GB¤Language 11¤es-ES¤Idioma 11§>,19)
+      __AjouteLangue(BASE_USER_LANGUE+12,<§Rff0041b589559223¤fr-FR¤Langue 12¤en-GB¤Language 12¤es-ES¤Idioma 12§>,19)
+      __AjouteLangue(BASE_USER_LANGUE+13,<§Rff0042b589579223¤fr-FR¤Langue 13¤en-GB¤Language 13¤es-ES¤Idioma 13§>,19)
+      __AjouteLangue(BASE_USER_LANGUE+14,<§Rff0043b589599223¤fr-FR¤Langue 14¤en-GB¤Language 14¤es-ES¤Idioma 14§>,19)
+      __AjouteLangue(BASE_USER_LANGUE+15,<§Rff0044b5895b9223¤fr-FR¤Langue 15¤en-GB¤Language 15¤es-ES¤Idioma 15§>,19)
+      
+     type : 458752
+   -
+     name : __AjouteLangue
+     procedure_id : 2078706000347294763
+     type_code : 15
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //__AjouteLangue (<nNation> est entier, <sNom> est chaîne, <nNumGImage> est entier)
+      //
+      // Paramètres :
+      //	nNation (entier) : <indiquez ici le rôle de nNation>
+      //	sNom (chaîne) : <indiquez ici le rôle de sNom>
+      //	nNumGImage (entier) : <indiquez ici le rôle de nNumGImage>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE privee __AjouteLangue(nNation est un entier, sNom est une chaine, nNumGImage est un entier)
+      
+      stLang est un STLangue
+      stLang.nNation = nNation
+      stLang.nNumGImage = nNumGImage
+      stLang.sNom = sNom
+      
+      ajoute(gtabLangues,stLang)
+      
+      // Compte les langues
+      si nNation>BASE_USER_LANGUE ALORS
+      	gnNbLanguePerso++
+      sinon
+      	gnNbLangueStandard++
+      FIN
+     type : 458752
+   -
+     name : nNbLangueSimple
+     procedure_id : 2082077261958685942
+     type_code : 15
+     code : |1+
+      // Résumé : Retourne le nombre de langues "bien connues"
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	entier : nombre de langues
+      //
+      PROCEDURE nNbLangueSimple()
+      
+      dbgAssertion(TableauOccurrence(gtabLangues)>0,"Le tableau des langues n'a pas été initialisé")
+      
+      renvoyer gnNbLangueStandard
+     type : 458752
+   -
+     name : nNbLangueUSER
+     procedure_id : 2082077528246719794
+     type_code : 15
+     code : |1+
+      // Résumé : Retourne le nombre de langues "personnalisées"
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	entier : nombre de langues
+      //
+      PROCEDURE nNbLangueUSER()
+      
+      dbgAssertion(TableauOccurrence(gtabLangues)>0,"Le tableau des langues n'a pas été initialisé")
+      
+      renvoyer gnNbLanguePerso
+     type : 458752
+   -
+     name : ReinitTableauLangue
+     procedure_id : 2136346708086126599
+     type_code : 15
+     code : |1+
+      PROCEDURE ReinitTableauLangue()
+      
+      SupprimeTout(gtabLangues)
+      __InitTableauLangue()
+     type : 458752
+   -
+     name : gbEditeurVersionCN
+     internal_properties : CAAAAAgAAABYBPq4S2vvNZZXH93Ou6ogbTFj3I+w3IiKvK+x7aUstzHIxOefLxOJ6L6ps9m87eSJeAelJcp4b1Lrjzqc4QBW5da34CvzrsPY9C/d6vG2CLHp+57MM+jJN3LcnNKXePDfud5FtZpBIMUhyQ==
+     procedure_id : 2289546937566374871
+     type_code : 15
+     code : |1+
+      //Flag pour savoir si on est en version chinoise
+      PROCEDURE gbEditeurVersionCN()
+      
+      //nRenvoyerNationProduit provient du composant outil -> il faut surcharger cette procédure si le projet ne l'inclut pas
+      RENVOYER (nRenvoyerNationProduit() = nationChinois)
+      
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : COL_Collection1
+resources :
+ string_res :
+  identifier : 0x175d4b40062f5843
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

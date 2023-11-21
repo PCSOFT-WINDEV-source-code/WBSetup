@@ -1,0 +1,54 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CFichierInstDistant
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x1c9864ef00f67568
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAAAD9dpBPV4GFp/sr8qcp8gZe438TOiN41O3KptY2PUvhyFENgDriLn9OMOjpDC+VQ4fatrQ0HTOIGLJzOG8lGKAqb1AlzGwJGTI6gbwcgY8RgcllL8GH9LjlBRhOBNF++BBAUM9fo/2amxO/6Q=
+     code : |1+
+      CFichierInstDistant est une classe
+      	m_nOperation est un entier			// Opération à effectuer
+      	m_bExisteDistant est un booleen		// Fichier existant sur le serveur
+      	m_nTailleDistant est un entier				// Taille du fichier (octets) sur le serveur
+      	m_dhDateHeureModifDistant est un dateheure	// Timestamp de dernière modification sur le serveur
+      Fin
+      
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 2060507807198180712
+     type_code : 27
+     code : |1+
+      PROCEDURE Constructeur()
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 2060507807198246248
+     type_code : 28
+     code : |1+
+      PROCEDURE Destructeur()
+      
+     type : 655360
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : CClasse1
+resources :
+ string_res :
+  identifier : 0x10d4759a04134475
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

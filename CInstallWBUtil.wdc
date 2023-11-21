@@ -1,0 +1,815 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CInstallWBUtil
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x1a4cab6f016c8a5d
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAADfhh2uxFUqe4f3R+EIo1j46TmwzGW/T57/iKKXtzE4CiHjmxEyjttsAoyqsuXLMbd7fGwtmtW2oy00+NDPwDwQ0uw6lj3MeeKzLApvZ7lcAoC96EhLKWYlh+R8AJUj4pJqhBGO/VdKJzcQTDqBzCZYtds7ndCNvrJLeNAlqD+o3rkZKRB5+R4TUamwpkZZ8DM=
+     code : |1+
+      constant
+      	// Nom des archives
+      	NOM_ZIP = "ARCHIVE"
+      	NOM_SITEMAP_GEN = "_sitemap.xml"
+      	NOM_SITEMAP = "sitemap.xml"
+      	EXT_WSDL_MAJ = ".WSDL"
+      	EXT_HTM_MAJ = ".HTM"
+      	EXT_XSD_MAJ = ".XSD"
+      	EXT_AWWS = ".awws"
+      FIN
+      
+      CInstallWBUtil est une classe
+      	m_nMajor est un entier					// Version majeure du moteur à utiliser
+      	m_nMinor est un entier					// Version mineure du moteur à utiliser
+      	
+      	// Variables communes aux différentes portions de l'installation
+      	m_sBinPath est une chaine					// Chemin des binaires
+      	m_nServeurWeb est un entier					// Serveur web à configurer
+      	m_sServeurVirtuel est une chaîne 			// serveur virtuel à configurer
+      		
+      	// Variables internes du moteur d'installation
+      	m_nNumEtape est un entier					// Rang de l'étape en cours dans l'installation
+      	m_nTotalEtape est un entier					// Nombre d'étapes dans l'installation
+      	
+      	// Accès à la base de registre
+      	m_pclConfigGlobale est un CWebDevConfigGlobale dynamique
+      	
+      	global
+      	mgs_Client est une chaine
+      	mgs_Password est une chaine
+      	mg_clDoLogin est CImpersonateUser
+      Fin
+      
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1895078036469811805
+     type_code : 27
+     code : |1-
+      Procédure Constructeur()
+      
+      // Par défaut, on travaille sur la version courante du moteur
+      :SetVersionMoteur(XVER_MAJOR,XVER_MINOR)
+      m_sServeurVirtuel="*"
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1895078036469877341
+     type_code : 28
+     code : |1+
+      Procédure Destructeur()
+      
+     type : 655360
+   -
+     name : bCreeRepertoire
+     procedure_id : 1895078225472206710
+     type_code : 12
+     code : |1-
+      // Résumé : Crée un répertoire, affiche une erreur en cas de problème
+      // Syntaxe :
+      //[ <Résultat> = ] bCreeRepertoire (<sRep> est chaîne)
+      //
+      // Paramètres :
+      //	sRep (chaîne) : Chemin du répertoire à créer
+      // Valeur de retour :
+      // 	booléen :        Vrai en cas de réussite, faux en cas d'échec
+      //
+      Procédure  bCreeRepertoire(sRep est une chaine)
+      
+      SI PAS fRepCrée(sRep) ALORS
+      	IHM_Erreur(ChaîneConstruit(<§Rff00000616b4ffc2¤fr-FR¤Une erreur s'est produite pendant la création du répertoire %1.CRL'installation ne peut pas se poursuivre.CRL'erreur retournée par le système est : %2¤en-GB¤An error occurred while creating the %1 directory.CRThe setup cannot be continued.CRThe error returned by the system is: %2¤es-ES¤Se produjo un error al crear el directorio %1.CRNo se puede continuar con la instalación.CRError devuelto por el sistema: %2¤zh-CN¤Une erreur s'est produite pendant la création du répertoire %1.CRL'installation ne peut pas se poursuivre.CRL'erreur retournée par le système est : %2§>,sRep,erreurinfo()))
+      	RENVOYER Faux
+      FIN
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : bExtraitArchive
+     internal_properties : CAAAAAgAAAApoqZ3hopk9nRF8j0MvEYMD0Ieih1xQgUzDuySi6o7fMyv/94Ohkq0YeNxBR1p9K95Ld9aHwNG6SJ/rDLug6E/L+v+w5DiU8DLJbMgfrRuKXrqmlcJsTgGJGueX/wH0EvNLJtM3NpnfXRISi/80QlcOQryFnh3Dm8ZlxUojqGshDl09jI0vEoYsvnMoF/+7m8Ul8dyTmuDuev/vVkqOLAZn+SUQUUpWBZaMpE1C08XET7oOgR7fBX8Dzc=
+     procedure_id : 1895078225472337860
+     type_code : 12
+     code : |1-
+      // Résumé : Extrait le contenu d'une archive
+      // Syntaxe :
+      //[ <Résultat> = ] bExtraitArchive (<sFicZip> est chaîne, <sRepDestinationParam> est chaîne, <sBase> est chaîne, <sURLBase> est chaîne, <pclData> est CInstallWBData dynamique, <bAvecTraitementWEB> est booléen, <sRepWEBOrigine> est chaîne, <sPrefixeVersion> est chaîne)
+      //
+      // Paramètres :
+      //	sFicZip (chaîne UNICODE) : Chemin du fichier d'archive
+      //	sRepDestinationParam (chaîne UNICODE) : Répertoire de destination
+      //	sBase (chaîne UNICODE) : Répertoire de base dans l'archive (chaine vide = extrait tout)
+      //	sURLBase (chaîne UNICODE) : URL de base du site pour traiter les fichiers SiteMap Google et les WSDL des Webservices
+      //	pclData (CInstallWBData dynamique) : <indiquez ici le rôle de pclData>
+      //	bAvecTraitementWEB (booléen) : <indiquez ici le rôle de BOOL>
+      //	sRepWEBOrigine (chaîne UNICODE) : <indiquez ici le rôle de bAvecTraitementVersion>
+      //	sPrefixeVersion (chaîne UNICODE) : <indiquez ici le rôle de test>
+      // Valeur de retour :
+      // 	booléen :            réussite
+      //
+      //	sAliasSiteSaisi (chaîne UNICODE) : <indiquez ici le rôle de sAliasSiteSaisi>
+      Procédure  bExtraitArchive(sFicZip est une chaine ,sRepDestinationParam est une chaine , sBase est une chaine , sURLBase est une chaine, pclData est un CInstallWBData dynamique,  bAvecTraitementWEB est un booléen, sRepWEBOrigine est une chaine, sPrefixeVersion est une chaine)
+      
+      
+      // Ouvre l'archive
+      nRes est un entier = zipouvre(::NOM_ZIP,sFicZip,zipLecture)
+      SI nRes<>0 ALORS 
+      	RENVOYER :bTraiteErreurZip(nRes,::NOM_ZIP,sFicZip,Faux)
+      FIN
+      
+      sRepDestinationRacine est une chaine=sRepDestinationParam
+      sRepDestination_WEB est une chaine=sRepDestinationParam
+      
+      si bAvecTraitementWEB _et_ sRepWEBOrigine<>"" ALORS
+      	sRepDestination_WEB=ComplèteRep(sRepDestination_WEB)+sRepWEBOrigine
+      FIN
+      
+      sRepAsupprimer est une chaine =""
+      si sPrefixeVersion<>"" ALORS
+      	sRepDestinationRacine=completerep(ComplèteRep(sRepDestinationRacine)+sPrefixeVersion)
+      	sRepDestination_WEB=ComplèteRep(ComplèteRep(sRepDestination_WEB)+sPrefixeVersion)
+      	sRepAsupprimer=ComplèteRep(sRepDestination_WEB)+sRepWEBOrigine
+      sinon
+      	bAvecTraitementWEB=Faux
+      FIN
+      sRepBase est une chaine=sRepDestinationRacine
+      
+      // Extrait le contenu
+      sBaseMaj est une chaine = majuscule(sBase)
+      nNbFic est un entier = zipNbFichier(::NOM_ZIP)
+      IHM_Jauge_Init(vrai,nNbFic)
+      nFic est un entier
+      pour nFic=1 _a_ nNbFic
+      	
+      	// Si le fichier est situé dans le meta répertoire de base reçu en paramètre
+      	si majuscule(zipExtraitChemin(::NOM_ZIP,nFic,zipRépertoire))[=sBaseMaj alors
+      		// Retire l'ancien attribut lecture seule s'il est présent pour faire l'extraction (QW158851)
+      		sFicFinal est une chaine = zipextraitchemin(::NOM_ZIP,nFic,ziprepertoire+zipfichier+zipextension)
+      		
+      		
+      		sFicAvantResolution est une chaine=sFicFinal
+      		sCheminExtraction  est une chaîne=sFicFinal
+      		sRepBase=sRepDestinationRacine
+      		
+      		si bAvecTraitementWEB ALORS
+      			sRepBase=sRepDestination_WEB
+      			sFicFinal = Remplace(sFicFinal,sBase+["\"]+sRepWEBOrigine,sRepDestination_WEB,MotComplet+SansCasse)
+      		FIN
+      		SI sFicFinal=sFicAvantResolution
+      			sFicFinal = Remplace(sFicFinal,sBase,sRepDestinationRacine,SansCasse)
+      			sRepBase=sRepDestinationRacine
+      		FIN
+      		
+      		sCheminExtraction  =Remplace(sCheminExtraction,sBase,DécomplèteRep(sRepBase))
+      		SI fFichierExiste(sCheminExtraction) ALORS 
+      			fAttribut(sCheminExtraction,"")
+      		FIN
+      		SI PAS ChaîneCommencePar(sCheminExtraction,"\\") ALORS
+      			sCheminExtraction = Remplace(sCheminExtraction,"\\","\")
+      		FIN
+      		SI PAS ChaîneCommencePar(sFicFinal,"\\") ALORS
+      			sFicFinal = Remplace(sFicFinal,"\\","\")
+      		FIN
+      		
+      //		sFicFinal = remplace(sFicFinal,sBase,sRepDestination,MotComplet+SansCasse)
+      		SI fFichierExiste(sFicFinal) ALORS 
+      			fAttribut(sFicFinal,"")
+      		FIN
+      		// On l'extrait en ignorant la base
+      		nRes = zipExtraitFichier(::NOM_ZIP,nFic,sRepBase+tab+sBase)
+      		SI nRes<>0 ALORS RENVOYER :bTraiteErreurZip(nRes,::NOM_ZIP,sFicZip,Vrai)
+      		
+      		SI sCheminExtraction<>sFicFinal ALORS
+      			sRep est une chaine=fExtraitChemin(sFicFinal,fDisque+fRépertoire)
+      			SI PAS fRepExiste(sRep)
+      				fRepCrée(sRep)
+      			FIN
+      			SI fFichierExiste(sFicFinal) ALORS
+      				fSupprime(sFicFinal,frLectureSeule) 
+      			FIN
+      			fRenomme(sCheminExtraction,sFicFinal) 
+      		FIN
+      		
+      		
+      		
+      		// Patchage des fichiers si nécessaire
+      		sNomFic est une chaine = zipExtraitChemin(::NOM_ZIP,nFic,zipFichier+zipExtension)
+      		// Patchage des sitemap
+      		si sNomFic~=::NOM_SITEMAP_GEN  alors
+      			// Le sitemap est renommé de _sitemap.xml en sitemap.xml
+      			:_TraiteFicPatch(sFicFinal,sURLBase,ComplèteRep(fExtraitChemin(sFicFinal,fDisque+fRépertoire))+::NOM_SITEMAP,pclData)
+      		FIN
+      		// Patchage des pages HTML et des WSDL
+      		si (majuscule(fExtraitChemin(sNomFic,fExtension)) _dans_ (::EXT_WSDL_MAJ,::EXT_HTM_MAJ,::EXT_XSD_MAJ)) ALORS
+      			si pclData.m_nObjetDep=CInstallWBData::OBJET_WEBSERVICE_SOAP alors
+      				// Les WSDL et html sont simplement patchés
+      				:_TraiteFicPatch(sFicFinal,sURLBase,sFicFinal,pclData)
+      			fin
+      		FIN
+      		
+      		
+      		
+      	fin
+      	IHM_Jauge_Avance()
+      FIN
+      
+      si sRepAsupprimer<>"" ALORS
+      	si fRepExiste(sRepAsupprimer) ALORS
+      		fRepSupprime(sRepAsupprimer,frLectureSeule+frRécursif+frVersCorbeille)
+      	FIN
+      FIN
+      IHM_Jauge_Termine()
+      
+      // Referme l'archive
+      nRes = zipFerme(::NOM_ZIP)
+      dbgAssertion(nRes=0,"Erreur en fermeture de l'archive")
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : bTraiteErreurZip
+     procedure_id : 1895078225472403490
+     type_code : 12
+     code : |1-
+      // Résumé : Traitement d'une erreur sur une fonction zip
+      // Syntaxe :
+      //[ <Résultat> = ] bTraiteErreurZip (<nRes>, <sNomZip>, <sFicZip> [, <bFicEnCours>])
+      //
+      // Paramètres :
+      //	nRes : Code de retour de la fonction
+      //	sNomZip : Nom de l'archive
+      //	sFicZip : Chemin du fichier d'archive
+      //	bFicEnCours (valeur par défaut=0) : Vrai s'il faut afficher le nom du fichier en cours de traitement
+      // Valeur de retour :
+      // 	booléen :     // 	Aucune
+      //
+      Procédure  bTraiteErreurZip( nRes , sNomZip  , sFicZip , bFicEnCours = faux )
+      
+      // Blindage pour les cas où on appelle la fonction sur une réussite
+      si nRes=0 alors renvoyer vrai
+      
+      si bFicEnCours alors
+      	IHM_erreur(ChaîneConstruit(<§Rff00020616b6ffc2¤fr-FR¤Une erreur s'est produite pendant la manipulation de l'archive %1.CRLe message d'erreur est : %2.CRLe fichier en cours de manipulation est : %3.CRL'erreur retournée par le système est : %4.¤en-GB¤An error occurred while handling the %1 archive.CRThe error message is: %2.CRThe file currently handled is: %3.CRThe error returned by the system is: %4.¤es-ES¤Se produjo un error al manipular el archivo %1.CRMensaje de error: %2.CRArchivo manipulado actualmente: %3.CRError devuelto por el sistema: %4.¤zh-CN¤Une erreur s'est produite pendant la manipulation de l'archive %1.CRLe message d'erreur est : %2.CRLe fichier en cours de manipulation est : %3.CRL'erreur retournée par le système est : %4.§>,sFicZip,zipMsgErreur(nRes),zipFichierEnCours(sNomZip),erreurinfo(errMessageSystème)))
+      sinon
+      	IHM_Erreur(ChaîneConstruit(<§Rff00030616b8ffc2¤fr-FR¤Une erreur s'est produite pendant la manipulation de l'archive %1.CRLe message d'erreur est : %2.CRL'erreur retournée par le système est : %4.¤en-GB¤An error occurred while handling the %1 archive.CRThe error message is: %2.CRThe error returned by the system is: %4.¤es-ES¤Se produjo un error al manipular el archivo %1.CRMensaje de error: %2.CRError devuelto por el sistema: %4.¤zh-CN¤Une erreur s'est produite pendant la manipulation de l'archive %1.CRLe message d'erreur est : %2.CRL'erreur retournée par le système est : %4.§>,sFicZip,zipMsgErreur(nRes),erreurinfo(errMessageSystème)))
+      fin
+      
+      renvoyer faux
+     type : 458752
+   -
+     name : DetecteServeursWeb
+     procedure_id : 1895078225472469057
+     type_code : 12
+     code : |1-
+      // Résumé : Détecte si un ou plusieurs serveurs web sont installés
+      // Syntaxe :
+      //DetecteServeursWeb (<nLastServeur>)
+      //
+      // Paramètres :
+      //	nLastServeur : (out) numéro du dernier serveur détecté
+      // Valeur de retour :
+      // 	Aucune
+      //
+      Procédure  DetecteServeursWeb(nLastServeur)
+      
+      SI CApache24::s_bDetecte() ALORS
+      	nLastServeur=SRV_APACHE24
+      	RETOUR
+      FIN
+      
+      //SI CApache13::s_bDetecte() ALORS
+      //	nLastServeur=SRV_APACHE13
+      //	RETOUR
+      //FIN
+      SI CIISBase::s_bDetecte() ALORS
+      	nLastServeur=SRV_IIS
+      	RETOUR
+      FIN
+      
+      //si tout a échoué, il nous reste qu'a regarder dans la base de registre
+      //si un moteur WEBDEV est déjà installé
+      si nLastServeur<=0 alors
+      	nLastServeur=:nGetServeurWebMoteur()
+      fin
+     type : 458752
+   -
+     name : InitTableMoteur
+     internal_properties : CAAAAAgAAACByJ97AgkUhJandLybRMhIWVvyx90WOrI5tZ3xzMJmECyhzHQtaMOdhNP+8Lf67gN0g0ANXyNp9yXAP3RsSx/BIMHC7FHx4anS9oEVnoBwL8I6zLws4y3WKLaiOxgE8DLQP7G15aWpfu/aVmIhO2D8XDE27kbnrW1nDbix2sw2
+     procedure_id : 1895078225472534624
+     type_code : 12
+     code : |1+
+      // Résumé : Initialise une table avec la liste des moteurs de version supérieure ou égale à la version de l'install (et compatible)
+      // Paramètres :
+      //	tabMoteur : tableau de réèls contenant les versions
+      // Valeur de retour :
+      // 	Aucune
+      //
+      Procédure  InitTableMoteur(tabMoteur <utile>)
+      
+      <compile si TypeConfiguration<>Bibliothèque>
+      rEnCours est un reel = val(XVER_MAJOR+"."+XVER_MINOR)
+      sCleWebDev est une chaine = RegistrePremièreSousClé(CLE_WEBDEP_BASE)
+      
+      
+      TANTQUE sCleWebDev<>""
+      	sVersion est une chaine = ExtraitChaîne(sCleWebDev,rangDernier,"\")
+      	rVersion est un reel = val(sVersion)
+      	// Si on a trouvé une version plus grande que la version qui a créé l'install
+      	SI rVersion>=rEnCours ALORS
+      		// Et qu'elle n'est pas incompatible
+      		rMaxCompat est un reel = val(registrelit(sCleWebDev,VALREG_COMPAT_DEP))
+      		SI rEnCours>rMaxCompat ALORS
+      			// Vérifie l'existence de ce moteur (vérifie la présence de l'admin)
+      			sCheminAdmin est une chaine = completerep(registrelit(sCleWebDev,VALREG_BINPATH))+ChaîneConstruit(NOMGEN_WDADMIN,PartieEntière(rVersion)+""+(PartieDécimale(rVersion)*10))
+      			SI fFichierExiste(sCheminAdmin) ALORS
+      				// Ajoute le moteur dans la table des moteurs présents sur le poste
+      					TableauAjoute(tabMoteur,rVersion)
+      			FIN
+      		FIN		
+      	FIN
+      	
+      	sCleWebDev = RegistreCléSuivante(sCleWebDev)
+      FIN
+      
+      <FIN>
+      
+      
+     type : 458752
+   -
+     name : sLocaliseFichier
+     internal_properties : CAAAAAgAAADbnYIYNa5l1t/sDyp8B2h5G22crCgNwxP3qrs4+FVPZwFkFmBrCNm9+MODxNDetW5/yrqw0DS+cDI5fBHM5JKwWY2wx+GAFHTYmrZgQlZstve1hK/2b4JzZEQRqOOVK9CxkXMtbl6dw7QGJ3w=
+     procedure_id : 1895078225472731388
+     type_code : 12
+     code : |1-
+      // Résumé : Vérifie la présence d'un fichier et ouvre une fenêtre de localisation s'il n'est pas trouvé
+      // Syntaxe :
+      //[ <Résultat> = ] sLocaliseFichier (<sFichierDefaut> [, <sFiltre> [, <sExtDefaut>]])
+      //
+      // Paramètres :
+      //	sFichierDefaut : Chemin par défaut de recherche (chemin complet avec nom et extension)
+      //	sFiltre : Filtre pour fSélecteur
+      //	sExtDefaut (valeur par défaut="zip") : Extension par défaut
+      // Valeur de retour :
+      // 	Type indéterminé :  chemin du fichier (ou chaine vide s'il n'est pas trouvé)
+      //
+      Procédure sLocaliseFichier( sFichierDefaut , sFiltre = <§Rff00040616baffc2¤fr-FR¤Archives (*.zip)¤en-GB¤Archives (*.zip)¤es-ES¤Archivos comprimidos (*.zip)¤zh-CN¤Archives (*.zip)§>+TAB+"*.zip", sExtDefaut = "zip" )
+      
+      sFichier est une chaine = ""
+      
+      // Si le fichier existe, il est localisé
+      si fFichierExiste(sFichierDefaut) alors
+      	renvoyer sFichierDefaut
+      fin
+      
+      // Sinon, si on n'a pas droit à l'IHM, on fait une erreur et on sort
+      SI pas IHM_bDisponible() ALORS
+      	trace(ChaîneConstruit(<§Rff00050616bcffc2¤fr-FR¤Le fichier %1 n'existe pas. L'installation ne peut pas se poursuivre.¤en-GB¤The %1 file does not exist. The setup cannot be continued.¤es-ES¤El archivo %1 no existe. No se puede continuar con la instalación.¤zh-CN¤Le fichier %1 n'existe pas. L'installation ne peut pas se poursuivre.§>,sFichierDefaut))
+      	RENVOYER ""
+      fin
+      
+      
+      si pas EnModeLinux() alors//<SI CibleExécution=ApplicationWindows>
+      	
+      	// CCC
+      	// Sinon, on avertit l'utilisateur
+      	IHM_Info(ChaîneConstruit(<§Rff00060616beffc2¤fr-FR¤Le fichier %1 nécessaire à la poursuite de l'installation n'a pas été trouvé.CRVeuillez indiquer son emplacement ou cliquer sur ""Annuler""pour l'ignorer (votre installation ne fonctionnera probablement pas correctement dans ce cas).¤en-GB¤The %1 file required to continue the setup was not found.CRSpecify its location or click ""Cancel"" to ignore it (your setup may not operate properly in this case).¤es-ES¤No se ha encontrado el archivo %1 necesario para continuar con la instalación.CRPor favor, indique la ubicación o haga clic en ""Cancelar"" para ignorarla (es posible que la instalación no funcione correctamente en este caso).¤zh-CN¤Le fichier %1 nécessaire à la poursuite de l'installation n'a pas été trouvé.CRVeuillez indiquer son emplacement ou cliquer sur ""Annuler""pour l'ignorer (votre installation ne fonctionnera probablement pas correctement dans ce cas).§>,sFichierDefaut))
+      	sFichier = fSélecteur(fExtraitChemin(sFichierDefaut,fDisque+fRépertoire), fExtraitChemin(sFichierDefaut,fFichier+fExtension), <§Rff00070616c0ffc2¤fr-FR¤Indiquez l'emplacement du fichier¤en-GB¤Specify the location of the file¤es-ES¤Indique la ubicación del archivo¤zh-CN¤Indiquez l'emplacement du fichier§>, sFiltre , sExtDefaut, fselOuvre+fselExiste)
+      	
+      fin //<FIN>
+      
+      
+      renvoyer sFichier
+     type : 458752
+   -
+     name : _TraiteFicPatch
+     internal_properties : CAAAAAgAAAAPYMn+NRprXcn1OMn8jH0kgV+hlQrQZjWrEWhlbjZAVYs6G2TW+pv/SIYlD46BsY06+96dpT7XeDqU8SKPhENpQ6SI2AO3eoeY8bmU6Bod5Gh3OpL7dvWBHcRm/9yLoArxQvzGvY7CB3Ku+dUn8/Nlf44snsU7A6euhlhTE6nb22qVUhRMVxZJU1uJV5GY0iktRunkupNoGU1zFE6Jzbg4AEH3wKRv/7HuW5fGfhipMUCJ8SBVon1Kw3qSx94Sf7cUROJG8/woRI3Y5BgYcToNi+FOScWkDwPOzpcEuP7JoSwdEpaPYFbuaxL5+E/SaX3mkeOu+bKSrdIbBVvWpRGFHrwAKWB5hAopgnglIcUn2hcd
+     procedure_id : 1895078225472796956
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //_TraiteFicPatch (<sCheminFicSource> est chaîne ANSI, <sURLBase> est chaîne ANSI, <sCheminFicDest> est chaîne ANSI, <pclData> est CInstallWBData dynamique)
+      //
+      // Paramètres :
+      //	sCheminFicSource (chaîne ANSI) : <indiquez ici le rôle de sRepDestination>
+      //	sURLBase (chaîne ANSI) : <indiquez ici le rôle de sURLBase>
+      //	sCheminFicDest (chaîne ANSI) : <indiquez ici le rôle de sCheminFicDest>
+      //	pclData (CInstallWBData dynamique) : <indiquez ici le rôle de clData>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      Procédure  privee _TraiteFicPatch( sCheminFicSource est une chaine , sURLBase est une chaine , local sCheminFicDest est une chaine, pclData est un CInstallWBData dynamique)
+      
+      // Si on n'a pas de pclData, on ignore le patch (cas de l'install du moteur)
+      si pclData=null alors retour
+      
+      // Ajoute le prefixe http si l'url n'est pas préfixée
+      sPrefixe est une chaine
+      SI PAS (minuscule(sURLBase)[="http://" _OU_ Minuscule(sURLBase)[="https://") ALORS
+      	sPrefixe = "http://"
+      FIN
+      //sURLBaseSansServeur est une chaine=sURLBase
+      //nposition est un entier=sURLBaseSansServeur.Position("://")
+      //si nposition>0 ALORS
+      //	//coupe le protocole
+      //	sURLBaseSansServeur=milieu(sURLBaseSansServeur,nposition+3)
+      //	//enleve les "/"parasites
+      //	tantque sURLBaseSansServeur[1]="/" 
+      //		sURLBaseSansServeur=sURLBaseSansServeur[[2a]]
+      //	FIN
+      //	
+      //	//coupe la partie serveur
+      //	nposition=sURLBaseSansServeur.Position("/")
+      //	si nposition>0 ALORS
+      //		sURLBaseSansServeur=Milieu(sURLBaseSansServeur,nposition)
+      //	sinon
+      //		sURLBaseSansServeur=""
+      //	FIN
+      //FIN
+      
+      // Charge le fichier
+      //le fichier est soit le sitemap, soit le WSDL
+      //dans tous les cas, c'est un XML, donc ANSI
+      //(et en réalité, encodé en UTF8)
+      //donc on charge le tout dans une chaine ansi, et on fait les remplacement en utilisant des conversion UTF8
+      sFicPatch est une chaine ansi= fChargeTexte(sCheminFicSource)
+      //trace("Contenu du fichier origine "+sCheminFicSource+rc)
+      //trace(sFicPatch)
+      // Patch les balises
+      selon pclData:m_nObjetDep
+      	cas CInstallWBData::OBJET_SITE_WEB
+      		sFicPatch = remplace(sFicPatch,META_WEB,chaineversutf8(sPrefixe+sURLBase),SansCasse)
+      	cas CInstallWBData::OBJET_WEBSERVICE_SOAP
+      		sNomService est une chaîne =pclData.pGetProfil(1).m_sNomSite //le nom déployé, pas celui d'origine qui est pclData.m_sNomWebservice
+      	
+      		sURLWebService est une chaine = sPrefixe+sURLBase+["/"]+NOM_REPERTOIRE_ALIAS_WEBSERVICE_SOAP+"/"+sNomService+::EXT_AWWS
+      //		si wdinstalle.gbModeDocker alors
+      //			//si on patche un wsdl, alors il faut mettre un meta pour le serveur
+      //			//si on patche une page de test, l'URL doit être relative
+      //			sMetaServeur est une chaine=""
+      //			si ChaîneCompare(fExtraitChemin(sCheminFicSource,fExtension),EXT_WSDL_MAJ,ccSansCasse) alors
+      //				sMetaServeur="[%PROTOCOLE_SERVEUR_PORT%]"
+      //			FIN
+      //			sURLWebService  = sURLBaseSansServeur+["/"]+NOM_REPERTOIRE_ALIAS_WEBSERVICE_SOAP+"/"+pclData:m_sNomWebservice+::EXT_AWWS
+      //		FIN
+      		sFicPatch = remplace(sFicPatch,META_URL_WEBSERVICE,ChaîneVersUTF8(sURLWebService),SansCasse)
+      		// Patch du lien au WSDL
+      		sFicPatch	= Remplace(sFicPatch,pclData.m_sNomWebservice+::EXT_WSDL_MAJ,ChaîneVersUTF8(sURLWebService)+"?wsdl",SansCasse)	
+      		sFicPatch	= Remplace(sFicPatch,::EXT_WSDL_MAJ,::EXT_AWWS+"?wsdl",SansCasse)	//l'ancien par compat si le nouveau n'a pas marché ?
+      
+      		//patch de wsdl=message.wsdl --> a été remplacé par la ligne ci-dessus, alors on rétablit
+      		sFicPatch = Remplace(sFicPatch,"wsdl=messages"+EXT_AWWS+"?wsdl","wsdl=messages.wsdl",SansCasse)	
+      	CAS CInstallWBData::OBJET_WEBSERVICE_REST
+      		//rien à patcher normalement
+      	cas CInstallWBData::OBJET_SOCKET
+      		//rien à patcher normalement
+      		
+      fin
+      
+      //Trace(rc+rc+"Contenu du fichier destination "+sCheminFicDest+RC)
+      //Trace(sFicPatch+rc+rc)
+      
+      // Sauve le fichier
+      fSauveTexte(sCheminFicDest,sFicPatch)
+     type : 458752
+   -
+     name : sVersionMoteur
+     procedure_id : 1895086248521939108
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne : // 	Aucune
+      //
+      Procédure sVersionMoteur()
+      
+      renvoyer :m_nMajor+"."+:m_nMinor
+     type : 458752
+   -
+     name : SetVersionMoteur
+     procedure_id : 1895102208538996014
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	nMajor (entier) : <indiquez ici le rôle de nMajor>
+      //	nMinor (entier) : <indiquez ici le rôle de nMinor>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      Procédure SetVersionMoteur( local nMajor est un entier ,local nMinor est un entier )
+      
+      :m_nMajor = nMajor
+      :m_nMinor = nMinor
+      
+      sVersion est une chaine unicode=sVersionMoteur()
+      :m_pclConfigGlobale = allouer un CWebDevConfigGlobale(sVersion, CORôlesMoteur.RôleMoteur_ServeurApplication)
+      
+     type : 458752
+   -
+     name : nGetServeurWebMoteur
+     procedure_id : 1895121819458804030
+     type_code : 12
+     code : |1+
+      // Résumé : Retourne le numéro du serveur web associé au moteur (ie : choisi dans la fenêtre de WDAdmin)
+      // Syntaxe :
+      //[ <Résultat> = ] nGetServeurWebMoteur ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	entier :    n° du serveur web
+      //
+      Procédure nGetServeurWebMoteur()
+      
+      nSrv est un entier = m_pclConfigGlobale:sGetValeur(VALREG_WEBSERVER)
+      
+      renvoyer nSrv
+     type : 458752
+   -
+     name : sVersionMoteur_SansPoint
+     procedure_id : 1895386990635789598
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne :  // 	Aucune
+      //
+      Procédure sVersionMoteur_SansPoint()
+      
+      renvoyer :m_nMajor+""+:m_nMinor
+     type : 458752
+   -
+     name : pGetConfigGlobale
+     procedure_id : 1931128587519097632
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	CWebDevConfigGlobale dynamique : // 	Aucune
+      //
+      PROCEDURE pGetConfigGlobale()
+      
+      renvoyer :m_pclConfigGlobale
+     type : 458752
+   -
+     name : pAlloueConfigApplication
+     procedure_id : 2201291436714884012
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	sNomApplication : <indiquez ici le rôle de sNomApplication>
+      //	nTypeApplication (énumération) : <indiquez ici le rôle de nTypeApplication>
+      //	sHote : <indiquez ici le rôle de sHote>
+      // Valeur de retour :
+      // 	CWebDevConfigApplication : // 	Aucune
+      //
+      PROCEDURE pAlloueConfigApplication(sNomApplication, nTypeApplication est un CWebDevConfigApplication::eTypeApplication, sHote)
+      
+      pclConfigApplication est un CWebDevConfigApplication(sNomApplication,nTypeApplication,sHote,m_pclConfigGlobale) 
+      renvoyer pclConfigApplication
+     type : 458752
+   -
+     name : fCrypteClient
+     internal_properties : CAAAAAgAAACvhiIr8idPS9rx8v00XMK7gtZaEXHHMGe2CSyofCJyYycHHeV5Go6I91tzV57TxhgNzdxs32lefOpyvy60Arg=
+     procedure_id : 2131548104554446411
+     type_code : 12
+     code : |1+
+      PROCÉDURE globale fCrypteClient(sClient est une chaîne, sFicIn est une chaîne, sFicOut est une chaîne)
+      
+      SI bClientExiste(sClient) ALORS
+      	sPasse est un chaîne = mgs_Password
+      //	_CompteWebDev_Trace("Mot de passe de cryptage : " + sPasse)
+      	RENVOYER fCrypte(sFicIn, sFicOut, sPasse, crypteSécurisé,encodePCS)
+      SINON
+      	RENVOYER Faux
+      FIN
+     type : 458752
+   -
+     name : fDecrypteClient
+     internal_properties : CAAAAAgAAADOuTHx+vedbL19mJq0EOxx84gTZalB27LOgeGHJdAOke7xk6KZH4swk1S/d8f8D0hWTRqBlaCasRR5l7OleKspBOrBsg==
+     procedure_id : 2131549092396957727
+     type_code : 12
+     code : |1+
+      PROCÉDURE globale fDecrypteClient(sClient est une chaîne, sFicIn est une chaîne, sFicOut est une chaîne) : booléen
+      
+      SI bClientExiste(sClient) ALORS
+      	sPasse est un chaîne = mgs_Password
+      	bRes est un booléen = fDécrypte(sFicIn, sFicOut, sPasse, crypteSécurisé, encodePCS)
+      	
+      	sErreur est une chaîne
+      	SI bRes = Faux ALORS
+      		sErreur = ErreurInfo(errComplet)
+      	FIN
+      	_CompteWebDev_Trace("Compte rendu de  décryptage : " + bRes + [RC] + sErreur)
+      
+      	RENVOYER bRes
+      SINON
+      	RENVOYER Faux
+      FIN
+     type : 458752
+   -
+     name : sDecrypteClient
+     procedure_id : 2131826868886985240
+     type_code : 12
+     code : |1-
+      PROCÉDURE globale sDecrypteClient (sClient est une chaîne, sChaine est une chaîne ANSI) : chaîne ANSI
+      
+      SI bClientExiste(sClient) ALORS
+      	sPasseU est un chaîne = mgs_Password // ANSI/UNICODE ?
+      	
+      	// Dans le doute sur le fonctionnement de Décrypte, on fait un test avec une chaine ANSI explicite
+      	sPasse est une chaîne ANSI = sPasseU
+      	// Il faut passer la chaine en UNICODE pour que Décrypte décrypte correctement le encodePCS
+      	sChaineEnUnicode est une chaîne UNICODE = AnsiVersUnicode(sChaine)
+      	bufResultat est un Buffer = Décrypte(sChaineEnUnicode, sPasse, crypteSécurisé, encodePCS)
+      	sResultat est une chaîne ANSI = bufResultat
+      	RENVOYER sResultat
+      SINON
+      	RENVOYER Faux
+      FIN
+     type : 458752
+   -
+     name : InitAuth
+     internal_properties : CAAAAAgAAACyoeOIEnfBex4wF+Z1cfwGt0CR5FAeuBr8HRieMe4yNjiMnuR+rJdhSSbHGehJxtrRZAcDBFXwvhFaXMXkcNMZiFwxoehqxc8bkTwrO/2YdJgogWrdEmec/fnnykFuZs36N306IPg+L2wgnzS3I4Lx18kOt09ibnDFxn36YWEUb6la8DsYj/P5p481XgizqYqpxDIxhp4UE37USss5M7k=
+     procedure_id : 2131885847712031384
+     type_code : 12
+     code : |1+
+      PROCEDURE globale InitAuth(sAuth est une chaine)
+      EcritLog("InitAuth="+sAuth)												// Insère un commentaire = saute une ligne (pour plus de clarté dans la lecture)
+      mgs_client=""
+      mgs_Password=""
+      nPosition est un entier=position(sAuth,"=")
+      si nPosition>0 ALORS
+      	sAuth=Milieu(sAuth,nPosition+1)	
+      sinon
+      	sAuth=""
+      FIN
+      
+      sMode est une chaine unicode=ExtraitChaîne(sAuth,1," ")
+      sValeur est une chaine UNICODE=ExtraitChaîne(sAuth,2," ")
+      sValeur2 est une chaine UNICODE=ExtraitChaîne(sAuth,3," ")
+      si sMode~="basic" ALORS
+      	si sValeur2<>"" _et_ sValeur2<>eot alors
+      		sTemp est un buffer=Décode(sValeur2, encodeBASE64SansRC)
+      		sValeur=AnsiVersUnicode(sTemp,alphabetUTF8)
+      	sinon
+      		sValeur=Décode(sValeur, encodeBASE64SansRC)
+      	fin
+      	mgs_Client	=ExtraitChaîne(sValeur,1,":")
+      	mgs_Password=ExtraitChaîne(sValeur,2,":")
+      	//PAS valide ici SI le mot de passe Contient le caractère ":"
+      	nPosPass est un entier=position(sValeur,":")
+      	SI nPosPass>1 ALORS
+      		mgs_Password=sValeur.Milieu(nPosPass+1)		
+      	FIN
+      	::_ValideClient()
+      FIN
+      
+      si sMode~="pcs" alors
+      	bufValeur est un buffer=ChaîneVersUTF8( Décode(sValeur, encodeBASE64SansRC))
+      	bufCle est un Buffer = HashChaîne(HA_HMAC_SHA3_256, "MotDePasseWEBDEV")
+      	bufValeur=DécrypteStandard(bufValeur,bufCle,crypteAES256)
+      	sValeur=UTF8VersChaîne(bufValeur)
+      	mgs_Client=ExtraitChaîne(sValeur,1,"$")
+      	mgs_Password=ExtraitChaîne(sValeur,2,"$")
+      	//PAS valide ici SI le mot de passe Contient le caractère "$"
+      	nPosPass est un entier=position(sValeur,"$")
+      	SI nPosPass>1 ALORS
+      		mgs_Password=sValeur.Milieu(nPosPass+1)		
+      	FIN
+      	::_ValideClient()
+      FIN
+      si mgs_Client<>"" alors
+      	EcritLog("Utilisateur valide :"+mgs_Client)			
+      fin
+     type : 458752
+   -
+     name : sTransformeClient
+     procedure_id : 2132165148946016995
+     type_code : 12
+     code : |1+
+      PROCEDURE globale sTransformeClient(sClient est une chaine)
+      si  mgs_Client<>"" ALORS
+      	sClient= mgs_Client
+      FIN
+     type : 458752
+   -
+     name : _ValideClient
+     internal_properties : CAAAAAgAAABv9q07opXUxq8btwV8f8To1RXo7XmLP9TPUMpjW6VCtnvlBdLBgmikIozKsiVrMTeb/AxNWrU2ow30WJCPIPzQ8mza9n0s+WJDvPpfl0mM0tANuDi7mfaVVzSs8AUzEmK6VGE+rcdaF4+5lwymb0VD+KYMBD/SUy/OY1mMqiFSYNdP0+YXb2hhVhh927bJAMM=
+     procedure_id : 2132174408986726330
+     type_code : 12
+     code : |1+
+      PROCEDURE globale _ValideClient()
+      
+      si mgs_Client~="" ALORS
+      	retour
+      FIN
+      //EcritLog("_ValideClient="+mgs_Client)		
+      
+      sClientCourant est une chaine
+      sClientAPI est une chaine
+      
+      
+      //si pas registrewin::gbUnix alors
+      //	sNomLogin est une chaine asciiz sur 250
+      //	dwTaille est un entier sur 4 octets = 250
+      //	
+      //	quand exception dans
+      //		// On récupère le nom du compte Windows utilisé pour l'installation
+      //		appeldll32("Secur32.dll","GetUserNameExA",2,&sNomLogin,&dwTaille)
+      //		// Si c'est un compte d'ordinateur, on retire le $ à la fin et on ajoute un libellé plus clair
+      //		si droite(sNomLogin,1)="$" alors sNomLogin = sNomLogin[[1 à taille(sNomLogin)-1]] + <§Rff00710616c2ffc2¤fr-FR¤(Compte d'ordinateur)¤en-GB¤(Computer account)¤es-ES¤(Cuenta de equipo)¤zh-CN¤(Compte d'ordinateur)§>
+      //		// Et on l'écrit dans la trace
+      //		RetourCGI(LOG_INFO,<§Rff006e0616c4ffc2¤fr-FR¤Installation avec le compte utilisateur : ¤en-GB¤Setup with the user account: ¤es-ES¤Instalación con la cuenta de usuario: ¤zh-CN¤Installation avec le compte utilisateur : §>+sNomLogin)
+      //	faire
+      //	fin
+      //fin
+      
+      <compile si TypeConfiguration<>Bibliothèque>
+      	
+      si pas EnModeLinux() alors 
+      	
+      	sClientCourant=RéseauUtilisateur()
+      	
+      	
+      	sNomLogin est une chaine asciiz sur 250
+      	dwTaille est un entier sur 4 octets = 250
+      	
+      	QUAND EXCEPTION DANS
+      		// On récupère le nom du compte Windows utilisé pour l'installation
+      		AppelDLL32("Secur32.dll","GetUserNameExA",2,&sNomLogin,&dwTaille)
+      		// Si c'est un compte d'ordinateur, on retire le $ à la fin et on ajoute un libellé plus clair
+      //		SI Droite(sNomLogin,1)="$" ALORS sNomLogin = sNomLogin[[1 À Taille(sNomLogin)-1]] + <§Rff00710616c6ffc2¤fr-FR¤(Compte d'ordinateur)¤en-GB¤(Computer account)¤es-ES¤(Cuenta de equipo)¤zh-CN¤(Compte d'ordinateur)§>
+      		sClientAPI=sNomLogin
+      	FAIRE
+      	FIN
+      	
+      fin
+      <FIN>
+      
+      
+      //EcritLog("ReseauUtilisateur="+sClientCourant)												// Insère un commentaire = saute une ligne (pour plus de clarté dans la lecture)
+      //EcritLog("GetUserNameExA="+sClientAPI)												// Insère un commentaire = saute une ligne (pour plus de clarté dans la lecture)
+      si mgs_Client~=sClientAPI ALORS
+      	mgs_Client=sClientAPI
+      	retour
+      FIN
+      SI mgs_Client~=sClientCourant ALORS
+      	mgs_Client=sClientCourant
+      	RETOUR
+      FIN
+      
+      
+      //tabUser est un tableau de CImpersonateUser.stUTILISATEUR
+      //stUser est un CImpersonateUser.stUTILISATEUR
+      //stUser.m_sNom=mgs_Client
+      //stUser.m_sMotDePasse=mgs_Password
+      //TableauAjoute(tabUser, stUser)
+      //
+      //	procédure interne MaProc(stClient est un CImpersonateUser.stUTILISATEUR)
+      //		EcritLog("Impersonnate callback :"+mgs_Client)
+      //		renvoyer faux
+      //	fin
+      //
+      //EcritLog("avant impersonate:"+mgs_Client)
+      //mg_clDoLogin.SetProcedureUtilisateur(tabUser, MaProc)
+      //bImpersonate est un booléen= mg_clDoLogin.bImpersonateSiBesoin(faux)
+      //EcritLog("bImpersonate="+bImpersonate+","+mg_clDoLogin.bImpersonateActif()+","+mg_clDoLogin.bImpersonatePossible())
+      //mg_clDoLogin.bRevertToSelf()
+      //
+      //SI  bImpersonate ALORS
+      //	RETOUR
+      //FIN
+      //
+      ////pas validé, on ne l'utilisera pas
+      //mgs_Client=""
+      //mgs_Password=""
+      
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : CClasse1
+resources :
+ string_res :
+  identifier : 0x1a4cab6a016978e9
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

@@ -1,0 +1,2208 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CInstallWBExec
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x1766a2f1006ec50a
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  internal_properties : CAAAAAgAAAAtwQaRB+kBQydcP8V1FSJpZ0U0DRINyAx/2ow/lrpMq7pmoA+JHIArWTLDNVShJmg+c8tBqj/IU0BF/xOel2zjj4F+UmRFKejTgicxvoY4H2J6evky6kZqncaAp7OyDCJTiRXbcH7FovSdyAEl2TbmtvtgT2uCwKfP+PrwpHFnYJAHL9yBX6pEOP67PEPkzLlKpSXXGgKb4Xn+Q6gPym5zbyL+zm5q+s0pj77w75hQLXBLQETAEeDPlH6ToabfG8l04apQEM9qVGJ/xwFrUws6RogWJvqVJqrOhxYv41CcvxCbywRn34szEpUvg3mUQyETUOO5PFnaudeRRjugmH92fHY1TbXeukHa2Fe8/HVFveX3sglhZLFMeFg/K8BjjzmBS+9xTHlfzsdaKr466Qc6T3dQRhpQAAarTB8YzNJYLYMMzfSSFA+14jQHz9ooAOQsdkfiw6JVBqRyokvOnRZqVzatDvfkkg2yfe6Rlwx2mQGyA8BSY8Se+ubZ36CCgjYBPS0/Z/bD7hGoxY/elb9Bkf6z8GFV28RAfwUM6aV89O18rpceT4dYxtpCR53MhkP+BsANttIv+36XtsiUQUNHQTQDzw3P8qJG6E3qqzaXOBF3sMMZtocleUmiPS8R9ho/4RznSbUCLMJaVS96SVSHSbGidSxPkttPZSOVqeyzEzyek7nnad+loSJqgcyAiIRgmqBkFBXvYOabB68tfVdGy3AFfcL2qWAASyCKnnM4MOZnsPCSmNy8pmb5kYY9/MkuChrFeUstM/qqXyHPiTcaXzlhCrD7BMCyeZ0/djbPYq/Njq7jP9Sa80TwIozMpi8aWFwLkBVO4HO98ZCBRWCqwF1zzFmQkTzASCkuvmOT76bRE77HJ71oBdZ2X01nuH4w2QCwnEAWKXZXfat6nIbA9TlNk0eyoO7Bp29uEKCcqEjHyqwrrelq0xYpZsxIl53q16YlMmxF8M85cUOTAG9Wg4L8Nv/bEvyWQtUyvvbygnq7kWuA4ty5/t1eIbH0uVs8Dh5G2m3IUJCb2eYVU332mbsHHISJaen0dGrX21xioe6WnvooQ9Bx/ael8bRSSJOdXhiYhl9ZY19FkmsGyiuP9Dx6aQvJTNX5wBNvl2qqucjspupQWjzDuYB+nMXrKwon1nFcmw1N3TDNN1vddG3BNVQnnucZWGzTxrsqFZM5TApfFdzPtXDSsNnP9C3t1Tg+ydm3IvANzNUFtsbq3ndbyLXyN00RQQgdpnRuhpMjL8vs+Pd4pLWCLOoIwJiLRMZr79BXxCoCbB3f0vq3xU+RosBqNX8kNPeCIkSSAaGO41VL9IEVfEtThycTv4AnIR/jujItAyx433Z4qCUY0pVFYE39/P6vEEZBCWUY1vT3z1KcHLwNo8Enasz7w8C1IF5YMSnxeGoQULllmgsg2v4T32SGA14b2s4cn5s3bhvqJZ+Hg9CTnuyd6A/yT300LJ4IrW8kndbw5jFI74xH5EX+So/m6akizEg4gmg2o87vron67VaikRTLheFvLSIpJbDa6QlQ85599XpLHuOG4NX6s4Ep/dVsogXJFLafmTyL4UWGAALpk7Aa9zp1vFF1BTADKrClpnZN0+J+j6qRdv0mS03F4wzyQ9nVkb/3PEMjmCYagxRj3TDRCP50VC6t+N/CmqvypwEtquLCECvP42X8SEBd/XIcN6oXH5/W11AgM02T48ra2yhapA4KTHuN/oWUhGWY5Dnrge0jm1Uq0MR3BcJ2tS7T9rL1OTUugTRAPVfIaHBKr2UXJqwjtqsDoKMYZA6cD6bj48gOzrRtfljARH2GAvFc9q/mR8TNwN250+wNG/Ah29oGRFIcidYdtDM9LS+Pi3jGn2O9bwuJmbhvN/Ie
+  type_code : 10
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAABIWlX5TU8PtuUEQ+1acoNarzJJklKrLRSgtFZykGHaQECGMKptzFKlcb+dFC0ABC60Ta9X+vdaqLizSpJEas+gReVYzb3XXMi9ZFWbbcA6hF2avF9KhveOY05ga3XhLavoxvIxFPMO8LMNHDgm5RKVlnkBn4gkPgGpmQevdzOBAVd6kg8Zx9iGwQQRr/siWA6xyXy8qsdRl3wnVZcHX0OOEhWdtuNsGYWr9V3ti/hGjkpYcPgBMOTZgpBAxf4G8B/TTW84UzGJccJlqS8mb4ys80W4tsSxpyQKIg==
+     code : |1+
+      CONSTANT
+      	// Noms des fichiers
+      	NOM_ZIP_MODAUTO = "_MODAUTO.ZIP"
+      	NOM_LANCEUR = "start.cmd"
+      	// Nom des archives
+      	NOM_ZIP = "ARCHIVE"
+      	CONSTANTE_PREFIXEVERSION= "V"
+      FIN	
+      
+      CInstallWBExec est une classe
+      	
+      	// Objet des données de l'installation
+      	m_clData est un CInstallWBData
+      	// Objet des méthodes utilitaires
+      	m_pclUtil est un CInstallWBUtil dynamique
+      
+      	m_pclLangueEnCours est un CParamLangue dynamique	// Element du tableau utilisé par l'install en cours
+      	
+      	// Environnement
+      	m_bMoteurWebDevPresent est un booleen		// Vrai si le poste a un moteur WEBDEV
+      	
+      	// Choix de l'installation
+      	m_sCompteWebDev est une chaine				// Compte WEBDEV associé à l'application
+      	m_sRepSite est une chaine					// Répertoire d'installation des fichiers du site
+      	m_sRepData est une chaine					// Répertoire d'installation des fichiers de données
+      	m_bGenereStat est un booleen					// Vrai si on génère les statistiques du site
+      	m_sRepStat est une chaine					// Répertoire de génération des statistiques
+      	m_nModAuto est un entier						// Mode d'execution de la modif auto
+      	m_sURLBase est une chaine					// URL de base du site (pour le sitemap)
+      	m_bCreeRaccourci est un booleen				// Vrai si on crée les raccourcis
+      	
+      	m_sRepGPU est une chaine					// Répertoire des fichiers du GPU
+      	m_sRepDroitGPU est une chaine				// Répertoire des fichiers de droit du GPU
+      	m_bHistoConnexion est un booleen				// Vrai si on garde l'historique des connexions
+      	
+      	m_bSaasWebservicePerso est un booleen			// Vrai si le site SaaS utilise un Webservice personnalisé
+      	m_sSaasURLWebservice est une chaine			// URL d'accès au Webservice SaaS
+      	m_sSaasAdminWebservice est une chaine			// Admin du Webservice SaaS
+      	m_sSaasPwdWebservice est une chaine			// MDP de l'admin du Webservice SaaS
+      	
+      	m_bModeInstallWebserviceLocal est un booleen	// Vrai si on est dans le mode particulier d'installation d'un Webservice sur un WEBDEV
+      	m_sNomSite est une chaine 					//nom du site saisie dans l'assistant
+      	
+      	
+      Fin
+       
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1686214266474972426
+     type_code : 27
+     code : |1+
+      Procédure Constructeur( pclInstallUtil est un CInstallWBUtil dynamique )
+      
+      :m_pclUtil = pclInstallUtil
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1686214266475037962
+     type_code : 28
+     code : |1+
+      Procédure Destructeur()
+      
+     type : 655360
+   -
+     name : bDeserialise
+     internal_properties : CAAAAAgAAADvyf41uSOdEiuwex5ACwhJx1H0AIhxs59bVldMpKH3n2WQRlQjrOFxXA//QFxqLQ7bLvKs4Dh0tvQrmi8mOshiGzNWhSNOwrIavFSu3KySGGnr2v1ghcAxps7XLjXTYVJD98FTMNRSrqAy04g=
+     procedure_id : 1686214322309690483
+     type_code : 12
+     code : |1-
+      // Résumé : Lecture des informations d'installation à partir de la description sauvées sur disque
+      // Syntaxe :
+      //[ <Résultat> = ] bDeserialise (<sChemin> est chaîne ANSI)
+      //
+      // Paramètres :
+      //	sChemin (chaîne ANSI) : Chemin du fichier de sauvegarde
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure bDeserialise( sChemin est une chaine )
+      
+      
+      sContenu est un buffer = fChargeTexte(sChemin)
+      si ErreurDétectée ALORS
+      	IHM_erreur(ChaîneConstruit(<§$0000§>,sChemin))
+      	renvoyer faux
+      FIN
+      
+      Désérialise(:m_clData,sContenu,psdXML)
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : ChangeLangue
+     procedure_id : 1686547311140207741
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //ChangeLangue (<nNumLangue>)
+      //
+      // Paramètres :
+      // 	nNumLangue : <indiquez ici le rôle de nNumLangue>
+      // Valeur de retour :
+      // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure ChangeLangue( nNumLangue )
+      
+      pclLang est un CParamLangue dynamique
+      POUR TOUT ELEMENT pclLang DE :m_clData:m_tabParamLangue
+      	si pclLang:m_nLangue=nNumLangue alors
+      		:m_pclLangueEnCours = pclLang
+      	FIN
+      FIN
+     type : 458752
+   -
+     name : pclGetLangue
+     procedure_id : 1686552155863331155
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] pclGetLangue ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	CParamLangue dynamique : // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure pclGetLangue()
+      
+      renvoyer :m_pclLangueEnCours
+     type : 458752
+   -
+     name : INSTALL_bSelectionMoteur
+     internal_properties : CAAAAAgAAACdM1W5O1qS5/RNvu1eBaog3f21Wrd3odlcIxBpGgK3br0nSkZHuWzXHEfAHrQF9r2c7dJCbTl0x09cPcDm7cGiAcPHBkMz6r4W7FaBPWdwcajm939IHV8dDSpacpBJR/w1M1kSe4L+GeA1TNQhfEGwlYZzGF4rO3vHTK9VgPY9rideCHxji5AEPlfuku6Q6EsYaUYVeBIOm6BrVqIPYoHlS1cXFpXmqbD89EoTFDbyzY4Vye6Cebh9NnNbAKBdEXsN1wVK/uM9C1BbTHXgN01BiXW8gay76WH7ifCfmgB3Yq5j+i3rrfo=
+     procedure_id : 1894765488025839585
+     type_code : 12
+     group : 2
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen :     // 	Aucune
+      //
+      Procédure INSTALL_bSelectionMoteur()
+      
+      // Sélectionne le moteur à utiliser
+      nMajor est un entier = XVER_MAJOR
+      nMinor est un entier = XVER_MINOR
+      
+      // Si on n'a pas d'IHM, on garde la valeur par défaut (de même dans le cas du déploiement de Webservice en local)
+      si IHM_bDisponible() _et_ pas :m_bModeInstallWebserviceLocal alors
+      	// Recherche les versions du moteur de version supérieure ou égale à celle de l'installation et compatibles
+      	tabMoteur est un tableau de reels
+      	:m_pclUtil:InitTableMoteur(tabMoteur)
+      	
+      	// Si on a plusieurs moteurs, on va demander sur lequel il faut s'installer
+      	si TableauOccurrence(tabMoteur)>1 ALORS
+      		TableauTrie(tabMoteur,ttDécroissant)
+      		sVersionSelect est une chaine = ouvre(FEN_SelectMoteur,tabMoteur)
+      		si sVersionSelect="" alors
+      			renvoyer faux
+      		FIN
+      		nMajor = Val(ExtraitChaîne(sVersionSelect,1,"."))
+      		nMinor = Val(ExtraitChaîne(sVersionSelect,2,"."))
+      	FIN
+      fin
+      
+      // Fixe la version du moteur dans l'objet utilitaire
+      :m_pclUtil:SetVersionMoteur(nMajor,nMinor)
+      
+      // Y a-t-il un serveur d'application WEBDEV installé sur le poste ?
+      :m_pclUtil:m_sBinPath = RegistreLit(CLE_WEBDEP_BASE+["\"]+:m_pclUtil:sVersionMoteur(),VALREG_BINPATH)
+      sCheminAdmin est une chaine=ComplèteRep(:m_pclUtil:m_sBinPath)+ChaîneConstruit(NOMGEN_WDADMIN,Remplace(:m_pclUtil:sVersionMoteur(),".",""))
+      :m_bMoteurWebDevPresent = :m_pclUtil:m_sBinPath<>"" _ET_ fFichierExiste(sCheminAdmin)
+      
+      
+      SI PAS :m_bMoteurWebDevPresent ALORS
+      	:m_pclUtil:m_sBinPath = ComplèteRep(SysRep(srProgramFiles))+"PC SOFT\WEBDEV\"+:m_pclUtil:sVersionMoteur()+"\"
+      	:m_sCompteWebDev = "ADMIN"
+      sinon
+      	// Vérification de la version du moteur de déploiement
+      	// Permet d'éviter que l'on fasse un déploiement sur un moteur d'une VI plus ancienne que le DEV
+      	// Récupération de la VI locale : on récupère le numéro de VI de notre VM
+      	sVIDeveloppement est une chaine = exeinfo("<§&00000250§>VersionVI",NOM_WDVM)[[4 à 9]]
+      	//ce n'est nécessaire que si on est dans la même version majeure
+      	//// Si la VI n'est pas une "EnCours"
+      	SI nMajor=XVER_MAJOR _ET_ nMinor=XVER_MINOR _ET_ sVIDeveloppement[[1]]<>"<§&00000251§>x" ALORS
+      		//on détermine la vi du déploiement à partir de l'admin
+      		sVIDeploiement est une chaine=exeinfo("<§&00000250§>VersionVI",sCheminAdmin)[[4 à 9]]
+      		// Si le déploiement est renseigné et n'est pas un "EnCours"
+      		SI sVIDeploiement[[1]]<>"<§&00000256§>x" ET sVIDeploiement<>"<§&00000257§>" ALORS
+      			// Il faut que le dep soit d'une version supérieure ou égale au dev
+      			SI ChaîneCompare(sVIDeveloppement,sVIDeploiement,ccSansCasse)=1 ALORS
+      				//la version de déploiement est plus ancienne que la version de développement
+      				//on permet le déploiement, mais en prévenant
+      				
+      				//1 : &Ne pas déployer (recommandé)
+      				//2 : Déployer le site (déconseillé)
+      				SI IHM_bDisponible() _ET_ PAS :m_bModeInstallWebserviceLocal ALORS
+      					si pas m_bModeInstallWebserviceLocal alors
+      						Si Dialogue(<§?1F0C3285062E3DB1§>, sVIDeveloppement,sVIDeploiement)=1 alors
+      							renvoyer Faux
+      						FIN
+      					sinon
+      						Erreur(chaineconstruit(<§$0033§>,sVIDeveloppement,sVIDeploiement))
+      						renvoyer faux
+      					fin
+      				sinon
+      					si m_bModeInstallWebserviceLocal ALORS
+      						Erreur(ChaîneConstruit(<§$004a§>,sVIDeveloppement,sVIDeploiement))
+      					FIN
+      					//sans IHM, on ne pose pas la question, on bloque le déploiement
+      					renvoyer faux
+      				fin				
+      			FIN
+      		FIN
+      	FIN			
+      	
+      FIN
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : nGetNbLangue
+     procedure_id : 1894777883442884695
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	entier : // 	Aucune
+      //
+      Procédure nGetNbLangue()
+      
+      renvoyer :m_clData:nGetNbLangue()
+     type : 458752
+   -
+     name : SITE_sCheminLisezMoi
+     procedure_id : 1894766999861036691
+     type_code : 12
+     group : 3
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] SITE_sCheminLisezMoi ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé :  // 	Aucune
+      //
+      Procédure SITE_sCheminLisezMoi()
+      
+      si :m_bModeInstallWebserviceLocal alors renvoyer ""
+      
+      renvoyer ComplèteRep(:m_sRepSite)+:pclGetLangue():m_sLisezMoi
+     type : 458752
+   -
+     name : SITE_bCreeRepertoire
+     internal_properties : CAAAAAgAAADCVQAMndAlDR9cHlzZpWhvjA18Af6WP2pemoh9YWqYteJg9yKOhzWDeXHx61yUNrkblBClFj/KYgKlHzdF+ixNUP5UJ8sBFSPDpdxOc8QFbqRmTGUcKvhVNYHo4etEyUZGhVGtMM4yTwnx6m6iImp3VCPchZRDG1PC6Be7qaOHCn1cpQ0yTuorStPQm2okv5eG
+     procedure_id : 1894766995565610206
+     type_code : 12
+     group : 3
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] SITE_bCreeRepertoire (<pclServeurWeb> est CServeurWeb dynamique)
+      //
+      // Paramètres :
+      //	pclServeurWeb (CServeurWeb dynamique) : <indiquez ici le rôle de pclServeurWeb>
+      // Valeur de retour :
+      // 	booléen :   // 	Aucune
+      //
+      //	pclServeurWebTransaction (IServeurWebTransaction dynamique) : <indiquez ici le rôle de pcl>
+      Procédure SITE_bCreeRepertoire (pclServeurWeb est un CServeurWeb dynamique)
+      IHM_Jauge_Detail(<§$0001§>)
+      
+      si :m_bModeInstallWebserviceLocal alors
+      	sDisque est une chaine =fExtraitChemin(m_sRepSite,fDisque)
+      	si sDisque<>"" ALORS
+      		si fDisqueInfo(sDisque,fdTypeDisque)<>fdFixe
+      			si ouinon(non, <§$003a§>)=non alors
+      				renvoyer faux	
+      			fin
+      		FIN
+      	FIN
+      fin
+      
+      
+      // Calcule une seule fois le répertoire WEBROOT
+      sWebRoot est une chaine
+      SI Null <> pclServeurWeb ALORS
+      	// On ne fait pas une seule grosse transaction : on sépare l'installation du serveur d'application (si applicable), de la lecture du répertoire virtuel racine et de la configuration du site
+      	pclServeurWebTransaction est un IServeurWebTransaction dynamique <- pclServeurWeb:vpclAlloueTransaction(:m_pclUtil:pGetConfigGlobale())
+      	sWebRoot = ComplèteRep(pclServeurWeb.vsGetDocumentRoot(m_pclUtil.m_sServeurVirtuel, pclServeurWebTransaction))
+      FIN
+      
+      // Répertoire du site
+      _RemplaceMeta(m_sRepSite, sWebRoot)
+      si pas m_pclUtil.bCreeRepertoire(:m_sRepSite) alors renvoyer faux
+      m_pclUtil.bCreeRepertoire(sCompleteRepertoireAppliAvecVersion(m_sRepSite)) 
+      
+      // Répertoire des données
+      :_RemplaceMeta(:m_sRepData, sWebRoot)
+      SI PAS :m_pclUtil:bCreeRepertoire(:m_sRepData) ALORS RENVOYER Faux
+      
+      // Répertoire des stats
+      si :m_bGenereStat alors
+      	:_RemplaceMeta(:m_sRepStat, sWebRoot)
+      	SI PAS :m_pclUtil:bCreeRepertoire(:m_sRepStat) ALORS RENVOYER Faux
+      fin
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : SITE_bCopieLisezMoi
+     internal_properties : CAAAAAgAAAAZn8Zf23X/vxrkd4pgTrElvcpIvDnUDkSkU14Ng9rbPSHNqEYPNPgKMLC03FdFIcqdcOA/VFemrhWWSmhcaCRTD/aIqa79KKEEVcOqpMiwuSqUy7lV7Z8TXWPn4ZYelvP0/+DbYbmtsdOdkjGy714RGXJIbEJRNzxF4YFIOFPpsZH+KDyITF07lMkYVHCpr0yMiA==
+     procedure_id : 1894766995565478993
+     type_code : 12
+     group : 3
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] SITE_bCopieLisezMoi ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen :   // 	Aucune
+      //
+      Procédure SITE_bCopieLisezMoi()
+      
+      // Pas de lisez-moi en install de webservice local
+      si  :m_bModeInstallWebserviceLocal alors renvoyer vrai
+      
+      // S'il n'y a pas de fichier lisez-moi
+      si :pclGetLangue():m_sLisezMoi~="" alors 
+      	renvoyer vrai
+      FIN
+      
+      // Le fichier source a été extrait dans le rep de l'installeur
+      sSource est une chaine = ComplèteRep(frepexe())+:pclGetLangue():m_sLisezMoi
+      sDest est une chaine = :SITE_sCheminLisezMoi()
+      
+      si pas fCopieFichier(sSource,sDest) ALORS
+      	erreur(<§$0002§>,sSource,sDest,erreurinfo())
+      	renvoyer faux
+      FIN
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : INSTALL_SelectionLangue
+     internal_properties : CAAAAAgAAAAD9dpBPV4GFp/sr8qcp8gZe438TOiN41O3KptY2PUvhyFENgDriLn9OMOjpDC+VQ4fatrQ0HTOIGLJzOG8lGKAqb1AlzGwJGTI6gbwcgY8RgcllL8GH9LjlBRhOBNF++BBAUM9fo/2amxO/6Q=
+     procedure_id : 1894765488026101979
+     type_code : 12
+     group : 2
+     code : |1+
+      Procédure INSTALL_SelectionLangue()
+      nLangue est un entier
+      
+      
+      // On ne change pas non plus en déploiement de Webservice
+      si :m_bModeInstallWebserviceLocal alors 
+      	//on récupère la langue passé en ligne de commande si possible
+      	sNation est une chaine=LigneCommande("NATION")
+      	si sNation<>"" ALORS
+      		nLangue=val(sNation)
+      		
+      		Nation(nLangue)
+      		SI "TEST"<><§$0003§> alors
+      			// La langue n'est pas disponible, on revient à la langue par défaut
+      			Nation(nationAnglais)
+      			nLangue = nationAnglais
+      		FIN
+      		
+      		:ChangeLangue(nLangue)
+      	FIN
+      	retour
+      FIN
+      
+      nNbLg est un entier = TableauOccurrence(:m_clData:m_tabParamLangue)
+      nNbLangueUtil est un entier
+      
+      // Comptage des langues utilisées
+      POUR nLg=1 _à_ nNbLg
+      	SI :m_clData:m_tabParamLangue[nLg]:m_bUtilise ALORS
+      		nLangue = :m_clData:m_tabParamLangue[nLg]:m_nLangue
+      		nNbLangueUtil++
+      	FIN
+      FIN
+      // S'il y en a plusieurs, et qu'on n'est pas en mode silencieux, il faut choisir
+      SI (nNbLangueUtil>1) _et_ IHM_bDisponible() ALORS
+      	nLangue = Ouvre(FEN_ChoixLangue)
+      FIN
+      
+      SI nLangue=-1 ALORS
+      	FinProgramme()
+      SINON
+      	Nation(nLangue)
+      	// Vérification de la validité de la langue
+      	// Il ne faut pas traduire la première chaine de caractères
+      	// La deuxième doit être traduite en "TEST" dans toutes les langues disponibles dans l'EXE
+      	SI "TEST"<><§$0003§> alors
+      		// La langue n'est pas disponible, on revient à la langue par défaut
+      		Nation(nationAnglais)
+      		nLangue = nationAnglais
+      	FIN
+      	
+      	:ChangeLangue(nLangue)
+      FIN
+     type : 458752
+   -
+     name : _RemplaceMeta
+     internal_properties : CAAAAAgAAAA5eyxnV8zhxlHa93jMx5a/Mete/EbXt4sZEAtGmMXpeUtm2PjV8nWxUomfpsyyW3whXEgExnpBlZW8P3ANI98DKiIjVnZrA1X/sZkHCx0hsVAaY3ofznVk78fsJ2ycLN8+Gh70k5UAnFJkhd4=
+     procedure_id : 1895079221913633706
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //_RemplaceMeta (<sRep> est chaîne, <sWebRoot> est chaîne)
+      //
+      // Paramètres :
+      //	sRep (chaîne UNICODE) : <indiquez ici le rôle de sRep>
+      //	sWebRoot (chaîne UNICODE) : <indiquez ici le rôle de sWebRoot>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      Procédure PRIVEE _RemplaceMeta(sRep est une chaine, sWebRoot est une chaine)
+      
+      si pas :m_bModeInstallWebserviceLocal alors
+      	sRep = Remplace(sRep,META_SITE,ComplèteRep(sRepAppli((:m_sCompteWebDev),CWebDevConfigApplication::typeapplication_site)))
+      	sRep = Remplace(sRep,META_WEBSERVICE_SOAP,ComplèteRep(sRepAppli((:m_sCompteWebDev),CWebDevConfigApplication::typeapplication_webservicesoap)))
+      	sRep = Remplace(sRep,META_WEBSERVICE_REST,ComplèteRep(sRepAppli((:m_sCompteWebDev),CWebDevConfigApplication::typeapplication_webservicerest)))
+      	sRep = Remplace(sRep,META_SOCKET,ComplèteRep(sRepAppli((:m_sCompteWebDev),CWebDevConfigApplication::typeapplication_websocket)))
+      	sRep = Remplace(sRep,META_DATA,ComplèteRep(sRepData((:m_sCompteWebDev))))
+      fin
+      
+      sRep = Remplace(sRep,META_WEBROOT,sWebRoot)
+      
+      // Retire les éventuels double antislash de la chaine construite sinon l'ajout d'alias dans
+      // IIS6 ne se fait pas correctement
+      si sRep[="\\" ALORS
+      	// Le répertoire est un chemin UNC
+      	sRep = sRep[[3 à]]
+      	// Retire les \\ multiples
+      	TANTQUE Position(sRep,"\\")>0 
+      		sRep = Remplace(sRep,"\\","\")
+      	FIN
+      	// Remet le prefixe UNC
+      	sRep = "\\"+sRep
+      	
+      sinon
+      	// Retire les \\ multiples
+      	TANTQUE Position(sRep,"\\")>0 
+      		sRep = Remplace(sRep,"\\","\")
+      	FIN
+      FIN
+     type : 458752
+   -
+     name : sGetNomSite
+     procedure_id : 1894778725256671555
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé : // 	Aucune
+      //
+      Procédure sGetNomSite()
+      
+      SI m_bModeInstallWebserviceLocal alors
+      	si  m_clData:eGetTypeApplication()=CWebDevConfigApplication.TypeApplication_WebSocket ALORS
+      		renvoyer m_clData:pGetProfil(1).m_sNomSite
+      	fin
+      	SI  m_clData:eGetTypeApplication()=CWebDevConfigApplication.TypeApplication_WebserviceREST ALORS
+      		RENVOYER m_clData:pGetProfil(1).m_sNomSite
+      	FIN
+      FIN
+      
+      renvoyer :m_sNomSite
+     type : 458752
+   -
+     name : pclGetDescLangue
+     procedure_id : 1894778055241683040
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	nRang (entier) : <indiquez ici le rôle de nRang>
+      // Valeur de retour :
+      // 	CParamLangue dynamique : // 	Aucune
+      //
+      Procédure pclGetDescLangue( nRang est un entier )
+      
+      renvoyer :m_clData:pclGetLangue(nRang)
+      
+     type : 458752
+   -
+     name : SITE_bModifAuto
+     internal_properties : CAAAAAgAAABpS3y3r7xhVhFq52jMxyY/0QuOzEY3JwuJsCtG6PUpqXv2uDjlgtVhErnvtmxSKzzhHPi0xtqJrf0khzg1O9d7Ejpr/t7D662H+WHvE5W5yVgyCyJnhp0cVw+Uz/QUpFem8uac202ILCK0VQ4=
+     procedure_id : 1894766999860839896
+     type_code : 12
+     group : 3
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] SITE_bModifAuto ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen :     // 	Aucune
+      //
+      Procédure SITE_bModifAuto()
+      
+      IHM_Jauge_Detail(<§$0004§>)
+      
+      // S'il n'y a pas de modif auto, on a fini
+      si pas :m_clData:m_clModAuto:m_bUtiliseModifAuto alors renvoyer vrai
+      
+      si :m_nModAuto=3 alors renvoyer vrai
+      
+      // Création du répertoire de travail de la modif auto
+      sRepTravailModAuto est une chaine = fFichierTemp("MOD")
+      SI PAS :m_pclUtil:bCreeRepertoire(sRepTravailModAuto) ALORS RENVOYER Faux
+      
+      // Extraction du zip de la modif auto
+      sFicZip est une chaine = :m_pclUtil:sLocaliseFichier(completerep(LigneCommande("REP"))+:m_clData:m_sNomPackage)
+      SI sFicZip="" ALORS RENVOYER Faux
+      zipouvre(::NOM_ZIP,sFicZip)
+      zipExtraitFichier(::NOM_ZIP,::NOM_ZIP_MODAUTO,sRepTravailModAuto)
+      zipferme(::NOM_ZIP)
+      
+      ModAuto.ChangeModeInteractif(:m_nModAuto=2,pas IHM_bDisponible())
+      
+      // Init du composant
+      si pas ModAuto.bInitModifAuto(sRepTravailModAuto,ComplèteRep(sRepTravailModAuto)+::NOM_ZIP_MODAUTO,:m_pclUtil:sVersionMoteur()) ALORS
+      	IHM_Erreur(<§$0005§>,ModAuto.sGetRapport())
+      	renvoyer faux
+      FIN
+      
+      // On fixe le répertoire des binaires de WebDep comme emplacement des exe/dll de la modif auto
+      ChangeCheminOutil(completerep(:m_pclUtil:m_sBinPath)+NOM_MODFIC55,...
+      				ComplèteRep(:m_pclUtil:m_sBinPath)+ChaîneConstruit(NOMGEN_WDCNV,:m_pclUtil:sVersionMoteur_SansPoint()),...
+      				ComplèteRep(:m_pclUtil:m_sBinPath)+ChaîneConstruit(NOMGEN_WDMOD,:m_pclUtil:sVersionMoteur_SansPoint()))
+      
+      // On ajoute le répertoire des données
+      AjouteRep(:m_sRepData)
+      
+      // On lance la modif auto
+      ExecModifAuto()
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : SITE_bInstall
+     internal_properties : CAAAAAgAAAD+MpraJN2cULizeQJWqVNweGIlJ4CJRhKK4cb8HZKM1KvwIslWx7U16JnMg1j6nJ+1QlrOh+uzMIHavC0eO0qZ9NNMlKq5zfwc4Yg6bkNuUDvZuQ8K5azghznJ03Ts9aLYFWol19faRoW3uidqWofQMxS6vh06SxUXzQMirUy3IPKJvdziMoK4Dux9u1MaEQGNDFUoGqf5JJy/+J1OHB3QtfUhz+9XjiAMBA==
+     procedure_id : 1894766995565741403
+     type_code : 12
+     group : 3
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] SITE_bInstall (<bWarning> est booléen, <pclServeurWeb> est CServeurWeb dynamique)
+      //
+      // Paramètres :
+      //	bWarning (booléen) : <indiquez ici le rôle de bWarning>
+      //	pclServeurWeb (CServeurWeb dynamique) : <indiquez ici le rôle de pclServeurWeb>
+      // Valeur de retour :
+      // 	booléen : <indiquez ici les valeurs possibles ainsi que leur interprétation>
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure SITE_bInstall (bWarning est un booleen, pclServeurWeb est un CServeurWeb dynamique, clTransactionEcriture est un CWebDevConfigTransactionEcriture)
+      
+      // Fixe l'IHM si nécessaire
+      SELON :m_clData:m_nObjetDep
+      CAS CInstallWBData::OBJET_SITE_WEB
+      	IHM_Jauge_ChangeEtape(<§$0044§>,:m_pclUtil:m_nNumEtape,:m_pclUtil:m_nTotalEtape)
+      cas CInstallWBData::OBJET_WEBSERVICE_SOAP, CInstallWBData::OBJET_WEBSERVICE_REST
+      	IHM_Jauge_ChangeEtape(<§$0042§>,:m_pclUtil:m_nNumEtape,:m_pclUtil:m_nTotalEtape)
+      CAS CInstallWBData::OBJET_SOCKET
+      	IHM_Jauge_ChangeEtape(<§$0047§>, :m_pclUtil:m_nNumEtape, :m_pclUtil:m_nTotalEtape)
+      AUTRES CAS
+      	dbgAssertion(Faux)
+      	IHM_Jauge_ChangeEtape(<§$0045§>,:m_pclUtil:m_nNumEtape,:m_pclUtil:m_nTotalEtape)
+      FIN
+      IHM_Jauge_Init(Faux)
+      IHM_Jauge_Detail(<§$0007§>)
+      
+      //vérification de la compatibilité du site avec le moteur
+      si pas :SITE_bVerifCompatibiliteVMMoteur() alors renvoyer faux
+      
+      //verif si serveur socket
+      eTypeSite est un CWebDevConfigApplication::ETypeApplication = m_clData:eGetTypeApplication()
+      sNomSite est une chaîne= sGetNomSite()
+      
+      si eTypeSite=CWebDevConfigApplication.TypeApplication_WebSocket ALORS
+      	bSiteExiste				est un booleen	= bExisteApplication(sNomSite,CWebDevConfigApplication.typeapplication_Site)
+      	bWebServiceSOAPExiste	est un booleen	= bExisteApplication(sNomSite,CWebDevConfigApplication.TypeApplication_WebserviceSOAP)
+      	bWebServiceRESTExiste	est un booleen	= bExisteApplication(sNomSite,CWebDevConfigApplication.TypeApplication_WebserviceREST)
+      	SI bSiteExiste ou bWebServiceRESTExiste ou bWebServiceSOAPExiste ALORS
+      		IHM_Erreur(<§$0040§>)
+      		RENVOYER Faux
+      	FIN
+      	
+      sinon
+      	bSocketExiste	est un booleen	= bExisteApplication(sNomSite,CWebDevConfigApplication.TypeApplication_WebSocket)
+      	si bSocketExiste ALORS
+      		IHM_Erreur(<§$003f§>)
+      		renvoyer faux
+      	FIN
+      FIN
+      
+      
+      //arret du moteur
+      bMoteurLance est un booleen=faux
+      SI PAS m_clData.m_bVersionParalleleSansDeconnexion ALORS
+      	 SITE_bDeconnecte(clTransactionEcriture)
+      fin
+      
+      // Création des répertoires du moteur
+      SI PAS :SITE_bCreeRepertoire(pclServeurWeb) ALORS RENVOYER Faux
+      
+      // Décompactage des fichiers
+      SI PAS :SITE_bExtraitFichier() ALORS RENVOYER Faux
+      
+      // Fichier .WDConfig.awp
+      si pas :_bInstalleFichierParamSite() alors renvoyer faux
+      
+      // Copie du lisez-moi
+      si pas :SITE_bCopieLisezMoi() alors renvoyer faux
+      
+      //on fait l'association de site au compte avant la création des clés de registre
+      //car cela détermine le nom de la clé
+      // Association du site au compte
+      SI PAS :SITE_bAssocieCompte(clTransactionEcriture) ALORS RENVOYER Faux
+      
+      // Création des clés de registre
+      SI PAS :SITE_bInstalleRegistre(clTransactionEcriture) ALORS RENVOYER Faux
+      
+      // Ajout de l'alias dans le serveur web
+      si pas :SITE_bParamServeurWeb(bWarning, pclServeurWeb) alors renvoyer faux
+      
+      // Création du lanceur et de son raccourci
+      SI :m_clData:m_nObjetDep=CInstallWBData::OBJET_SITE_WEB ALORS
+      	si pas :SITE_bCreeLanceur() alors renvoyer faux
+      fin
+      
+      // Execution de la modif auto
+      si pas :SITE_bModifAuto() alors renvoyer faux
+      
+      //relance le moteur
+      SITE_RelanceMoteur(bMoteurLance,clTransactionEcriture )
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : SITE_bExtraitFichier
+     internal_properties : CAAAAAgAAAC3nu25JJPKDA+KBmbdabpeS2CpH8H8/sz7b/Pp1iJkmiAnFEbToPff/tXofJ2uEBF8DexTeSe5Gf8qUUQ+s9FYWYQVGSomIkqzCYSIATmnyv/xY+U96A5zdVUxsidRO5m5Kry6inqyj2DzcV8LLHENT8lmDgIA4ZMJr6abzPoA
+     procedure_id : 1894766995565675804
+     type_code : 12
+     group : 3
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] SITE_bExtraitFichier ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen :    // 	Aucune
+      //
+      Procédure SITE_bExtraitFichier()
+      
+      IHM_Jauge_Detail(<§$0008§>)
+      
+      // On s'assure de la présence du zip
+      sFicZip est une chaine = m_pclUtil.sLocaliseFichier(completerep(LigneCommande("REP"))+m_clData.m_sNomPackage)
+      SI sFicZip="" ALORS RENVOYER Faux
+      
+      sPrefixeVersion est une chaine=""
+      si m_clData.m_bVersionParalleleSansDeconnexion ALORS
+      	sPrefixeVersion=CONSTANTE_PREFIXEVERSION+m_clData.m_sVersionParalleleADeployer
+      FIN
+      
+      sAliasSite est une chaine  = m_clData.m_sAliasSite //le nom du répertoire _web d'origine
+      
+      // Extraction des fichiers...
+      si m_clData.m_nObjetDep=CInstallWBData::OBJET_SITE_WEB alors
+      	// ...qui vont dans le site
+      	si pas m_pclUtil.bExtraitArchive(sFicZip,m_sRepSite,META_SITE,m_sURLBase,m_clData,vrai,sAliasSite,  sPrefixeVersion) alors renvoyer faux
+      sinon SI m_clData.m_nObjetDep=CInstallWBData::OBJET_WEBSERVICE_SOAP ALORS
+      	// ...qui vont dans le webservice SOAP
+      	SI PAS m_pclUtil.bExtraitArchive(sFicZip,m_sRepSite,META_WEBSERVICE_SOAP,m_sURLBase,m_clData,vrai,sAliasSite,  sPrefixeVersion) ALORS RENVOYER Faux
+      SINON SI m_clData.m_nObjetDep=CInstallWBData::OBJET_WEBSERVICE_REST ALORS
+      	// ...qui vont dans le webservice REST
+      	SI PAS m_pclUtil.bExtraitArchive(sFicZip,m_sRepSite,META_WEBSERVICE_REST,m_sURLBase,m_clData,vrai,sAliasSite, sPrefixeVersion) ALORS RENVOYER Faux
+      SINON SI m_clData.m_nObjetDep=CInstallWBData::OBJET_SOCKET ALORS
+      	// ...qui vont dans le websocket
+      	SI PAS m_pclUtil.bExtraitArchive(sFicZip,m_sRepSite,META_SOCKET,m_sURLBase,m_clData,Vrai,sAliasSite, sPrefixeVersion) ALORS RENVOYER Faux
+      FIN
+      
+      // Extraction des fichiers du répertoire des données
+      si pas m_pclUtil.bExtraitArchive(sFicZip,m_sRepData,META_DATA,m_sURLBase,m_clData,Faux,"","") alors renvoyer faux
+      
+      
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : bInstallationAutonome
+     procedure_id : 1894779635793292424
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      //
+      Procédure bInstallationAutonome()
+      
+      renvoyer :m_clData:m_nSupportInstallation=CInstallWBData::SUPPORT_AUTONOME
+     type : 458752
+   -
+     name : SITE_sCheminLanceur
+     procedure_id : 1894766999860971093
+     type_code : 12
+     group : 3
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] SITE_sCheminLanceur ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé :   // 	Aucune
+      //
+      Procédure SITE_sCheminLanceur()
+      
+      renvoyer ComplèteRep(:m_sRepSite)+::NOM_LANCEUR
+     type : 458752
+   -
+     name : INSTALL_bInitInstallation
+     internal_properties : CAAAAAgAAADAZ82ROiuOxzA72woKNPQGKFp/lRTW00bk2WcdpMaXAPlxbfzHdVm8Mpcy9TwGlPW98HClWPIZ1ljtOsRINfPSi4vEWjw7k+oI8H48ZCfcZlWS34X4En6eMMVSX4auVI0QzK3tJf2YcJyP1U2qvjjNk7tz3KmiKf+6v8w5sMHLZ2gW7qwQZM2gkMhwq4ue6+CQPOau9s8JqFWj8ujurP9EFzVKnw/MK9u+ZNzH
+     procedure_id : 1894765488025773987
+     type_code : 12
+     group : 2
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] INSTALL_bInitInstallation ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen :       // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure INSTALL_bInitInstallation()
+      
+      // Recherche les moteurs WEBDEV présents sur le poste et selectionne celui à utiliser
+      si pas :INSTALL_bSelectionMoteur() ALORS
+      	renvoyer faux
+      FIN
+      
+      sHote est une chaine =m_pclUtil.m_sServeurVirtuel//"*"
+      :m_sNomSite=:m_clData:m_sNomSite
+      eType est un CWebDevConfigApplication::ETypeApplication = m_clData:eGetTypeApplication()
+      
+      pclRegAppli est un CWebDevConfigApplication dynamique= :m_pclUtil:pAlloueConfigApplication(:m_sNomSite,eType,sHote)
+      //PLAN_3_COMPTEWEBDEV = 3
+      // Pas d'init du composant des comptes dans l'install de Webservice en local
+      SI :m_bMoteurWebDevPresent _et_ pas :m_bModeInstallWebserviceLocal ALORS
+      	SI PAS bInit((:m_pclUtil:sVersionMoteur())) ALORS
+      		IHM_Erreur(ChaîneConstruit(<§$0009§>,ManipComptesWebDev.gsErreurCompte))
+      	FIN
+      fin
+      // Recherche si le site a déjà été installé pour relire les valeurs de l'installation précédente (on ne le fait pas si compte déjà initialisé par ligne de commande par exemple)
+      SI :m_bMoteurWebDevPresent _ET_ PAS :m_bModeInstallWebserviceLocal _et_ (:m_sCompteWebDev = "") ALORS
+      //	:m_sCompteWebDev = sClientAppli((:m_sNomSite),EnumérationDepuisValeur(CWebDevConfigApplication::ETypeApplication,:m_clData:m_nObjetDep,CWebDevConfigApplication::TypeApplication_Site),Faux)
+      	:m_sCompteWebDev = sClientAppli((:m_sNomSite),eType,Faux)
+      FIN
+      
+      //attention, si l'hote n'est pas encore choisit, il ne faut pas résoudre le chemin
+      //PLAN_5_REPERTOIRE = 5
+       si PAS :m_bModeInstallWebserviceLocal  _et_ sHote<>"*" ALORS
+      	:m_sRepSite = pclRegAppli:sGetValeur(VALREG_PROJECTPATH)
+      	:m_sRepData = pclRegAppli:sGetValeur(VALREG_HFPATH)
+       FIN
+      
+      si :m_sRepSite="" alors :m_sRepSite=:m_clData:m_sRepSiteDefaut
+      si :m_sRepData ="" alors :m_sRepData =:m_clData:m_sRepDataDefaut
+      
+      //PLAN_6_STATISTIQUES = 6
+      :m_sRepStat = pclRegAppli:sGetValeur(VALREG_LOGDIR)
+      :m_bGenereStat = (:m_sRepStat<>"")
+      
+      //PLAN_7_MODIFAUTO = 7
+      SI :m_clData:m_clModAuto:m_bUtiliseModifAuto ALORS
+      	:m_nModAuto = 1
+      SINON
+      	:m_nModAuto = 3
+      FIN
+      //PLAN_8_TERMINE = 8
+      :m_bCreeRaccourci = PAS :m_bModeInstallWebserviceLocal	// Par défaut on propose de créer les raccourcis sauf pour les Webservices en install locale
+      
+      //PLAN_9_URLSITE = 9
+      :m_sURLBase = pclRegAppli:sGetValeur(VALREG_URLBASE)
+      si :m_sURLBase~="" _ou_ m_bModeInstallWebserviceLocal alors //en installation local de webservice, on réinitialise toujours la valeur VALREG_URLBASE 
+      	// QW 201470, on utilise l'entrée de registre LOCALHOST du moteur pour récupérer le bon nom et le port si nécessaire
+      	 :m_sURLBase = :m_pclUtil:pGetConfigGlobale():sGetValeur(VALREG_LOCALHOST)
+      	si :m_sURLBase="" ALORS
+      		 :m_sURLBase = NetNomMachine()
+      	FIN
+      	si :m_clData:m_nObjetDep=CInstallWBData::OBJET_WEBSERVICE_SOAP  ALORS
+      		//sNomSite est une chaine = :m_clData:pGetProfil(1):m_sNomSite
+      		:m_sURLBase += ["/"]+:m_clData.m_sAliasSite
+      	FIN
+      FIN
+      
+      // PLAN_11_GPU
+      :m_sRepGPU  = pclRegAppli:sGetValeur(VALREG_GPUPATH)
+      :m_sRepDroitGPU = pclRegAppli:sGetValeur(VALREG_GPUPATH_R)
+      :m_bHistoConnexion = val(pclRegAppli:sGetValeur(VALREG_GPUHISTOCNX))
+      
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : bUtiliseModAuto
+     procedure_id : 1894778312939780144
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      //
+      Procédure bUtiliseModAuto()
+      
+      renvoyer :m_clData:m_clModAuto:m_bUtiliseModifAuto
+     type : 458752
+   -
+     name : SITE_bAssocieCompte
+     internal_properties : CAAAAAgAAADZm4wFe0h9cgUGM0zok8bvracGUB4bv9+t3Mfq3AEpQYfqqFy9pmUdNoXDWujWS+QNOMjIhl57v9sqkULz/flZUDTtGHQ1LR89JxMpEefTH67kvfy9qPfmbRWuGdoOviU07FA+OdsuvrIEJX4=
+     procedure_id : 1894766995565413395
+     type_code : 12
+     group : 3
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] SITE_bAssocieCompte ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen :   // 	Aucune
+      //
+      Procédure SITE_bAssocieCompte(clTransactionEcriture est un CWebDevConfigTransactionEcriture)
+      
+      si :m_bModeInstallWebserviceLocal alors renvoyer vrai
+      
+      eTypeSite est un CWebDevConfigApplication::ETypeApplication = m_clData:eGetTypeApplication()
+      
+      sNomHote   est une chaine unicode = m_pclUtil.m_sServeurVirtuel
+      sAppNomCle est une chaine unicode= CWebDevConfigApplication.s_sAjouteApplication(sGetNomSite(),eTypeSite,sNomHote, ConstantesWebDev.gpclConfigGlobale,clTransactionEcriture)
+      
+      si pas bAjouteApplication((:m_sCompteWebDev),(sGetNomSite()),sAppNomCle,eTypeSite) ALORS
+      	IHM_ErreurConstruit(<§$0016§>, :m_clData:m_nObjetDep=CInstallWBData::OBJET_SITE_WEB ? <§$0017§> SINON <§$0018§>, sGetNomSite(), ManipComptesWebDev.gsErreurCompte)
+      	renvoyer faux
+      FIN
+      
+      ManipComptesWebDev.bSetApplicationNomCle(:m_sCompteWebDev, sGetNomSite(), eTypeSite, sAppNomCle)
+      
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : INSTALL_bChargeDescription
+     procedure_id : 1894765488025642790
+     type_code : 12
+     group : 2
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] INSTALL_bChargeDescription ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen :     // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure INSTALL_bChargeDescription()
+      
+      // Vérification de la présence du fichier de config
+      sFicParam est une chaine = completerep(frepexe())+NOM_FICHIER_PARAM_INSTALL_WEBDEV
+      si pas fFichierExiste(sFicParam) ALORS
+      	IHM_Erreur(ChaîneConstruit(<§$0009§>,sFicParam))
+      	renvoyer faux
+      FIN
+      
+      // Chargement de la description de l'installation
+      si pas :bDeserialise(sFicParam) ALORS
+      	renvoyer faux
+      FIN
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : SITE_bCreeLanceur
+     internal_properties : CAAAAAgAAADICtFfeWMxVP8XItHY7udTId2CulWNS5Eqh2hu9KP5+ePRGeoBvsk5K7ZVO6PPYaanepuiJ1fO4S9KGW3WzLjnTVioIqtyDcbo8GSkyTJC5nlegwfeYDU7zpJZJcWh6aD8Aa3DqJvUXGxVgWEYDm/4qRe1Y3DexeiV7rSPfGCSiK1Hlwmc62mNwFQgrv0tq2OyuMQ7ei6IqUJwbBANFqPXRGQAbY3zaLJiRkrepl6tmnyTkUnl3BSbSd5iHaG0QmcYH3Nx14w=
+     procedure_id : 1894766995565544592
+     type_code : 12
+     group : 3
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] SITE_bCreeLanceur ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen :   // 	Aucune
+      //
+      Procédure SITE_bCreeLanceur()
+      
+      sNomAdmin est une chaine ansi
+      sNomRepAWP est une chaine
+      sNomAWP est une chaine
+      sSourceLanceur est une chaine ansi
+      
+      
+      <SI CibleExécution=ApplicationWindows>
+      	// CCC
+      	// Le chemin de l'admin
+      	sNomAdmin = UnicodeVersAnsi(ChaîneConstruit(NOMGEN_WDADMIN,:m_pclUtil:sVersionMoteur_SansPoint()))
+      	sNomRepAWP = ChaîneConstruit(NOM_REP_AWP_GEN,:m_pclUtil:sVersionMoteur_SansPoint())
+      	sNomAWP = ChaîneConstruit(NOMGEN_AWP,:m_pclUtil:sVersionMoteur_SansPoint())
+      	
+      	sCleRegistreAdmin est une chaine = CLE_APPPATH+"\"+ChaîneConstruit(NOMGEN_WDADMIN,remplace(:m_pclUtil:sVersionMoteur(),".",""))
+      	SI PAS RegistreExiste(sCleRegistreAdmin) _ET_ PAS RegistreCréeClé(sCleRegistreAdmin) ALORS
+      		IHM_Erreur(ChaîneConstruit(<§$000a§>,sCleRegistreAdmin))
+      		RENVOYER Faux
+      	FIN
+      	SI PAS RegistreEcrit(sCleRegistreAdmin,"",ComplèteRep(:m_pclUtil:m_sBinPath)+sNomAdmin) ALORS RENVOYER Faux
+      	                              
+      	// Source du batch de lancement du site web
+      	sSourceLanceur = [
+      	@echo off
+      	echo %1
+      	echo %2
+      	start %3 /ICONISE
+      	set /a count = 1
+      	:boucle
+      	set /a count = count + 1
+      	if %count%==3000 goto finboucle
+      	goto boucle
+      	:finboucle 
+      	start %4
+      	]
+      <FIN>
+      
+      
+      
+      
+      
+      sMessageAttente est une chaine = ChaîneConstruit(<§$000b§>,sGetNomSite())
+      sMessageAttente2 est une chaine = <§$000c§>
+      
+      
+      	sLigneConnect est une chaine  =ChaîneConstruit("http://%1/%2/%3",:m_sURLBase,sNomRepAWP,sNomAWP)
+      	sNomRépertoireWeb est une chaine = sGetNomrépertoireWEB(sGetNomSite())
+      //	SI pclServeur:m_sAdresseSitemap<>"" ALORS
+      //		sLigneConnect = pclServeur:m_sAdresseSitemap
+      //	SINON
+      //		sLigneConnect = pclServeur:m_sAdresse
+      //	FIN
+      //	SI PAS sLigneConnect[="http" ALORS
+      //		sLigneConnect = "http://"+sLigneConnect
+      //	FIN	
+      	SI m_clData:m_nObjetDep = CInstallWBData::OBJET_SITE_WEB ALORS
+      		//sam le 16032012 -> autant faire une URL courte !
+      		//sLigneConnect = sLigneConnect+"/CONNECT/"+sGetNomSite()			
+      		sLigneConnect  =ChaîneConstruit("http://%1/%2",:m_sURLBase,sGetNomSite())
+      		
+      		SELON m_clData:m_nTypeSite
+      			CAS CObjetProjet::SITE_AWP
+      				// Si le site a une page d'accueil
+      				SI m_clData:m_sPageAccueil<>"" ALORS
+      					
+      					sExt est une chaine=".awp"
+      					SI PAS fFichierExiste(ComplèteRep(ComplèteRep(m_sRepSite)+sNomRépertoireWeb)+m_clData:m_sPageAccueil+".awp") ALORS
+      						sExt=".htm"
+      					FIN
+      						
+      					
+      					sLigneConnect =ChaîneConstruit("http://%1",:m_sURLBase)
+      					sLigneConnect = sLigneConnect+["/"]+sNomRépertoireWeb+["/"]+m_clData:m_sPageAccueil+sExt
+      //				SINON
+      //					sLigneConnect = LOG_HTTP_WARNING+"Le site n'a pas de page d'accueil, il n'est pas possible de générer un lien de test automatiquement."
+      				FIN
+      				//sam le 16032012 -> autant faire une URL courte !
+      				//sLigneConnect = sLigneConnect+"/CONNECT/"+sGetNomSite()			
+      //				sLigneConnect =ChaîneConstruit("http://%1/%2",:m_sURLBase,sGetNomSite())
+      				
+      		FIN
+      	sinon si m_clData:m_nObjetDep = CInstallWBData::OBJET_WEBSERVICE_REST ALORS
+      		sLigneConnect = sLigneConnect+["/"]//+sNomRépertoireWeb+["/"]+NOM_REPERTOIRE_ALIAS_WEBSERVICE_+"/"+NOM_FICHIER_TEST_WEBSERVICE
+      	SINON SI m_clData.m_nObjetDep=CInstallWBData::OBJET_SOCKET ALORS
+      	    //rien à faire
+      	    renvoyer vrai
+      	SINON
+      		sLigneConnect = sLigneConnect+["/"]+sNomRépertoireWeb+["/"]+NOM_REPERTOIRE_ALIAS_WEBSERVICE_SOAP+"/"+NOM_FICHIER_TEST_WEBSERVICE
+      	FIN
+      	
+      sLigneConnectUTF8 est une chaine ansi=chaineversutf8(sLigneConnect)
+      sLigneConnectUTF8=URLEncode(sLigneConnectUTF8)
+      	
+      	
+      	
+      
+      // Construction du contenu du batch
+      sLanceur est une chaine ansi= ChaîneConstruit(sSourceLanceur,ChaîneVersUTF8(sMessageAttente),ChaîneVersUTF8(sMessageAttente2),...
+      sNomAdmin,...
+      sLigneConnectUTF8)
+      
+      // Sauvegarde du fichier dans le répertoire du site
+      // GP le 06/12/2012 : Utilise fSauveBuffer pour ne pas avoir le BOM dans le fichier
+      fSauveBuffer(:SITE_sCheminLanceur(), sLanceur)
+      //sam le 07/12/2012 : attention aux sites unicode
+      //il faut faire un .bat unicode
+      //fSauveTexte(:SITE_sCheminLanceur(), sLanceur)
+      
+      SI :m_bCreeRaccourci ALORS
+      	
+      	// Création d'un raccourci dans le menu démarrer
+      	CréeRaccourci(raccourciProgramme, ...
+      	ChaîneConstruit(<§$000d§>,sGetNomSite()),...
+      	""""+ComplèteRep(:m_sRepSite)+::NOM_LANCEUR+"""",<§$000e§>, sfaIconise, "" ,:m_pclUtil:m_sBinPath , completerep(:m_pclUtil:m_sBinPath)+sNomAdmin )
+      	
+      	// Création d'un raccourci sur le bureau
+      	CréeRaccourci(raccourciBureau, ...
+      	ChaîneConstruit(<§$000f§>,sGetNomSite()),...
+      	""""+ComplèteRep(:m_sRepSite)+::NOM_LANCEUR+"""", "", sfaIconise, "" ,:m_pclUtil:m_sBinPath , ComplèteRep(:m_pclUtil:m_sBinPath)+sNomAdmin )
+      	
+      FIN
+      
+      
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : SITE_bParamServeurWeb
+     internal_properties : CAAAAAgAAAC8ro1Uux/qnJRjtqzPqjUIqj5wIaMvJOIbYggeK3uCGC8GOiCj/FLkM4DDU28+0BuW/pIE8bbBPJ+lGhc2RAltpfThKPKYoHpekEPNsktxzLLIZEFEgS3E4xiQJEqSlTkhxCkp6fEXlydQyqd4tB5elY9Bw2peW4HMiS0sVO37h+d/03I2Zi7RZUMpo6LpZkqThLJ739ZnSzuEB2P1f+Hu1E9kfdrRq5KkCyB7eyRVImUE2I6xjnhGVbc5Hlc57Q3LBoyAtqUtkFFcRl7ht6uJXEJR060sVZQ=
+     procedure_id : 1894766999860905494
+     type_code : 12
+     group : 3
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] SITE_bParamServeurWeb (<bWarning>, <pclSrv> est CServeurWeb dynamique)
+      //
+      // Paramètres :
+      //	bWarning : <indiquez ici le rôle de bWarning>
+      //	pclSrv (CServeurWeb dynamique) : <indiquez ici le rôle de pclServeurWeb>
+      // Valeur de retour :
+      // 	booléen : <indiquez ici les valeurs possibles ainsi que leur interprétation>
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      //	pclServeurWebTransactionEcriture (IServeurWebTransactionEcriture dynamique) : <indiquez ici le rôle de pclServeurWebTransactionEcriture>
+      Procédure SITE_bParamServeurWeb (bWarning, pclSrv est un CServeurWeb dynamique)
+      
+      sAliasSiteUnicode est une chaine UNICODE=sGetAlias() //le nom de l'alias tel qu'il a été saisi dans l'assistant
+      sAliasSite est une chaine  = m_clData:m_sAliasSite //le nom du répertoire _web d'origine
+      sMessageAlias est une chaine
+      sCleMoteur est une chaine = CLE_WEBDEP_BASE+["\"]+:m_pclUtil:sVersionMoteur()
+      sCheminAWP est une chaine = ComplèteRep(ComplèteRep(:m_pclUtil:pGetConfigGlobale():sGetValeur(VALREG_BINPATH))+"AWP")+:m_pclUtil:pGetConfigGlobale():sGetValeur(VALREG_LANCEUR)
+      
+      
+      clDescSrv est un CServeurInst dynamique <- :m_clData:pGetProfil(1)
+      
+      si pclSrv<>null alors
+      	// Pour un site, on ajoute toujours l'alias, pour un webservice on le l'ajoute que s'il n'existe pas
+      	bRes est un booleen = vrai
+      	sSrvVirtuel est un chaine UNICODE = clDescSrv:m_sAdresse
+      	// On ne fait pas une seule grosse transaction : on sépare l'installation du serveur d'application (si applicable), de la lecture du répertoire virtuel racine et de la configuration du site
+      	pclServeurWebTransactionEcriture est un IServeurWebTransactionEcriture dynamique <- pclSrv:vpclAlloueTransactionEcriture(:m_pclUtil:pGetConfigGlobale(), Faux)
+      	
+      	SELON :m_clData:m_nObjetDep
+      		CAS CInstallWBData::OBJET_SITE_WEB
+      			//tabSite est un tableau de chaines UNICODE=[sGetNomSite()]
+      			tabSites est un tableau de CServeurWeb::STMappage
+      			tabSites.Ajoute()
+      			tabSites[1].m_sNom=sGetNomSite()
+      			//tabSites[1].m_pstREST
+      			tabExt est un tableau de  STExtensionWEB=tabGetExtensionsAWP()
+      			tabSites[1].m_stExtensionWEB=tabExt[1]
+      			
+      			bRes = pclSrv:bAjouteAlias(sAliasSiteUnicode,ComplèteRep(:m_sRepSite)+sAliasSite,sSrvVirtuel,pclServeurWebTransactionEcriture)
+      			//pas de mappage si site statique ou PHP
+      			si bRes _et_ m_clData.m_nTypeSite=CObjetProjet.SITE_DYNAMIQUE alors
+      				bRes=pclSrv:vbAjouteMappageScript(sSrvVirtuel,pclServeurWebTransactionEcriture,sCheminAWP,tabSites)
+      			fin
+      				
+      		CAS CInstallWBData::OBJET_WEBSERVICE_SOAP
+      			si pas pclSrv:vbExisteAlias(sAliasSiteUnicode,sSrvVirtuel,pclServeurWebTransactionEcriture:vpclGetServeurWebTransaction()) ALORS
+      				//sam/gp le 17012012 : inutile de faire la déclaration du mapping (pour l'url rewritting) dans le cas des webservices
+      				//sam/gp le 24042012 : ajout de l'alias sans l'extension manifest
+      				SI pclSrv:bAjouteAlias(sAliasSiteUnicode,ComplèteRep(:m_sRepSite)+sAliasSite,sSrvVirtuel,pclServeurWebTransactionEcriture) ALORS //_et_ pclSrv:bAjouteMappageScript((sCheminAWP),"",(sGetNomSite()))
+      					// Ajoute l'information pour laisser passer les erreurs HTTPs spécifiques sur le répertoire.
+      					pclSrv:vbAutoriseTransmissionErreurHTTP(sAliasSiteUnicode, sSrvVirtuel, pclServeurWebTransactionEcriture)
+      				SINON
+      					bRes = Faux
+      				FIN				
+      			FIN
+      			// Ajoute de l'alias awws
+      			SI bRes ALORS
+      				sAliasRepertoireAWWS est une chaine unicode = sAliasSiteUnicode+["/"]+NOM_REPERTOIRE_ALIAS_WEBSERVICE_SOAP
+      				SI pclSrv:bAjouteAlias(sAliasRepertoireAWWS,(ComplèteRep(:m_sRepSite)+sAliasSite),sSrvVirtuel,pclServeurWebTransactionEcriture) ALORS
+      					// Ajoute l'information pour laisser passer les erreurs HTTPs spécifiques sur le répertoire.
+      					pclSrv:vbAutoriseTransmissionErreurHTTP(sAliasRepertoireAWWS, sSrvVirtuel, pclServeurWebTransactionEcriture)
+      				SINON
+      					bRes = Faux
+      				FIN
+      			FIN
+      			
+      		CAS CInstallWBData::OBJET_WEBSERVICE_REST
+      			tabPointdEntree est un tableau de chaînes UNICODE 
+      			stInformationPourREST est un CServeurWeb.STInformationsPourREST
+      			stInformationPourREST.m_sNomWebservice=sGetNomSite() //nom public du webservice
+      			sListePointEntre est un chaine UNICODE
+      			sErreur est une chaine
+      			
+      			//m_clData:m_sNomSite (nom d'origine de la génération) plutôt que sGetNomSite(nom public éventuellement renommé)
+      			sCheminWDL est une chaine=ComplèteRep(:m_sRepSite)+m_clData.m_sNomSite+EXT_WDL
+      			SI PAS fFichierExiste(sCheminWDL) ALORS
+      				EcritLog("WDL non trouvée : "+sCheminWDL)
+      				sMessageAlias=<§$0034§>+rc+sCheminWDL
+      				bRes=faux
+      			FIN
+      			
+      			SI COL_ChargementDepuisWDL.bChargementDepuisUTF8(sCheminWDL,NOM_FICHIER_POINTSENTREE_REST,CWDFile.IdInconnu, sListePointEntre,sErreur) ALORS
+      				ChaîneVersTableau(sListePointEntre, tabPointdEntree,RC)
+      				si tabPointdEntree..Occurrence>0 ALORS
+      					bRes = pclSrv.vbAjouteMappageScript(sSrvVirtuel,pclServeurWebTransactionEcriture,sCheminAWP, CServeurWeb::s_tabGetMappages(sListePointEntre,stGetExtensionREST(),stInformationPourREST))
+      					EcritLog("Résultat de bAjouteMappageScript : "+bRes)
+      					SI bRes ALORS
+      						// Ajoute l'information pour laisser passer les erreurs HTTPs spécifiques sur le répertoire.
+      						// On l'ajoute sur la racine (!!!)
+      						pclSrv:vbAutoriseTransmissionErreurHTTP("", sSrvVirtuel, pclServeurWebTransactionEcriture)
+      					SINON
+      						sMessageAlias=<§$0039§>
+      					FIN
+      				sinon				
+      					EcritLog(<§$0038§>)
+      					bRes=Faux
+      					sMessageAlias=<§$0036§>
+      				FIN
+      			SINON
+      				bRes=Faux
+      				EcritLog(<§$0037§>+sErreur)
+      				sMessageAlias=<§$0035§>
+      			FIN
+      
+      		cas CInstallWBData::OBJET_SOCKET
+      			clConfig est un objet CWebDevConfigApplication(sGetNomSite(),m_clData.eGetTypeApplication(),sSrvVirtuel,Null)
+      			pclSrv:vbAjouteServeurWebSockets(clConfig.stGetNomApplication(), sSrvVirtuel, pclServeurWebTransactionEcriture);
+      	fin			
+      	SI PAS bRes ALORS
+      		si  :m_clData:m_nObjetDep<>CInstallWBData::OBJET_WEBSERVICE_REST ALORS
+      			SI sMessageAlias~="" ALORS
+      				sMessageAlias = ChaîneConstruit(<§$0010§>,sAliasSite)
+      			FIN
+      		FIN
+      		bWarning = Vrai
+      	FIN
+      	
+      	// La destruction de pclServeurWebTransactionEcriture déclenche automatiquement la sauvegarde des modifications et le rechargement de la configuration (uniquement en l’absence d'erreurs)
+      FIN
+      
+      SI :m_pclUtil:m_nServeurWeb=SRV_AUTRE _OU_ sMessageAlias<>"" ALORS
+      	SI  :m_clData:m_nObjetDep<>CInstallWBData::OBJET_WEBSERVICE_REST ALORS
+      		sMessageAlias += RC+ChaîneConstruit(<§$0011§>,sAliasSite,ComplèteRep(:m_sRepSite)+sAliasSite,sGetNomSite(),sCheminAWP)
+      	fin
+      	si sMessageAlias<>"" ALORS
+      		IHM_Info(sMessageAlias)
+      	FIN
+      FIN
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : SITE_bInstalleRegistre
+     internal_properties : CAAAAAgAAACbw8m4tR5TQFO+X0GhCy40MDW9u1ThEWGqqueh0KDicwLnJhuIaJnI7vCL4LSkImVKIRFeVR7Uli6rD9bUKFbB1xSCzhBjBVjkij6J17wTHVj9BpXo3qit5qwTI0bp1rDhE737a+KIo+w8RMGYZ2AOnmw9YjtHvfLyZhW/FBqz5i1xvDyMPZ9FPkfpb07yDpSInpLcnGC/TkLR0v4lDNQtxlqgKzOro1/nuexkgA==
+     procedure_id : 1894766995565807001
+     type_code : 12
+     group : 3
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] SITE_bInstalleRegistre ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen :     // 	Aucune
+      //
+      Procédure SITE_bInstalleRegistre(clTransactionEcriture est un CWebDevConfigTransactionEcriture)
+      
+      IHM_Jauge_Detail(<§$0012§>)
+      
+      sUtilisateur est une chaine unicode 
+      sNomAppliCle est une chaine unicode = sGetNomSite()
+      
+      eType est un CWebDevConfigApplication::ETypeApplication = m_clData:eGetTypeApplication()
+      
+      SI PAS :m_bModeInstallWebserviceLocal ALORS 
+      	sClient est une chaine unicode=:m_sCompteWebDev
+      	sUtilisateur=ManipComptesWebDev.sLoginIUSRClient(sClient)
+      	sSiteU est une chaine unicode=sGetNomSite()
+      	
+      	sNomAppliCle = ManipComptesWebDev.sGetNomApplicationCle(sClient, sSiteU, eType)	
+      FIN
+      
+      //sHote est une chaine ="*"
+      pclRegAppli est un CWebDevConfigApplication dynamique= :m_pclUtil:pAlloueConfigApplication(sGetNomSite(),eType,m_pclUtil.m_sServeurVirtuel)
+      //sAppCle est une chaine=pclRegAppli.sGetCle()
+      
+      // Création de la clé du moteur
+      clCleAppli est un CWebDevConfigClé=pclRegAppli.clGetClé()
+      sCleAppli est une chaine = clCleAppli.sGetCheminClé(pclRegAppli)
+      SI PAS RegistreExiste(sCleAppli) _ET_ PAS RegistreCréeClé(sCleAppli) ALORS
+      	IHM_Erreur(ChaîneConstruit(<§$0048§>,sCleAppli))
+      	RENVOYER Faux
+      FIN
+      
+      //attention ci dessous, on utilise le nom d'origine du projet = nom du WDP
+      //<> sGetNomSite() qui renvoie le nom de déploiement saisi dans l'assistant 
+      //(par défaut , ils sont égaux)
+      SI PAS pclRegAppli.bSetValeur(VALREG_PROJECTNAME,:m_clData.m_sNomSite,clTransactionEcriture) ALORS RENVOYER Faux
+      SI PAS pclRegAppli.bSetValeur(VALREG_PROJECTPATH,:m_sRepSite,clTransactionEcriture) ALORS RENVOYER Faux
+      SI PAS pclRegAppli.bSetValeur(VALREG_HFPATH,:m_sRepData,clTransactionEcriture) ALORS RENVOYER Faux
+      SI PAS pclRegAppli.bSetValeur(VALREG_LOCKFORUPDATE,PAS :m_clData:m_bActiverSite,clTransactionEcriture) ALORS RENVOYER Faux
+      SI PAS pclRegAppli.bSetValeur(VALREG_LOGDIR,:m_sRepStat,clTransactionEcriture) ALORS RENVOYER Faux
+      SI CWebDevConfigApplication.TypeApplication_WebserviceREST <> eType _ET_ CWebDevConfigApplication.TypeApplication_WebSocket <> eType ALORS
+      	SI PAS pclRegAppli.bSetValeur(VALREG_VIMAGEDIR,"/"+sGetAlias(),clTransactionEcriture) ALORS RENVOYER Faux
+      	SI PAS pclRegAppli.bSetValeur(VALREG_URLBASE,:m_sURLBase,clTransactionEcriture) ALORS RENVOYER Faux
+      FIN
+      
+      SI CWebDevConfigApplication.TypeApplication_WebSocket <> eType ALORS
+      	//incrémente la version disponible sur le serveur
+      	SI m_clData.m_bVersionParalleleSansDeconnexion _ET_ m_clData.m_sVersionParalleleADeployer<>"" ALORS
+      		SI PAS pclRegAppli.bSetValeur(VALREG_PROJECT_VERSIONPREFIXE,CONSTANTE_PREFIXEVERSION,clTransactionEcriture) ALORS
+      			renvoyer faux
+      		FIN
+      		sListeVersion est une chaine=pclRegAppli.sGetValeur(VALREG_PROJECT_VERSIONLISTE,"")
+      		sListeVersion=m_clData.m_sVersionParalleleADeployer+SEPARATEUR_VALREG_PROJETVERSIONLISTE+sListeVersion
+      		SI PAS pclRegAppli.bSetValeur(VALREG_PROJECT_VERSIONLISTE,sListeVersion,clTransactionEcriture) ALORS
+      			renvoyer faux
+      		FIN
+      
+      		SI PAS pclRegAppli.bSetValeur(VALREG_PROJECT_VERSION_NBMAX,m_clData.pGetProfil(1).m_nNbVersionAConserver,clTransactionEcriture) ALORS
+      			RENVOYER Faux
+      		FIN
+      	sinon
+      		//ce n'est pas une version sans déconnexion
+      		//on supprime les clés du mode sans déconnexion si elles existes
+      		si pclRegAppli.bExisteValeur(VALREG_PROJECT_VERSIONPREFIXE)
+      			pclRegAppli.bSupprimeValeur(VALREG_PROJECT_VERSIONPREFIXE,clTransactionEcriture)
+      		fin
+      	FIN
+      FIN
+      
+      // Ajoute les clés pour le groupware utilisateur
+      SI CWebDevConfigApplication.TypeApplication_Site = eType ALORS
+      	si :m_clData:m_bUtiliseGPU alors
+      		SI PAS pclRegAppli.bSetValeur(VALREG_GPUPATH,:m_sRepGPU,clTransactionEcriture) ALORS RENVOYER Faux
+      		SI PAS pclRegAppli.bSetValeur(VALREG_GPUPATH_R,:m_sRepDroitGPU,clTransactionEcriture) ALORS RENVOYER Faux
+      		SI PAS pclRegAppli.bSetValeur(VALREG_GPUHISTOCNX,""+:m_bHistoConnexion,clTransactionEcriture) ALORS RENVOYER Faux
+      	sinon
+      		SI PAS pclRegAppli.bSetValeur(VALREG_GPUPATH,"",clTransactionEcriture) ALORS RENVOYER Faux
+      		SI PAS pclRegAppli.bSetValeur(VALREG_GPUPATH_R,"",clTransactionEcriture) ALORS RENVOYER Faux
+      		SI PAS pclRegAppli.bSetValeur(VALREG_GPUHISTOCNX,"",clTransactionEcriture) ALORS RENVOYER Faux
+      	fin
+      
+      	// S'il s'agit d'un site SaaS, on doit fixer le nom du webservice associé
+      	SI :m_clData:m_nModeSaaS<>CObjetProjet::SAAS_DESACTIVE _et_ :m_bSaasWebservicePerso ALORS
+      		si :m_sSaasAdminWebservice<>"" alors
+      			// On l'écrit dans tous les cas
+      			SI PAS pclRegAppli.bSetValeur(VALREG_SAAS_WEBSERVICE_URL,:m_sSaasURLWebservice,clTransactionEcriture) ALORS RENVOYER Faux
+      		SINON
+      			// Sinon, on recopie celui du serveur (si la valeur n'existe pas encore)
+      			si pclRegAppli.sGetValeur(VALREG_SAAS_WEBSERVICE_URL)<>"" alors
+      				SI PAS pclRegAppli.bSetValeur(VALREG_SAAS_WEBSERVICE_URL,:m_pclUtil:pGetConfigGlobale():sGetValeur(VALREG_SAAS_WEBSERVICE_URL),clTransactionEcriture) ALORS RENVOYER Faux
+      			FIN
+      		FIN
+      	FIN
+      	
+      	//type de site (pour gestion du mappage)
+      	pclRegAppli.bSetValeur(VALREG_TYPESITE,(m_clData.m_nTypeSite),clTransactionEcriture)//si çà echoue, on laisse quand même l'install aller au bout, ce n'est pas critique
+      FIN
+      
+      //ajout du nom de l'utilisateur, pour qu'il soit transmis dans les log
+      //-->permet le filtrage des log par utilisateur
+      pclRegAppli.bSetValeur(VALREG_DEPUSER,(:m_sCompteWebDev),clTransactionEcriture)//si çà echoue, on laisse quand même l'install aller au bout, ce n'est pas critique
+      
+      IHM_Jauge_Detail(<§$001c§>)
+      
+      //il faut fixer les droits sur les clés
+      //on le fait à la fin pour être sûr que les clés sont créées
+      //sTemp est une chaine
+      //Sérialise(objet,sTemp,psdXML)
+      //trace(sTemp)
+      //Trace("Client="+sClient)
+      //Trace("Utilisateur="+sUtilisateur)
+      ////Trace("Site="+sSiteU)
+      //Trace("Nom de la clé="+sNomAppliCle)
+      
+      si pas CWebDevConfigApplication.s_bAjouteDroitLectureCléApplication(sNomAppliCle,EnumérationDepuisValeur(CWebDevConfigApplication::ETypeApplication,:m_clData:m_nObjetDep,CWebDevConfigApplication::TypeApplication_Site),sUtilisateur,pclRegAppli) ALORS
+      //	trace("Echec de la configuration des droits")
+      FIN
+      
+      RENVOYER Vrai
+     type : 458752
+   -
+     name : pclGetDescLangueParRang
+     procedure_id : 1931108779139930429
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	nRang (entier) : <indiquez ici le rôle de nRang>
+      // Valeur de retour :
+      // 	Type indéterminé :   // 	Aucune
+      //
+      Procédure pclGetDescLangueParRang( nRang est un entier )
+      
+      renvoyer :m_clData:pclGetLangueParRang(nRang)
+      
+     type : 458752
+   -
+     name : _bInstalleFichierParamSite
+     internal_properties : CAAAAAgAAAB5hpTnwtTuTRbvItdNs20XGYHfzA3+Tx9jKqqysz4rUJ7jn6OxZGt9ibsrho6KrYRwNKdn6q0uPi0DCYYxlC3C6nu0Zp9NDBJlxFYEb+rALIByovenKkCDEYK5/QG1WemkdeT1fb+y6SaZ09KRmTFrRTynKkZ8qGGFOccQcXlQZ1XvXqpMWZXblN1oiFm97nQvFijIwhBX7YRZch24P5tb+AY7tJk3y9vcwfcsAgbUZzepW92c5H9XovYdVe21QmEsqGXpKP96P1hbcS5a
+     procedure_id : 1972305547285180829
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      //
+      Procédure protegee _bInstalleFichierParamSite()
+      
+      sNomValeur est une chaine
+      SELON :m_clData:m_nObjetDep
+      cas CInstallWBData::OBJET_SITE_WEB
+      	sNomValeur = "SITED"
+      CAS CInstallWBData::OBJET_WEBSERVICE_SOAP
+      	sNomValeur = "WEBSERVICE"
+      CAS CInstallWBData.OBJET_WEBSERVICE_REST
+      	// Pas de fichier de .wdconfig.awp pour les webservices REST, on sort sans annuler le deploiement
+      	RENVOYER Vrai
+      cas CInstallWBData.OBJET_SOCKET
+      	// Pas de fichier de .wdconfig.awp pour les serveurs de WebSockets, on sort sans annuler le deploiement
+      	RENVOYER Vrai
+      FIN
+      
+      IHM_Jauge_Detail("Création des fichiers .WDConfig.awp")
+      
+      // Il faut créer un fichier de config dans chaque sous-répertoire de _WEB qui contient au moins un fichier .awp ou .awws
+      //attention ->sGetAlias donne l'alias renommé, m_clData.m_sAliasSite donne l'alias d'origine
+      //ici, on recherche sur le disque, qui a l'arborescence de la génération d'origine
+      sRepWebSite est une chaîne = sCompleteRepertoireAppliAvecVersion(:m_sRepSite)+["\"]+:m_clData.m_sAliasSite
+      sListeFic est une chaine = fListeFichier(sRepWebSite+["\"]+"*.awp")+ [rc]+fListeFichier(sRepWebSite+["\"]+"*.awws")
+      
+      // Tableau des répertoires dont l'association globale est correcte (évite de tester pour chaque awp du répertoire)
+      tabRepGlobalOK est un tableau associatif (*, "faux") de booléens
+      
+      sNomSite est une chaine = sGetNomSite()
+      
+      // Pour chaque fichier awp
+      POUR TOUTE CHAINE sFicAwp DE sListeFic SEPAREE PAR rc
+      	sRep est une chaine = fExtraitChemin(sFicAwp,fDisque+fRépertoire)
+      	// Si le répertoire est déclaré globale OK, on le saute
+      	si pas tabRepGlobalOK[sRep] alors
+      		sFicConfig est une chaine = sRep+["\"]+NOM_FICHIER_CONFIGMULTISITE
+      		// Si le fichier n'existe pas
+      		si pas fFichierExiste(sFicConfig) ALORS
+      			// On crée le fichier et on marque le répertoire globalement OK
+      			fSauveTexte(sFicConfig,sNomValeur+" * "+sNomSite)
+      			tabRepGlobalOK[sRep] = vrai
+      		sinon
+      			// Charge le fichier
+      			sContenuFicConfig est une chaine = fChargeTexte(sFicConfig)
+      			// Si le fichier est déjà globalement OK
+      			si position(sContenuFicConfig,sNomValeur+" * "+sNomSite)>0 ALORS
+      				// Marque le répertoire comme globalement OK
+      				tabRepGlobalOK[sRep] = vrai
+      			sinon
+      				// Ecrase la ligne globale du fichier (TB 70396) sinon pose pb à l'URL rewriting
+      				sNouveauContenu est une chaine
+      				POUR TOUTE CHAINE sLigne DE sContenuFicConfig SEPAREE PAR rc
+      					SI sLigne[=sNomValeur+" *" ALORS
+      						sNouveauContenu += [RC]+sNomValeur+" * "+sGetNomSite()
+      					SINON
+      						sNouveauContenu += [RC]+sLigne
+      					FIN
+      				FIN
+      				fSauveTexte(sFicConfig,sNouveauContenu)
+      				tabRepGlobalOK[sRep] = Vrai
+      
+      //				// Si la référence au fichier traité n'existe pas
+      //				sLigneFicEnCours est une chaine = sNomValeur+" "+fExtraitChemin(sFicAwp,fFichier+fExtension)+" "+sNomSite
+      //				si position(sContenuFicConfig,sNomValeur+" "+fExtraitChemin(sFicAwp,fFichier+fExtension))=0 ALORS
+      //					// On l'ajoute
+      //					sContenuFicConfig+= [rc]+sLigneFicEnCours
+      //					fSauveTexte(sFicConfig,sContenuFicConfig)
+      //				sinon
+      //					// Si la référence n'est pas bonne, on génère un warning
+      //					si Position(sContenuFicConfig,sLigneFicEnCours)=0 ALORS
+      //						IHM_ErreurConstruit(<§$0015§>,fExtraitChemin(sFicAwp,fFichier+fExtension),sFicConfig)
+      //					FIN
+      //				FIN
+      			FIN
+      		FIN
+      	FIN
+      FIN
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : SITE_bVerifCompatibiliteVMMoteur
+     internal_properties : CAAAAAgAAAAyv3lCfsABe8l96KfwT61VFGtpGQE5agImKxOQMi/Yu4XGYj4IUUZGpHcmS8vPAT5mtfUIsG9+w2/yhgnlVvuQ4UaQjgWvd6e+9RFoZExnyFSBgGCXu+zLRko47jDS8U22PG5YMt4XhL3IA1Nk0qaW4SR/iDbGdxFwuvm1HVPRlubnNH7DjZesIq9ZZpUgJqQRqluNmidOKPqrg4romc0v38fvdTP0akMgPnqe1t5KMkVJsM+7XmCSEng3pPUtnI/zyn/akVE+l0mjI2bpiUJLYqXneaMEzMD5qp3VSY1JxxY=
+     procedure_id : 2237231353497539568
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] SITE_bVerifCompatibiliteVMMoteur ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE SITE_bVerifCompatibiliteVMMoteur()
+      // Vérification de la version du moteur de déploiement par rapport à celle qui a servi à créer le site
+      IHM_Jauge_Detail(<§$001e§>)
+      archive est une zipArchive
+      bArchive est un booléen=faux
+      
+      // On s'assure de la présence du zip
+      sFicZip est une chaine = :m_pclUtil:sLocaliseFichier(completerep(LigneCommande("REP"))+:m_clData:m_sNomPackage)
+      trace("fichier archive utilisé pour l'installation :",sFicZip)
+      SI sFicZip="" ALORS RENVOYER Faux
+      
+      nRes est un entier = zipouvre(archive,sFicZip,zipLecture)
+      si nRes<>0 ALORS
+      	trace("Erreur à l'ouverture de l'archive : code d'erreur ="+nRes)
+      	renvoyer faux
+      FIN
+      bArchive=vrai
+      
+      IVW_TEST_VERSION_WDL est un entier = 5005
+      sCheminVm est une chaine UNICODE=ComplèteRep(:m_pclUtil:m_sBinPath)+ChaîneConstruit(NOMGEN_WDVM,Remplace(:m_pclUtil:sVersionMoteur(),".",""))
+      SI PAS fFichierExiste(sCheminVm) ALORS
+      	trace("Déploiement sur le poste de développement , le test est ignoré.")
+      	renvoyer vrai
+      FIN
+      
+      
+      // --- On extrait la WDL dans un répertoire temporaire et on la décrypte
+      nRangWDL est un entier = zipChercheFichier(archive,EXT_WDL,faux)		// On cherche la WDL
+      SI nRangWDL=-1 ALORS
+      	Trace(<§$001f§>)
+      	RENVOYER Vrai // Il n'y a pas de WDL dans l'installation
+      FIN
+      // Calcule le répertoire de base de la WDL (généralement <site>)
+      sFicWDL est une chaine = zipextraitchemin(archive,nRangWDL,ziprepertoire+zipfichier+zipextension)
+      sBase est une chaine = ExtraitChaîne(sFicWDL,1,">")
+      SI sBase<>"" ALORS sBase+=">"
+      
+      // Extrait la WDL en ignorant le répertoire de base
+      sRepTravail est une chaine =frepexe()
+      nRes  = zipExtraitFichier(archive,nRangWDL,sRepTravail+tab+sBase)
+      SI nRes<>0 ALORS
+      	Trace(<§$0020§>+nRes)
+      	Trace(<§$0021§>)
+      	RENVOYER Vrai
+      FIN
+      // On calcule le chemin final et on décrypte la WDL
+      sCheminWDL est une chaine UNICODE= sRepTravail+sFicWDL[[taille(sBase)+1 à]]
+      // --- On fait la vérif
+      dwRes est un entier = AppelDLL32(sCheminVm,"InfoVersionWeb",IVW_TEST_VERSION_WDL,sCheminWDL,0,0)
+      Trace(<§$0023§>+dwRes)
+      
+      // --- Résultat de la vérif
+      SELON dwRes
+      	CAS 0
+      		// erreur d'accès au fichier de la WDL
+      		// #define TVW_ERREUR								0
+      		Trace(<§$0025§>)
+      		Trace(<§$0026§>)
+      		Trace(<§$0027§>)
+      		trace(ErreurInfo())
+      		RENVOYER Vrai
+      	CAS 1
+      		// la WDL est entièrement compatible avec le déploiement
+      		// #define TVW_OK									1
+      		RENVOYER Vrai
+      	CAS 2
+      		// la WDL est plus récente que le déploiement, ce n'est pas très bon : il y a un risque d'incompatibilité descendante -> on a déjà prévenu l'utilisateur
+      		// #define TVW_DEPLOIEMENT_PLUS_ANCIEN				2
+      		trace(<§$0028§>)
+      		trace(<§$0029§>)
+      		trace(<§$002a§>)
+      		trace(<§$002b§>)
+      		RENVOYER Vrai
+      	CAS 10
+      		// la WDL est trop ancienne : il faut refuser de l'utiliser (format plus géré pour raison commerciale ou technique)
+      		// #define	TVW_WDL_TROP_ANCIENNE					10
+      		Trace(<§$002c§>)
+      		Trace(<§$002d§>)
+      		Trace(<§$002e§>)
+      		RENVOYER Faux
+      	CAS 11
+      		// si la WDL est trop récente, il faut refuser de l'utiliser (risque d'incompatibilité descendante)"
+      		// #define TVW_WDL_TROP_RECENTE						11	
+      		Trace(<§$002f§>)
+      		Trace(<§$0030§>)
+      		RENVOYER Faux
+      FIN
+      //autres cas : erreur inconnu
+      Trace(<§$0031§>)
+      Trace(<§$0032§>)
+      RENVOYER faux
+      
+      fin:
+      si bArchive alors
+      	nRes=zipFerme(archive)
+      	dbgAssertion(nRes=0,"Erreur en fermeture de l'archive")
+      fin
+     type : 458752
+   -
+     name : sGetAlias
+     internal_properties : CAAAAAgAAABaGvymUKTtKMfGe2YuU4Sbj/gdsfDBPC5lGzeraXv+wzuo8P2B+ddXUjKTSbH+d0gT6JN7r++TEhEGRK8ZmoEFZlEUoWzQsc7Pp0SaP4rfl3w7Xgc35zsJ6fOxEM7p/IM43/2BiZk/Hscjyw==
+     procedure_id : 2242862936007146953
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] sGetAlias ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne UNICODE : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE sGetAlias()
+      
+      //qw227012 ->les espaces dans les noms d'alias fonctionnement mal, on les élimine
+      renvoyer sGetNomrépertoireWEB(sGetNomSite())
+     type : 458752
+   -
+     name : sCompleteRepertoireAppliAvecVersion
+     procedure_id : 2021958779367796717
+     type_code : 12
+     code : |1-
+      PROCEDURE  sCompleteRepertoireAppliAvecVersion(local sRepApp est une chaine,sVersion est une chaine="")
+      
+      SI m_clData.m_bVersionParalleleSansDeconnexion ALORS
+      	si sVersion=".." ALORS//pour avoir le répertoire commun à toute les versions
+      		renvoyer sRepApp
+      	FIN
+      	SI sVersion="" ALORS
+      		sVersion=m_clData.m_sVersionParalleleADeployer
+      	FIN
+      	//	sPrefixeVersion est une chaine=clConfig:sGetValeur(VALREG_PROJECT_VERSIONMULTIPLE)
+      	si sVersion<>"" alors
+      		sRepApp=completerep(ComplèteRep(sRepApp)+ CONSTANTE_PREFIXEVERSION +sVersion)
+      	fin
+      FIN
+      renvoyer sRepApp
+     type : 458752
+   -
+     name : SITE_bDeconnecte
+     internal_properties : CAAAAAgAAADV/BTnkR9QrWt04V+4JLJV6tQ2vE8XIF0l4jSaFmlfeVhlPRUMu5EfyiG6e7VkGQSLT+n3rCV6nzB5zcYfR3fUNZmNFVSjXQPJMp7jnSuS2fMoWaNde13ktT6LpYMb6iyRPSqoimvnmsoMTEeai4nNqOfto4XIzUHUXUd+WU9a2Q==
+     procedure_id : 2279933211597289608
+     type_code : 12
+     code : |1+
+      procédure SITE_bDeconnecte(clTransactionEcriture est un CWebDevConfigTransactionEcriture):booléen
+      
+      bAncienneValeur est un booléen=faux
+      
+      eType est un CWebDevConfigApplication::ETypeApplication = m_clData:eGetTypeApplication()
+      
+      sCommandeType est une chaine=""
+      SELON eType
+      //	CAS CWebDevConfigApplication.TypeApplication_Site:
+      
+      	CAS CWebDevConfigApplication.TypeApplication_WebserviceSOAP
+      		sCommandeType=" /WEBSERVICE"
+      		
+      	CAS CWebDevConfigApplication.TypeApplication_WebserviceREST
+      		sCommandeType=" /WEBSERVICE_R"
+      		
+      	CAS CWebDevConfigApplication.TypeApplication_WebSocket:
+      		sCommandeType=" /WEBSOCKET"
+      FIN
+      
+      
+      pclRegAppli est un CWebDevConfigApplication dynamique= :m_pclUtil:pAlloueConfigApplication(sGetNomSite(),eType,m_pclUtil.m_sServeurVirtuel)
+      SI pclRegAppli<>Null ALORS
+      	bAncienneValeur= pclRegAppli.sGetValeur(VALREG_LOCKFORUPDATE,"0")
+      
+      	pclRegAppli.bSetValeur(VALREG_LOCKFORUPDATE,"1",clTransactionEcriture)
+      	
+      	
+      	//deconnecte
+      	// GP 24/01/2018 : QW295277 : Tente de lancer WDxxxAdmin.exe. Normalement cela ne pose pas de problèmes :
+      	// - Si WDxxxAdmin.exe est déjà lancé, il donne la main au précédent WDxxxAdmin.exe.
+      	// - WBSetup est lancé avec UAC, donc l'UAC n'est pas réaffichée au lancement de WDxxxAdmin.exe.
+      	// N'utilise pas sGetLigneCommandeAdmin/bLanceCommandeAdmin car cela lance WDAdminLow.
+      	sCheminCompletWDxxxAdmin est une chaine = ConstantesWebDev.gpclConfigGlobale.sGetValeur(VALREG_BINPATH) + [fSep] + NOM_WDADMIN
+      	SI fFichierExiste(sCheminCompletWDxxxAdmin) ALORS
+      		sLigneCommandeWDxxxAdmin est une chaine = """" + sCheminCompletWDxxxAdmin + """ /DISCONNECT /APP=""" + sGetNomSite() +""""+ sCommandeType
+      		LanceAppli(sLigneCommandeWDxxxAdmin, exeInactif, exeBloquant)
+      	FIN
+      	
+      	
+      FIN
+      
+      renvoyer bAncienneValeur
+     type : 458752
+   -
+     name : SITE_RelanceMoteur
+     procedure_id : 2279933619680029850
+     type_code : 12
+     code : |1+
+      procédure SITE_RelanceMoteur(bAncienneValeur est un booléen, clTransactionEcriture est un CWebDevConfigTransactionEcriture)
+      
+      eType est un CWebDevConfigApplication::ETypeApplication = m_clData:eGetTypeApplication()
+      
+      sCommandeType est une chaine=""
+      selon eType
+      //	CAS CWebDevConfigApplication.TypeApplication_Site:
+      		
+      	CAS CWebDevConfigApplication.TypeApplication_WebserviceSOAP
+      		sCommandeType=" /WEBSERVICE"
+      		
+      	CAS CWebDevConfigApplication.TypeApplication_WebserviceREST
+      		sCommandeType=" /WEBSERVICE_R"
+      		
+      	CAS CWebDevConfigApplication.TypeApplication_WebSocket:
+      		sCommandeType=" /WEBSOCKET"
+      FIN
+      
+      
+      pclRegAppli est un CWebDevConfigApplication dynamique= :m_pclUtil:pAlloueConfigApplication(sGetNomSite(),eType,m_pclUtil.m_sServeurVirtuel)
+      si pclRegAppli<>Null ALORS
+      	pclRegAppli.bSetValeur(VALREG_LOCKFORUPDATE,bAncienneValeur,clTransactionEcriture)	
+      FIN
+      
+      sCheminCompletWDxxxAdmin est une chaine = ConstantesWebDev.gpclConfigGlobale.sGetValeur(VALREG_BINPATH) + [fSep] + NOM_WDADMIN
+      SI fFichierExiste(sCheminCompletWDxxxAdmin) ALORS
+      	sLigneCommandeWDxxxAdmin est une chaine = """" + sCheminCompletWDxxxAdmin + """ /INSTALLATIONAPP /APP=""" + sGetNomSite() +"""" + sCommandeType
+      	LanceAppli(sLigneCommandeWDxxxAdmin, exeInactif, exeNonBloquant)
+      FIN
+      	
+      
+      
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+resources :
+ string_res :
+  identifier : 0x1766a2ed006bb31f
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+  strings :
+   -
+     text :
+      fr-FR : "Echec lors de la lecture du fichier %1\r\nL'installation est endommagée et ne peut pas continuer."
+      en-GB : "Failure reading the %1 file\r\nThe setup is damaged and it cannot be continued."
+      es-ES : "Error al leer el archivo %1\r\nLa instalación está dañada y no puede continuar."
+     index : 0
+   -
+     text :
+      fr-FR : Création des répertoires d'installation
+      en-GB : Creating the setup directories
+      es-ES : Creando los directorios de instalación
+     index : 1
+   -
+     text :
+      fr-FR : "Echec de la copie du fichier %1 vers %2.\r\nL'erreur retournée est : %3."
+      en-GB : "Failure copying the %1 file to %2.\r\nThe error returned is: %3."
+      es-ES : "Error al copiar el archivo %1 en %2.\r\nError devuelto: %3."
+     index : 2
+   -
+     text :
+      fr-FR : TEST
+      en-GB : TEST
+      es-ES : TEST
+     index : 3
+   -
+     text :
+      fr-FR : Modification automatique des fichiers de données.
+      en-GB : Automatic data file modification.
+      es-ES : Modificación automática de archivos de datos.
+     index : 4
+   -
+     text :
+      fr-FR : "Une erreur s'est produite pendant la modification automatique des fichiers de données :"
+      en-GB : "An error occurred during the automatic modification of the data files:"
+      es-ES : "Se produjo un error durante la modificación automática de los archivos de datos:"
+     index : 5
+   -
+     text :
+      fr-FR : Installation du site WEBDEV
+      en-GB : Installing the WEBDEV site
+      es-ES : Instalando el sitio WEBDEV
+     index : 6
+   -
+     text :
+      fr-FR : Cette opération peut prendre quelques instants.
+      en-GB : This operation may take a few minutes.
+      es-ES : Esta operación puede tardar algunos minutos.
+     index : 7
+   -
+     text :
+      fr-FR : Extraction des fichiers de l'archive d'installation
+      en-GB : Checking out the files from the setup archive
+      es-ES : Extrayendo archivos del archivo de instalación
+     index : 8
+   -
+     text :
+      fr-FR : "Une erreur s'est produite lors de l'accès à la base des comptes utilisateurs WEBDEV.\r\nVous pouvez poursuivre l'installation mais le site ne sera associé à aucun compte WEBDEV.\r\nL'erreur renvoyée est : %1"
+      en-GB : "An error occurred while accessing the database of WEBDEV user accounts.\r\nThe setup can be continued but the site will be associated with no WEBDEV account.\r\nThe error returned is: %1"
+      es-ES : "Se produjo un error al acceder a la base de datos de las cuentas de usuarios WEBDEV.\r\nPuede continuar con la instalación, pero el sitio no estará asociado a ninguna cuenta WEBDEV.\r\nError devuelto: %1"
+     index : 9
+   -
+     text :
+      fr-FR : Impossible de créer la clé de registre %1. L'installation ne peut pas se poursuivre.
+      en-GB : Unable to create the registry key (%1). The setup cannot be continued.
+      es-ES : No se ha podido crear la clave de registro (%1). No se puede continuar con la instalación.
+     index : 10
+   -
+     text :
+      fr-FR : Lancement du site %1
+      en-GB : Starting the %1 site
+      es-ES : Iniciando el sitio %1
+     index : 11
+   -
+     text :
+      fr-FR : Veuillez patienter...
+      en-GB : Please wait...
+      es-ES : Por favor espere...
+     index : 12
+   -
+     text :
+      fr-FR : Lancer le site WEBDEV %1
+      en-GB : Start the WEBDEV %1 site
+      es-ES : Iniciar el sitio WEBDEV %1
+     index : 13
+   -
+     text :
+      fr-FR : Sites WEBDEV
+      en-GB : WEBDEV sites
+      es-ES : Sitios WEBDEV
+     index : 14
+   -
+     text :
+      fr-FR : Lancer le site WEBDEV %1
+      en-GB : Start the WEBDEV %1 site
+      es-ES : Iniciar el sitio WEBDEV %1
+     index : 15
+   -
+     text :
+      fr-FR : Echec lors de l'ajout de l'alias %1 dans la configuration du serveur Web
+      en-GB : Failure adding the %1 alias to the configuration of the Web server
+      es-ES : Error al agregar el alias %1 a la configuración del servidor Web
+     index : 16
+   -
+     text :
+      fr-FR : "Vous devez configurer manuellement votre serveur web en ajoutant un répertoire virtuel contenant des scripts CGI.\r\nLe nom de ce répertoire virtuel doit être : %1\r\nL'emplacement du répertoire physique correspondant est : %2\r\nSi votre serveur web supporte le mappage de scripts et que vous utilisez l'URL rewriting, vous devez également configurer un mappage sur les fichiers %3 et leur assigner le gestionnaire %4."
+      en-GB : "You must configure your Web server manually by adding a virtual directory containing CGI scripts.\r\nThis virtual directory must be named: %1\r\nThe location of the corresponding physical directory is: %2\r\nIf your Web server supports the script mapping and if you are using the rewriting URL, you must also configure a mapping on the %3 files and assign them with the %4 manager."
+      es-ES : "Debe configurar su servidor Web manualmente y agregar un directorio virtual que contenga scripts CGI.\r\nEl nombre de este directorio virtual debe ser: %1\r\nLa ubicación del directorio físico correspondiente es: %2\r\nSi su servidor Web soporta la asignación de scripts y está utilizando la reescritura de URL, también debe configurar una asignación en los archivos %3 y asignarles el administrador %4."
+     index : 17
+   -
+     text :
+      fr-FR : Création des clés de registre
+      en-GB : Creating the registry keys
+      es-ES : Creando las claves de registro
+     index : 18
+   -
+     text :
+      fr-FR : Impossible de créer la clé de registre %1. L'installation ne peut pas se poursuivre.
+      en-GB : Unable to create the registry key (%1). The setup cannot be continued.
+      es-ES : No se ha podido crear la clave de registro (%1). No se puede continuar con la instalación.
+     index : 19
+   -
+     text :
+      fr-FR : Installation du webservice
+      en-GB : Installing the webservice
+      es-ES : Instalando el Webservice
+     index : 20
+   -
+     text :
+      fr-FR : Le fichier %1 est déjà associé à un autre site dans ce répertoire de déploiement. Il est recommandé de vérifier dans le fichier de configuration %2 que les associations entre les sites déployés et les fichiers awp sont correctes.
+      en-GB : The %1 file is already associated with another site in this deployment directory. We advise you to check in the configuration file %2 whether the associations between the deployed sites and the awp files are correct.
+      es-ES : El archivo %1 ya está asociado a otro sitio en este directorio de implementación. Le recomendamos verificar en el archivo de configuración %2 si las asociaciones entre los sitios implementados y los archivos awp son correctas.
+     index : 21
+   -
+     text :
+      fr-FR : "Le %1 n'a pas pu être associé au compte WEBDEV %2.\r\nVérifiez qu'un %1 de même nom n'est pas déjà associé à un autre compte utilisateur.\r\nL'erreur renvoyée est : %3"
+      en-GB : "The %1 has not been associated with the WEBDEV account %2.\r\nCheck whether a %1 with the same name is not already associated with another user account.\r\nThe following error is returned: %3"
+      es-ES : "El %1 no ha podido ser asociado a la cuenta de WEBDEV %2.\r\nVerifique si un %1 con el mismo nombre ya está asociado a otra cuenta de usuario.\r\nError devuelto: %3"
+     index : 22
+   -
+     text :
+      fr-FR : site
+      en-GB : site
+      es-ES : sitio
+     index : 23
+   -
+     text :
+      fr-FR : webservice
+      en-GB : webservice
+      es-ES : webservice
+     index : 24
+   -
+     text :
+      fr-FR : "Vous pouvez tester votre site à l'adresse suivante :"
+      en-GB : "The test of your site can be run at the following address:"
+      es-ES : "Puede probar el sitio en la siguiente dirección:"
+     index : 25
+   -
+     text :
+      fr-FR : "Vous pouvez tester le webservice à l'adresse suivante :"
+      en-GB : "The test of the webservice can be run at the following address:"
+      es-ES : "Puede probar el Webservice en la siguiente dirección:"
+     index : 26
+   -
+     text :
+      fr-FR : "Vous pouvez importer le WSDL du Webservice dans un projet à partir de l'adresse suivante :"
+      en-GB : "The WSDL of the Webservice can be imported into a project from the following address:"
+      es-ES : "Puede importar el WSDL del Webservice a un proyecto desde la siguiente dirección:"
+     index : 27
+   -
+     text :
+      fr-FR : Création des droits sur les clés de registre
+      en-GB : Creating rights on the registry keys
+      es-ES : Creación de derechos en las claves de registro
+     index : 28
+   -
+     text :
+      fr-FR : Le %1 a été généré avec une version %2 de WINDEV ou de WEBDEV. Aucun moteur de déploiement WEBDEV compatible avec cette version n'a été trouvé sur la machine.
+      en-GB : The %1 was generated with WINDEV or WEBDEV version %2. No WEBDEV deployment engine compatible with this version was found on the computer.
+      es-ES : El %1 se generó con una versión %2 de WINDEV o WEBDEV. No se encontró ningún motor de implementación WEBDEV compatible con esta versión en el equipo.
+     index : 29
+   -
+     text :
+      fr-FR : Vérification de la version du moteur
+      en-GB : Checking the engine version
+      es-ES : Verificación de la versión del motor
+     index : 30
+   -
+     text :
+      fr-FR : "Pas de WDL dans l'installation : moteur compatible"
+      en-GB : "No WDL found in setup program: the engine is compatible"
+      es-ES : "No hay ninguna WDL en la instalación: motor compatible"
+     index : 31
+   -
+     text :
+      fr-FR : "Erreur lors de l'extraction de la WDL pour le test du moteur - Err = "
+      en-GB : "Error checking out WDL for engine test - Err = "
+      es-ES : "Error al extraer la WDL para la prueba del motor - Err = "
+     index : 32
+   -
+     text :
+      fr-FR : Le test est ignoré
+      en-GB : The test is ignored
+      es-ES : Prueba ignorada
+     index : 33
+   -
+     text :
+      fr-FR : "Vérification de la version du moteur avec la VM : "
+      en-GB : "Checking the engine version with the VM: "
+      es-ES : "Verificando la versión del motor con la VM: "
+     index : 34
+   -
+     text :
+      fr-FR : "Valeur retournée par InfoVersionWeb = "
+      en-GB : "Value returned by WebVersionInfo = "
+      es-ES : "Valor devuelto por WebVersionInfo = "
+     index : 35
+   -
+     text :
+      fr-FR : "WDL testée : "
+      en-GB : "WDL checked: "
+      es-ES : "WDL probada: "
+     index : 36
+   -
+     text :
+      fr-FR : Une erreur de lecture a empeché de vérifier la version du moteur de déploiement.
+      en-GB : A read error has prevented from checking the version of the deployment engine.
+      es-ES : Un error de lectura ha impedido comprobar la versión del motor de implementación.
+     index : 37
+   -
+     text :
+      fr-FR : L'installation va tout de même se faire mais il vous appartient de vérifier que le moteur de déploiement
+      en-GB : The setup will be performed but you must check whether the deployment engine
+      es-ES : "La instalación se llevará a cabo, pero debe verificar si el motor de implementación"
+     index : 38
+   -
+     text :
+      fr-FR : est en phase avec la version de WEBDEV qui a servi à développer le site.
+      en-GB : is synchronized with the WebDev version that was used to develop the site
+      es-ES : está sincronizado con la versión de WEBDEV que se utilizó para desarrollar el sitio
+     index : 39
+   -
+     text :
+      fr-FR : Le moteur de déploiement est une version plus ancienne mais compatible avec la version de développement
+      en-GB : The version of the deployment engine is earlier than the development version
+      es-ES : La versión del motor de implementación es más antigua que la versión de desarrollo
+     index : 40
+   -
+     text :
+      fr-FR : de WEBDEV utilisée pour créer le site.
+      en-GB : of WEBDEV used to create the site (compatible versions).
+      es-ES : de WEBDEV que se utilizó para crear el sitio (versiones compatibles).
+     index : 41
+   -
+     text :
+      fr-FR : L'installation va se poursuivre mais il vous appartient de vérifier que vous n'utilisez pas de fonctionnalités
+      en-GB : The setup will continue but you must check whether all the features used
+      es-ES : "La instalación continuará, pero debe verificar si todas las funcionalidades utilizadas"
+     index : 42
+   -
+     text :
+      fr-FR : non supportées par le moteur de déploiment.
+      en-GB : are supported by the deployment engine.
+      es-ES : son soportadas por el motor de implementación.
+     index : 43
+   -
+     text :
+      fr-FR : Le site a été créé avec une version trop ancienne de WEBDEV.
+      en-GB : Site created with a too old version of WEBDEV.
+      es-ES : El sitio se creó con una versión demasiado antigua de WEBDEV.
+     index : 44
+   -
+     text :
+      fr-FR : "Le moteur de déploiement installé sur le serveur ne permet pas de l'utiliser. "
+      en-GB : "The deployment engine installed on the server does not allow you to use it. "
+      es-ES : "El motor de implementación instalado en el servidor no permite utilizarlo. "
+     index : 45
+   -
+     text :
+      fr-FR : Recréez votre WDL avec une version plus récente de WEBDEV.
+      en-GB : Recreate your WDL with a later version of WEBDEV.
+      es-ES : Vuelva a crear la WDL con una versión más reciente de WEBDEV.
+     index : 46
+   -
+     text :
+      fr-FR : Le site a été créé avec une version de WEBDEV plus récente que le moteur de déploiement installé sur le serveur
+      en-GB : The site was created with a WEBDEV version more recent than the deployment engine installed on server
+      es-ES : El sitio se creó con una versión de WEBDEV más reciente que el motor de implementación instalado en el servidor
+     index : 47
+   -
+     text :
+      fr-FR : Prenez contact avec votre administrateur réseau ou votre hébergeur afin de vérifier avec lui la version du moteur de déploiement disponible.
+      en-GB : Check the version of the deployment engine with your network manager or with your hosting company.
+      es-ES : Verifique la versión del motor de implementación con el administrador de red o la empresa de alojamiento.
+     index : 48
+   -
+     text :
+      fr-FR : Erreur inconnue lors de la vérification de la version du moteur de déploiement
+      en-GB : Unknown error checking the version of the deployment engine
+      es-ES : Error desconocido al verificar la versión del motor de implementación
+     index : 49
+   -
+     text :
+      fr-FR : Le moteur de déploiement est mal installé. Contactez l'administrateur du serveur.
+      en-GB : The deployment engine is not installed properly. Contact the server administrator.
+      es-ES : El motor de implementación no está instalado correctamente. Póngase en contacto con el administrador del servidor.
+     index : 50
+   -
+     text :
+      fr-FR : "La version du Serveur d'Application WEBDEV sur lequel vous tentez de déployer est  plus ancienne que votre environnement de développement.\r\nPour poursuivre le déploiement, vous devez mettre à jour votre Serveur d'Application WEBDEV\r\n\r\nVersion de WEBDEV/WINDEV utilisée pour le développement du webservice : %1\r\nVersion du Serveur d'Application WEBDEV : %2"
+      en-GB : "The version of WEBDEV Application Server on which you try to deploy is older than your development environment.\r\nTo continue the deployment, you must update your WEBDEV Application Server\r\n\r\nVersion of WEBDEV/WINDEV used to develop the webservice: %1\r\nVersion of WEBDEV Application Server: %2"
+      es-ES : "La versión del WEBDEV Application Server utilizada para implementar el Webservice es más antigua que el entorno de desarrollo.\r\nPara continuar la implementación, debe actualizar el WEBDEV Application Server\r\n\r\nVersión de WEBDEV/WINDEV utilizada para desarrollar el Webservice: %1\r\nVersión del WEBDEV Application Server: %2"
+     index : 51
+   -
+     text :
+      fr-FR : La bibliothèque du service REST n'a pas été trouvée.
+      en-GB : The library of REST service was not found.
+      es-ES : No se encontró la biblioteca del servicio REST.
+     index : 52
+   -
+     text :
+      fr-FR : "Echec de l'extraction de la description du service REST. Vérifiez que le service contient au moins un point d'entrée, et regénérez le service."
+      en-GB : Failure extracting the description of REST service. Check whether the service contains at least one entry point and regenerate the service.
+      es-ES : Error al extraer la descripción del servicio REST. Verifique si el servicio contiene al menos un punto de entrada y vuelva a generar el servicio.
+     index : 53
+   -
+     text :
+      fr-FR : Le service ne contient aucun point d'entrée. Aucun mappage n'a été configuré sur le serveur web.
+      en-GB : The service contains no entry point. No mapping was configured on the web server.
+      es-ES : El servicio no contiene ningún punto de entrada. No se configuró ningún mapeo en el servidor web.
+     index : 54
+   -
+     text :
+      fr-FR : "Echec de l'extraction de la description du webservice REST : "
+      en-GB : "Failure extracting the description of REST webservice: "
+      es-ES : "Error al extraer la descripción del Webservice REST: "
+     index : 55
+   -
+     text :
+      fr-FR : Le service ne contient aucun point d'entrée. Aucun mappage n'a été configuré sur le serveur web.
+      en-GB : The service contains no entry point. No mapping was configured on the web server.
+      es-ES : El servicio no contiene ningún punto de entrada. No se configuró ningún mapeo en el servidor web.
+     index : 56
+   -
+     text :
+      fr-FR : Echec du mappage des points d'entrée du service REST auprès du serveur WEB.
+      en-GB : Failure mapping entry points of REST service toward the WEB server.
+      es-ES : Error de mapeo de los puntos de entrada del servicio REST hacia el servidor WEB.
+     index : 57
+   -
+     text :
+      fr-FR : "Vous allez installer le webservice à partir d'un emplacement autre qu'un disque fixe.\r\nCe type d'installation est déconseillé et ne fonctionnera pas si les droits de l'invité internet sont réduits pour cet emplacement. Voulez-vous continuer ?"
+      en-GB : "The webservice will be installed from a location other than a fixed disk.\r\nThis type of setup is not recommended and it will not operate if the rights granted to the Internet guest are reduced for this location. Do you want to continue?"
+      es-ES : "El Webservice se instalará desde una ubicación distinta de un disco fijo.\r\nEste tipo de instalación no se recomienda y no funcionará si los derechos otorgados al invitado de Internet se reducen para esta ubicación. ¿Desea continuar?"
+     index : 58
+   -
+     text :
+      fr-FR : Erreur d'écriture dans la base de registre.
+      en-GB : Error writing into the registry.
+      es-ES : Error al escribir en el registro.
+     index : 59
+   -
+     text :
+      fr-FR : Contactez l'administrateur du serveur.
+      en-GB : Contact the server administrator.
+      es-ES : Póngase en contacto con el administrador del servidor.
+     index : 60
+   -
+     text :
+      fr-FR : "Impossible d'écrire une valeur dans la base de registre :"
+      en-GB : "Unable to write the value into the registry:"
+      es-ES : "No se puede escribir el valor en el registro:"
+     index : 61
+   -
+     text :
+      fr-FR : L'installation s'est terminée avec succès.
+      en-GB : The setup was successfully completed.
+      es-ES : La instalación se ha realizado con éxito.
+     index : 62
+   -
+     text :
+      fr-FR : Un serveur WebSocket de même nom existe déja sur le serveur. Un site ou webservice ne peut pas avoir le même nom qu'un serveur WebSocket déjà présent.
+      en-GB : A WebSocket server with the same name already exists on the server. A site or webservice cannot have the same name as an existing WebSocket server.
+      es-ES : Ya existe un servidor WebSocket con el mismo nombre en el servidor. Un sitio o Webservice no puede tener el mismo nombre que un servidor WebSocket que ya existe.
+     index : 63
+   -
+     text :
+      fr-FR : Un site/webservice de même nom existe déjà sur le serveur. Un serveur WebSocket ne peut pas avoir le même nom qu'un site/webservice déjà présent.
+      en-GB : A site/webservice with the same name already exists on the server. A WebSocket server cannot have the same name as an existing site/webservice.
+      es-ES : Ya existe un sitio/Webservice con el mismo nombre en el servidor. Un servidor WebSocket no puede tener el mismo nombre que un sitio/Webservice que ya existe.
+     index : 64
+   -
+     text :
+      fr-FR : Installation du site WEBDEV
+      en-GB : Installing the WEBDEV site
+      es-ES : Instalando el sitio WEBDEV
+     index : 65
+   -
+     text :
+      fr-FR : Installation du webservice
+      en-GB : Installing the webservice
+      es-ES : Instalando el Webservice
+     index : 66
+   -
+     text :
+      fr-FR : Installation du site WEBDEV
+      en-GB : Installing the WEBDEV site
+      es-ES : Instalando el sitio WEBDEV
+     index : 67
+   -
+     text :
+      fr-FR : Installation du site WEBDEV
+      en-GB : Installing the WEBDEV site
+      es-ES : Instalando el sitio WEBDEV
+     index : 68
+   -
+     text :
+      fr-FR : Installation du site WEBDEV
+      en-GB : Installing the WEBDEV site
+      es-ES : Instalando el sitio WEBDEV
+     index : 69
+   -
+     text :
+      fr-FR : Installation du webservice
+      en-GB : Installing the webservice
+      es-ES : Instalando el Webservice
+     index : 70
+   -
+     text :
+      fr-FR : Installation du serveur de WebSockets
+      en-GB : Installing the WebSocket server
+      es-ES : Instalando el servidor WebSocket
+     index : 71
+   -
+     text :
+      fr-FR : Impossible de créer la clé de registre %1. L'installation ne peut pas se poursuivre.
+      en-GB : Unable to create the registry key (%1). The setup cannot be continued.
+      es-ES : No se ha podido crear la clave de registro (%1). No se puede continuar con la instalación.
+     index : 72
+   -
+     text :
+      fr-FR : Un serveur WebSocket de même nom existe déja sur le serveur. Un site ou webservice ne peut pas avoir le même nom qu'un serveur WebSocket déjà présent.
+      en-GB : A WebSocket server with the same name already exists on the server. A site or webservice cannot have the same name as an existing WebSocket server.
+      es-ES : Ya existe un servidor WebSocket con el mismo nombre en el servidor. Un sitio o Webservice no puede tener el mismo nombre que un servidor WebSocket que ya existe.
+     index : 73
+   -
+     text :
+      fr-FR : "La version du Serveur d'Application WEBDEV sur lequel vous tentez de déployer est  plus ancienne que votre environnement de développement.\r\nPour poursuivre le déploiement, vous devez mettre à jour votre Serveur d'Application WEBDEV\r\n\r\nVersion de WEBDEV/WINDEV utilisée pour le développement du webservice : %1\r\nVersion du Serveur d'Application WEBDEV : %2"
+      en-GB : "The version of WEBDEV Application Server on which you try to deploy is older than your development environment.\r\nTo continue the deployment, you must update your WEBDEV Application Server\r\n\r\nVersion of WEBDEV/WINDEV used to develop the webservice: %1\r\nVersion of WEBDEV Application Server: %2"
+      es-ES : "La versión del WEBDEV Application Server utilizada para implementar el Webservice es más antigua que el entorno de desarrollo.\r\nPara continuar la implementación, debe actualizar el WEBDEV Application Server\r\n\r\nVersión de WEBDEV/WINDEV utilizada para desarrollar el Webservice: %1\r\nVersión del WEBDEV Application Server: %2"
+     index : 74
+ dialogs :
+  -
+    identifier : 0x1f0c3285062e3db1
+    internal_properties : CAAAAAgAAAByxh1pBoTGOtj+m5qWqAr69KsyCQEbbSbTqLMIyB9F7x3D26p/qeDbSN81+HsKPhNZrPUY0kSJ3s4u+UZfzsi4UsMp4K9XLi2ZI83/Zw==
+    label :
+     fr-FR : "La version du Serveur d'Application WEBDEV sur lequel vous tentez de déployer est  plus ancienne que votre environnement de développement.\r\nPour poursuivre le déploiement, vous devez mettre à jour votre Serveur d'Application (ou demander à votre hébergeur de le faire).\r\n\r\nVersion de WEBDEV utilisée pour le développement : %1\r\nVersion du Serveur d'Application WEBDEV : %2\r\n"
+     en-GB : "The version of WEBDEV Application Server used to deploy is earlier than the development environment.\r\nTo continue to deploy, you must upgrade your Application Server (or ask your hosting company to do so).\r\n\r\nVersion of WEBDEV used for development: %1\r\nVersion of WEBDEV Application Server: %2\r\n"
+     es-ES : "La versión del WEBDEV Application Server utilizada para implementar el Webservice es más antigua que el entorno de desarrollo.\r\nPara continuar con la implementación, debe actualizar el servidor de aplicaciones (o pedirle a la empresa de alojamiento que lo haga).\r\n\r\nVersión de WEBDEV utilizada para el desarrollo: %1\r\nVersión del WEBDEV Application Server: %2\r\n"
+    image : {}
+    cancel_button : 1
+    buttons :
+     -
+       label :
+        fr-FR : "&Ne pas déployer (recommandé)"
+        en-GB : Do&n't deploy (recommended)
+        es-ES : "&No implementar (recomendado)"
+       image : {}
+       value : 1
+     -
+       label :
+        fr-FR : Déployer le site (déconseillé)
+        en-GB : Deploy site (not recommended)
+        es-ES : Implementar sitio (no recomendado)
+       image : {}
+       value : 2
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

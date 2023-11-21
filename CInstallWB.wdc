@@ -1,0 +1,1015 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CInstallWBData
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x17669d270350266a
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAACSHk2Vw99XOb2Gtl8Oivzv+wtNg8rsoqNUolKcCjNGSdOhV9e3Kgm+m++XYei760GVlzc8QhvGY23okEvy1gGwvvmoRmwPOL0V/kxYCHXVhPfqClc4JTBEZkY9its32rdpxJUk8V00bKC/UHpr5pZTXGS9ehqo6K31d7m1MnlEP8VTuviqf1zzvjOSoh9dF8wCnmFgUrO2nVBBcm5+ng3u4H0MLEICY8LGTvoF3zSnLQbL+gcNxRUeULqeGP1nNVpnBRyAXgMVuPTJgUZLpikx56MNSk3vnkfyPPkX6z3g0V69iDW9Qs3/vKgW48pfDv3J0mhl1WWB5Yj5XhQ9FoYI7bUiEQKFLExeDx3toVEYqfGEwwHbENg3z1vRYNv1CwEWtDGbrvE9DZmMlI9mf8U=
+     code : |1+
+      
+      STDeploiementDocker est une structure
+      	m_sDepot		est une chaîne 
+      	m_sProprietaire	est une chaîne 
+      	m_sLogin 		est une chaine 
+      	m_sEmail		est une chaine 
+      	m_sPWD			est une chaîne 
+      	m_sTocken		est une chaine 
+      fin
+      
+      // Description d'une installation WEBDEV
+      CInstallWBData est une classe
+      	m_nVersionFormat est un entier					// 0 = VI44K, 1 = VI44M, 2= ??? , 3=VI170062
+      	
+      	m_nModeleInstallation est un entier					// 1 = à distance / 2 = média physique
+      	m_nSupportInstallation est un entier				// Support généré 
+      												// En distant : DISTANT_SERVEUR_APPLICATION ou DISTANT_SERVEUR_PCSOFT ou DISTANT_SERVEUR_PCSOFT_CLOUD
+      												// En média physique : SUPPORT_PACKAGE, SUPPORT_MEDIA_PHYSIQUE ou SUPPORT_AUTONOME
+      
+      
+      	m_tabServeur est un tableau local de 0 CServeurInst		// Description des serveurs d'installation
+      	m_clServeurPCS est un CServeurInst					// Paramètres pour le déploiement sur le serveur de test de PC SOFT
+      	m_clServeurMediaPhysique est un CServeurInst		// Paramètres pour les installations par média physique ou autonomes
+      	m_clServeurAutoPackage est un CServeurInst			// Paramètres pour les packages de déploiement si aucun profil n'a été choisi
+      	
+      	m_tabFic est un tableau local de 0 CFichierInst			// Tableau des fichiers de l'installation
+      	m_tabFicAutoSuppr est un tableau local de 0 CFichierInst	// Tableau des fichiers de l'installation automatiques qui ont été supprimés
+      
+      	m_clModAuto est un CModifAutoDesc				// Description de la modif auto
+      
+      	m_sRepSiteDefaut est une chaine					// Répertoire d'installation par défaut du site
+      	m_sRepDataDefaut est une chaine					// Répertoire d'installation par défaut des données
+      	m_nInstalleur est un entier						// 1 = WBSetup / 2 = Perso
+      	m_sInstalleur est une chaine						// Chemin de l'installeur perso
+      	m_tabFicInstalleur est un tableau local de 0 chaine		// Fichiers de l'installeur
+      	m_tabParamLangue est un tableau local de 0 CParamLangue	// Tableau des paramètres dépendant de la langue
+      	m_sRepGeneration est une chaine					// Chemin de génération de l'installation
+      	m_sNomPackage est une chaine					// Nom du package
+      	m_sPageAccueil est une chaine						// Nom de la page d'accueil du site
+      	m_sCheminWDP est une chaine					// Chemin du projet WEBDEV associé à l'installation
+      	m_bVideRepGenere est un booleen					// Vide le répertoire avant génération
+      	
+      	m_dDateInst est une date							// Date de déclenchement d'une installation programmée
+      	m_hHeureInst est une heure						// Heure de déclenchement d'une installation programmée
+      	m_bFaireBackup est un booleen					// Vrai si on doit faire un backup du site avant la mise à jour
+      	m_sLibBackup est une chaine						// Libelle de l'archive conservée
+      	m_bEffacerBackup est un booleen					// Vrai si on doit effacer le backup du site quand l'installation est terminée
+      	m_bActiverSite est un booleen						// Vrai si l'installation doit activer le site
+      	m_bInstallDifferee est un booleen					// Vrai si le déploiement doit être différé
+      	m_bVersionParalleleSansDeconnexion est un booléen	// à partir de la vi 240043 ->installation avec architecture permettant les mises à jours sans déconnexion
+      	m_sVersionParalleleADeployer est une chaine			// à partir de la vi 240043 ->numéro de version  (celui de la wdl) du site à déployer
+      	
+      	m_bMAJAChaud est un booleen					// Vrai si on fait une mise à jour à chaud (sans verrouiller le site ni déconnecter les utilisateurs)==>utilisé par le déploiement à la page uniquement
+      	
+      	m_sNomSite est une chaine						// Nom du projet - pour la cle projetname - pour retrouver le wdp dans la wdl
+      	m_sAliasSite est une chaine						// Nom de l'alias Web
+      	m_bServeurWebStandard est un booleen				// Utiliser le serveur Web fourni par PC SOFT
+      	m_sCheminPackageServeurWeb est une chaine			// Chemin du package MSI d'Apache
+      	
+      	m_bUtiliseGPU est un booleen						// Vrai si le projet utilise le groupware utilisateur (ce membre est lu dans le projet et jamais désérialisé)
+      	m_bValDefautHistoConnexion est un booleen			// Vrai si le projet a demandé l'historique des connexions. (ce membre est lu dans le projet et jamais désérialisé et sert à initialiser les CServeurInst)
+      	m_nObjetDep est un entier						// Type d'objet installé (site ou webservice, constante OBJET_xxx)
+      	m_sNomConfiguration est une chaine				// Nom de la configuration  (ce membre est lu dans le projet et jamais désérialisé)
+      	
+      	m_nTypeSite est un entier							// Type de site (constante SITE_xxx)  (ce membre est lu dans le projet et jamais désérialisé)
+      	m_nModeSaaS est un entier						// Mode SaaS (Constante SAAS_xxx) (ce membre est lu dans le projet et jamais désérialisé)
+      	
+      	m_sWebServiceSaas est une chaine					// Webservice à utiliser pour un site SaaS. Chaine vide = webservice local avec le nom par défaut
+      	m_sLoginAdminSaaS est une chaine					// Login admin sur le Webservice
+      	m_sMdpAdminSaaS est une chaine					// Mdp admin sur le Webservice
+      	
+      	m_sNomWebservice est une chaine					// Nom du fichier physique du webservice (.awws)
+      	m_sNomLogiquePageErreur est une chaine 			// Nom (logique) de la page d'erreur personnalisée du site
+      	
+      	//a partir de la vi190050
+      	m_clServeurCloud est un CServeurInst			// Paramètres pour le déploiement sur le serveur cloud PCS
+      	m_sServeurCloud est une chaîne					// Paramètres complémentaire pour le déploiement dans le cloud PCS (login+rc+password+rc+plateforce)
+      	//a partir de 270042
+      	m_bDeploieDocker est un booléen=faux			//booleen pour activer le deploiment immédiat de la recette docker
+      	m_stInfoDeploiementDocker est un STDeploiementDocker	//paramètres de déploiment de la recette
+      	//à partir de 270058
+      	m_nVersionCompatMinPackage est un entier			//le numero de compatibilité minimal pour le package
+      	m_nVersionMinCompatServeur  est un entier			//le numero de compatibilité minimal pour le serveur
+      	m_bDeploieCluster est un booléen				//le package est compatible avec un déploiement sur un noeud de cluster
+      	m_bWDLCompatibleServeurLinux est un booléen,Sérialise=faux
+      	
+      	CONSTANT
+      		TAG_REP_PRJ = "<RepPrj>"
+      		TAG_REP_APPLI = "<RepAppli>" // Utilisé pour l'import des packages 11
+      		EXT_BKF = ".bkf"
+      		EXT_DATA = ".NTX.IDX.MDX.DBT.DBF.DAT.FIC.NDX.MMO.WDD.FPT.MDB.FTX."
+      		EXT_HTM = ".HTM"
+      		EXT_AWWS = ".AWWS"
+      		
+      		OP_IGNORER = 1
+      		OP_INSTALLER = 2
+      		OP_EFFACER = 3	
+      		
+      		OBJET_SITE_WEB = 0
+      		OBJET_WEBSERVICE_SOAP = 1
+      		OBJET_WEBSERVICE_REST = 2
+      		OBJET_SOCKET = 3
+      		
+      		MODELE_DISTANT = 1
+      		MODELE_PHYSIQUE = 2
+      		
+      		SUPPORT_PACKAGE = 1
+      		SUPPORT_MEDIA_PHYSIQUE = 2
+      		SUPPORT_AUTONOME = 3
+      		SUPPORT_MEDIA_PHYSIQUE_LOCAL = 4	// Ce support n'existe pas en exec mais seulement en édition, il permet de sauver le sélecteur sur le premier plan de l'assistant
+      		SUPPORT_DOCKER=5
+      		
+      		DISTANT_SERVEUR_APPLICATION = 1
+      		DISTANT_SERVEUR_PCSOFT_HEBERGEMENTTEST = 2
+      		DISTANT_SERVEUR_PCSOFT_CLOUD = 3
+      		
+      		VERSIONMINCOMPAT_PACKAGE=0
+      		VERSIONMINCOMPAT_PACKAGE_CLUSTER=1
+      		VERSIONCOURANTE_PACKAGE=1
+      		VERSIONMINCOMPAT_SERVEUR=0
+      		VERSIONCOURANTE_SERVEUR=0
+      		
+      	FIN	
+      Fin
+      
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     internal_properties : CAAAAAgAAAC7/aL4lY49pv/8H/o8B3g5e80MPChtk5MHKjuYKKXvd3E0luDb+PnNmDMzNNDeJU4fKooAEBR2mGoRtAmEzLqY8XUIXxlITDwQ0k6Ymp60Pi8dfKfuN1p7/JzpgJt9M9iJ+eulBj59I9TmB1w=
+     procedure_id : 1686207901381764714
+     type_code : 27
+     code : |1+
+      Procédure Constructeur()
+      
+      :m_nModeleInstallation = 2			// 1 = à distance / 2 = média physique
+      :m_nSupportInstallation = 1			// Support généré (1 = package / 2 = install / 3 = install avec moteur)
+      :m_sRepSiteDefaut = META_SITE		// Répertoire d'installation par défaut du site
+      :m_sRepDataDefaut = META_DATA		// Répertoire d'installation par défaut des données
+      :m_nInstalleur = 1					// 1 = WBSetup / 2 = Perso
+      :m_bVideRepGenere = faux			// Vide le répertoire avant génération
+      :m_bMAJAChaud = faux				// Par défaut, déploiement classique avec blocage du site
+      :m_bServeurWebStandard = vrai		// Par défaut, on utilise le serveur Web livré avec WB
+      :m_clServeurPCS:m_nMaxConnect = 10	// Par défaut, le serveur PC SOFT déploie en consommant 10 connexions
+      :m_clServeurPCS:m_nMaxConnectUser = 10	// Par défaut, le serveur PC SOFT déploie en consommant 10 connexions
+      m_clServeurCloud.m_bHTTPSecurise=vrai
+      
+      m_bVersionParalleleSansDeconnexion=faux
+      m_bDeploieCluster=faux
+      m_nVersionCompatMinPackage=0
+      m_nVersionMinCompatServeur=0
+      m_bWDLCompatibleServeurLinux=vrai
+      TableauTrie(:m_tabFic,tccSansCasse+ttMembre,"m_sCheminSourceComplet")
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1686207901381830250
+     type_code : 28
+     code : |1+
+      Procédure Destructeur()
+      
+     type : 655360
+   -
+     name : pclAjouteFic
+     internal_properties : CAAAAAgAAAAGBHoWtW8W5oTxw1mExFwYJipD4aU5JHQquYGIQ2fwwTWBr78F5m9WlltLFeKs97j/T12g0P1jRZ0gliNDDE9r7K4pVkbFQhQUSod9SiWeY2g4pLXRIcbxbfsNhdjfuaqJVgJuQfLkgZzJiG1iGpbUS0EQqwC9eB9gRxtTR5I5wvdmXj10L1+DyuRwoAb4FAciH7nUF7tpIf8VewMk4zpZLYwgmU54DzmLVsgZemvMJpCvDDU9Lkq5SC1hNl0OchSMzYVSFrZkG8QbvIq+6YpH7jDvDRoJxpgbGA+GjZK1NuugQ5qA5pcQh9+zpOL+mBCiSUCdL/wshSZAQ9QfeGd4kKPQ17ki
+     procedure_id : 1686207901381961322
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] pclAjouteFic (<sCheminSource> est chaîne, <sRepBase>, <bAuto> [, <sOptimInfoFic>])
+      //
+      // Paramètres :
+      //	sCheminSource (chaîne UNICODE) : <indiquez ici le rôle de sCheminSource>
+      //	sRepBase : <indiquez ici le rôle de sRepBase>
+      //	bAuto : <indiquez ici le rôle de bAuto>
+      //	sOptimInfoFic (valeur par défaut="") : < indiquez ici le rôle de sOptimInfoFic >
+      // Valeur de retour :
+      // 	Type indéterminé :     // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure pclAjouteFic( sCheminSource est une chaine, sRepBase , bAuto ,sOptimInfoFic="" )
+      
+      // Les choses à ignorer
+      SI ChaîneFinitPar(sCheminSource,	["Thumbs.db",...
+      	"wwcacheloader.htm",...
+      	"wwmobileloader.htm",...
+      	"Web.config",...
+      	".htaccess",...
+      	"php.ini"]...
+      	,SansCasse)
+      	RENVOYER Null
+      	
+      FIN
+      
+      nPos est un entier=Position(sCheminSource,["<§&000000c2§>cache.gestion de sources",...
+      "<§&000000c2§>Sauvegarde des données",...
+      "Data Backup",...
+      "Saving data"]...
+      ,1,SansCasse)
+      SI nPos>0 ALORS
+      	 renvoyer null
+      FIN
+      //SI Position(sCheminSource,"<§&000000c2§>cache.gestion de sources",1,SansCasse)>0 ALORS RENVOYER Null
+      //SI Position(sCheminSource,"<§&000000c2§>Sauvegarde des données",1,SansCasse)>0 ALORS renvoyer null
+      //SI Position(sCheminSource,"<§&000000c2§>Data Backup",1,SansCasse)>0 ALORS renvoyer null
+      //SI Position(sCheminSource,"<§&000000c2§>Thumbs.db",1,SansCasse)>0 ALORS renvoyer null
+      //SI Position(sCheminSource,"<§&000000c2§>wwcacheloader.htm",1,SansCasse)>0 ALORS renvoyer null
+      //SI Position(sCheminSource,"<§&000000c2§>wwmobileloader.htm",1,SansCasse)>0 ALORS renvoyer null
+      //SI Position(sCheminSource,"<§&000000c2§>Web.config",1,SansCasse)>0 ALORS RENVOYER Null
+      //SI Position(sCheminSource,"<§&000000c2§>.htaccess",1,SansCasse)>0 ALORS RENVOYER Null
+      //SI Position(sCheminSource,"<§&000000c2§>php.ini",1,SansCasse)=1 ALORS RENVOYER Null
+      
+      
+      // Cherche le fichier dans la table des fichiers auto supprimés
+      //nRangSuppr est un entier = :nTrouveFicSuppr(sCheminSource)
+      //si nRangSuppr>0 alors
+      //	// Le supprime de ce tableau
+      //	TableauSupprime(:m_tabFicAutoSuppr,nRangSuppr)
+      //	bAuto = vrai
+      //FIN
+      
+      // On vire le disque
+      bFicDonnee est un booleen = faux	// Inutilisé dans ce cas
+      sCheminInstall est une chaine =	:sCalculeCheminBaseDistant(sCheminSource,sRepBase,bFicDonnee,"")
+      dbgAssertion(sCheminInstall<>"","Chemin install  vide")
+      pclFic est un CFichierInst dynamique = allouer un CFichierInst
+      
+      pclFic:m_bAuto = bAuto
+      pclFic:m_sNomFichier = fExtraitChemin(sCheminSource,fFichier+fExtension)
+      dbgAssertion(pclFic:m_sNomFichier<>"","Chemin vide")
+      pclFic:m_sCheminSource = fExtraitChemin(sCheminSource,fDisque+fRépertoire)
+      pclFic:m_sCheminSourceComplet = minuscule(sCheminSource)
+      pclFic:m_sCheminDistant = fExtraitChemin(sCheminInstall,fDisque+fRépertoire)
+      pclFic:m_sCheminDistantComplet = sCheminInstall
+      
+      SI sOptimInfoFic<>"" ALORS
+      	pclFic:m_nTaille = ExtraitChaîne(sOptimInfoFic,2,TAB)
+      	pclFic:m_dhDateHeureModif = ExtraitChaîne(sOptimInfoFic,3,TAB)
+      	
+      SINON
+      	pclFic:m_nTaille = fTaille(sCheminSource)
+      	pclFic:m_dhDateHeureModif = fDateHeure(sCheminSource)
+      FIN
+      	
+      pclFic:m_nGroupe = 0
+      
+      nRangAjout est un entier = TableauAjouteTrié(:m_tabFic,pclFic)
+      
+      // Ajoute le fichier au même rang dans tous les serveurs
+      pour TOUT clSrv de :m_tabServeur
+      	:__AjouteFicDistant(clSrv,nRangAjout)
+      FIN
+      
+      :__AjouteFicDistant(:m_clServeurMediaPhysique,nRangAjout)
+      :__AjouteFicDistant(:m_clServeurPCS,nRangAjout)
+      :__AjouteFicDistant(:m_clServeurCloud,nRangAjout)
+      :__AjouteFicDistant(:m_clServeurAutoPackage,nRangAjout)
+      
+      renvoyer pclFic	
+     type : 458752
+   -
+     name : pclGetLangue
+     procedure_id : 1686207901382026858
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] pclGetLangue (<nLangue>)
+      //
+      // Paramètres :
+      //	nLangue : <indiquez ici le rôle de nLangue>
+      // Valeur de retour :
+      // 	CParamLangue dynamique :   // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure pclGetLangue( nLangue )
+      
+      pclLangue est un CParamLangue dynamique
+      POUR TOUT ELEMENT pclLangue DE :m_tabParamLangue
+      	si pclLangue:m_nLangue = nLangue ALORS
+      		renvoyer pclLangue
+      	FIN
+      FIN
+      
+      // Langue inconnue, on la crée
+      pclLangue = allouer un CParamLangue
+      pclLangue:m_nLangue = nLangue
+      TableauAjoute(:m_tabParamLangue,pclLangue)
+      
+      renvoyer pclLangue
+     type : 458752
+   -
+     name : RelativiseChemin
+     procedure_id : 1686207901382223466
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //RelativiseChemin (<bRelativise> est booléen, <sRepBase> est chaîne)
+      //
+      // Paramètres :
+      //	bRelativise (booléen) : <indiquez ici le rôle de bRelativise>
+      //	sRepBase (chaîne UNICODE) : <indiquez ici le rôle de sRepBase>
+      // Valeur de retour :
+      // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure RelativiseChemin( bRelativise est un booleen , sRepBase est une chaine )
+      
+      // Tableau des fichiers de l'installation
+      pclFic est un CFichierInst dynamique
+      POUR TOUT ELEMENT pclFic DE :m_tabFic
+      	:Relativise(pclFic:m_sCheminSource,sRepBase,bRelativise,::TAG_REP_PRJ)
+      	:Relativise(pclFic:m_sCheminSourceComplet,sRepBase,bRelativise,::TAG_REP_PRJ)
+      FIN
+      // Tableau des fichiers de l'installation automatiques qui ont été supprimés
+      POUR TOUT ELEMENT pclFic DE :m_tabFicAutoSuppr
+      	:Relativise(pclFic:m_sCheminSource,sRepBase,bRelativise,::TAG_REP_PRJ)
+      	:Relativise(pclFic:m_sCheminSourceComplet,sRepBase,bRelativise,::TAG_REP_PRJ)
+      FIN
+      
+      // Description de la modif auto
+      :Relativise(:m_clModAuto:m_sAnalyse,sRepBase,bRelativise,::TAG_REP_PRJ)
+      
+      // Chemin de l'installeur perso
+      :Relativise(:m_sInstalleur,sRepBase,bRelativise,::TAG_REP_PRJ)
+      
+      //m_tabParamLangue est un tableau de 0 CParamLangue	// Tableau des paramètres dépendant de la langue
+      pclParamLangue est un CParamLangue dynamique
+      POUR TOUT ELEMENT pclParamLangue DE :m_tabParamLangue
+      	:Relativise(pclParamLangue:m_sLicence,sRepBase,bRelativise,::TAG_REP_PRJ)
+      	:Relativise(pclParamLangue:m_sLisezMoi,sRepBase,bRelativise,::TAG_REP_PRJ)
+      FIN
+      
+      // Chemin de génération de l'installation
+      :Relativise(:m_sRepGeneration,sRepBase,bRelativise,::TAG_REP_PRJ)
+      
+     type : 458752
+   -
+     name : Relativise
+     procedure_id : 1686207901382289002
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //Relativise (<sChemin> est chaîne, <sBase> est chaîne, <bRelativise> est booléen, <sTag> est chaîne)
+      //
+      // Paramètres :
+      //	sChemin (chaîne) : <indiquez ici le rôle de sChemin>
+      //	sBase (chaîne) : <indiquez ici le rôle de sBase>
+      //	bRelativise (booléen) : <indiquez ici le rôle de bRelativise>
+      //	sTag (chaîne) : <indiquez ici le rôle de sTag>
+      // Valeur de retour :
+      // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure Relativise( sChemin est une chaine , local sBase est une chaine , local bRelativise est un booleen , local sTag est une chaine )
+      
+      si bRelativise ALORS
+      	// Si le chemin commence par la base
+      	si gauche(sChemin,taille(sBase))~=sBase ALORS
+      		// On remplace la base par le tag
+      		sChemin = sTag+sChemin[[taille(sBase)+1 à]]
+      	FIN
+      sinon
+      	// Si le chemin commence par le tag
+      	si gauche(sChemin,taille(sTag))~=sTag alors
+      		// On remplace le tag par la base
+      		sChemin = sBase+sChemin[[taille(sTag)+1 à]]
+      	FIN
+      FIN
+      
+      
+     type : 458752
+   -
+     name : ConstruitExec
+     internal_properties : CAAAAAgAAADxZh1yqEh3nyaoJbGqHqlEAbu4GxgBJHN8Hy69rmuH1KuVYfBH5nMuN8a/QOveSs+ETbCHAPB7Kg6X1xk7IfmqGvCSBSo2vgEv959mhbyGQ3ZarKmCaX41ulwHYohO3oQJ5i7tYuk6d1xPbPGRvumvEWzh0xAy8wlpwUeZJqslUIAnkDRXFHyVbaL+8dc49z2SL9PYl5/1UK+aTyH8cPo=
+     procedure_id : 1694646408273471919
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //ConstruitExec (<clDataEdit> est CInstallWBData, <nProfil> est entier)
+      //
+      // Paramètres :
+      //	clDataEdit (CInstallWBData) : <indiquez ici le rôle de clDataEdit>
+      //	nProfil (entier) : <indiquez ici le rôle de nProfil>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      Procédure ConstruitExec( clDataEdit est un CInstallWBData , nProfil est un entier )
+      
+      // On commence par copie l'objet source sur nous-même
+      objet = clDataEdit
+      m_nVersionCompatMinPackage	= VERSIONCOURANTE_PACKAGE
+      m_nVersionMinCompatServeur	= VERSIONMINCOMPAT_SERVEUR
+      
+      // Ensuite, on retire les éléments inutiles en exec
+      // On ne garde que le ou les serveurs sélectionnés
+      selon :m_nModeleInstallation
+      	cas ::MODELE_DISTANT
+      		selon :m_nSupportInstallation
+      			cas ::DISTANT_SERVEUR_APPLICATION
+      				// Garde le serveur en cours
+      				TableauSupprimeTout(:m_tabServeur)
+      				TableauAjoute(:m_tabServeur,clDataEdit:pGetProfil(nProfil))
+      				//on note si c'est un cluster, pour indiquer que le package est complet
+      				m_bDeploieCluster=(clDataEdit:pGetProfil(nProfil).m_nModeCluster>0)
+      				
+      			cas ::DISTANT_SERVEUR_PCSOFT_HEBERGEMENTTEST
+      				// On ne garde aucun serveur, il y a un membre spécial
+      				TableauSupprimeTout(:m_tabServeur)
+      			CAS ::DISTANT_SERVEUR_PCSOFT_CLOUD
+      				// On ne garde aucun serveur, il y a un membre spécial
+      				//mais comme il n'est pas encore utilisé par le moteur d'installation
+      				//on en fait une copie dans le tableau des serveurs
+      				TableauSupprimeTout(:m_tabServeur)
+      //				m_clServeurCloud.m_bSelectionne=vrai
+      //				TableauAjoute(:m_tabServeur,m_clServeurCloud)
+      //finalement, on a fusionné les codes
+      				TableauAjoute(:m_tabServeur,clDataEdit:pGetProfil(nProfil))
+      				//on note si c'est un cluster, pour indiquer que le package est complet
+      				m_bDeploieCluster=(clDataEdit:pGetProfil(nProfil).m_nModeCluster>0)
+      		FIN
+      	cas ::MODELE_PHYSIQUE
+      		selon :m_nSupportInstallation
+      			cas ::SUPPORT_AUTONOME, ::SUPPORT_MEDIA_PHYSIQUE
+      				// On ne garde aucun serveur, il y a un membre spécial
+      				TableauSupprimeTout(:m_tabServeur)
+      			cas ::SUPPORT_PACKAGE
+      				// Garde tous les serveurs sélectionnés
+      				POUR n=TableauOccurrence(:m_tabServeur) _a_ 1 pas -1
+      					SI PAS :m_tabServeur[n]:m_bSelectionne ALORS
+      						TableauSupprimeLigne(:m_tabServeur,n)
+      					FIN
+      				FIN
+      				//par defaut, les packages de déploiement ne sont pas autorisés tant qu'on ne s'assure pas qu'ils sont complets
+      				m_bDeploieCluster=faux
+      		FIN
+      FIN
+      
+      //on enlève les fichiers exclus
+      // Et report des fichiers automatiques supprimés
+      POUR TOUT ELEMENT pclFic DE m_tabFicAutoSuppr
+      	// Si le fichier est présent dans l'install
+      	nRang est un entier = nTrouveFic(pclFic:m_sCheminSource+pclFic:m_sNomFichier)
+      	SI nRang<>-1 ALORS
+      		//on laisse le fichier dans l'install, mais on changera son action
+      		nNbProfils est un entier=nNbProfilSelectionne()
+      		bFichierASupprimerServeur est un booléen=faux
+      		POUR nProf=1 a nNbProfils
+      			dbgAssertion(TableauOccurrence(m_tabFic)=TableauOccurrence(pGetProfil(nProf).m_tabficdistant))
+      			SI nRang<=TableauOccurrence(pGetProfil(nProf).m_tabFicDistant) ALORS
+      				SI (nConversionOperation(pGetProfil(nProf).m_tabFicDistant[nRang].m_nOperation)=CInstallWBData::OP_EFFACER) ALORS
+      					bFichierASupprimerServeur=Vrai
+      				FIN
+      			FIN 
+      		FIN
+      		
+      		si pas bFichierASupprimerServeur alors
+      			POUR nProf=1 a nNbProfils
+      				SI nRang<=TableauOccurrence(pGetProfil(nProf).m_tabFicDistant) ALORS
+      					TableauSupprime(pGetProfil(nProf).m_tabFicDistant, nRang)
+      				FIN 
+      			FIN
+      			TableauSupprime(m_tabFic,nRang)
+      		fin
+      		
+      	FIN
+      FIN
+      
+      //on efface les info de deploiement docker
+      stInfoVide est un STDeploiementDocker 
+      m_stInfoDeploiementDocker=stInfoVide
+      
+      // On efface le tableau des fichiers supprimés automatiquement
+      tableausupprimetout(:m_tabFicAutoSuppr)
+      // On garde le tableau des fichiers (il est utilisé par l'installeur distant)
+      
+      // On ne garde que les langues utilisées
+      nLangue est un entier
+      pour nLangue=TableauOccurrence(:m_tabParamLangue) à 1 pas -1
+      	si pas :m_tabParamLangue[nLangue]:m_bUtilise ALORS
+      		TableauSupprime(:m_tabParamLangue,nLangue)
+      	sinon
+      		// Dans les langues utilisées, on ne garde que le nom du fichier de licence et du lisez-moi (pas le chemin)
+      		:m_tabParamLangue[nLangue]:m_sLicence = fExtraitChemin(:m_tabParamLangue[nLangue]:m_sLicence,fFichier+fExtension)
+      		:m_tabParamLangue[nLangue]:m_sLisezMoi = fExtraitChemin(:m_tabParamLangue[nLangue]:m_sLisezMoi,fFichier+fExtension)
+      	FIN
+      FIN
+      
+     type : 458752
+   -
+     name : sCalculeCheminBaseDistant
+     internal_properties : CAAAAAgAAAAR5moNWVfIb0oiw1XuLhZL6sT6YGmTOpnv7KJoZHOXv3yBFS3q+T87dAt8IRMmFY4D5w3Lxm9sf4JnCyipPZtuwCwakA/kgjCYWZfKul7RSOaLLpaYJCLNAAm4YMSqtS+45EO3ufwQv83XYxw5HFYSaZAs7K7zECnSC1H04c2enQ==
+     procedure_id : 1695101808058367726
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] sCalculeCheminBaseDistant (<sCheminSource>, <sRepBase>, <bFicData>, <sMetaRepDistant>)
+      //
+      // Paramètres :
+      //	sCheminSource :<indiquez ici le rôle de sCheminSource>
+      //	sRepBase :<indiquez ici le rôle de sRepBase>
+      //	bFicData :<indiquez ici le rôle de bFicData>
+      //	sMetaRepDistant :<indiquez ici le rôle de sMetaRepDistant>
+      // Valeur de retour :
+      // 	chaîne UNICODE :     // 	Aucune
+      //
+      //	sCheminInstall : <indiquez ici le rôle de sCheminInstall>
+      //	sExt : <indiquez ici le rôle de sExt>
+      Procédure sCalculeCheminBaseDistant(sCheminSource,sRepBase,bFicData,sMetaRepDistant)
+      
+      sExt est une chaine = Majuscule(fExtraitChemin(sCheminSource,fExtension))
+      sCheminInstall est une chaine = SansCaractèreGauche(Milieu(sCheminSource,Taille(sRepBase)+1),"\")
+      
+      
+      SI sMetaRepDistant<>""  et sMetaRepDistant<>eot ALORS
+      	sCheminInstall=sMetaRepDistant+["\"]+sCheminInstall
+      	bFicData=(sMetaRepDistant=META_DATA)
+      	RENVOYER sCheminInstall
+      FIN
+      
+      SI Position(::EXT_DATA,sExt+".",0,SansCasse)>0 ALORS
+      	sCheminInstall = META_DATA+["\"]+sCheminInstall
+      	bFicData = vrai
+      SINON
+      	selon m_nObjetDep
+      		cas OBJET_WEBSERVICE_SOAP
+      			// Les .htm situés dans le rep Webservice seront installés dans le répertoire _WEB ainsi que les awws
+      			//sam le 06062012
+      			//pour le calcul du répertoire web, il faut aussi faire un sansaccent
+      			//et remplacer les espaces par "_" ==> on utilise msAliasSite
+      			SI sExt _DANS_ (::EXT_HTM,::EXT_AWWS) ALORS
+      				sCheminInstall = META_WEBSERVICE_SOAP+["\"]+m_sAliasSite +["\"]+sCheminInstall// sGetNomrépertoireWEB(:m_sCheminWDP,fFichier)+["\"]+sCheminInstall
+      			SINON
+      				sCheminInstall = META_WEBSERVICE_SOAP+["\"]+sCheminInstall
+      			FIN
+      
+      		cas OBJET_WEBSERVICE_REST:
+      			sCheminInstall = META_WEBSERVICE_REST+["\"]+sCheminInstall
+      
+      		CAS OBJET_SOCKET
+      			sCheminInstall = META_SOCKET+["\"]+sCheminInstall
+      			
+      //		CAS OBJET_SITE_WEB	// Inclus dans "AUTRES CAS"
+      		AUTRES CAS
+      			sCheminInstall = META_SITE+["\"]+sCheminInstall
+      			
+      	FIN
+      	
+      	bFicData = faux
+      FIN
+      
+      renvoyer sCheminInstall
+     type : 458752
+   -
+     name : nGetNbLangue
+     procedure_id : 1894777535550518271
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	entier : // 	Aucune
+      //
+      Procédure nGetNbLangue()
+      
+      renvoyer TableauOccurrence(:m_tabParamLangue)
+     type : 458752
+   -
+     name : pclGetLangueParRang
+     procedure_id : 1931108920873949624
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] pclGetLangueParRang (<nRangLangue>)
+      //
+      // Paramètres :
+      //	nRangLangue : <indiquez ici le rôle de nLangue>
+      // Valeur de retour :
+      // 	Type indéterminé :         // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure pclGetLangueParRang( nRangLangue )
+      
+      si nRangLangue<=TableauOccurrence(:m_tabParamLangue) alors 
+      	renvoyer :m_tabParamLangue[nRangLangue]
+      FIN
+      
+      renvoyer NULL
+     type : 458752
+   -
+     name : nNbProfilSelectionne
+     internal_properties : CAAAAAgAAADJRLVP/jqmIxQsPDN4d70F84NpM46/+MjWqOI3xiquJaKR38qL2HF9xO1Xwl1f+ackM0CElB6MvVViktyHpgA3bxWx/JLd4V5SfuJYFWrhp7Ybp2O7ljqdxsphoSb1MgBRsyWD1X5k4d446B6Bdd2L2bdqX1PtZ/15J4qOx7+PJ1OjXvr29zfciiVmuL9eWua7qNaU6PB0/czVGLPR
+     procedure_id : 2058652226703365855
+     type_code : 12
+     code : |1-
+      // Résumé : Retourne le nombre de profils sélectionné pour le déploiement
+      // Paramètres :
+      //	bCompteProfilAuto (booléen - valeur par défaut=0) : <indiquez ici le rôle de bCompteProfilAuto>
+      // Valeur de retour :
+      // 	entier :    // 	Aucune
+      //
+      PROCEDURE nNbProfilSelectionne( bCompteProfilAuto est un booleen = faux )
+      
+      nNbModele est un entier = 0
+      
+      selon :m_nModeleInstallation
+      	cas ::MODELE_DISTANT
+      		selon :m_nSupportInstallation
+      			// Install distante : compte les serveurs sélectionnés
+      			cas ::DISTANT_SERVEUR_APPLICATION
+      				POUR TOUT clSrv DE :m_tabServeur
+      					si clSrv:m_bSelectionne _et_ clSrv.m_sServeurCloud="" alors nNbModele++
+      				FIN
+      				//dbgAssertion(nNbModele>=1) assertion abusive, on peut avoir 0 modèles créés, et 0 sélectionnés
+      				renvoyer nNbModele
+      			CAS DISTANT_SERVEUR_PCSOFT_CLOUD
+      				POUR TOUT clSrv DE :m_tabServeur
+      					SI clSrv:m_bSelectionne _ET_ clSrv.m_sServeurCloud<>""  ALORS nNbModele++
+      				FIN
+      				//dbgAssertion(nNbModele>=1) assertion abusive, on peut avoir 0 modèles créés, et 0 sélectionnés
+      				RENVOYER nNbModele
+      			// Install sur serveur PCSOFT : un seul profil
+      			cas ::DISTANT_SERVEUR_PCSOFT_HEBERGEMENTTEST
+      				renvoyer 1
+      		FIN
+      	cas ::MODELE_PHYSIQUE
+      		SELON :m_nSupportInstallation
+      			// Install par package : compte les serveurs
+      			cas ::SUPPORT_PACKAGE
+      				POUR TOUT clSrv DE :m_tabServeur
+      					SI clSrv:m_bSelectionne ALORS nNbModele++
+      				FIN
+      				// Si on a demandé à comptabiliser le profil automatique
+      				si nNbModele=0 _et_ bCompteProfilAuto alors nNbModele=1
+      				RENVOYER nNbModele
+      			// Installs par media physique : un seul profil
+      			cas ::SUPPORT_MEDIA_PHYSIQUE, ::SUPPORT_AUTONOME, ::SUPPORT_MEDIA_PHYSIQUE_LOCAL, ::SUPPORT_DOCKER
+      				RENVOYER 1
+      		FIN
+      FIN
+      
+      dbgAssertion(faux,"Modèle de déploiement incorrect")
+      renvoyer 0
+     type : 458752
+   -
+     name : pGetProfil
+     internal_properties : CAAAAAgAAAChFxJ7eow+rg3p2dvC6QA2kfaU9AKlPQatCgxNXWuc+G0fR33qda3wWpDyBmEntccPWCjZ7iGKJ01wMIxb3Bj4hggOOrFY9Wb5+tSlVftmzAY7Wo4RF2h71bIedoN1FKwousNU20XkRe2oNUcY1dfhVvTCxlkgrZF0WTdP+JXbkejYek8oGpvwG12f+URQTo0=
+     procedure_id : 2060262787999922413
+     type_code : 12
+     code : |1+
+      // Résumé : Retourne le profil sélectionné (pour les cas où il y en a plusieurs)
+      // Paramètres :
+      //	nRang (entier) : <indiquez ici le rôle de nRang>
+      // Valeur de retour :
+      // 	CServeurInst : <indiquez ici le rôle de la valeur de retour>
+      //
+      PROCEDURE pGetProfil(nRang est un entier)
+      
+      nNbModele est un entier = 0
+      
+      SELON :m_nModeleInstallation
+      	CAS ::MODELE_DISTANT
+      		SELON :m_nSupportInstallation
+      			// Install sur serveur PCSOFT : un seul profil
+      			CAS ::DISTANT_SERVEUR_PCSOFT_HEBERGEMENTTEST
+      				RENVOYER :m_clServeurPCS
+      			CAS ::DISTANT_SERVEUR_PCSOFT_CLOUD
+      				si nNbProfilSelectionne()=0 alors
+      					RENVOYER :m_clServeurCloud
+      				fin
+      		FIN
+      		
+      	CAS ::MODELE_PHYSIQUE
+      		SELON :m_nSupportInstallation
+      			// Installs par media physique : un seul profil
+      			CAS ::SUPPORT_MEDIA_PHYSIQUE, ::SUPPORT_AUTONOME, ::SUPPORT_MEDIA_PHYSIQUE_LOCAL, ::SUPPORT_DOCKER
+      				RENVOYER :m_clServeurMediaPhysique
+      				
+      			// Install par package : compte les serveurs
+      			CAS ::SUPPORT_PACKAGE
+      				si :nNbProfilSelectionne()=0 alors 
+      					renvoyer :m_clServeurAutoPackage
+      				FIN
+      		FIN
+      FIN
+      
+      dbgAssertion(:nNbProfilSelectionne()>0)
+      POUR TOUT clSrv,nProfil DE :m_tabServeur
+      	SI clSrv:m_bSelectionne ALORS 
+      		bmodecloud est un booléen= m_nModeleInstallation=MODELE_DISTANT _ET_ m_nSupportInstallation=DISTANT_SERVEUR_PCSOFT_CLOUD
+      		si bmodecloud alors
+      			si clSrv.m_sServeurCloud<>"" ALORS
+      				nNbModele++
+      			FIN
+      		sinon
+      			SI clSrv.m_sServeurCloud="" ALORS
+      				nNbModele++
+      			FIN
+      		fin
+      			
+      		SI nNbModele=nRang ALORS RENVOYER clSrv
+      	FIN
+      FIN
+      
+      
+      dbgAssertion(Faux,"Rang incorrect")
+      RENVOYER Null
+     type : 458752
+   -
+     name : nTrouveFic
+     procedure_id : 2060508356993706704
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] nTrouveFic (<sCheminSourceComplet>)
+      //
+      // Paramètres :
+      //	sCheminSourceComplet : <indiquez ici le rôle de sCheminSourceComplet>
+      // Valeur de retour :
+      // 	entier :   // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure nTrouveFic( sCheminSourceComplet )
+      
+      nRang est un entier = TableauCherche(:m_tabFic,tcDichotomique+tccSansCasse,"m_sCheminSourceComplet",sCheminSourceComplet)
+      
+      renvoyer nRang
+      
+      
+      
+      //// Recherche insensible à la casse (sinon, on a trop de pb avec les anciens WWF ou les cas où la casse est modifiée par des copies)
+      //// QW171149 : remplace l'opérateur ~= par une comparaison des chaines en minuscules car sinon Requête.FIC est égal à Requete.FIC (par exemple)
+      //nRang est un entier
+      //pour nRang=1 _a_ TableauOccurrence(:m_tabFic)
+      //	si minuscule(:m_tabFic[nRang]:m_sCheminSourceComplet)=_sCheminMinuscule ALORS
+      //renvoyer nRang
+      //	FIN
+      //FIN
+      //
+      //// Pas trouvé
+      //renvoyer -1
+      //
+      
+     type : 458752
+   -
+     name : nTrouveFicDistant
+     procedure_id : 2060508356993772318
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] nTrouveFicDistant (<sCheminDistantComplet>, <bInsensibleALaCasse>)
+      //
+      // Paramètres :
+      //	sCheminDistantComplet : <indiquez ici le rôle de sCheminSourceComplet>
+      //	bInsensibleALaCasse : <indiquez ici le rôle de bInsensibleALaCasse>
+      // Valeur de retour :
+      // 	entier :      // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure nTrouveFicDistant( sCheminDistantComplet , bInsensibleALaCasse)
+      
+      // Si la recherche est insensible à la casse, on normalise la casse locale avant de faire la comparaison
+      //si bInsensibleALaCasse ALORS
+      //	pour i=1 _à_ TableauOccurrence(:m_tabFic)
+      //		sCheminValide est une chaine = fExtraitChemin(:m_tabFic[i]:m_sCheminDistantComplet,fDisque+fRépertoire)+ChaîneFormate(fExtraitChemin(:m_tabFic[i]:m_sCheminDistantComplet,fFichier+fExtension),ccSansAccent+ccMinuscule)
+      //		si sCheminValide~=sCheminDistantComplet alors
+      //			renvoyer i
+      //		FIN
+      //	FIN
+      //	renvoyer -1
+      //FIN
+      //
+      //renvoyer TableauCherche(:m_tabFic,tcLinéaire,"m_sCheminDistantComplet",sCheminDistantComplet)
+      //
+      nResultat est un entier=-1
+      nOptionRecherche est un entier=tcLineaire
+      nResultat= TableauCherche(:m_tabFic,nOptionRecherche,"m_sCheminDistantComplet",sCheminDistantComplet)
+      
+      SI nResultat=-1 _ET_ bInsensibleALaCasse ALORS
+      	nOptionRecherche+=tccSansCasse//+tccSansAccent
+      	nResultat= TableauCherche(:m_tabFic,nOptionRecherche,"m_sCheminDistantComplet",sCheminDistantComplet)
+      FIN
+      
+      RENVOYER nResultat
+     type : 458752
+   -
+     name : nTrouveFicSuppr
+     procedure_id : 2060508356993837885
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] nTrouveFicSuppr (<sCheminSourceComplet>)
+      //
+      // Paramètres :
+      //	sCheminSourceComplet : <indiquez ici le rôle de sCheminSourceComplet>
+      // Valeur de retour :
+      // 	entier :   // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure nTrouveFicSuppr( sCheminSourceComplet )
+      
+      nRang est un entier = TableauCherche(:m_tabFicAutoSuppr,tcLinéaire+tccSansCasse,"m_sCheminSourceComplet",sCheminSourceComplet)
+      
+      renvoyer nRang
+      
+     type : 458752
+   -
+     name : pclTrouveFic
+     procedure_id : 2060508356993903452
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] pclTrouveFic (<sCheminSourceComplet>)
+      //
+      // Paramètres :
+      //	sCheminSourceComplet : <indiquez ici le rôle de sChemin>
+      // Valeur de retour :
+      // 	Type indéterminé :  // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      // 	sNom : <indiquez ici le rôle de sNom>
+      Procédure pclTrouveFic( sCheminSourceComplet )
+      
+      nRang est un entier = :nTrouveFic(sCheminSourceComplet)
+      si nRang=-1 alors renvoyer Null
+      
+      renvoyer :m_tabFic[nRang]
+     type : 458752
+   -
+     name : pclTrouveFicDistant
+     procedure_id : 2060508356993969020
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] pclTrouveFicDistant (<sCheminDistantComplet>, <bInsensibleALaCasse>)
+      //
+      // Paramètres :
+      //	sCheminDistantComplet : <indiquez ici le rôle de sChemin>
+      //	bInsensibleALaCasse : <indiquez ici le rôle de bInsensibleALaCasse>
+      // Valeur de retour :
+      // 	Type indéterminé :     // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      // 	sNom : <indiquez ici le rôle de sNom>
+      Procédure pclTrouveFicDistant( sCheminDistantComplet , bInsensibleALaCasse )
+      
+      nRang est un entier = :nTrouveFicDistant(sCheminDistantComplet,bInsensibleALaCasse)
+      si nRang=-1 alors renvoyer Null
+      
+      renvoyer :m_tabFic[nRang]
+     type : 458752
+   -
+     name : pclTrouveFicSuppr
+     procedure_id : 2060508356994034602
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] pclTrouveFicSuppr (<sCheminSourceComplet>)
+      //
+      // Paramètres :
+      //	sCheminSourceComplet : <indiquez ici le rôle de sChemin>
+      // Valeur de retour :
+      // 	Type indéterminé :   // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      // 	sNom : <indiquez ici le rôle de sNom>
+      Procédure pclTrouveFicSuppr( sCheminSourceComplet )
+      
+      nRang est un entier = :nTrouveFicSuppr(sCheminSourceComplet)
+      si nRang=-1 alors renvoyer Null
+      
+      renvoyer :m_tabFicAutoSuppr[nRang]
+     type : 458752
+   -
+     name : __AjouteFicDistant
+     procedure_id : 2063594815127207528
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	clSrv : <indiquez ici le rôle de clSrv>
+      //	nRangAjout : <indiquez ici le rôle de nRangAjout>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE __AjouteFicDistant(clSrv,nRangAjout)
+      
+      pclFicDistant est un CFichierInstDistant dynamique = allouer un CFichierInstDistant
+      pclFicDistant:m_nOperation = CInstallWBData::OP_INSTALLER
+      pclFicDistant:m_bExisteDistant = Faux
+      pclFicDistant:m_nTailleDistant = -1
+      //pclFicDistant:m_dhDateHeureModifDistant = ""
+      quand Exception dans
+      	//SI nRangAjout<=TableauOccurrence(clSrv.m_tabFicDistant)+1 ALORS
+      		TableauInsère(clSrv:m_tabFicDistant,nRangAjout,pclFicDistant)
+      	//FIN
+      	
+      FAIRE
+      	//rien
+      FIN
+     type : 458752
+   -
+     name : nTrouveRepSuppr
+     procedure_id : 1624249761397093885
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] nTrouveRepSuppr (<sCheminSource> est chaîne)
+      //
+      // Paramètres :
+      //	sCheminSource (chaîne UNICODE) :<indiquez ici le rôle de sCheminSourceComplet>
+      // Valeur de retour :
+      // 	entier :   // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure nTrouveRepSuppr(local  sCheminSource  est une chaine)
+      
+      nRang est un entier = TableauCherche(:m_tabFicAutoSuppr,tcLinéaire+tccSansCasse,"m_sCheminSourceComplet",sCheminSource)
+      si nRang<0 ALORS
+      	sCheminSourceParent est une chaine = fExtraitChemin(DécomplèteRep(sCheminSource),fDisque+fRépertoire)
+      	si DécomplèteRep(sCheminSourceParent)<>DécomplèteRep(sCheminSource) _et_  taille(sCheminSourceParent)>4 ALORS
+      		nRang=nTrouveRepSuppr(sCheminSourceParent)
+      	FIN
+      FIN
+      
+      renvoyer nRang
+      
+     type : 458752
+   -
+     name : eGetTypeApplication
+     procedure_id : 2286631337194456223
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      // eGetTypeApplication ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      procédure eGetTypeApplication() <métier> : CWebDevConfigApplication.ETypeApplication
+      
+      selon :m_nObjetDep
+      cas OBJET_SITE_WEB
+      	renvoyer CWebDevConfigApplication.TypeApplication_Site
+      cas OBJET_WEBSERVICE_SOAP
+      	RENVOYER CWebDevConfigApplication.TypeApplication_WebserviceSOAP
+      cas OBJET_WEBSERVICE_REST
+      	RENVOYER CWebDevConfigApplication.TypeApplication_WebserviceREST
+      cas OBJET_SOCKET
+      	RENVOYER CWebDevConfigApplication.TypeApplication_WebSocket
+      autres cas
+      	dbgAssertion(faux)
+      	RENVOYER CWebDevConfigApplication.TypeApplication_Site
+      FIN
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+resources :
+ string_res :
+  identifier : 0x175d13470618b0f8
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

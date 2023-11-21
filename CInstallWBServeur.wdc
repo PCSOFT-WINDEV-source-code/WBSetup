@@ -1,0 +1,305 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CInstallWBServeur
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x1a4cd0ce041186ae
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  internal_properties : CAAAAAgAAAAkMSYvBFRVZZ5zOhEXVuj1nq1RpnxlYQQorKQ15huT0N+qrlEPW3FKf51TuEiH3MXQuCTjH2jes3ce7j3UHTqV4+spjg6r/h3zxO7TDYAUM2o1ry7g1rBVlZMjJD5555FiTwLrrJXMimsNXiQIT5XKlXz1bK/kSDmd8ssnUjjII767n71dCEYf5CFCdRWQvkD9YDVTc21Qnie7L6i3931ZuDRyJ/DL7MMIdJ3owtn2DHL2XQFtspD6N2ORPQX2OlWJlVZRd9GAV/NJswVfoZF1fsM73L2Rc6pwcQl1Sw49nVI1M5WZtFxeeCvHfp3yICDj4Gke
+  type_code : 10
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAABwf1TI1f0++HPOky5iF8zvOwCRjeTVtJ4ZYydTFZ+GT2f4vBnNbXevPuqbOUVCL2S3YD/P04U9PAcYakXnuOvz8DsSX+JWG7gtkYq4DdgR9QbN7DXNFW2zD2V3VoQnNrnagQPXfiW0y6BJ4Q==
+     code : |1+
+      constant
+      	NOM_MSIEXEC = "msiexec.exe"
+      FIN
+      
+      CInstallWBServeur est une classe
+      	// Objet des méthodes utilitaires
+      	m_pclUtil est un CInstallWBUtil dynamique
+      	
+      	m_bServeurWebPrésent est un booleen			// Vrai si le poste a un serveur web
+      	m_bInstallerServeurWeb est un booleen		// Vrai si on doit installer le serveur web inclus dans l'installation
+      	
+      Fin
+      
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1895119126466299566
+     type_code : 27
+     code : |1+
+      Procédure Constructeur(pclInstallUtil est un CInstallWBUtil dynamique )
+      
+      :m_pclUtil = pclInstallUtil
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1895119126466365102
+     type_code : 28
+     code : |1+
+      Procédure Destructeur()
+      
+     type : 655360
+   -
+     name : SERVEURWEB_bInstall
+     internal_properties : CAAAAAgAAACTNtjR3O2gElvkwB6eO7y3YqdnKG0baMOWG+xFnYFojMp5dXXfbtnVYg8/YYxik2+CZ2pVF+dF6tEatUaEtweWKQJk0gfa3/xi1nqPva/c1BgYijN3hoZ/xOOKsJo1EnMvuUbVfZrVcRzd5yMFTExIELlEZdMjJynjTdx5Q+iSBo1mG9Xi/KG4kWBHUfbfxi5mxi09EsF9y8ZRMfWlFmBLHrKCJBIhpBmV+7u8TviXOP4UD9E6B072rIHYE9otu7PQYGV0s3rdhmY+xcM0If8JOdYMofKf+A==
+     procedure_id : 1895119259628535422
+     type_code : 12
+     group : 5
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] SERVEURWEB_bInstall (<bWarning> est booléen)
+      //
+      // Paramètres :
+      //	bWarning (booléen) : <indiquez ici le rôle de bWarning>
+      // Valeur de retour :
+      // 	booléen :    // 	Aucune
+      //
+      Procédure SERVEURWEB_bInstall( bWarning est un booleen )
+      
+      nLastServeur est un entier = 0
+      <SI CibleExécution=ApplicationWindows>
+      	
+      	// Fixe l'IHM si nécessaire
+      	IHM_Jauge_ChangeEtape(<§$0000§>,:m_pclUtil:m_nNumEtape,:m_pclUtil:m_nTotalEtape)
+      	IHM_Jauge_Init(Faux)
+      	IHM_Jauge_Detail(<§$0001§>)
+      	
+      	sCommandeExec est une chaîne = ""
+      	sCheminMsiExec est une chaîne = ""
+      	sVersionMsi est une chaîne = ""
+      	sCheminInstallApache est une chaine = :m_pclUtil:sLocaliseFichier(completerep(LigneCommande("REP"))+NOM_INSTALL_APACHE,<§$0002§>+tab+"*.msi","msi")
+      	
+      	// Si le fichier n'a pas été localisé, on abandonne cette étape
+      	SI sCheminInstallApache="" ALORS
+      		RENVOYER Faux
+      	FIN
+      	
+      	//Recherche de la version de MSIEXEC 
+      	sCheminMsiExec = ComplèteRep(SysRep(srSystème)) + ::NOM_MSIEXEC
+      	
+      	nRetDlg est un entier
+      	
+      	SI fFichierExiste(sCheminMsiExec) ALORS
+      		sVersionMsi = ExeInfo(exeVersion,sCheminMsiExec)
+      	SINON
+      		//1 : &Poursuivre l'installation
+      		//2 : &Abandonner l'installation
+      		nRetDlg = 2
+      		SI IHM_bDisponible() ALORS
+      			nRetDlg = Dialogue(<§?176928EF02CA2859§>)
+      			bWarning = Vrai
+      		FIN
+      		SI nRetDlg = 2 ALORS
+      			RENVOYER Faux			
+      		FIN
+      	FIN
+      	
+      	//Si > 3, on peut le lancer en mode passif avec jauge, sinon sera intéractif
+      	SI Val(sVersionMsi[[1]]) >= 3 ALORS
+      		
+      		//Ligne de commande à passer au MSI
+      		sLigneCommande est une chaîne = " ALLUSERS=1 SERVERNAME=%1.%2 SERVERDOMAIN=%2 SERVERADMIN=webmaster(-at-)%2 SERVEURPORT=80 /qb"
+      		
+      		//On récupère les infos de Host et Domain dans le registre
+      		sCléParam 	est une chaîne = "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters"
+      		sNVHostname 	est une chaîne = RegistreLit(sCléParam,"NV Hostname")
+      		sNVDomain 	est une chaîne = RegistreLit(sCléParam,"NV Domain")
+      		sDHCPDomain est une chaîne = RegistreLit(sCléParam,"DhcpDomain")
+      		
+      		//On passe le DHCPDomain si pas de domaine
+      		SI sNVDomain = "" ALORS
+      			SI sDHCPDomain = "" ALORS
+      				//Pas de DHCP non plus, on lance l'install en intéractif
+      				sLigneCommande = ""
+      			SINON
+      				sLigneCommande = ChaîneConstruit(sLigneCommande,sNVHostname,sDHCPDomain)	
+      			FIN
+      		SINON
+      			sLigneCommande = ChaîneConstruit(sLigneCommande,sNVHostname,sNVDomain)	
+      		FIN
+      		
+      		
+      		sCommandeExec = "msiexec.exe /i """ + sCheminInstallApache + """" + sLigneCommande
+      		
+      	SINON
+      		sCommandeExec = "msiexec.exe /i """ + sCheminInstallApache + """"
+      	FIN
+      	
+      	SI PAS LanceAppli(sCommandeExec,exeActif,exeBloquant) ALORS
+      		//1 :
+      		nRetDlg = 2
+      		SI IHM_bDisponible() ALORS
+      			nRetDlg = Dialogue(<§?176929A402F9EA21§>)
+      		FIN
+      		SI nRetDlg=2 ALORS 
+      			RENVOYER Faux		
+      		FIN
+      	FIN
+      	
+      	// On a un serveur web - on relance la détection
+      	:m_pclUtil:DetecteServeursWeb(nLastServeur)
+      <FIN>
+      
+      :m_pclUtil:m_nServeurWeb = nLastServeur
+      
+      si :m_pclUtil:m_nServeurWeb <=0 ALORS
+      	IHM_Erreur(<§$0003§>)
+      	renvoyer faux
+      FIN
+      
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : SERVEUR_bInitInstallation
+     internal_properties : CAAAAAgAAABFmgHQxC2SwVyeb1WLDFbmATuJL7Tj/re8H7JTiml3MMkB5+gsoHWg/VwhgiWYXM2iI94k7/i7xhJLR3FPWeFmBnSu7UaWNh1TO1+eyVRGKVxMhg/c3+znaCZxeAY0zLLXGBizfL/4WVJZd/HhCgGD9VTRQ0yWe909TeReu0qKNfeYGfu2d9+4mB97HgV2rfWHAsW4+3PdtJzQBX0QTKY=
+     procedure_id : 1895120213113857070
+     type_code : 12
+     group : 5
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	bInstallServeurPrésente (booléen) : Vrai si l'installation contient l'install d'un serveur web
+      // Valeur de retour :
+      // 	booléen :  // 	Aucune
+      //
+      Procédure SERVEUR_bInitInstallation(bInstallServeurPrésente est un booleen)
+      
+      // Détection de la présence d'un serveur Web
+      :m_bServeurWebPrésent =CApache24.s_bDetecte() _OU_ ...
+      					CIISBase.s_bDetecte()
+      
+      //PLAN_4_SERVEURWEB = 4
+      // Active les serveurs possibles
+      nLastServeur est un entier = 0
+      //clSrv est un ConfigServeurWeb(faux,"",:m_pclUtil:sVersionMoteur(),MOTEUR_WebDep)
+      :m_pclUtil:DetecteServeursWeb(nLastServeur)
+      
+      trace("Détection du type de serveur : type = " +nLastServeur)
+      // Si on a un ou plusieurs serveurs web dispo
+      SI nLastServeur>0 ALORS
+      	// on regarde si l'un d'entre eux est sélectionné dans WDAdmin
+      	nServeurAdmin est un entier = :m_pclUtil:nGetServeurWebMoteur()
+      	SI nServeurAdmin=SRV_AUTRE ALORS
+      		:m_pclUtil:m_nServeurWeb = -1
+      	SINON
+      		SI nServeurAdmin<>0 _ET_ CServeurWeb.s_bDetecteSelonType(nServeurAdmin) ALORS
+      			// et on le reselectionne
+      			:m_pclUtil:m_nServeurWeb = nServeurAdmin
+      		SINON
+      			// sinon on sélectionne le dernier trouvé
+      			:m_pclUtil:m_nServeurWeb = nLastServeur
+      		FIN
+      	FIN
+      	// dans tous les cas, on n'installe pas de serveur
+      	:m_bInstallerServeurWeb = Faux
+      SINON
+      	SI  bInstallServeurPrésente ALORS
+      		// aucun serveur sur la machine : on propose d'en installer un
+      		:m_bInstallerServeurWeb = Vrai
+      	sinon
+      		//aucun serveur détecté, et pas d'install possible
+      		IHM_Erreur(<§$0003§>)
+      		renvoyer faux
+      	FIN
+      FIN
+      
+      renvoyer vrai
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : CClasse1
+resources :
+ string_res :
+  identifier : 0x1a4cd0c5040e6422
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+  strings :
+   -
+     text :
+      fr-FR : Installation du serveur web
+      en-GB : Install the Web server
+      es-ES : Instalar el servidor Web
+     index : 0
+   -
+     text :
+      fr-FR : Cette opération peut prendre quelques instants.
+      en-GB : This operation may take a few minutes.
+      es-ES : Esta operación puede tardar algunos minutos.
+     index : 1
+   -
+     text :
+      fr-FR : Installations MSI (*.msi)
+      en-GB : MSI setups (*.msi)
+      es-ES : Instalaciones MSI (*.msi)
+     index : 2
+   -
+     text :
+      fr-FR : La détection du serveur web a échoué.
+      en-GB : The detection of the Web server failed.
+      es-ES : Error al detectar el servidor Web.
+     index : 3
+ dialogs :
+  -
+    identifier : 0x176928ef02ca2859
+    internal_properties : CAAAAAgAAAD8RGii+0Mj1lQQptjo/hY4Gcc/tVCrDTvFmw49+/cr59Fl
+    label :
+     fr-FR : L'installateur MSI de Windows n'est pas disponible sur cette machine.Le serveur web ne peut pas être installé automatiquement.Vous pouvez poursuivre l'installation mais vous devrez installer et configurer le serveur web manuellement.
+     en-GB : The Windows MSI installer is not available on this computer. The Web server cannot be installed automatically. You can continue the setup but the Web server will have to be installed and configured manually.
+     es-ES : "El instalador MSI de Windows no está disponible en este equipo. El servidor Web no se puede instalar automáticamente. La instalación puede continuar, pero el servidor Web deberá instalarse y configurarse manualmente."
+    image : {}
+    cancel_button : 1
+    buttons :
+     -
+       label :
+        fr-FR : "&Poursuivre l'installation"
+        en-GB : "&Continue setup"
+        es-ES : "&Continuar instalación"
+       image : {}
+       value : 1
+     -
+       label :
+        fr-FR : "&Abandonner l'installation"
+        en-GB : C&ancel setup
+        es-ES : C&ancelar instalación
+       image : {}
+       value : 2
+  -
+    identifier : 0x176929a402f9ea21
+    internal_properties : CAAAAAgAAAC8hChiOwNjFpRgxrioXrZ4WRcvRcB7PQuF2859O7frJ5Gl
+    label :
+     fr-FR : "Une erreur s'est produite pendant l'installation du serveur web. Le serveur web ne peut pas être installé automatiquement. Vous pouvez poursuivre l'installation mais vous devrez installer et configurer le serveur web manuellement.\r\n"
+     en-GB : "An error occurred while installing the Web server. The Web server cannot be installed automatically. You can continue the setup but the Web server will have to be installed and configured manually.\r\n"
+     es-ES : "Se produjo un error al instalar el servidor Web. El servidor Web no se puede instalar automáticamente. La instalación puede continuar, pero el servidor Web deberá instalarse y configurarse manualmente.\r\n"
+    image : {}
+    cancel_button : 1
+    buttons :
+     -
+       label :
+        fr-FR : "&Poursuivre l'installation"
+        en-GB : "&Continue setup"
+        es-ES : "&Continuar instalación"
+       image : {}
+       value : 1
+     -
+       label :
+        fr-FR : "&Abandonner l'installation"
+        en-GB : C&ancel setup
+        es-ES : C&ancelar instalación
+       image : {}
+       value : 2
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

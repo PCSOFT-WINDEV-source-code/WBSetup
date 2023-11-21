@@ -1,0 +1,56 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CParamLangue
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x175d0cc605f04bef
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     code : |1+
+      // Paramètres dépendants d'une langue dans une installation
+      CParamLangue est une classe
+      	m_nLangue est un entier  		// Identifiant de langue (au sens de la fonction Nation)
+      	m_bUtilise est un booleen 		// Vrai si la langue est utilisée dans l'installation
+      	m_sLibLangue est une chaine unicode 	// Libellé d'introduction de la langue (ex : "Installation en français")
+      	m_sLicence est une chaine 		// Fichier de licence
+      	m_sLisezMoi est une chaine 		// Fichier de "lisez-moi"
+      	m_sTitre est une chaine unicode			// Titre de l'installation
+      Fin
+      
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1683515880349191151
+     type_code : 27
+     code : |1+
+      Procédure Constructeur()
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1683515880349256687
+     type_code : 28
+     code : |1+
+      Procédure Destructeur()
+      
+     type : 655360
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : CClasse1
+resources :
+ string_res :
+  identifier : 0x10d4759a036c439a
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

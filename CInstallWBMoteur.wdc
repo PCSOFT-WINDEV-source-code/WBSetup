@@ -1,0 +1,381 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CInstallWBMoteur
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x1a4cb0d404209d82
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  internal_properties : CAAAAAgAAAB8BG8F+vnCPM9vV5LKLUl+pepAAnRVDxNlUIWAU3wtUOcoKY9ldh/8VzOQwzWm6insmzQpJYFu4Xxks9bAn5/px1vRIpkZ6bPq+6ZX2WucKhBeUZrWNL3kYxy6vpT4hj0IcJK5i0pGxrs1AeH6qrFRWR+x9780fR3W1IR18kD6cSH7vs/DqoNhQDlGWW2ztsIBTMYGCh4jWmG0DJcUlij38fTlyaXk6lcQeUsDCujuELs9lUTrJmSjGTVN97P5beAryde7hlYOenkgrmmmHFmIMhUQjYztf40X/yg8wcful+ev+le9TlOiQcK70KCPHPssCq8ZNM7t69DB8yy/AkziO37VYFIFJ9K2D5MW0ZQgi9xdQa5VmttQUPeqFP+B1G8P84pCIWamodNzXeCs35XE/LIS3b1qHTipO2s1r4uRGPgAMGRG7lylGz2WCExD7l5GKf4YyFh8ZdYFKbHxGA9p2WFRnqlSa21xUvwpYNN6TIZt/Q==
+  type_code : 10
+  p_codes :
+   -
+     code : |1+
+      constant
+      	NOM_ZIP_MOTEUR = "_WebDev.zip"
+      	NOM_REP_COMPTE = "Compte\"
+      	NOM_REP_COMPTE_ADMIN = "Compte\Admin\"
+      	NOM_REP_SITE = "Site\"
+      	NOM_REP_DATA = "Data\"
+      	NOM_REP_WEBSERVICESOAP = "Webservice\"
+      	NOM_REP_WEBSERVICEREST = "WebserviceRest\"
+      FIN
+      
+      CInstallWBMoteur est une classe
+      	// Objet des méthodes utilitaires
+      	m_pclUtil est un CInstallWBUtil dynamique
+      Fin
+      
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1895083967865003394
+     type_code : 27
+     code : |1+
+      Procédure Constructeur( pclInstallUtil est un CInstallWBUtil dynamique )
+      
+      :m_pclUtil = pclInstallUtil
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1895083967865068930
+     type_code : 28
+     code : |1+
+      Procédure Destructeur()
+      
+     type : 655360
+   -
+     name : MOTEUR_bCreeRepertoire
+     procedure_id : 1895084075254939855
+     type_code : 12
+     group : 4
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] MOTEUR_bCreeRepertoire (<sRepInstallMoteur> est chaîne, <sRepInstallCompte> est chaîne, <sRepInstallAWP> est chaîne)
+      //
+      // Paramètres :
+      //	sRepInstallMoteur (chaîne) : <indiquez ici le rôle de sRepInstallMoteur>
+      //	sRepInstallCompte (chaîne) : <indiquez ici le rôle de sRepInstallCompte>
+      //	sRepInstallAWP (chaîne) : <indiquez ici le rôle de sRepInstallAWP>
+      // Valeur de retour :
+      // 	booléen :     <indiquez ici les valeurs possibles ainsi que leur interprétation>
+      //
+      Procédure MOTEUR_bCreeRepertoire(sRepInstallMoteur est une chaine,sRepInstallCompte est une chaine,sRepInstallAWP est une chaine)
+      
+      IHM_Jauge_Detail(<§$0000§>)
+      
+      sRepInstallMoteur = :m_pclUtil:m_sBinPath
+      si pâs :m_pclUtil:bCreeRepertoire(sRepInstallMoteur) alors renvoyer faux
+      
+      
+      sRepInstallAWP = :m_pclUtil:m_sBinPath+["\"]+"AWP"
+      SI PAS :m_pclUtil:bCreeRepertoire(sRepInstallAWP) ALORS RENVOYER Faux
+      
+      sRepInstallCompte = :m_pclUtil:m_sBinPath+["\"]+::NOM_REP_COMPTE
+      SI PAS :m_pclUtil:bCreeRepertoire(sRepInstallCompte) ALORS RENVOYER Faux
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : MOTEUR_bExtraitFichier
+     procedure_id : 1895084075255005407
+     type_code : 12
+     group : 4
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] MOTEUR_bExtraitFichier (<sRepInstallMoteur>)
+      //
+      // Paramètres :
+      //	sRepInstallMoteur : <indiquez ici le rôle de sRepInstallMoteur>
+      // Valeur de retour :
+      // 	booléen :      <indiquez ici les valeurs possibles ainsi que leur interprétation>
+      //
+      Procédure MOTEUR_bExtraitFichier(sRepInstallMoteur)
+      
+      iHM_Jauge_Detail(<§$0001§>)
+      
+      // On s'assure de la présence du zip
+      sFicZip est une chaine = :m_pclUtil:sLocaliseFichier(completerep(LigneCommande("REP"))+::NOM_ZIP_MOTEUR)
+      SI sFicZip="" ALORS RENVOYER Faux
+      
+      renvoyer :m_pclUtil:bExtraitArchive(sFicZip,sRepInstallMoteur,"","",NULL,faux,"","")
+     type : 458752
+   -
+     name : MOTEUR_bInitFicCompte
+     internal_properties : CAAAAAgAAADfmY4FVTKgUqsw+14AS8hJR5F0QEgx8x+bFpfMJKH3XyWQhtSjrGGxXA//gBwqbQ5bbvJsIHjUFpTL+s9GGuhCOxO2JUOuopI6XDTO/Awy+InLup0AZaARxu63ztUzgbLjV6FzUP92vrACI3g=
+     procedure_id : 1895084075255070974
+     type_code : 12
+     group : 4
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] MOTEUR_bInitFicCompte ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen :   // 	Aucune
+      //
+      // 	sRepInstallCompte : <indiquez ici le rôle de sRepInstallCompte>
+      Procédure MOTEUR_bInitFicCompte()
+      
+      IHM_Jauge_Detail(<§$0002§>)
+      
+      // On rappelle la méthode d'init du composant des comptes pour créer les fichiers au nouvel emplacement
+      si pas bInit((:m_pclUtil:sVersionMoteur())) ALORS
+      	IHM_Erreur(ManipComptesWebDev.gsErreurCompte)
+      	renvoyer faux
+      FIN
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : MOTEUR_bInstall
+     procedure_id : 1895084075255136526
+     type_code : 12
+     group : 4
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] MOTEUR_bInstall (<bWarning> est booléen, <pclServeurWeb> est CServeurWeb dynamique, <clTransactionEcriture> est CWebDevConfigTransactionEcriture)
+      //
+      // Paramètres :
+      //	bWarning (booléen) : <indiquez ici le rôle de bWarning>
+      //	pclServeurWeb (CServeurWeb dynamique) : <indiquez ici le rôle de pclServeurWeb>
+      //	clTransactionEcriture (CWebDevConfigTransactionEcriture) : <indiquez ici le rôle de clTransactionEcriture>
+      // Valeur de retour :
+      // 	booléen : <indiquez ici le rôle de la valeur de retour>
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure MOTEUR_bInstall (bWarning est un booleen, pclServeurWeb est un CServeurWeb dynamique,clTransactionEcriture est un CWebDevConfigTransactionEcriture)
+      
+      // Fixe l'IHM si nécessaire
+      IHM_Jauge_ChangeEtape(<§$0003§>,:m_pclUtil:m_nNumEtape,:m_pclUtil:m_nTotalEtape)
+      IHM_Jauge_Init(Faux)
+      IHM_Jauge_Detail(<§$0004§>)
+      
+      // Création des répertoires du moteur
+      sRepInstallMoteur est une chaine
+      sRepInstallCompte est une chaine
+      sRepInstallAWP est une chaine
+      si pas :MOTEUR_bCreeRepertoire(sRepInstallMoteur,sRepInstallCompte,sRepInstallAWP) alors renvoyer faux
+      
+      // Décompactage des fichiers
+      si pas :MOTEUR_bExtraitFichier(sRepInstallMoteur) alors renvoyer faux
+      
+      // Création des clés de registre
+      si pas :MOTEUR_bInstalleRegistre(sRepInstallMoteur,sRepInstallCompte,sRepInstallAWP,clTransactionEcriture) alors renvoyer faux
+      
+      // Création du compte Admin
+      si PAS :MOTEUR_bInitFicCompte() alors renvoyer faux
+      
+      // Ajout de l'alias dans le serveur web
+      si pas :MOTEUR_bParamServeurWeb(sRepInstallAWP,bWarning,pclServeurWeb) alors renvoyer faux
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : MOTEUR_bInstalleRegistre
+     internal_properties : CAAAAAgAAABzRWqRrQ4yxs+cj0ok74BJo/18zEiNE/vfEjOAWAWvP8FsbljDYFE9OPNzhAgm7b73GupgoHRK7DYVgDXIiHaMxbnMM01kYMAchroUfgowQiMRUGsCI25v+KDl/P+ZL5ytvb9Jar+mOjyeTxQ=
+     procedure_id : 1895084075255202078
+     type_code : 12
+     group : 4
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] MOTEUR_bInstalleRegistre (<sRepInstallMoteur> est chaîne ANSI, <sRepInstallCompte> est chaîne ANSI, <sRepInstallAWP> est chaîne ANSI)
+      //
+      // Paramètres :
+      //	sRepInstallMoteur (chaîne ANSI) : <indiquez ici le rôle de sRepInstallMoteur>
+      //	sRepInstallCompte (chaîne ANSI) : <indiquez ici le rôle de sRepInstallCompte>
+      //	sRepInstallAWP (chaîne ANSI) : <indiquez ici le rôle de sRepInstallAWP>
+      // Valeur de retour :
+      // 	booléen :    // 	Aucune
+      //
+      Procédure MOTEUR_bInstalleRegistre(sRepInstallMoteur est une chaine,sRepInstallCompte est une chaine,sRepInstallAWP est une chaine,clTransactionEcriture est un CWebDevConfigTransactionEcriture )
+      
+      IHM_Jauge_Detail(<§$0005§>)
+      
+      // Les chemins
+      SI PAS :m_pclUtil:m_pclConfigGlobale.bSetValeur(VALREG_BINPATH,sRepInstallMoteur,clTransactionEcriture) ALORS renvoyer faux
+      SI PAS :m_pclUtil:m_pclConfigGlobale.bSetValeur(VALREG_COMPTEPATH,sRepInstallCompte,clTransactionEcriture) ALORS RENVOYER Faux
+      SI PAS :m_pclUtil:m_pclConfigGlobale.bSetValeur(VALREG_AWPPATH,sRepInstallAWP,clTransactionEcriture) ALORS RENVOYER Faux
+      
+      // L'alias et le lanceur
+      SI PAS :m_pclUtil:m_pclConfigGlobale.bSetValeur(VALREG_LANCEUR,NOM_AWP,clTransactionEcriture) ALORS RENVOYER Faux
+      SI PAS :m_pclUtil:m_pclConfigGlobale.bSetValeur(VALREG_VDIR,NOM_REP_AWP,clTransactionEcriture) ALORS RENVOYER Faux
+      
+      // Le serveur web
+      SI PAS :m_pclUtil:m_pclConfigGlobale.bSetValeur(VALREG_WEBSERVER,:m_pclUtil:m_nServeurWeb,clTransactionEcriture) ALORS RENVOYER Faux
+      
+      // Les limites de connexion
+      SI PAS :m_pclUtil:m_pclConfigGlobale.bSetValeur(VALREG_MAXCONNECT,10,clTransactionEcriture) ALORS RENVOYER Faux
+      SI PAS :m_pclUtil:m_pclConfigGlobale.bSetValeur(VALREG_MAXCONNECTAPP,10,clTransactionEcriture) ALORS RENVOYER Faux
+      SI PAS :m_pclUtil:m_pclConfigGlobale.bSetValeur(VALREG_MAXRECONNECTAPP,10,clTransactionEcriture) ALORS RENVOYER Faux
+      
+      // Les timeout
+      SI PAS :m_pclUtil:m_pclConfigGlobale.bSetValeur(VALREG_TIMEOUT_RQ,200,clTransactionEcriture) ALORS RENVOYER Faux
+      SI PAS :m_pclUtil:m_pclConfigGlobale.bSetValeur(VALREG_TIMEOUT_NORQ,CServeurInst.TIMEOUT_NORQ_DEFAUT,clTransactionEcriture) ALORS RENVOYER Faux
+      si pas :m_pclUtil:m_pclConfigGlobale.bSetValeur(VALREG_TIMEOUT_NORQ_AWP,1000,clTransactionEcriture) ALORS RENVOYER Faux
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : MOTEUR_bParamServeurWeb
+     internal_properties : CAAAAAgAAACJbipd6wsFoVSmoy+dZg2kI/fX3zLAoCuXQZQC6Pnrb8sHnap6vEmmo1I7jvvc+otWhsQIE0dboBQN5WkFkVdAeiKqvwBOGi9RiUEag1BAJltRw9KDlpfW2y8K5WNrwese9T1e857zuLVxHeEFM7ya6kMIXI2/eDqWtGt1vJ3dwWGc2WyD4MOcSrYkzyKB6nQ7VIEaYU2nwt15GYQEePI=
+     procedure_id : 1895084075255267629
+     type_code : 12
+     group : 4
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      // [ <Résultat> = ] MOTEUR_bParamServeurWeb (<sRepInstallAWP> est chaîne, <bWarning> est booléen, <pclServeurWeb> est CServeurWeb dynamique)
+      //
+      // Paramètres :
+      //	sRepInstallAWP (chaîne UNICODE) : <indiquez ici le rôle de sRepInstallAWP>
+      //	bWarning (booléen) : <indiquez ici le rôle de bWarning>
+      //	pclServeurWeb (CServeurWeb dynamique) : <indiquez ici le rôle de pclServeurWeb>
+      // Valeur de retour :
+      // 	booléen : <indiquez ici les valeurs possibles ainsi que leur interprétation>
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure MOTEUR_bParamServeurWeb (sRepInstallAWP est une chaine, bWarning est un booléen, pclServeurWeb est un CServeurWeb dynamique)
+      
+      sMessageAlias est une chaine
+      si pclServeurWeb<>Null ALORS
+      	// On ne fait pas une seule grosse transaction : on sépare l'installation du serveur d'application (si applicable), de la lecture du répertoire virtuel racine et de la configuration du site
+      	pclServeurWebTransactionEcriture est un IServeurWebTransactionEcriture dynamique <- pclServeurWeb:vpclAlloueTransactionEcriture(:m_pclUtil:pGetConfigGlobale(), Faux)
+      
+      	// Ajoute l'alias WD120AWP + sous-repertoire /res
+      	SI PAS pclServeurWeb:vbAjouteAliasCGIAvecSousAliasNonCGI((NOM_REP_AWP),"res",sRepInstallAWP,m_pclUtil.m_sServeurVirtuel,pclServeurWebTransactionEcriture) ALORS
+      		sMessageAlias = ChaîneConstruit(<§$0008§>,NOM_REP_AWP)
+      		bWarning = Vrai
+      	FIN
+      	// Enregistre l'extension AWP
+      	tabExtension est un tableau de chaines unicode= ConstantesWebDev.tabGetExtensionsAWP(RôleMoteur_ServeurApplication)
+      	SI PAS pclServeurWeb:vbActiveAWP(ComplèteRep(sRepInstallAWP)+NOM_AWP,m_pclUtil.m_sServeurVirtuel,pclServeurWebTransactionEcriture,tabExtension) ALORS
+      		sMessageAlias = ChaîneConstruit(<§$0009§>,ComplèteRep(sRepInstallAWP)+NOM_AWP)
+      		bWarning = Vrai
+      	FIN
+      FIN
+      
+      SI :m_pclUtil:m_nServeurWeb=SRV_AUTRE _OU_ sMessageAlias<>"" ALORS
+      	sMessageAlias += RC+ChaîneConstruit(<§$000a§>,NOM_REP_AWP,sRepInstallAWP)
+      	IHM_Info(sMessageAlias)
+      FIN
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : MOTEUR_bInitInstallation
+     procedure_id : 1895120256063605769
+     type_code : 12
+     group : 4
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      //
+      Procédure MOTEUR_bInitInstallation()
+      
+      renvoyer vrai
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : CClasse1
+resources :
+ string_res :
+  identifier : 0x1a4cb0cf041d89fa
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+  strings :
+   -
+     text :
+      fr-FR : Création des répertoires d'installation
+      en-GB : Creating the setup directories
+      es-ES : Creando los directorios de instalación
+     index : 0
+   -
+     text :
+      fr-FR : Extraction des fichiers de l'archive d'installation
+      en-GB : Checking out the files from the setup archive
+      es-ES : Extrayendo archivos del archivo de instalación
+     index : 1
+   -
+     text :
+      fr-FR : Initialisation du fichier des comptes
+      en-GB : Initializing the account file
+      es-ES : Inicializando el archivo de las cuentas
+     index : 2
+   -
+     text :
+      fr-FR : Installation du Serveur d'Application WEBDEV
+      en-GB : Installing WEBDEV Application Server
+      es-ES : Instalando WEBDEV Application Server
+     index : 3
+   -
+     text :
+      fr-FR : Cette opération peut prendre quelques instants.
+      en-GB : This operation may take a few minutes.
+      es-ES : Esta operación puede tardar algunos minutos.
+     index : 4
+   -
+     text :
+      fr-FR : Création des clés de registre
+      en-GB : Creating the registry keys
+      es-ES : Creando las claves de registro
+     index : 5
+   -
+     text :
+      fr-FR : Impossible de créer la clé de registre %1. L'installation ne peut pas se poursuivre.
+      en-GB : Unable to create the registry key (%1). The setup cannot be continued.
+      es-ES : No se ha podido crear la clave de registro (%1). No se puede continuar con la instalación.
+     index : 6
+   -
+     text :
+      fr-FR : Impossible de créer la clé de registre %1. L'installation ne peut pas se poursuivre.
+      en-GB : Unable to create the registry key (%1). The setup cannot be continued.
+      es-ES : No se ha podido crear la clave de registro (%1). No se puede continuar con la instalación.
+     index : 7
+   -
+     text :
+      fr-FR : Echec lors de l'ajout de l'alias %1 dans la configuration du serveur Web.
+      en-GB : Failure adding the %1 alias to the configuration of the Web server.
+      es-ES : Error al agregar el alias %1 a la configuración del servidor Web.
+     index : 8
+   -
+     text :
+      fr-FR : Echec lors de l'association de l'extension .awp à l'exécutable %1 dans la configuration du serveur Web.
+      en-GB : Failure associating the .awp extension with the %1 executable in the configuration of the Web server.
+      es-ES : Error al asociar la extensión .awp al ejecutable %1 en la configuración del servidor Web.
+     index : 9
+   -
+     text :
+      fr-FR : "Vous devez configurer manuellement votre serveur web en ajoutant un répertoire virtuel contenant des scripts CGI.\r\nLe nom de ce répertoire virtuel doit être : %1\r\nL'emplacement du répertoire physique correspondant est : %2"
+      en-GB : "You must configure your Web server manually by adding a virtual directory containing CGI scripts.\r\nThis virtual directory must be named: %1\r\nThe location of the corresponding physical directory is: %2"
+      es-ES : "Debe configurar el servidor Web manualmente y agregar un directorio virtual que contenga scripts CGI.\r\nEl nombre de este directorio virtual debe ser: %1\r\nLa ubicación del directorio físico correspondiente es: %2"
+     index : 10
+   -
+     text :
+      fr-FR : Installation du site WEBDEV
+      en-GB : Installing the WEBDEV site
+      es-ES : Instalando el sitio WEBDEV
+     index : 11
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

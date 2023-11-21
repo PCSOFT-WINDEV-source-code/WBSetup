@@ -1,0 +1,1113 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CWDBuffer
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x1cb3409e0021bc84
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     code : |1+
+      WDBuffer est une classe
+      	// membres 
+      	m_clBuffer est un buffer
+      	m_nPosCourante est un entier
+      FIN
+      
+      constant
+      	s_dwTailleEntete = 12 // 4 + 4*2
+      	
+      	// Erreur de nReadEntete
+      	EnteteOK = 0
+      	ErreurTailleEntete = 2
+      	VersionTropAncienne = -2
+      	VersionTropRecente = -1
+      FIN
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 2068067701244476548
+     type_code : 27
+     code : |1+
+      PROCEDURE Constructeur()
+      
+     type : 589824
+   -
+     name : Constructeur
+     internal_properties : CAAAAAgAAAAOkCJUW1wICsMYXURD+W8YGKOOz8phdaiFkz5lMiWc905v5aXLP1dYWWYbmQCkJs9skwXgmmTxUO8XHLaX1BOGA1F5QlKAL2I/iK5J/+bnvKk1aqNMh1AhA+tIH371hr3o1bOS5NrrLqsmDbHV
+     procedure_id : 2068067701244476548
+     type_code : 27
+     code : |1+
+      PROCEDURE Constructeur(local bufBuffer est un buffer)
+      
+      nTaille est un entier = taille(bufBuffer)
+      // copie le buffer bin 
+      :m_clBuffer = Répète( Caract(0), nTaille) // Alloc
+      Transfert(&:m_clBuffer, &bufBuffer, nTaille)
+      //pointeur courant
+      :m_nPosCourante = 0
+     type : 589825
+   -
+     name : Destructeur
+     procedure_id : 2068067701244542084
+     type_code : 28
+     code : |1+
+      PROCEDURE Destructeur()
+      
+     type : 655360
+   -
+     name : nTaille
+     procedure_id : 2068300295199395513
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] nTaille ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	entier : // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE nTaille()
+      renvoyer Taille(:m_clBuffer)
+     type : 458752
+   -
+     name : pGetBuffer
+     procedure_id : 2068300411163604718
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] pGetBuffer ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	entier système : // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE pGetBuffer()
+      renvoyer &:m_clBuffer
+     type : 458752
+   -
+     name : Seek0
+     internal_properties : CAAAAAgAAABlUdT3Z51WiSYl3iqno4C3wNXpqiEOMjev9XPA+J2bEymEdhD7GhVNpDvTVLCex/53SmpgEFQGyNphhBFsRuS+l5cSTYOGcOB89hrECiLQwiORdUinV2EVyOlAWH+765EAwxBxJQD+yviiWQI=
+     procedure_id : 2068300492768067878
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //Seek0 ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE Seek0()
+      :m_nPosCourante = 0
+     type : 458752
+   -
+     name : GetI4
+     internal_properties : CAAAAAgAAACkvyGPaBhX8eBb4/8hwz29bM4QhpukbZwDgPwNa5NRloqqkZ8sBMEvplfQq6DHGmh4Ovy8l2bYliiYq+fDLrTesSkuphqIhkK0Kedmweq6Eyn5vFOaKY3F1jP8kMtuVm9Q2F4KGaLeHoxSZiHCUaaZuHJTAxJrC2y+hV0UF3A=
+     procedure_id : 2068300613027180215
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //GetI4 (<nIntOUT> est entier)
+      //
+      // Paramètres :
+      //	nIntOUT (entier) : <indiquez ici le rôle de nIntOUT>
+      // Valeur de retour :
+      // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE GetI4(nIntOUT est entier)
+      // récupére l'entier
+      Transfert(&nIntOUT,&:m_clBuffer + :m_nPosCourante, 4)
+      :m_nPosCourante += 4
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      
+     type : 458752
+   -
+     name : GetI2
+     internal_properties : CAAAAAgAAACkvyGPaBhX8eBb4/8hwz29bM4QhpukbZwDgPwNa5NRloqqkZ8sBMEvplfQq6DHGmh4Ovy8l2bYliiYq+fDLrTesSkuphqIhkK0Kedmweq6Eyn5vFOaKY3F1jP8kMtuVm9Q2F4KGaLeHoxSZiHCUaaZuHJTAxJrC2y+hV0UF3A=
+     procedure_id : 2068300986689422281
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //GetI2 (<nIntOUT> est entier sur 2 octets)
+      //
+      // Paramètres :
+      //	nIntOUT (entier sur 2 octets) : <indiquez ici le rôle de nIntOUT>
+      // Valeur de retour :
+      // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE GetI2(nIntOUT est entier sur 2)
+      // récupére l'entier
+      Transfert(&nIntOUT,&:m_clBuffer + :m_nPosCourante, 2)
+      :m_nPosCourante += 2
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      
+     type : 458752
+   -
+     name : GetI1
+     internal_properties : CAAAAAgAAACkvyGPaBhX8eBb4/8hwz29bM4QhpukbZwDgPwNa5NRloqqkZ8sBMEvplfQq6DHGmh4Ovy8l2bYliiYq+fDLrTesSkuphqIhkK0Kedmweq6Eyn5vFOaKY3F1jP8kMtuVm9Q2F4KGaLeHoxSZiHCUaaZuHJTAxJrC2y+hV0UF3A=
+     procedure_id : 2068301076883821688
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //GetI1 (<nIntOUT> est entier sur 1 octet)
+      //
+      // Paramètres :
+      //	nIntOUT (entier sur 1 octet) : <indiquez ici le rôle de nIntOUT>
+      // Valeur de retour :
+      // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE GetI1(nIntOUT est entier suR 1)
+      // récupére l'entier
+      Transfert(&nIntOUT,&:m_clBuffer + :m_nPosCourante, 1)
+      :m_nPosCourante += 1
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      
+     type : 458752
+   -
+     name : GetStr
+     internal_properties : CAAAAAgAAAD2JC7W/T0YVXlQYBX/AEOa/z3cXq0ojnZWmCVAhkHZDgXRDJogBsorSzk7pSnN/TrOSMpfkMjXHx5LDmauBdMqZVGzC8kb6btl2EVx8Z5xykqaTU4DgteDBTP7Rr+xA5IWd/emlVckBwOaUuyY2Ht0ix0WkKWTmyx3kHdRFJEK3FTiw3BGW9bk1RDxVWqOGuffAZafn3Pbqczux91jQA==
+     procedure_id : 2068301145603314149
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //GetStr (<sChaineOUT> est chaîne UNICODE)
+      //
+      // Paramètres :
+      //	sChaineOUT (chaîne UNICODE) : <indiquez ici le rôle de nIntOUT>
+      // Valeur de retour :
+      // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE GetStr(sChaineOUT est chaine unicode)
+      
+      // PAD : Gestion du format UTF8
+      
+      // Marques du format UTF8
+      nMARK_START_TSTRINGUTF8 est entier = 0xF188CEFF;
+      nMARK_END_TSTRINGUTF8 est entier    = 0xE198EDFE;
+      
+      // si ca commence par 0, c'est le cas particulier de la chaine vide
+      n1erOctet est un octet
+      Transfert(&n1erOctet,&:m_clBuffer + :m_nPosCourante, 1)
+      si n1erOctet=0 ALORS
+      	sChaineOUT=""
+      	:m_nPosCourante+=1
+      	retour
+      FIN
+      
+      // Marque
+      nMarkDebut  est un entier
+      Transfert(&nMarkDebut,&:m_clBuffer + :m_nPosCourante, 4)
+      // si marque pas présent,  c'est un buffer au format Ansi 16 (ex : dialogue avec un version 16...)
+      si (nMarkDebut<>nMARK_START_TSTRINGUTF8) alors
+      	// récupère la chaine a l'ancien format
+      	sChaineOUT = ChaîneRécupère(&:m_clBuffer + :m_nPosCourante,crAdresseASCIIZ)
+      	iTaille est entier = Taille(sChaineOUT) + 1 // +& pour le 0 binaire
+      	:m_nPosCourante += iTaille
+      	WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      	retour
+      fin
+      
+      WL.dbgAssertion(nMarkDebut = nMARK_START_TSTRINGUTF8)
+      // Taille totale
+      nTailleTotale est entier 
+      Transfert(&nTailleTotale,&:m_clBuffer + :m_nPosCourante + 4, 4)
+      
+      // récupère la chaine
+      sChaineUtf8 est chaine ansi = ChaîneRécupère(&:m_clBuffer + :m_nPosCourante+4+4,crAdresseASCIIZ)
+      //iTaille est entier = Taille(sChaineOUT) + 1 // +& pour le 0 binaire
+      
+      // convertion UTF8 => U
+      sChaineOUT = sChaineUtf8.AnsiVersUnicode(alphabetUTF8)
+      
+      // Fait avancer le pointeur
+      :m_nPosCourante += nTailleTotale
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      
+     type : 458752
+   -
+     name : nGetI4
+     procedure_id : 2068301502085683255
+     type_code : 12
+     code : |1+
+      // désérialise un entier signé sur 4 octet
+      PROCEDURE nGetI4()
+      n est un entier
+      :GetI4(n)
+      renvoyer n
+     type : 458752
+   -
+     name : SetI8
+     internal_properties : CAAAAAgAAAB6zedVMu6xH14hIVm/gaMzwlxGvU0QdRDDSCKnsSsV6mo6qe8iyD37Hgee9Z4vHmxoKgysmU7YynzcDUlJ9pxBZGRRl5Ef5VvjCNh10Pm3DgzcjwjV/BiO7RrZmyZxV+4rO7mXjD2R41OpTBuEvxAHBsCBtYyRVXYEW6POya4=
+     procedure_id : 2068301605164987904
+     type_code : 12
+     code : |1+
+      // Sérialise un entier signé sur 8 octet
+      PROCEDURE SetI8(nInt8 est entier sur 8)
+      :__Agrandit(8)
+      // met l'entier dans le buffer à la position courante
+      Transfert(&:m_clBuffer + :m_nPosCourante,  &nInt8, 8)
+      :m_nPosCourante += 8
+      
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      
+     type : 458752
+   -
+     name : SetI2
+     internal_properties : CAAAAAgAAAB6zedVMu6xH14hIVm/gaMzwlxGvU0QdRDDSCKnsSsV6mo6qe8iyD37Hgee9Z4vHmxoKgysmU7YynzcDUlJ9pxBZGRRl5Ef5VvjCNh10Pm3DgzcjwjV/BiO7RrZmyZxV+4rO7mXjD2R41OpTBuEvxAHBsCBtYyRVXYEW6POya4=
+     procedure_id : 2068301789848624407
+     type_code : 12
+     code : |1+
+      // Sérialise un entier signé sur 2 octet
+      PROCEDURE SetI2(nInt est entier sur 2)
+      :__Agrandit(2)
+      // met l'entier dans le buffer à la position courante
+      Transfert(&:m_clBuffer + :m_nPosCourante,  &nInt, 2)
+      :m_nPosCourante += 2
+      
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      
+     type : 458752
+   -
+     name : SetI1
+     internal_properties : CAAAAAgAAAB6zedVMu6xH14hIVm/gaMzwlxGvU0QdRDDSCKnsSsV6mo6qe8iyD37Hgee9Z4vHmxoKgysmU7YynzcDUlJ9pxBZGRRl5Ef5VvjCNh10Pm3DgzcjwjV/BiO7RrZmyZxV+4rO7mXjD2R41OpTBuEvxAHBsCBtYyRVXYEW6POya4=
+     procedure_id : 2068301854273213907
+     type_code : 12
+     code : |1+
+      // Sérialise un entier signé sur 1 octet
+      PROCEDURE SetI1(nInt est entier sur 1 )
+      :__Agrandit(1)
+      // met l'entier dans le buffer à la position courante
+      Transfert(&:m_clBuffer + :m_nPosCourante,  &nInt, 1)
+      :m_nPosCourante += 1
+      
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      
+     type : 458752
+   -
+     name : SetStr
+     internal_properties : CAAAAAgAAADge22rnLxL1VQfx/tFJ4HBQKJ0IHfouRDjaDS5J8u5vnqq1YtAdOXDtkdIt9znyjDwWmAAA17UwrCQ86sfNoREG5MgeJxqAHz+M4lk6/QUeYtThh1Me+efQN2Wnp3QkJVCysiUA4SosPJIahXOldo9zM7Hr+ZfJwjacRFYUzQ=
+     procedure_id : 2068301948762582232
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //SetStr (<sChaine> est chaîne UNICODE)
+      //
+      // Paramètres :
+      //	sChaine (chaîne UNICODE) : <indiquez ici le rôle de nIntOUT>
+      // Valeur de retour :
+      // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE SetStr(sChaine est chaine UNICODE)
+      
+      
+      //Info("sChaine="+sChaine)//@@TEsst
+      
+      // Cas chaine vide
+      si sChaine="" alors
+      	:SetI1(0)
+      	//clBuffer +=  Caract(0)
+      	//nPosCourante += 1
+      	retour
+      FIN
+      
+      // Marques du format UTF8
+      nMARK_START_TSTRINGUTF8 est entier = 0xF188CEFF;
+      nMARK_END_TSTRINGUTF8 est entier    = 0xE198EDFE;
+      
+      
+      sChaineUTF8 est chaine ANSI = sChaine.UnicodeVersAnsi(alphabetUTF8)
+      nTailleChaine est entier = Taille(sChaineUTF8) + 1 // +1 pour le 0 binaire, +4 pour marques
+      nTailleTotale est entier = 4 + 4+ nTailleChaine  + 4 // +1 pour le 0 binaire, +4 pour marques
+      sZeroBin est un buffer = Répète(Caract(0), nTailleTotale)
+      WL.dbgAssertion( taille(sZeroBin) = nTailleTotale)
+      //trace( BufferVersHexa(sChaineUTF8)+rc+nTailleChaine)
+      // Allocation de la place nécessaire dans le buffer
+      :m_clBuffer += sZeroBin//Répète( Caract(0), nTailleTotale)
+      
+      
+      // on met les marque et la chaine dans le buffer
+      WL.dbgAssertion(&sChaineUTF8<>0) 
+      Transfert(&:m_clBuffer + :m_nPosCourante, &nMARK_START_TSTRINGUTF8,4 )
+      Transfert(&:m_clBuffer + :m_nPosCourante+4, &nTailleTotale, 4)
+      Transfert(&:m_clBuffer + :m_nPosCourante+8, &sChaineUTF8, nTailleChaine)
+      Transfert(&:m_clBuffer + :m_nPosCourante+8+nTailleChaine, &nMARK_END_TSTRINGUTF8, 4)
+      
+      // avance le pointeur courant
+      :m_nPosCourante += nTailleTotale
+      
+      
+      
+      
+      
+     type : 458752
+   -
+     name : WriteEntete
+     procedure_id : 2068302850705727512
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //WriteEntete (<dwVersionEnCours> est entier, <dwVersionMinEnLecture> est entier)
+      //
+      // Paramètres :
+      //	dwVersionEnCours (entier) : <indiquez ici le rôle de dwVersionEnCours>
+      //	dwVersionMinEnLecture (entier) : <indiquez ici le rôle de dwVersionMinEnLecture>
+      // Valeur de retour :
+      // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE WriteEntete(dwVersionEnCours est entier,  dwVersionMinEnLecture est entier)
+      
+      // taille entête
+      dwTailleEntete est entier =::s_dwTailleEntete;
+      :SetI4( dwTailleEntete );
+      // écriture numéro de version en cours
+      :SetI4(dwVersionEnCours);
+      // écriture numéro de version min en lecture
+      :SetI4(dwVersionMinEnLecture);
+      
+      
+      
+     type : 458752
+   -
+     name : nReadEntete
+     internal_properties : CAAAAAgAAADm1D6xnQceZ5/OuHGjOn3nI8lYNt2kxib65CnwNi01FDEeTowkeJgh3XtHOZ1nK4jcygTukCgX335rLqZOpfOK5bGTCym7KfuF+GUxkT7RulpqPX6zMueTtUMLlg+hM0Kmh6eWBQe0l3PKk+OXS9RT/sgJbUQ+Ct12f3x8NEGQViIoKa6EAWxyK7YXm2ywA05S/CkQygou0qMF9+1zUA==
+     procedure_id : 2068304010346970924
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] nReadEntete (<nDwVersionEnCours> est entier, <dwVersionMin> est entier, <nPdwVersionLu> est entier)
+      //
+      // Paramètres :
+      //	nDwVersionEnCours (entier) : <indiquez ici le rôle de dwVersionEnCours>
+      //	dwVersionMin (entier) : <indiquez ici le rôle de dwVersionMin>
+      //	nPdwVersionLu (entier) : <indiquez ici le rôle de pdwVersionLu>
+      // Valeur de retour :
+      // 	entier :    // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE nReadEntete(nDwVersionEnCours est entier, dwVersionMin est entier, nPdwVersionLu est entier)
+      
+      si taille(:m_clBuffer)=0 ALORS
+      		RENVOYER  ::ErreurTailleEntete;	// pb de taille de buffer
+      FIN
+      
+      
+      // lecture de la taille de l'entete
+      dwTailleEntete est un entier = :nGetI4()
+      si (dwTailleEntete<> ::s_dwTailleEntete) alors
+      	renvoyer  ::ErreurTailleEntete;	// pb de taille de buffer
+      fin
+      
+      // lecture numéro de version
+      dwVersionLu est entier = :nGetI4()
+      // verif version min
+      si (dwVersionLu<dwVersionMin) alors
+      	renvoyer  ::VersionTropAncienne;	// version trop ancienne
+      fin
+      
+      // lecture version min en lecture
+      dwVersionMinEnLecture est entier = :nGetI4()
+      
+      // version version de lecture possible
+      si  (dwVersionMinEnLecture>nDwVersionEnCours) alors
+      	renvoyer ::VersionTropRecente;	// version trop récente
+      fin 
+      
+      nPdwVersionLu = dwVersionLu
+      
+      // lecture ok
+      RENVOYER ::EnteteOK;
+      
+      
+     type : 458752
+   -
+     name : SetBuffer
+     internal_properties : CAAAAAgAAADyHU86teOwNPEdhfKsiO9vD0KHxsKKtwv16dsyhQeHCoJ1mOG+I7SE5vScDzBMkk3dgbtYT5Lzh69nvzBX1zcV6akiSrnaZPR/bp+FO1KFG4gUfREA9QuW+84drhaoXS1kYWvXvgpuKpfi9Bn0x4Mrcb/oV6LiWgr6GKdIZEgEpijuQS8LToCnTu8FVYNf2rZus0sRcYMkp/Y/AYro
+     procedure_id : 2068374061269917179
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //SetBuffer (<sBuffer> est buffer [, <bAvecTaille>])
+      //
+      // Paramètres :
+      //	sBuffer (buffer) : <indiquez ici le rôle de nIntOUT>
+      // 	bAvecTaille (valeur par défaut=1) : < indiquez ici le rôle de bAvecTaille >
+      // Valeur de retour :
+      // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE SetBuffer(sBuffer est un buffer,bAvecTaille=vrai)
+      // sérialise un buffer avec la taille en entete
+      
+      // 4 octets : la taille
+      iTaille est entier = Taille(sBuffer) // +1 pour le 0 binaire
+      si bAvecTaille alors :SetI4(iTaille)
+      
+      // copie le buffer bin 
+      :m_clBuffer += Répète( caract(0), iTaille) // Alloc
+      Transfert(&:m_clBuffer + :m_nPosCourante, &sBuffer, iTaille)
+      // avance le pointeur courant
+      :m_nPosCourante += iTaille
+      
+      
+      
+      
+      
+     type : 458752
+   -
+     name : GetBuffer
+     internal_properties : CAAAAAgAAAB8y7JfCc8O5oraJRr/wisrZ6H6C2ESfI4X6uW+vvZr9oI3vdWvxSTTI5HGHOkhYQ/L0bTFAp/BCyuTMUCsi0GkQ9R0yIwbpFcsuY44mo1qk57d5Tl9PBidjjam1tm38L3OFo+xKYGz/zTvILARAuyjn8srcpgncpR6bTnmOPFBV8e8ppwDvX0lvnfpfJdjM25dFmF5pjLH8Rz1fQ==
+     procedure_id : 2068374409162349260
+     type_code : 12
+     code : |1+
+      // récupère un buffer qui est précédé de sa taille
+      PROCEDURE GetBuffer(sBufferOut est buffer)
+      // récupère un buffer
+      
+      // 1. la taille
+      iTaille est entier = :nGetI4()
+      WL.dbgAssertion(iTaille>0)
+      WL.dbgAssertion(iTaille<10000000, "tres gros buffer, surement un pb !")
+      
+      // alloc
+      sBufferOut = Repete( caract(0),iTaille)
+      
+      // copie
+      Transfert(&sBufferOut,&:m_clBuffer + :m_nPosCourante,iTaille)
+      
+      :m_nPosCourante += iTaille
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      
+     type : 458752
+   -
+     name : GetBuffer
+     internal_properties : CAAAAAgAAACpi7z3h7wtFlHqZyiEzz5/GWverDa3V1MxWPPe6GUpYRsOQGA9Wr3hconfVvTK0/ypXKgUJmrdIfkI8ySZp1MvBm6fwrI/37EDnU1bp2F1fexWL3Yr8hGgU5Mgu9gwkLvKVkrQDwVw7OL0FU4=
+     procedure_id : 2068374409162349260
+     type_code : 12
+     code : |1+
+      // lecture d'un bloc binaire
+      PROCEDURE GetBuffer(nTaille est un entier)
+      
+      // alloc
+      sBufferOut est un buffer
+      sBufferOut = Répète( Caract(0),nTaille)
+      
+      // copie
+      Transfert(&sBufferOut,&:m_clBuffer + :m_nPosCourante,nTaille)
+      
+      :m_nPosCourante += nTaille
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      renvoyer sBufferOut
+     type : 458753
+   -
+     name : dwReadBeginMark
+     procedure_id : 2081751127753264913
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] dwReadBeginMark ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	entier sur 8 octets : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE dwReadBeginMark() : entier
+      // lecture d'une marque
+      
+      // lecture de la taille du bloc
+      dwTaille est entier = :nGetI4()
+      //dwLu est entier = 4 ;
+      WL.dbgAssertion(dwTaille>= 4 )
+      
+      // on renvoie la position de la fin des informations à lire
+      RENVOYER dwTaille + :m_nPosCourante - 4
+     type : 458752
+   -
+     name : ReadEndMark
+     internal_properties : CAAAAAgAAACmpxngbwCKHgO8reQDhScgON86x/qpDYyd/x4dMon8//7Lif1j768MgaqrCfjwdp+kVzEQitzf4n3tUoRxFlFUcddbSExCLaxVHnRPsZAtcj8jfHGWEeY7SaFGpehHJONGiy2Q/oSHmkdKghl9
+     procedure_id : 2081751926617237303
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //ReadEndMark (<dwOffBeginMark> est entier)
+      //
+      // Paramètres :
+      //	dwOffBeginMark (entier) : <indiquez ici le rôle de nDwOffBeginMark>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE ReadEndMark(dwOffBeginMark est entier)
+      
+      // si la position est > a l'offset alors il faudrait gerer le changement par numero de version
+      WL.dbgAssertion( :m_nPosCourante <= dwOffBeginMark);
+      // on se positionne correctement
+      :m_nPosCourante = dwOffBeginMark
+     type : 458752
+   -
+     name : GetI8
+     internal_properties : CAAAAAgAAACkvyGPaBhX8eBb4/8hwz29bM4QhpukbZwDgPwNa5NRloqqkZ8sBMEvplfQq6DHGmh4Ovy8l2bYliiYq+fDLrTesSkuphqIhkK0Kedmweq6Eyn5vFOaKY3F1jP8kMtuVm9Q2F4KGaLeHoxSZiHCUaaZuHJTAxJrC2y+hV0UF3A=
+     procedure_id : 2086669750073139661
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //GetI8 (<nIntOUT> est entier sur 8 octets)
+      //
+      // Paramètres :
+      //	nIntOUT (entier sur 8 octets) : <indiquez ici le rôle de nIntOUT>
+      // Valeur de retour :
+      // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE GetI8(nIntOUT est entier sur 8)
+      // récupére l'entier sur 8
+      Transfert(&nIntOUT,&:m_clBuffer + :m_nPosCourante, 8)
+      :m_nPosCourante += 8
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+     type : 458752
+   -
+     name : bEndOfBuffer
+     procedure_id : 2164508212268612145
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      PROCEDURE bEndOfBuffer()
+      
+      renvoyer (:m_nPosCourante = :ntaille()+1)
+     type : 458752
+   -
+     name : dwWriteBeginMark
+     internal_properties : CAAAAAgAAADD6zgRAOufTE6vmCrDAox8K490lVxWcAilfvUD0EzuOA61kvAhlgFpbCuyMSQrskxAoXDbTU/5xn+66c4bp8Jw4n9Y1oung8QxE66mb58ll3jZEJmlwNpDBVE9JnMJpwGRDoDmwjONmm8kc5VMHCPf0ayhA59MEoa5X+qntQ50
+     procedure_id : 2221954640009059636
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] dwWriteBeginMark ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	entier : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE dwWriteBeginMark()
+      // ecriture d'une marque  + renvoie la marque pour WriteEndMark()
+      
+      // sauve la position
+      dwOff est entier = :dwGetPos();
+      // ecrit le dummy temp
+      dwDummy est un entier=0;
+      :SetI4(dwDummy)
+      
+      renvoyer dwOff;
+      
+     type : 458752
+   -
+     name : dwGetPos
+     procedure_id : 2221955245599524064
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] dwGetPos ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	entier : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE dwGetPos()
+      renvoyer :m_nPosCourante
+     type : 458752
+   -
+     name : WriteEndMark
+     procedure_id : 2221955378743607179
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //WriteEndMark (<dwOffBeginMark> est entier)
+      //
+      // Paramètres :
+      //	dwOffBeginMark (entier) : <indiquez ici le rôle de dwOffBeginMark>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE WriteEndMark( dwOffBeginMark est un entier)
+      // écriture de la marque de fin écrite par dwWriteBeginMark
+      
+      
+      dwOffCur est entier = :dwGetPos();
+      WL.dbgAssertion(dwOffCur>dwOffBeginMark);
+      
+      // écrit la taille a l'ancien offset ou on na normalement laissé 4 octets libres
+      dwTaille est un entier = dwOffCur-dwOffBeginMark;
+      Transfert(&dwTaille,&:m_clBuffer + dwOffBeginMark, 4)
+     type : 458752
+   -
+     name : SetI4
+     internal_properties : CAAAAAgAAAC1nHRH0b8EPZPkgYcgVGo1Sty+jDfsFi1rKOKEsG/bd2DdQZmmTeP/tCeEdbeimQbn8ym/+nt4m+r72wyVaW/mnoLkjk2KrD7WR4HwGCij+tSJKGwWuhzLbmeybsLMvwHGeu0Vv8raGU+xYGtOz9X5NOv53wkEKQUwXceeue86OQ==
+     procedure_id : 2221957990084069001
+     type_code : 12
+     code : |1+
+      // Sérialise un entier sur 4
+      PROCEDURE SetI4(nInt est entier sur 4)
+      :__Agrandit(4)
+      // met l'entier dans le buffer à la position courante
+      Transfert(&:m_clBuffer + :m_nPosCourante,  &nInt, 4)
+      :m_nPosCourante += 4
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      
+     type : 458752
+   -
+     name : nGetUI4
+     procedure_id : 2297327407680461415
+     type_code : 12
+     code : |1-
+      // désérialise un entier sur 4 sans signe
+      PROCEDURE nGetUI4()
+      
+      n est un entier sans signe sur 4
+      :GetUI4(n)
+      RENVOYER n
+     type : 458752
+   -
+     name : sGetStringUtf8SansMark
+     internal_properties : CAAAAAgAAABs9+lHINgvKXjjS/dJK3XVpAYY/mMg4ZwDgHwNa5PRlgoqkR8sBEGvJtfQKyBHGuh4Ony8F+bYliiYK+fDLjSe8enuZtrIxgL06aemAap602m5fBNaac2FFvO80AsuFi+QmB7K2eIeYkxi9oFy8QZpmBID4zILy6z2TZXc37g=
+     procedure_id : 2297328520086227817
+     type_code : 12
+     code : |1-
+      PROCEDURE sGetStringUtf8SansMark()
+      
+      // récupère la chaine
+      sChaineUtf8 est chaine ansi = ChaîneRécupère(&:m_clBuffer + :m_nPosCourante,crAdresseASCIIZ)
+      //iTaille est entier = Taille(sChaineOUT) + 1 // +& pour le 0 binaire
+      
+      // convertion UTF8 => U
+      sChaineOUT est chaine UNICODE = sChaineUtf8.AnsiVersUnicode(alphabetUTF8)
+      
+      // Fait avancer le pointeur
+      :m_nPosCourante += taille(sChaineUtf8)+1
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      renvoyer sChaineOUT
+     type : 458752
+   -
+     name : nGetUI2
+     procedure_id : 2297329361903683615
+     type_code : 12
+     code : |1+
+      PROCEDURE nGetUI2()
+      
+      n est un entier sans signe sur 2
+      :GetUI2(n)
+      RENVOYER n
+     type : 458752
+   -
+     name : nGetUI1
+     procedure_id : 2297330341158290949
+     type_code : 12
+     code : |1-
+      PROCEDURE nGetUI1()
+      
+      n est un entier sans signe sur 1
+      :GetUI1(n)
+      RENVOYER n
+     type : 458752
+   -
+     name : GetUI1
+     internal_properties : CAAAAAgAAAAWlur3M6YhV8PwFF/GkKcXvhO+8OHTQZzLRwyqHrjHXufVMtyUChUpLqcMhab3/OghDpGOHGcc16iwiJdu2lpTu7eKPx/LPJ/wQN/MQqPo+P+TxAoTWC/+DCScmtRP2CIcYPBDMGvAY4z2XDpnlS5MpFr3ghh3EYW69Kf5fQ==
+     procedure_id : 2297394052705934528
+     type_code : 12
+     code : |1+
+      PROCEDURE GetUI1(nIntOUT est entier sans signe suR 1)
+      // récupére l'entier
+      Transfert(&nIntOUT,&:m_clBuffer + :m_nPosCourante, 1)
+      :m_nPosCourante += 1
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      
+     type : 458752
+   -
+     name : GetUI2
+     internal_properties : CAAAAAgAAAAWlur3M6YhV8PwFF/GkKcXvhO+8OHTQZzLRwyqHrjHXufVMtyUChUpLqcMhab3/OghDpGOHGcc16iwiJdu2lpTu7eKPx/LPJ/wQN/MQqPo+P+TxAoTWC/+DCScmtRP2CIcYPBDMGvAY4z2XDpnlS5MpFr3ghh3EYW69Kf5fQ==
+     procedure_id : 2297394207326890294
+     type_code : 12
+     code : |1+
+      PROCEDURE GetUI2(nIntOUT est entier sans signe sur 2)
+      // récupére l'entier
+      Transfert(&nIntOUT,&:m_clBuffer + :m_nPosCourante, 2)
+      :m_nPosCourante += 2
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      
+     type : 458752
+   -
+     name : GetUI4
+     internal_properties : CAAAAAgAAAAWlur3M6YhV8PwFF/GkKcXvhO+8OHTQZzLRwyqHrjHXufVMtyUChUpLqcMhab3/OghDpGOHGcc16iwiJdu2lpTu7eKPx/LPJ/wQN/MQqPo+P+TxAoTWC/+DCScmtRP2CIcYPBDMGvAY4z2XDpnlS5MpFr3ghh3EYW69Kf5fQ==
+     procedure_id : 2297394318998294500
+     type_code : 12
+     code : |1+
+      PROCEDURE GetUI4(nIntOUT est entier sans signe sur 4)
+      // récupére l'entier
+      Transfert(&nIntOUT,&:m_clBuffer + :m_nPosCourante, 4)
+      :m_nPosCourante += 4
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      
+     type : 458752
+   -
+     name : bGetBool
+     procedure_id : 1224891082347515429
+     type_code : 12
+     code : |1+
+      // Désérialise un booléen
+      PROCEDURE bGetBool()
+      
+      n est entier = :nGetI4()
+      b est booléen = n
+      renvoyer b
+     type : 458752
+   -
+     name : bGetBoolOctet
+     procedure_id : 1886997327414134395
+     type_code : 12
+     code : |1+
+      PROCEDURE bGetBoolOctet()
+      
+      n est un octet
+      GetUI1(n)
+      b est booléen = n
+      RENVOYER b
+     type : 458752
+   -
+     name : GetUncodedBuffer
+     internal_properties : CAAAAAgAAAA+OfrE11oFWEP+cy5S96z/28AB/RSFBC7ZgzejVU+2T3foPDnNDReP7rqbeTXiL5RXAO8/I401ND8Qoi0fYEO7qJP6J+res1BFKcJgRYDpnX7F1P01nSVrJ72v/vyv7qGSWQufr+nUXe4HLw==
+     procedure_id : 1255758917398079414
+     type_code : 12
+     code : |1+
+      // renvoi le buffer interne non compressé
+      PROCEDURE GetUncodedBuffer() : buffer
+      renvoyer :m_clBuffer
+     type : 458752
+   -
+     name : SetDateTime
+     internal_properties : CAAAAAgAAABrt2X8YRlCSfSRC9Ifl8CQRoHpC7pJLdAxDOILBj/DCDq/19vv9tE6hLW7T7nD2k2H7qrWNSJRlyra6Rkj4MXMuOiepf8wsYxnVLQchOxzJNGS36Kzy3o1QK8dxCFzkcjKvfuCwnYwR0jpTADniMPi5/GoeonTnmH7fmLDmjasVQgIbS4U7C6vXaxRoQeg+Xei2WUQ
+     procedure_id : 1255759260995543250
+     type_code : 12
+     code : |1+
+      // Sérialise un dateheure
+      PROCEDURE SetDateTime(dhDateHeure est un dateheure)
+      
+      // partie date :
+      //	2 octets de poids fort	-> année comprise entre 1 et 9999
+      //	1 octet					-> mois compris entre 1 et 12
+      //	1 octet de poids faible	-> jour compris entre 1 et 31
+      // partie heure
+      //	nombre de millisecondes écoulées depuis 00h00
+      
+      dDate est une date = dhDateHeure..PartieDate
+      hHeure est une heure = dhDateHeure..PartieHeure
+      
+      dwDate est un entier sur 4 sans signe
+      dwDate[2,wlEntier_2] = dDate..Année
+      dwDate[2,wlEntier_1] = dDate..Mois
+      dwDate[1,wlEntier_1] = dDate..Jour
+      
+      dwHeure est un entier sur 4 sans signe = hHeure..Heure*3600000
+      dwHeure += hHeure..Minute*60000
+      dwHeure += hHeure..Seconde*1000
+      dwHeure += hHeure..Milliseconde
+      
+      :setui4(dwDate)
+      :setui4(dwHeure)
+     type : 458752
+   -
+     name : SetUI4
+     internal_properties : CAAAAAgAAAB1XLQHEf9QTQsUwT9YRNL1ijTWXC/0FlVb0JpkYJerb2jNUSH2jTsPLAeknZ/CEXYXG+EPUsNYs6qj8+xlYX/OQq6oQjme0NrqE33MBPSXPliVPEDC3sBHIhPeCi54E8Uq1qHp287uBUOtbGd6q+mtiEdNw+WoLSH0nYfe+a/6eQ==
+     procedure_id : 1255759578823131962
+     type_code : 12
+     code : |1+
+      // Sérialise un entier sur 4 sans signe (DWORD)
+      PROCEDURE SetUI4(nInt est entier sur 4 sans signe)
+      :__Agrandit(4)
+      // met l'entier dans le buffer à la position courante
+      Transfert(&:m_clBuffer + :m_nPosCourante,  &nInt, 4)
+      :m_nPosCourante += 4
+      
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      
+     type : 458752
+   -
+     name : SaveStringUtf8NoMark
+     procedure_id : 1255787264188440173
+     type_code : 12
+     code : |1-
+      // sérialise une chaine en la formatant en UTF8 sans marques
+      PROCEDURE SaveStringUtf8NoMark(sString est chaine)
+      
+      nZero est une chaine ansi = Caract(0)
+      
+      sChaineUTF8 est chaine ANSI = sString
+      :m_clBuffer += sChaineUTF8
+      :m_clBuffer += nZero
+      :m_nPosCourante += taille(sChaineUTF8)+1
+     type : 458752
+   -
+     name : dhGetDateTime
+     internal_properties : CAAAAAgAAAB9vX/2RNvsa5hlyT7TE0CIHllxpbzTAz6dUGynGjPzYGJvA7ndjG9URAXZX0WXql0bGh6M41hn9R6e11EfdKWkQPjCc50ux1JvrGVN85VKfQJ7DDdqDMtE40a+fZDsgCnTTswT3RPV4teUZcnu2ZIDAIIVj2CEZ6CawVvM6cd/mk09EptTLV9ebMN6osYh2FGc028G
+     procedure_id : 1255792504048712608
+     type_code : 12
+     code : |1+
+      // désérialise un dateheure
+      PROCEDURE dhGetDateTime()
+      
+      // partie date :
+      //	2 octets de poids fort	-> année comprise entre 1 et 9999
+      //	1 octet					-> mois compris entre 1 et 12
+      //	1 octet de poids faible	-> jour compris entre 1 et 31
+      // partie heure
+      //	nombre de millisecondes écoulées depuis 00h00
+      
+      dDate est une date 
+      dwDate est un entier sur 4 sans signe = :nGetUI4()
+      dDate..Année = dwDate[2,wlEntier_2] 
+      dDate..Mois = dwDate[2,wlEntier_1] 
+      dDate..Jour = dwDate[1,wlEntier_1] 
+      
+      dwHeure est un entier sur 4 sans signe  = :nGetUI4()
+      hHeure est une heure = 0
+      hHeure..Milliseconde += dwHeure
+      
+      dhDateHeure est une dateheure
+      dhDateHeure..PartieDate = dDate
+      dhDateHeure..PartieHeure = hHeure
+      
+      renvoyer dhDateHeure
+     type : 458752
+   -
+     name : __Agrandit
+     internal_properties : CAAAAAgAAAA+OfrEPzpl+HPOE67iF0xvu4ARDeRVNB6Z4ydTFR+GT2f4vBlNbXevPuobucVCr+Q34L9P00X9/MdYKoWn+CszsPtSn6IW23jt0Ur4zRhRNcaNLHWN1S1zz6U3lkRndvmaQUMX5yHUXe4HLw==
+     procedure_id : 1256081692825902451
+     type_code : 12
+     code : |1-
+      // agrandit la taille du buffer
+      PROCEDURE PRIVEE __Agrandit(nNbOctets)
+      
+      sToAdd est une chaine ANSI = Répète(Caract(0),nNbOctets)
+      :m_clBuffer += sToAdd;
+     type : 458752
+   -
+     name : SetBool
+     procedure_id : 1325536433565916385
+     type_code : 12
+     code : |1+
+      PROCEDURE SetBool(b est un booléen)
+      
+      n est un entier = b
+      :SetI4(n)
+     type : 458752
+   -
+     name : Initialise
+     internal_properties : CAAAAAgAAADsPni63LB92mRB2j5aXgRxMuKTop1/B87v/nS9GVeWyhbDQ3xUH8H51csM2ptCMCrHpBKlWe5V3ZCApzCXjIxmtakvpeI7tA/LfknpEQT8/t6W1afse2lFfD2Cn/wH7Ab1AVmdrwj9eWoBwcmQjmKiao3aqUL3h/EP+HnWMRIvqyNywVXdPDHPsZICOsgtUh7hrWR5yQ==
+     procedure_id : 1325558672920665579
+     type_code : 12
+     code : |1+
+      PROCEDURE Initialise(bufBuffer est un buffer)
+      
+      nTaille est un entier = taille(bufBuffer)
+      // copie le buffer bin 
+      :m_clBuffer = Répète( Caract(0), nTaille) // Alloc
+      Transfert(&:m_clBuffer, &bufBuffer, nTaille)
+      //pointeur courant
+      :m_nPosCourante = 0
+     type : 458752
+   -
+     name : SetUI8
+     internal_properties : CAAAAAgAAAB1XLQHEf9QTQsUwT9YRNL1ijTWXC/0FlVb0JpkYJerb2jNUSH2jTsPLAeknZ/CEXYXG+EPUsNYs6qj8+xlYX/OQq6oQjme0NrqE33MBPSXPliVPEDC3sBHIhPeCi54E8Uq1qHp287uBUOtbGd6q+mtiEdNw+WoLSH0nYfe+a/6eQ==
+     procedure_id : 1325830467189896202
+     type_code : 12
+     code : |1+
+      // Sérialise un entier sur 4 sans signe (DWORD)
+      PROCEDURE SetUI8(nInt est entier sur 8 sans signe)
+      :__Agrandit(8)
+      // met l'entier dans le buffer à la position courante
+      Transfert(&:m_clBuffer + :m_nPosCourante,  &nInt, 8)
+      :m_nPosCourante += 8
+      
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      
+     type : 458752
+   -
+     name : nGetUI8
+     procedure_id : 1325830638988628667
+     type_code : 12
+     code : |1+
+      // désérialise un entier sur 4 sans signe
+      PROCEDURE nGetUI8()
+      
+      n est un entier sans signe sur 8
+      :GetUI8(n)
+      RENVOYER n
+     type : 458752
+   -
+     name : GetUI8
+     internal_properties : CAAAAAgAAAAWlur3M6YhV8PwFF/GkKcXvhO+8OHTQZzLRwyqHrjHXufVMtyUChUpLqcMhab3/OghDpGOHGcc16iwiJdu2lpTu7eKPx/LPJ/wQN/MQqPo+P+TxAoTWC/+DCScmtRP2CIcYPBDMGvAY4z2XDpnlS5MpFr3ghh3EYW69Kf5fQ==
+     procedure_id : 1325830729183028138
+     type_code : 12
+     code : |1+
+      PROCEDURE GetUI8(nIntOUT est entier sans signe sur 8)
+      // récupére l'entier
+      Transfert(&nIntOUT,&:m_clBuffer + :m_nPosCourante, 8)
+      :m_nPosCourante += 8
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      
+     type : 458752
+   -
+     name : SeekBuf
+     procedure_id : 1394569322607610181
+     type_code : 12
+     code : |1+
+      // avance
+      PROCEDURE SeekBuf(nSeek)
+      :m_nPosCourante += nSeek
+     type : 458752
+   -
+     name : nGetI8
+     procedure_id : 1661643609090080216
+     type_code : 12
+     code : |1+
+      PROCEDURE nGetI8()
+      
+      n est un entier sur 8
+      :GetI8(n)
+      RENVOYER n
+     type : 458752
+   -
+     name : sGetStringOldAnsi
+     internal_properties : CAAAAAgAAABtR3izc3mMskVGE+xIc+bPjccmsJ6bn58tHGcK/OHJoefKCDz95kUddoXj+gg26wTtGOjoBh5rj2vawfKDTSnJAAQdSCSFHW/N1wOZ4TcDj570bWwt+Kc2PUUeSWoerhVkPACuKdrcWB6wUQo=
+     procedure_id : 1715175754958616321
+     type_code : 12
+     code : |1-
+      PROCEDURE sGetStringOldAnsi()
+      
+      // récupère la chaine
+      sChaineA est chaîne ANSI = ChaîneRécupère(&:m_clBuffer + :m_nPosCourante,crAdresseASCIIZ)
+      //iTaille est entier = Taille(sChaineOUT) + 1 // +& pour le 0 binaire
+      
+      
+      // Fait avancer le pointeur
+      :m_nPosCourante += Taille(sChaineA)+1
+      WL.dbgAssertion(:m_nPosCourante<=:nTaille(), "Fin de buffer dépassée")
+      
+      RENVOYER sChaineA
+     type : 458752
+   -
+     name : nGetI1
+     procedure_id : 1887038030988124112
+     type_code : 12
+     code : |1+
+      PROCEDURE nGetI1()
+      
+      n est un entier sur 1 octet
+      :GetI1(n)
+      renvoyer n
+     type : 458752
+  properties :
+   -
+     name : Contenu
+     identifier : 0x16024e2000ddf37d
+     type_code : 103
+     p_codes :
+      -
+        code : |1+
+         PROCEDURE PUBLIQUE Contenu() : buffer
+         
+         RENVOYER m_clBuffer
+        type : 1966080
+     template_refs : []
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : CClasse1
+resources :
+ string_res :
+  identifier : 0x1ff4554b7b803231
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

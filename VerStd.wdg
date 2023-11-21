@@ -1,0 +1,542 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : VerStd
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x193fecc00a0eae8f
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  type_code : 31
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAAAVhunEJBqb5OntyweVaIPqZBM8YuIqJRf1GgRNN7YQbjN8saOfLwVpm8MeXq3Ta+Gz1MGriDDBUR3aIDZfdZkRPHacJcwS1t6zhcKE8Q/Z2VaJ6ElsFESlGkHm/Z9F45214lXQJLnAFjBxXvc0+T8fx34F/MFg7LjXJbg44OrNR+UaAK9G1MPlxvnZJ6QWRGIexc9hHoGKQZTSV7nth470DvqJWmv8aBFjkotB86CC8AtWGmN/urhiWF21NERvj2s0WSfSVP8oB8L4EIThL2QGn0OcRwHdgriJDZvgQuj1pvoZe7O2/pe+z81C4t0hN1KgG6SrnzcpuUu5GMwRlMZsd5NAyfOalqfA5cFTcIXqZLc4tQIy5/QKBojK1yaWkm4hyYSzzgIINrG0eM4zdmO1Iy2CC3eYgwgynN8D8YIGLEzd37YW1qmujkxsJ+OiewRNaq0QCI3XfQ/zrVTbYDB+zxc8ZpvBbksNAQg1Y4UT1DX79cSFzCIiIklUKgsqsK9TvhWMi3kv/MBjiWol5nShLA4wliIbhLHmR2HDwp2PFYBoDc+Y09GR6jBp7kjyOPqYKGMOB+n1rpEMyu13yL2h6gP+gr0S2MB4wN0Tha0hRTqdE4zi28cO2hqRe6ooaLwQjEfyvf9Aan5nfp5eu2IOP5CI0y2bJRCtmQjqc1FUGKO49toVuupLjea0CZdujyRJEN6/lhJP2RYhIkTBsMtCt0PLAVMGYonpZrBp7ILs7XKRAyrXyyymqm22sVyi0TXp8SF9F1ibrhfqGGL5voEdtAnMvDj1LYc+FxUxEcUspU57acx8gBxZb74VSn68odDJaI+N7KXry1k34cixiVWXlIO3xjLhGdicxZOYV3jY0DOAQrYoX3A1HaUcmMTCDnFt0gVAfl0hcH9MCnaPx/QfExlTauXQrv3a1Jd1pEspz2ulvWPcY4LZxcHPz+Soow/Dkeg5r312I7Hxbia/y9vUDkx4rJpse9kesJpBf9hIuCXPrhULjHIJKi91uu/k6Z9TbrsFX9SyqmaX9JV949/IGwSQ1FpOyaH43EjCB8LsC04CD9gPLo24yr1nnE6MFZP43KpLZKNSWFhSgEshCuA4kUJOPJJX3F7EWURRvp8T2deBSjQ0/U54rH31l2h+60XR5fM0ugTPuF2ckky9d1l2Ux53mp8fcrwtc6c6S9MCMwcyessD1fn/LNLfSTCewOhZpAeSIEmvCkDacIKYtN8JUfufXpfnxMlIz6SpSZ/X7mniQ/9QPHop3xYQQ4f+uYH4AzdwLOVE15ybPZMP8Ntp3dz6s4P/Hp6Z/DLzHf2Z/XywZyYvSI0=
+     code : |1+
+      // Version WLangage de VerStd.h et de NomModule.h
+      CONSTANT
+      	//
+      	// Constantes de version
+      	//
+      	XVER_MAJOR									= "28"
+      	XVER_MINOR									= "0"
+      	nXVER_MAJOR									= 28
+      	nXVER_PREVIOUS_MAJOR							= (nXVER_MAJOR - 1)
+      	sVersionProduit								= XVER_MAJOR
+      	sVersionProduitC								= XVER_MAJOR + XVER_MINOR
+      	sVersionProduitP								= XVER_MAJOR + "." + XVER_MINOR
+      	
+      	// Constantes de produit, on utilise les mêmes que verstd.h
+      	PRODUIT_WINDEV								= 0
+      	PRODUIT_WEBDEV								= 30
+      	PRODUIT_WDETATU								= 20
+      	PRODUIT_WINDEVPOCKET							= 6
+      	
+      	//
+      	// Noms de répertoires
+      	//
+      	NOM_REPERTOIRE_AWP							= "AWP"
+      	NOM_REPERTOIRE_GENERATION_INSTALL			= "INSTALL"
+      	NOM_REPERTOIRE_GENERATION_INSTALL_DOCKER	= "INSTALL_DOCKER"
+      	NOM_REPERTOIRE_INSTALLATION_WEBDEV			= "<§&00000001§>ftp_webdev"	//NE PAS RENOMMER, casse importante pour LINUX // Ce répertoire stocke les données (.zip d'installation) en provenance du développeur lors du déploiement. On conserve le nom ftp_WEBDEV par compatibilité.
+      	SUFFIXE_REPERTOIRE_WEB						= "_WEB"
+      	NOM_REP_AWP									= "WD"+XVER_MAJOR+XVER_MINOR+"AWP"
+      	NOM_REP_AWP_GEN								= "WD%1AWP"
+      	NOM_REPERTOIRE_ALIAS_WEBSERVICE_SOAP			= "awws"
+      	
+      	//
+      	// Noms de fichiers
+      	//
+      	NOM_FICHIER_PARAM_INSTALL_WEBDEV				= "PARAM.WWF"
+      	NOM_FICHIER_PROFILE_WDDEPLOIE				= "profil.wwf"
+      	NOM_FICHIER_SITEMAP_GENERIQUE				= "_sitemap.xml"
+      	NOM_FICHIER_SITEMAP							= "sitemap.xml"
+      	NOM_FICHIER_CONFIGMULTISITE					= ".WDConfig.awp"
+      	NOM_FICHIER_LISTEAPPLICATIONSWEBDEV			= ".WDApplications.awp"
+      	NOM_FICHIER_TEST_WEBSERVICE					= "index.htm"
+      	NOM_FICHIER_POINTSENTREE_REST				= "pointsentree.txt"
+      	
+      	//
+      	// Noms de modules
+      	//
+      	
+      	// Modules (noms fixes)
+      	NOM_WBIMPORTSTAT								= "WDStatImport.exe"
+      	NOM_WBSETUP_NONSIGNE							= "WBSetup.exe"
+      	NOM_WBSETUP_SIGNE							= "WBSetup_PCS.exe"
+      	NOM_WDSETUP									= "WDSetup.exe"
+      	NOM_WDMETABASE_32							= "WDMetabase.dll"
+      	NOM_WDMETABASE_64							= "WDMetabase64.dll"
+      	NOM_AMORCE_INSTALL							= "Install.exe"
+      	NOM_WDDEPLOIE								= <§Rff0000335a0bc2e8¤fr-FR¤WDDeploie.exe¤en-GB¤WDDeploy.exe¤es-ES¤WDDeploy.exe§>
+      	NOM_WDDEPLOIE_FR								= "WDDeploie.exe"
+      	NOM_WDDEPLOIE_US								= "WDDeploy.exe"
+      	NOM_INSTALLSERVICE							= "InstallService.exe"
+      	NOM_WDINSTALLE								= "WDInstalle.exe"
+      	NOM_COMP_MODAUTO								= "ModAuto.wdk"
+      	NOM_COMP_SERVEURSWEB							= "ServeursWeb.wdk"
+      	NOM_COMP_COMPTES								= "CompteWEBDEV.wdk"
+      	NOM_CCHÉBERGEMENT							= "CCHebergement.exe"		// @@@ !!! Nom non compatible US et pas traduit dans la version US.
+      	
+      	
+      	// Modules de la version courante (nom variable)
+      	NOM_WDVM									= "wd"+XVER_MAJOR+XVER_MINOR+"vm.dll"
+      	NOM_WDVM_UNIX								= "wd"+XVER_MAJOR+XVER_MINOR+"vm.so"
+      	WDO_VM										= "wdo"+XVER_MAJOR+"vm.dll"
+      	NOMGEN_WDVM									= "wd%1vm.dll"
+      	NOM_WDVM64									= "wd"+XVER_MAJOR+XVER_MINOR+"vm64.dll"
+      	NOM_WDVM64_UNIX								= "wd"+XVER_MAJOR+XVER_MINOR+"vm64.so"
+      	NOMGEN_WDMOD								= "wdmod%1.dll"
+      	NOM_WDMOD									= "wdmod"+XVER_MAJOR+XVER_MINOR+".dll"
+      	NOM_WDMOD64									= "wdmod"+XVER_MAJOR+XVER_MINOR+"_64.dll"
+      	NOM_WDCNV									= "wdcnv"+XVER_MAJOR+XVER_MINOR+".dll"
+      	NOMGEN_WDCNV								= "wdcnv%1.dll"
+      	NOM_WDMSI									= "wd"+XVER_MAJOR+XVER_MINOR+"msi.dll"
+      	NOM_WDSYNC									= "wdsync"+xver_major+xver_minor+".dll"
+      	NOM_WDOBJ									= "wd"+xver_major+xver_minor+"obj.dll"
+      	WDO_OBJ										= "wdo"+xver_major+"obj.dll"
+      	NOM_WDOBJ64									= "wd"+xver_major+xver_minor+"obj64.dll"
+      	NOM_WDSTD									= "wd"+xver_major+xver_minor+"std.dll"
+      	NOM_WDSTD64									= "wd"+xver_major+xver_minor+"std64.dll"
+      	NOM_WDACTION								= "wd"+xver_major+xver_minor+"action.dll"
+      	NOM_WDACTION64								= "wd"+xver_major+xver_minor+"action64.dll"
+      	NOM_WDOLE									= "wd"+xver_major+xver_minor+"ole.dll"
+      	NOM_WDOLE64									= "wd"+xver_major+xver_minor+"ole64.dll"
+      	NOM_WDPRN									= "wd"+xver_major+xver_minor+"prn.dll"
+      	NOM_WDHF									= "wd"+xver_major+xver_minor+"hf.dll"
+      	NOM_WDHF64									= "wd"+xver_major+xver_minor+"hf64.dll"
+      	WDO_HF										= "wdo"+xver_major+"hf.dll"
+      	NOM_WDGPU									= "wd"+xver_major+xver_minor+"gpu.dll"
+      	NOM_WDGPU64									= "wd"+xver_major+xver_minor+"gpu64.dll"
+      	NOM_WDSQL									= "wd"+xver_major+xver_minor+"sql.dll"
+      	NOM_WDSQL64									= "wd"+xver_major+xver_minor+"sql64.dll"
+      	NOM_WDTRS									= "wd"+xver_major+xver_minor+"trs.dll"
+      	NOM_WDCOM									= "wd"+xver_major+xver_minor+"com.dll"
+      	NOM_WDCOM64									= "wd"+xver_major+xver_minor+"com64.dll"
+      	NOM_WDZIP									= "wd"+xver_major+xver_minor+"zip.dll"
+      	NOM_WDZIP64									= "wd"+xver_major+xver_minor+"zip64.dll"
+      	NOM_WDOLDB									= "wd"+xver_major+xver_minor+"oldb.dll"
+      	NOM_WDGRF									= "wd"+xver_major+xver_minor+"grf.dll"
+      	NOM_WDCONVER								= "wdcnv"+xver_major+xver_minor+".dll"
+      	NOM_WDETATEXE								= "wd"+xver_major+xver_minor+"etat.dll"
+      	NOM_WDHTML									= "wd"+xver_major+xver_minor+"html.dll"
+      	NOM_WDMAT									= "wd"+xver_major+xver_minor+"mat.dll"
+      	NOM_WDMAT64									= "wd"+xver_major+xver_minor+"mat64.dll"
+      	NOM_WDXML									= "wd"+xver_major+xver_minor+"xml.dll"
+      	NOM_WDXML64									= "wd"+xver_major+xver_minor+"xml64.dll"
+      	NOM_WDRPL									= "wd"+xver_major+xver_minor+"rpl.dll"
+      	NOM_WDRPL64									= "wd"+xver_major+xver_minor+"rpl64.dll"
+      	NOM_WDCPL									= "wd"+xver_major+xver_minor+"cpl.dll"
+      	NOM_WDCPL64									= "wd"+xver_major+xver_minor+"cpl64.dll"
+      	NOM_WDRTF									= "wd"+xver_major+xver_minor+"rtf.dll"
+      	NOM_WDXLS									= "wd"+xver_major+xver_minor+"xls.dll"
+      	NOM_HFODBC									= "wd"+xver_major+xver_minor+"hfo.dll"
+      	NOM_WDUNI									= "wd"+xver_major+xver_minor+"uni.dll"
+      	NOM_WDUNI64									= "wd"+xver_major+xver_minor+"uni64.dll"
+      	NOM_WDMDL									= "wd"+xver_major+xver_minor+"mdl.dll"
+      	NOM_WDMDL64									= "wd"+xver_major+xver_minor+"mdl64.dll"
+      	NOM_WDPDF									= "wd"+xver_major+xver_minor+"pdf.dll"
+      	NOM_WDPDF64									= "wd"+xver_major+xver_minor+"pdf64.dll"
+      	NOM_WDPNT									= "wd"+xver_major+xver_minor+"pnt.dll"
+      	NOM_WDPNT64									= "wd"+xver_major+xver_minor+"pnt64.dll"
+      	NOM_DLLCCHF									= "cc"+XVER_MAJOR+XVER_MINOR+"hf.dll"
+      	NOM_DLLCCHF64								= "cc"+XVER_MAJOR+XVER_MINOR+"hf64.dll"
+      	NOM_LICENSE_SCINTILLA						= "Scintilla License.txt"
+      	NOM_WDADMIN									= "wd"+xver_major+xver_minor+"admin.exe"
+      	NOM_WDADMINLOW								= "wd"+xver_major+xver_minor+"adminlow.exe"
+      	NOM_WDADMIN_LINUX							= "wd"+XVER_MAJOR+XVER_MINOR+"admind" // Utilise le deamon pour avoir le binaire sans dépendances sur l'interface graphique
+      	NOM_WDADMINLOW_LINUX						= "wd"+XVER_MAJOR+XVER_MINOR+"admind" // Il n'y a pas d'administrateur "Low" en Linux (pas de manifeste)
+      	NOMGEN_WDADMIN								= "wd%1admin.exe"
+      	NOM_AWP										= "WD"+xver_major+xver_minor+"Awp.exe"		// Attention la case est importante : utilisé sur les URLs Linux (avec le .exe !)
+      	NOM_AWP_RESERVEDSERVER						= "rawp.exe"
+      	NOM_INSTAWP									= "WD"+xver_major+xver_minor+"InstAwp.exe"	// Attention la case est importante : utilisé sur les URLs Linux (avec le .exe !)
+      	NOMGEN_AWP									= "WD%1Awp.exe"								// Attention la case est importante : utilisé sur les URLs Linux (avec le .exe !)
+      	NOMGEN_INSTAWP								= "WD%1InstAwp.exe"							// Attention la case est importante : utilisé sur les URLs Linux (avec le .exe !)
+      	NOM_SESSION									= "wd"+xver_major+xver_minor+"session.exe"
+      	NOM_SESSION_RESERVEDSERVER					= "rsession"+xver_major+".exe"
+      	NOM_IIS										= "wd"+xver_major+xver_minor+"iis.dll"
+      	NOM_IIS64									= "wd"+xver_major+xver_minor+"iis64.dll"
+      	
+      	// GP 26/06/2020 : Plus de suffixe pour WDAdminWeb.
+      	ALIAS_ADMINWEB								= "WDADMINWEB" /*+ XVER_MAJOR + XVER_MINOR*/ + SUFFIXE_REPERTOIRE_WEB
+      	NOM_ADMINWEB_BASE							= "WDAdminWeb"
+      	NOM_ADMINWEB								= NOM_ADMINWEB_BASE //+ XVER_MAJOR + XVER_MINOR
+      	
+      	ALIAS_ADMINHF								= "WDADMINHF" + XVER_MAJOR + XVER_MINOR + SUFFIXE_REPERTOIRE_WEB
+      	NOM_ADMINHF_BASE								= "WDAdminHF"
+      	NOM_ADMINHF									= NOM_ADMINHF_BASE+XVER_MAJOR+XVER_MINOR
+      	
+      	ALIAS_ADMINSAAS								= "WDADMINSAAS" + XVER_MAJOR + XVER_MINOR + SUFFIXE_REPERTOIRE_WEB
+      	NOM_ADMINSAAS_BASE							= "WDAdminSaaS"
+      	NOM_ADMINSAAS								= NOM_ADMINSAAS_BASE+XVER_MAJOR+XVER_MINOR
+      	
+      	ALIAS_WEBSERVICESAAS							= "WDSAAS" + XVER_MAJOR + XVER_MINOR + SUFFIXE_REPERTOIRE_WEB
+      	NOM_WEBSERVICESAAS_BASE						= "WDSaaS"
+      	NOM_WEBSERVICESAAS							= NOM_WEBSERVICESAAS_BASE+XVER_MAJOR+XVER_MINOR
+      	
+      	NOM_WEBSERVICECLUSTER_BASE					= "WDCluster"	
+      	NOM_WEBSERVICECLUSTER						= NOM_WEBSERVICECLUSTER_BASE //+ XVER_MAJOR + XVER_MINOR
+      	
+      	// Accès natifs
+      	NOM_WDORACLE_NATIF							= "wd"+xver_major+xver_minor+"ora.dll"
+      	NOM_WDORACLE_NATIF64							= "wd"+xver_major+xver_minor+"ora64.dll"
+      	NOM_WDSQLSERVER_NATIF						= "wd"+xver_major+xver_minor+"sqs.dll"
+      	NOM_WDSQLSERVER2_NATIF						= "wd"+xver_major+xver_minor+"sqlserver.dll"
+      	NOM_WDSQLSERVER2_NATIF64						= "wd"+xver_major+xver_minor+"sqlserver64.dll"
+      	NOM_WDSQLSERVER3_NATIF						= "wd"+xver_major+xver_minor+"sqlserver2.dll"
+      	NOM_WDSQLSERVER3_NATIF64						= "wd"+xver_major+xver_minor+"sqlserver2_64.dll"
+      	NOM_WDINFORMIX_NATIF							= "wd"+xver_major+xver_minor+"ifmx.dll"
+      	NOM_WDINFORMIX_NATIF64						= "wd"+xver_major+xver_minor+"ifmx64.dll"
+      	NOM_WDSYBASE_NATIF							= "wd"+xver_major+xver_minor+"syb.dll"
+      	NOM_WDDB2_NATIF								= "wd"+xver_major+xver_minor+"db2.dll"
+      	NOM_WDDB2_NATIF64							= "wd"+xver_major+xver_minor+"db2_64.dll"
+      	NOM_WDMYSQL_NATIF							= "wd"+xver_major+xver_minor+"msql.dll"
+      	NOM_WDPROGRESS_NATIF							= "wd"+xver_major+xver_minor+"prgs.dll"
+      	NOM_WDXBASE_NATIF							= "wd"+xver_major+xver_minor+"db.dll"
+      	NOM_WDPOSTGRESQL_NATIF						= "wd"+xver_major+xver_minor+"postgresql.dll"
+      	
+      	NOM_ODBCHF									= "wd"+xver_major+xver_minor+"hfo.dll"
+      	
+      	NOM_COMP_OUTIL								= "wdoutil.wdk"
+      	INSTALL_HFCS_WIN								= "wx"+xver_major+xver_minor+"packhfsqlcs.exe"
+      	INSTALL_RESERVEDSERVER_WIN					= "wx"+xver_major+xver_minor+"packrsrv.exe"
+      		
+      	// ATTENTION : la casse des AWP est importante pour la compatibilité Linux
+      	NOM_CGI_WEBDEV								= "/WD"+XVER_MAJOR+XVER_MINOR+"AWP/"+NOM_AWP+"/"
+      	NOM_CGI_WEBDEV_INSTALL						= "/WD"+XVER_MAJOR+XVER_MINOR+"AWP/"+NOM_INSTAWP+"/"
+      	
+      	// Modules de la 5.5
+      	NOM_MODFIC55								= "WDModFic32.exe"
+      	NOM_CPL55									= "WD553CPL.DLL"
+      	NOM_DB55									= "WD553DB.DLL"
+      	NOM_EXE55									= "WD553EXE.DLL"
+      	NOM_STD55									= "WD553STD.DLL"
+      	NOM_WDW55									= "WD553WDW.DLL"
+      	
+      	// Éléments extérieurs
+      	NOM_INSTALL_APACHE							= "InstallApache.msi"
+      	
+      	//
+      	// Clés de registre
+      	//
+      	
+      	// Clé en "_BASE" = se termine par un \ (= a compléter)
+      	CLE_HKCU_PCSOFT_BASE							= "HKEY_CURRENT_USER\Software\PC SOFT\"
+      	CLE_HKLM_PCSOFT_BASE							= "HKEY_LOCAL_MACHINE\Software\PC SOFT\"
+      	CLE_HKLM_PCSOFT_64_BASE						= "HKEY_LOCAL_MACHINE\Software\Wow6432Node\PC SOFT\"
+      	
+      	CLE_WINDEV_BASE								= CLE_HKCU_PCSOFT_BASE + "WINDEV\"
+      	CLE_WINDEV_VERSION_BASE						= CLE_WINDEV_BASE + sVersionProduitP + "\"
+      	CLE_FOLDERS_WINDEV							= CLE_WINDEV_VERSION_BASE + "Common\Folders"
+      	CLE_COMMON_WINDEV							= CLE_WINDEV_VERSION_BASE + "Common"
+      	
+      	CLE_WEBDEV_BASE								= CLE_HKCU_PCSOFT_BASE + "WEBDEV\"
+      	CLE_WEBDEV_VERSION_BASE						= CLE_WEBDEV_BASE + sVersionProduitP + "\"
+      	CLE_FOLDERS_WEBDEV							= CLE_WEBDEV_VERSION_BASE + "Common\Folders"
+      	CLE_COMMON_WEBDEV							= CLE_WEBDEV_VERSION_BASE + "Common"
+      	
+      	CLE_WINDEVMOBILE_BASE						= CLE_HKCU_PCSOFT_BASE + "WINDEV Mobile\"
+      	CLE_WINDEVMOBILE_VERSION_BASE				= CLE_WINDEVMOBILE_BASE + sVersionProduitP + "\"
+      	CLE_FOLDERS_WINDEVMOBILE						= CLE_WINDEVMOBILE_VERSION_BASE + "Common\Folders"
+      	CLE_COMMON_WINDEVMOBILE						= CLE_WINDEVMOBILE_VERSION_BASE + "Common"
+      	
+      	CLE_WWINST									= CLE_HKCU_PCSOFT_BASE + "WWInst\" + sVersionProduitP
+      	
+      	CLE_WDINST									= CLE_WINDEV_VERSION_BASE + "WDInst"
+      	CLE_WDINSTPocket								= CLE_WINDEVMOBILE_VERSION_BASE + "WDInst"
+      	
+      	CLE_WEBDEP_BASE								= CLE_HKLM_PCSOFT_BASE + "WEBDEV\"
+      	CLE_WEBDEP_BASE_RESERVED						= CLE_HKLM_PCSOFT_BASE + "RServer\"
+      	CLE_WEBDEP_VERSION_BASE						= CLE_WEBDEP_BASE + sVersionProduitP + "\"
+      	CLE_WEBDEP_VERSION_BASE_RESERVED				= CLE_WEBDEP_BASE_RESERVED + sVersionProduitP + "\"
+      	// GP 13/06/2016 : TB98603 : On a une version 64bits du serveur réservé maintenant : création et utilisation des clés 64bits pour tout les produits
+      	CLE_WEBDEP_64_BASE							= CLE_HKLM_PCSOFT_64_BASE + "WEBDEV\"
+      	CLE_WEBDEP_64_BASE_RESERVED					= CLE_HKLM_PCSOFT_64_BASE + "RServer\"
+      	CLE_WEBDEP_VERSION_64_BASE					= CLE_WEBDEP_64_BASE + sVersionProduitP + "\"
+      	CLE_WEBDEP_VERSION_64_BASE_RESERVED			= CLE_WEBDEP_64_BASE_RESERVED + sVersionProduitP + "\"
+      	// GP 17/01/11 : Utiliser ConstantesWEBDEV.gpclConfigurationWEBDEV pour avoir un code compatible Linux
+      	//	// Utiliser ConstantesWEBDEV.gsCleWEBDEV à la place (initialiser la collection avec SetVersionProduit)
+      	//	CLE_WEBDEP 					= "HKEY_LOCAL_MACHINE\Software\PC SOFT\WEBDEV\"+XVER_MAJOR+"."+XVER_MINOR
+      	NOM_CLE_APPLICATION_WEBDEP					= "Applications"
+      	NOM_CLE_WEBSERVICE_SOAP_WEBDEP				= "Webservices"
+      	NOM_CLE_WEBSERVICE_REST_WEBDEP				= "WebservicesREST"
+      	NOM_CLE_WEBSOCKET							= "WebSockets"
+      	NOM_CLE_HOTES_WEBDEP							= "Hosts"
+      	
+      	CLE_APPPATH									= "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\App Paths"
+      	
+      	CLE_WDDEPLOIE								= CLE_HKCU_PCSOFT_BASE + "WDDeploie"
+      	
+      	//
+      	// Noms de valeurs de registre
+      	//
+      	VALREG_REP_DATA								= "Data"
+      	VALREG_REP_PROGRAMME							= "Program"
+      	VALREG_REP_PERSONNEL							= "Personnal"
+      	VALREG_REP_AIDE								= "Help"
+      	VALREG_REP_MOTEUR							= "Motor"
+      	VALREG_REP_DEPLOIEMENT						= "Deployment"
+      	VALREG_REP_ROOT								= "Root"
+      	// GP 23/01/2019 : Nouvelle clé avec la langue du produit.
+      	// !!!!!!!!!!!!!!
+      	// Dans le cas général : passer par le composant outils :
+      	// - gDéfinirLangue(ProjetInfo(piNomProjet), <Première fenêtre>) si l'outil a un bouton de changement de langue.
+      	// - Nation(nRenvoyerNationProduit()) sinon.
+      	// !!!!!!!!!!!!!!
+      	VALREG_NATIONEDITEUR							= "NationEditeur"
+      	
+      	// WebDep														// G = Global, L = Par site, GL = Global et par site
+      	// !!! Attention, lors de l'ajout d'une valeur, si celle-ci n'est pas synchronisée dans le cluster, l'ajouter dans la liste de la class CWebDevConfigBase et dans la classe C++ cluster_non_synchronisee !!!
+      	VALREG_ADMINLOG								= "ADMINLOG"					// G
+      	VALREG_ADMINLOGPID							= "ADMINLOGPID"				// ??
+      	VALREG_ALLOW_DELAYUPDATE						= "ALLOW_DELAYUPDATE"			// G	@@@ Obsolète ? @@@
+      	VALREG_ALLOW_REMOTEINSTALL					= "ALLOW_REMOTEINSTALL"		// GL	Autorise les installations à distance
+      	VALREG_ALLOW_REMOTEUPDATE					= "ALLOW_REMOTEUPDATE"		// GL	Autorise les mises à jour à distance
+      	VALREG_APACHE_CONF_TYPE						= "APACHE_CONF_TYPE"			// G	Comment on configure Apache (Windows uniquement) : utilisé pour le moteur pour l'interface :
+      	// 1 : Aucun
+      	// 2 : EasyPHP
+      	// 3 : WAMP5/WampServer
+      	// -1 : Autre
+      	VALREG_APACHEPORT							= "APACHEPORT"					//  L
+      	VALREG_APPLICATIONMULTIPLE					= "APPLICATIONMULTIPLE"		// G
+      	VALREG_APPLICATIONNOMDEPLOIEMENT				= "APPLICATIONNAME"			//  L
+      	VALREG_ATTENTE_LANCEMENT_PLUS				= "ATTENTE_LANCEMENT_PLUS"		// G	Interne PCSOFT : Pour les machines tower trop lent, attente supplémentaire pour le lancement de wdxxxsession.
+      	VALREG_AWPPATH								= "AWPPATH"					// G
+      	VALREG_BINPATH								= "BINPATH"						// G
+      	VALREG_CACHED_SESSIONS						= "CACHED_SESSIONS"				// L	Sessions prélancées : nombre dans un site (défaut : 0)
+      	VALREG_CACHED_SESSIONS_A						= "CACHED_SESSIONS_A"			// G	Sessions prélancées : activation dans les sites (défaut : 1 = Vrai)
+      	VALREG_CLUSTER_ACTIVATION					= "CLUSTER_ACTIVATION"			// G	0/Absent = Pas cluster, 1 = En attente d'initialisation, 2 = Actif
+      	VALREG_CLUSTER_DERNIERE_SYNCHRO				= "CLUSTER_DERNIERE_SYNCHRO"	// G	Date de la dernière synchro. Utilisée pour affichage dans WDxxxAdmin.exe/WDAdminWeb. Format : "<Date de début AAAMMJJHHMMSSCCC)>;<Date de fin AAAMMJJHHMMSSCCC>;<Avec erreurs : 0/1>"
+      	VALREG_CLUSTER_MONO_UTILISATEUR				= "CLUSTER_MONO_UTILISATEUR"	// G	Le cluster ne sera utilisé que avec un utilisateur. Cette valeur est déclarative (le serveur ne la vérifie pas pour ajouter un autre utilisateur).
+      	// 		=> Utilisé pour ne pas ajouter le nom de l'utilisteur dans le chemin home (pour PCSCloud qui utilise cette arborescence).
+      	VALREG_CLUSTER_NOM_SERVEUR					= "CLUSTER_NOM_SERVEUR"			// G	Nom du serveur au moment de l'installation, pour le filtrer de la liste des serveurs.
+      	VALREG_CLUSTER_TIMEOUT						= "CLUSTER_TIMEOUT"				// G	Délai entre deux tentatives de synchronisation du cluster. Cette valeur est synchronisée.
+      	VALREG_CLUSTER_VERSION						= "CLUSTER_VERSION"				// G
+      	VALREG_COMPAT_ANT							= "COMPAT_ANT"					// G	Compatibilité avec les version antérieures.
+      	VALREG_COMPAT_ANT_MIN						= "COMPAT_ANT_MIN"				// G	Version depuis laquelle on accepte la compatibilité avec les versions antérieures. Actuellement pas disponible dans l'interface. Par défaut 11 jusqu'en 27, 17 en 28.
+      	VALREG_COMPAT_DEP							= "COMPAT_DEP"					// G	Numéro de version mini nécessaire pour pouvoir déployer sur le moteur. Utilisé par l'installation par média physique. Actuellement pas disponible dans l'interface. Par défaut la version courante.
+      	VALREG_COMPTEPATH							= "COMPTEPATH"				// G
+      	VALREG_CONFIGURATIONPROJET					= "CONFIGURATIONPROJET"			//	L	Édition uniquement
+      	VALREG_COPIEIMGREPWEB						= "COPIEIMGREPWEB"				// G
+      	VALREG_COOKIE_SESSION_HTTPONLY				= "COOKIE_SESSION_HTTPONLY"		// GL
+      	VALREG_COOKIE_INTERNAL_SECURE				= "COOKIE_INTERNAL_SECURE"		// GL
+      	VALREG_DEBUG								= "DEBUG"						// G	Édition uniquement
+      	VALREG_DEBUG_64BITS							= "DEBUG_64BITS"				// G	Édition uniquement
+      	VALREG_DEBUG_CACHED_SESSIONS_SIMUL			= "DEBUG_CACHED_SESSIONS_SIMUL" // G	Édition uniquement
+      	VALREG_DEBUG_TACHE_PLANIFIEE					= "DEBUG_TACHE_PLANIFIEE"		// G	Édition uniquement : force l'activation des tâches planifiées pour les déboguer.
+      	VALREG_DEBUGPORT								= "DEBUGPORT"					// G
+      	VALREG_DEBUGPORTMAX							= "DEBUGPORTMAX"				// G
+      	VALREG_DEBUGPORTMIN							= "DEBUGPORTMIN"				// G
+      	VALREG_DEBUGREMOTE							= "DEBUGREMOTE"				// G
+      	VALREG_DEPUSER								= "DEPUSER"					//  L
+      	VALREG_DOUBLELOG								= "DOUBLELOG"					// G
+      	VALREG_ENABLED								= "ENABLED"						//  L	Site PCS uniquement : si le site est actif (permet de tous les installer et d'en désactiver certains dans le cas du cluster)
+      	VALREG_ERRORFILE								= "ERRORFILE"					// GL	Fichier modèles des erreurs
+      	VALREG_FASTCGI								= "FASTCGI"						// G
+      	VALREG_GPUHISTOCNX							= "GPUHISTOCNX"				//  L
+      	VALREG_GPUPATH								= "GPUPATH"					//  L
+      	VALREG_GPUPATH_R								= "GPUPATH_R"					//  L
+      	VALREG_HFPATH								= "HFPATH"						//  L
+      	VALREG_LANCEUR								= "LANCEUR"					// G
+      	VALREG_LISTEAPPLICATIONS						= "LISTEAPPLICATIONS"			// G
+      	VALREG_LOCALHOST								= "LOCALHOST"					// G
+      	VALREG_LOCKFORUPDATE							= "LOCKFORUPDATE"			// GL
+      	VALREG_LOWRAMUSAGE							= "LOWRAMUSAGE"					// G
+      	VALREG_MAKESCRIPT							= "MAKESCRIPT"					// G	Édition uniquement : enregistrement des scénarios de test.
+      	VALREG_LOCKURL_PROTOCOL						= "PROTOCOL_LIMIT"				// ??
+      	VALREG_LOCKURL_SERVERLIMIT					= "SERVER_LIMIT"				// ??
+      	VALREG_LOCKURL_URLACCESS						= "URL_ACCESS"				// ??
+      	VALREG_LOGDIR								= "LOGDIR"						// GL
+      	VALREG_MAXCONNECT							= "MAXCONNECT"				// G
+      	VALREG_MAXCONNECTAPP							= "MAXCONNECTAPP"			// GL
+      	VALREG_MAXRECONNECTAPP						= "MAXRECONNECTAPP"			// GL
+      	VALREG_NOIPCHECK								= "NOIPCHECK"					// GL
+      	VALREG_NOMADMINDISTANT						= "NOMADMINDISTANT"			// G
+      	VALREG_NOMAILSPOOLER							= "NOMAILSPOOLER"				// G
+      	// GP 29/11/2016 : Jamais utilisé
+      	//	VALREG_NOMODIFPASS						= "NOMODIFPASS"				// ??
+      	VALREG_NOMSCENARIO							= "MAKESCRIPT"					// G
+      	VALREG_NOREMOTEPARAM							= "NOREMOTEPARAM"			// G	Flag interdisant la modifications des paramètres à distance
+      	VALREG_PROGRAM								= "PROGRAM"						// G	Édition uniquement
+      	VALREG_RAPPORTS								= "RAPPORTS"					// G
+      	VALREG_RAPPORTS_DESTINATAIRES				= "RAPPORTS_DESTINATAIRES"		// G, L
+      	VALREG_RAPPORTS_DERNIER_J					= "RAPPORTS_DERNIER_J"			// G	J = Jour = Quotidien
+      	VALREG_RAPPORTS_DERNIER_M					= "RAPPORTS_DERNIER_M"			// G	M = Mois = Mensuel
+      	VALREG_RAPPORTS_DERNIER_S					= "RAPPORTS_DERNIER_S"			// G	S = Semaine = Hebdomadaire
+      	VALREG_RAPPORTS_SMTP_COMPTE					= "RAPPORTS_SMTP_COMPTE"		// G
+      	VALREG_RAPPORTS_SMTP_EXPEDITEUR				= "RAPPORTS_SMTP_EXPEDITEUR"	// G
+      	VALREG_RAPPORTS_SMTP_MOTDEPASSE				= "RAPPORTS_SMTP_MOTDEPASSE"	// G
+      	VALREG_RAPPORTS_SMTP_PORT					= "RAPPORTS_SMTP_PORT"			// G
+      	VALREG_RAPPORTS_SMTP_SERVEUR					= "RAPPORTS_SMTP_SERVEUR"		// G
+      	VALREG_RAPPORTS_SMTP_TLS						= "RAPPORTS_SMTP_TLS"			// G
+      	VALREG_PERIMEE_UPASS							= "PERIMEE_UPASS"				// G	Plus utilisé sauf en migration.
+      	VALREG_PROJECTERRORFILE						= "PROJECTERRORFILE"			//  L
+      	VALREG_PROJECTNAME							= "PROJECTNAME"				//  L
+      	VALREG_PROJECTPATH							= "PROJECTPATH"				//  L
+      	VALREG_REPENCOURS							= "REPENCOURS"				//  L	(Développement uniquement)
+      	VALREG_SERIEWEB								= "SERIEWEB"					// G	(Déploiement uniquement)
+      	VALREG_SOCKETSERVEUR							= "SOCKETSERVEUR"				// G
+      	VALREG_STATLOG								= "STATLOG"					// ?
+      	VALREG_STOPANDDEBUG							= "STOPANDDEBUG"				// G	Débug manuel uniquement.
+      	VALREG_STOPANDDEBUG_AVANCE					= "STOPANDDEBUG_AVANCE"			// G	Débug manuel uniquement.
+      	VALREG_STOPANDDEBUG_AWP						= "STOPANDDEBUG_AWP"			// G	Débug manuel uniquement.
+      	VALREG_TIMEOUT_NORQ							= "TIMEOUT_NORQ"				// GL
+      	VALREG_TIMEOUT_NORQ_AWP						= "TIMEOUT_NORQ_AWP"		// GL
+      	VALREG_TIMEOUT_NORQ_WEBSERVICE				= "TIMEOUT_NORQ_WEBSERVICE" // GL
+      	VALREG_TIMEOUT_RQ							= "TIMEOUT_RQ"				// G
+      	VALREG_TIMEOUT_TACHES						= "TIMEOUT_TACHES"			// GL
+      	VALREG_TYPESITE								= "TYPESITE"						//	L : Utiliser ETypeSite
+      	VALREG_URLBASE								= "URLBASE"					// ??
+      	VALREG_VDIR									= "VDIR"						// G
+      	VALREG_VERSION								= "VERSION"					// ??
+      	VALREG_VIMAGEDIR								= "VIMAGEDIR"					//  L
+      	VALREG_VIRTUALHOST							= "VIRTUALHOST"				// GL
+      	VALREG_WBADMIN								= "WBADMIN"						// G	Linux uniquement : Nom du compte d'administration WebDev
+      	VALREG_WBGROUPADMIN							= "WBGROUPADMIN"				// G	Linux uniquement : Nom du groupe d'administration WebDev
+      	VALREG_WEBSERVER								= "WEBSERVER"					// G
+      	VALREG_WEBSERVERCONF							= "WEBSERVERCONF"				// G	Fichier de configuration de apache
+      	VALREG_WEBSERVERGROUP_TMP					= "WEBSERVERGROUP_TMP"			// G	Linux uniquement : Nom du groupe utilisé pour l'exécution de Apache.
+      	VALREG_WEBSERVERMAINCONF						= "WEBSERVERMAINCONF"			// G	Linux uniquement.
+      	VALREG_WEBSERVERRESTART						= "WEBSERVERRESTART"			// G
+      	VALREG_WEBSERVERUSER_TMP						= "WEBSERVERUSER_TMP"			// G	Linux uniquement : Nom de l'utilisateur utilisé pour l'exécution de Apache.
+      	
+      	VALREG_WEBSERVER_BIN							= "WEBSERVER_BIN"				// G	Fichier programme de apache (Apache Windows Uniquement)
+      	VALREG_WEBSERVER_SERVICE						= "WEBSERVER_SERVICE" 			// G	Nom du service (Apache Windows Uniquement)
+      	VALREG_WEBSERVICE_DESCRIPTION				= "WEBSERVICE_DESCRIPTION"		//	L
+      	VALREG_WEBSERVICE_PUBLIC_NAME				= "WEBSERVICE_PUBLIC_NAME"		//  L
+      	VALREG_WORKPATH								= "WORKPATH"					// G
+      	// SaaS
+      	VALREG_SAAS_WEBSERVICE_URL					= "SAAS_WEBSERVICE_URL"		//  L	L'URL du Webservice SaaS que doit utiliser le site
+      	VALREG_SAAS_ADMINISTRATION_URL				= "SAAS_ADMINISTRATION_URL"	//  L	L'URL du site d’administration SaaS pour le site courant
+      	VALREG_SAAS_UTILISATEURS_URL					= "SAAS_UTILISATEURS_URL" 	//  L	L’URL du site de gestion des utilisateurs pour le site courant.
+      	// !!! Attention, lors de l'ajout d'une valeur, si celle-ci n'est pas synchronisée dans le cluster, l'ajouter dans la liste de la class CWebDevConfigBase et dans la classe C++ cluster_non_synchronisee !!!
+      	
+      	//déploiement sans déconnexion
+      	VALREG_PROJECT_VERSIONPREFIXE				= "PROJECT_VERSIONPREFIXE" 	//	L indique si le déploiement de version multiple est actif
+      	// 								(la clé contient le préfixe de version : si vide ou clé non présente alors la fonctionnalité n'est pas active)
+      	VALREG_PROJECT_VERSIONLISTE					= "PROJECT_VERSIONLISTE"		//	L la liste des versions déployées, séparé par ;
+      	SEPARATEUR_VALREG_PROJETVERSIONLISTE			= ";" 
+      	// (un répertoire de version se construit donc en concaténant le préfixe VALREG_PROJECT_VERSIONMULTIPLE à la valeur de la version)
+      	// les versions sont triées par ordre inverse de déploiement (la première valeur correspond au dernier déploiement, c'est la version en cours d'exec du site)
+      	VALREG_PROJECT_VERSION_NBMAX					= "PROJECT_VERSION_NBMAX"	//nombre max de versions conservées, lorsque le déploiement multiple est actif (4 par défaut)
+      	//Télémétrie
+      	VALREG_ACTIVATION_TELEMETRIE					= "Collecte"
+      	
+      	//
+      	// Sections de fichiers INI
+      	//
+      	SECTION_WDSETUP								= "WDSETUP"
+      	
+      	//
+      	// Constantes diverses
+      	//
+      	NOM_SERVICE_RPC_OBSOLETE						= "WDRPCServer"
+      	NOM_ZONEMEMOIRE_CONNEXION_WEBDEV				= "WEBDEV_INFO_"+XVER_MAJOR+XVER_MINOR
+      	NOM_ZONEMEMOIRE_WEBDEVAPI					= "WEBDEVAPI_"+XVER_MAJOR+XVER_MINOR+"_"
+      	
+      	//
+      	// Serveurs Web
+      	//
+      	SRV_IIS										= 1						// IIS
+      	//	SRV_OMNIHTTPD_OBSOLETE = 2		// OmniHTTP
+      	//	SRV_FRONTPAGE97_OBSOLETE = 3	// Server MS Frontpage 97
+      	//	SRV_FRONTPAGE98_OBSOLETE = 4	// Server MS Frontpage 98
+      	//	SRV_APACHE13_OBSOLETE = 5		// Apache 1.3.x (obsolète depuis 2010)
+      	//	SRV_NETSCAPE_OBSOLETE = 6		// Netscape serveur
+      	//	SRV_APACHE20_OBSOLETE = 7		// Apache 2.0.x (obsolète depuis 2013)
+      	//	SRV_APACHE22_OBSOLETE = 8		// Apache 2.2.x (obsolète depuis 2017) <= on le garde encore un peu
+      	SRV_AUTRE									= 9					// Autre
+      	SRV_APACHE24								= 10				// Apache 2.4.x
+      	SRV_IISEXPRESS								= 11				// IIS Express (serveur web intégré)
+      	
+      	//
+      	// Meta-répertoires
+      	//
+      	META_SITE									= "<site>"
+      	META_SOCKET									= "<socket>"
+      	META_DATA									= "<data>"
+      	META_WEBROOT								= "<webroot>"
+      	META_WEBSERVICE_SOAP							= "<webservice>"
+      	META_WEBSERVICE_REST							= "<rest>"
+      	META_WEB									= -%"[%_PROJET_WEB_%]"
+      	META_URL_WEBSERVICE							= "%ADRESSE%"
+      	META_URL_SERVEUR								= -%"[%PROTOCOLE_SERVEUR_PORT%]"
+      FIN
+     type : 720896
+   -
+     code : |1-
+      
+     type : 720898
+  procedures :
+   -
+     name : gbVersionCompatible
+     internal_properties : CAAAAAgAAABc9b1UAxy02Yd2fcIpCNrFe4aB7aDmKb5OdxHqAbbICY5WVgme0tVhz0B9Og9wQtpJNuiAOQK0sdiDP10GAlwV0L5UZwuBlePjxTyukyTljgTu1IXrSZ0w2tsKHtGfaBOnKbFB2cy2pKR8t6Ro527BTnFycyLupcS3Ew5ScCDT3b34VdpvWUZ/7HMbQrVxSwkY
+     procedure_id : 1370807538951396175
+     type_code : 15
+     code : |1-
+      // Résumé : Test de compatiblité selon le numéro de version
+      // Syntaxe :
+      //[ <Résultat> = ] gbVersionCompatible (<nProduit> est entier, <nVersion> est entier)
+      //
+      // Paramètres :
+      //	nProduit (entier) : Code du produit
+      //	nVersion (entier) : Numéro de version à tester
+      // Valeur de retour :
+      // 	booléen : Vrai si compatible (version courante du produit ou "préversion"
+      //
+      // Exemple :
+      // SI PAS gbVersionCompatible(PRODUIT_WINDEV, 20) ALORS
+      //		IHMNouvelleFonctionnalite..Visible = Faux
+      // FIN
+      //
+      PROCEDURE gbVersionCompatible(nProduit est entier, nVersion est entier) : booléen
+      
+      //Préfixe du fichier selon le produit
+      sPrefixeFichierPreversion est chaine
+      selon nProduit
+      	cas PRODUIT_WINDEV
+      		sPrefixeFichierPreversion = "WD_"
+      	cas PRODUIT_WEBDEV
+      		sPrefixeFichierPreversion = "WB_"
+      	cas PRODUIT_WINDEVPOCKET
+      		sPrefixeFichierPreversion = "WM_"
+      		
+      	//Autre produit : le fichier de préversion n'est pas géré
+      	AUTRE CAS
+      		//Cas par défaut : comparaison simple de version majeure
+      		renvoyer nVersion <= nXVER_MAJOR
+      FIN
+      
+      soit sCheminFichierPreversion = fRepExe() + [fsep] + sPrefixeFichierPreversion + "Preversion.txt"
+      si pas fFichierExiste(sCheminFichierPreversion) ALORS
+      	//Cas par défaut : comparaison simple de version majeure
+      	RENVOYER nVersion <= nXVER_MAJOR
+      FIN
+      
+      soit sChainePreversion = fChargeTexte(sCheminFichierPreversion)
+      
+      si pas (ExtraitChaîne(sChainePreversion, 3,"#") [~ "Preversion") ALORS
+      	//Cas par défaut : comparaison simple de version majeure
+      	RENVOYER nVersion <= nXVER_MAJOR
+      FIN
+      
+      nPreVersionMajeure est entier = ExtraitChaîne(sChainePreversion,1 ,"#")
+      si nPreVersionMajeure < nXVER_MAJOR ALORS
+      	nPreVersionMajeure = nXVER_MAJOR
+      FIN
+      
+      renvoyer nVersion <= nPreVersionMajeure
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+resources :
+ string_res :
+  identifier : 0x193fecc00a0dae8f
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

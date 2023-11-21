@@ -1,0 +1,629 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CServeurInst
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x175d10350611b73f
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAABlwtovxLKDGosqmSOXdnzub7+X6FiJe+cMuxQGwWYUxd/OMdiGtFYb/O9rHk3ztBToJU8CCYu5jyKsEy7vpqwCKw6Dftv+zeVrwgnU+xt5NvPCh9pRaWbEjCwhUwcTo1EZ8hZ1yEtvzrPBM2Fi6xhEY9UX0fGm0UyLWB1KxdTieYTZXxYPo6uPgKoc271MRTlLsmSCZv+pqLTixNhLm4PnBnu/NOFMydXRFEpCK+dEutz9qFuEe72KI/HuRqb8XAITZD7dR20oOlFYbWpSmBbLr46viBCK4egc8CqkzoMuzAzLA3HcY4ZKO4w2YhbBYO6CjHsqvDTyPmXCVr8lK3qy2jI8+lv9D4H+2XEa
+     code : |1+
+      constantE
+      	ETATDISTANT_EXISTE = 0
+      	ETATDISTANT_EXISTEPAS = 1
+      	ETATDISTANT_AUTRECLIENT = 3
+      FIN
+      
+      constante
+      	PORT_DEFAUT_FTP_STANDARD=21
+      	PORT_DEFAUT_SFTP=22
+      	PORT_DEFAUT_FTPES=21
+      	PORT_DEFAUT_FTPIS=990
+      fin
+      
+      CONSTANTE
+      	// QW331705 : Valeur par défaut pour le timeout de session en 26 (maintenant que l'on a le heartbeat de session).
+      	// => 2 heures
+      	TIMEOUT_NORQ_DEFAUT = 2 * 60 * 60
+      FIN
+      
+       
+      
+      // Description d'un serveur d'installation
+      CServeurInst est une classe
+      	m_sDescription est une chaine				// Description du serveur
+      	m_sAdresse est une chaine				// Adresse du serveur
+      	//m_sLoginWB est une chaine				// Compte utilisateur WEBDEV
+      	//m_sPwdWB est une chaine					// Mot de passe WEBDEV
+      	//m_bHTTPAuthentifie est un booleen			// Utiliser une installation authentifiée
+      	m_bHTTPSecurise est un booleen			// Utiliser HTTPS
+      	m_sAdresseFTP est une chaine				// Adresse du serveur FTP
+      	m_sLoginFTP est une chaine				// Compte utilisateur FTP
+      	m_sPwdFTP est une chaine				// Mot de passe FTP
+      	m_nPortFTP est un entier					// Port de connexion FTP
+      	m_bFTPPassif est un booléen				// Vrai si on fait du FTP en mode passif
+      	
+      	m_bProxyHTTP est un booleen				// Vrai si on utilise un proxy HTTP
+      	m_sAdresseProxy est une chaîne			// Adresse du proxy
+      	m_nPortProxy est un entier				// Port de connexion au proxy HTTP
+      	m_sLoginProxy est une chaine				// Nom d'utilisateur pour le proxy HTTP
+      	m_sPwdProxy est une chaine				// Mot de passe pour le proxy HTTP
+      	
+      	m_nMaxConnect est un entier				// Nombre maxi de connexions au site				<=0 pour utiliser la valeur du serveur
+      	m_nMaxConnectUser est un entier			// Nombre maxi de connexions au site depuis une IP 	<=0 pour utiliser la valeur du serveur
+      	m_nTimeoutRq est un entier 				// Durée maxi d'une requête
+      	m_nTimeoutNoRq est un entier			// Durée maxi d'inactivité <=0 pour utiliser la valeur du serveur
+      	m_sRepData est une chaine				// Nom du sous répertoire des données
+      	
+      	m_bTeste est un booleen					// Vrai si on a testé le serveur
+      	m_bRecup est un booleen					// Vrai si on a récupéré les infos distantes
+      	m_nEtatDistant est un entier				// Etat sur le serveur (ETATDISTANT_EXISTE, ETATDISTANT_EXISTEPAS, ETATDISTANT_AUTRECLIENT)
+      	m_nVersionDistante est un entier			// Numéro de version du site
+      	m_sListeVersionDistante  est une chaine		//à partir de la vi240043 - liste des versions déployées
+      	m_sPrefixeVersionDistante est une chaine //à partir de la vi240043 - préfixe des répertoires de version
+      	m_nNbVersionAConserver est un entier	// à partir de la vi 240043 ->nombre max de versions à conserver sur le serveur (>0 si mode deploiement sans deconnexion)
+      	
+      	
+      	
+      	// Nouveauté 14 - Déploiement de plusieurs instances d'un site sur le même serveur
+      	m_sNomSite est une chaine				// Nom du site sur le serveur distant - (nom renommé et nom pour la base de registre et pour wdconfig.awp)
+      	
+      	// Nouveauté 15 - Paramétrage du groupware utilisateur
+      	m_sRepFicGPU est une chaine				// Emplacement des fichiers du groupware
+      	m_sRepFicDroitGPU est une chaine			// Emplacement des fichiers de droits du groupware
+      	m_bHistoConnexionGPU est un booleen		// Vrai si on conserve l'historique des connexions
+      	
+      	// Nouveauté 15 - Config des statistiques en install distante
+      	m_bGenereStat est un booleen				// Vrai si on génère les statistiques du site
+      	m_sRepStat est une chaine				// Répertoire de génération des statistiques
+      	m_sAdresseSitemap est une chaine			// Adresse à utiliser pour la construction du sitemap 
+      												//cette adresse doit servir aussi pour les adresses de test ou dans les construction de WSDL
+      	
+      	m_bWarningVersionMoteur est un booleen	// Vrai si on a déjà affiché un warning sur la version du moteur (pour ne pas le faire plusieurs fois)
+      	
+      	// Nouveauté 16 - Déploiement multi-serveurs
+      	m_bSelectionne est un booleen				// Vrai si ce serveur est sélectionné pour le déploiement
+      	m_tabFicDistant est un tableau local de 0 CFichierInstDistant			// Tableau des fichiers de l'installation
+      	
+      	// Nouveauté 16 - Déploiement HTTPS
+      	m_bIgnoreErreurHTTPS est un booleen		// Vrai si on ignore les avertissements de certificat invalide
+      	
+      	// Nouveauté 17
+      	m_nTimeoutNoRqAWP est un entier			// Durée des contextes AWP <=0 pour utiliser la valeur du serveur
+      	m_nTimeoutNoRqWebService est un entier	// Durée des contextes de WebService <=0 pour utiliser la valeur du serveur
+      	
+      	//nouveauté 18
+      	m_bIgnoreErreurFTPS est un booleen		// Vrai si on ignore les avertissements de certificat invalide sur FTP
+      	
+      	//nouveauté 20(f+1)
+      	m_tabLangue est un tableau d'Entiers 	//liste des langues à déployer (toute si vide)
+      	m_nCachedSession est un entier			//nombre de sessions prélancées (0=defaut : utilise le paramètre global du serveur)
+      	m_nTimeoutTache est un entier 			//durée des tâches (programmées / planifiées) <=0 pour utiliser la valeur du serveur
+      	
+      	//nouveauté 21(f+1)
+      	m_nNoIpCheck est un entier				//ne pas interdire le changement d'IP en cours de session <0 pour utiliser la valeur du serveur
+      	m_nCookieSessionHTTPOnly est un entier	//interdire l'accès aux identifiants de contexte depuis JS <0 pour utiliser la valeur du serveur
+      	
+      	//pour lecture
+      	//valeurs proposées par défaut pour les paramètres sur le serveur (si le site ne redefinit pas)
+      	m_nSrv_TimeoutNoRq est un entier
+      	m_nSrv_TimeoutNoRQAWP est un entier
+      	m_nSrv_TimeoutNoRQWS est un entier
+      	m_nSrv_TimeoutTask est un entier
+      	m_nSrv_MaxConnect  est un entier
+      	m_nSrv_MaxConnectApp  est un entier
+      	m_nSrv_MaxReconnectApp est un entier
+      	m_nSrv_NoIpCheck est un entier	
+      	m_nSrv_CookieSessionHTTPOnly est un entier
+      	
+      	//nouveauté 24
+      	m_nModeTransfert est un entier			//mode de transfert (0 : FTP, 1 : HTTP)
+      	m_sCertificatClient est une chaine 		//le certificat client à utiliser pour authentifier les requêtes https
+      	m_sPwdCertificatClient est une chaine //le mot de passe du certificat
+      	
+      	//nouveauté 27
+      	m_sServeurCloud est une chaîne		// Paramètres complémentaire pour le déploiement dans le cloud PCS (login+rc+password+rc+plateforme)
+      	m_nModeCluster est un entier,Serialise=faux
+      	
+      	m_reqHttp est un httpRequête,Sérialise=faux //la requete http unique pour dialoguer avec ce serveur
+      	
+      Fin
+      
+      constantE
+      	MODETRANSFERT_FTP=0
+      	MODETRANSFERT_HTTP=1
+      fin
+      
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1683519655627634495
+     type_code : 27
+     code : |1+
+      Procédure Constructeur()
+      
+      :Init("",faux, CServeurInst.MODETRANSFERT_FTP,faux)
+      HTTPCookieGère(m_reqHttp,Vrai)
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1683519655627700031
+     type_code : 28
+     code : |1+
+      Procédure Destructeur()
+      
+     type : 655360
+   -
+     name : sServeurFTP
+     procedure_id : 1684698035650631691
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] sServeurFTP ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne : // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      Procédure sServeurFTP()
+      
+      
+      
+      si :m_sAdresseFTP="" alors
+      	renvoyer :m_sAdresse
+      FIN
+      
+      renvoyer :m_sAdresseFTP
+     type : 458752
+   -
+     name : RecupInfoDistante
+     procedure_id : 1695052737985816815
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //RecupInfoDistante (<sFicInfoDistante> est chaîne)
+      //
+      // Paramètres :
+      //	sFicInfoDistante (chaîne UNICODE) :<indiquez ici le rôle de sFicInfoDistante>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      Procédure RecupInfoDistante( sFicInfoDistante est une chaine )
+      
+      sParam est une chaine
+      bAvecInfoDistante est un booléen
+      sParam=INILit("SRV",VALREG_MAXCONNECT,"",sFicInfoDistante)
+      m_nSrv_MaxConnect=Val(sParam)
+      bAvecInfoDistante=sParam<>""
+      
+      // Relis les valeurs d'installation distante d'une appli retournées par le moteur de déploiement
+      si pas bAvecInfoDistante ALORS
+      	:m_nMaxConnect = Val(INILit("INFO","MAXCONNECTAPP",""+:m_nMaxConnect,sFicInfoDistante))
+      sinon
+      	sParam=INILit("INFO","MAXCONNECTAPP","",sFicInfoDistante)
+      	:m_nMaxConnect = sParam<>"" ? Val(sParam) SINON -1
+      FIN
+      sParam=INILit("INFO","MAXRECONNECTAPP","",sFicInfoDistante)
+      :m_nMaxConnectUser = sParam<>"" ? Val(sParam) SINON -1
+      :m_nTimeoutNoRq = val(inilit("INFO","TIMEOUT_NORQ",""+:m_nTimeoutNoRq,sFicInfoDistante))
+      :m_nTimeoutNoRqAWP = val(inilit("INFO","TIMEOUT_NORQ_AWP",""+:m_nTimeoutNoRqAWP,sFicInfoDistante))
+      :m_nTimeoutNoRqWebService = val(inilit("INFO","TIMEOUT_NORQ_WEBSERVICE",""+:m_nTimeoutNoRqWebService,sFicInfoDistante))
+      :m_nTimeoutTache = val(inilit("INFO",VALREG_TIMEOUT_TACHES,""+:m_nTimeoutTache,sFicInfoDistante))
+      
+      si bAvecInfoDistante alors
+      	sParam=INILit("INFO",VALREG_NOIPCHECK,"",sFicInfoDistante)
+      	:m_nNoIpCheck = sParam<>"" ? Val(sParam) sinon -1
+      	
+      	sParam=INILit("INFO",VALREG_COOKIE_SESSION_HTTPONLY,"",sFicInfoDistante)
+      	:m_nCookieSessionHTTPOnly = sParam<>"" ? Val(sParam) SINON -1
+      sinon
+      	:m_nNoIpCheck =INILit("INFO",VALREG_NOIPCHECK,""+:m_nNoIpCheck,sFicInfoDistante)
+      	:m_nCookieSessionHTTPOnly = Val(INILit("INFO",VALREG_COOKIE_SESSION_HTTPONLY,""+:m_nCookieSessionHTTPOnly,sFicInfoDistante))
+      fin
+      
+      
+      
+      //:m_nTimeoutTache = Val(INILit("INFO",VALREG_LOGDIR,""+:m_nTimeoutTache,sFicInfoDistante))
+      :m_nCachedSession = Val(INILit("INFO",VALREG_CACHED_SESSIONS,""+:m_nCachedSession,sFicInfoDistante))
+      :m_sRepFicGPU =INILit("INFO",VALREG_GPUPATH,""+:m_sRepFicGPU,sFicInfoDistante)
+      :m_sRepFicDroitGPU = INILit("INFO",VALREG_GPUPATH_R,""+:m_sRepFicDroitGPU,sFicInfoDistante)
+      
+      
+      sTimeOutRq est une chaine = INILit("INFO","TIMEOUTRQ",""+:m_nTimeoutRq,sFicInfoDistante)
+      si sTimeOutRq<>"" alors :m_nTimeoutRq = val(sTimeOutRq)
+      
+      sParam=INILit("SRV",VALREG_MAXCONNECT,"",sFicInfoDistante)
+      m_nSrv_MaxConnect=val(sParam)
+      sParam=INILit("SRV",VALREG_MAXCONNECTAPP,"",sFicInfoDistante)
+      M_nSrv_MaxConnectApp=Val(sParam)
+      sParam=INILit("SRV",VALREG_MAXRECONNECTAPP,"",sFicInfoDistante)
+      m_nSrv_MaxReconnectApp=Val(sParam)
+      sParam=INILit("SRV",VALREG_TIMEOUT_NORQ,"",sFicInfoDistante)
+      m_nSrv_TimeoutNoRq=Val(sParam)
+      sParam=INILit("SRV",VALREG_TIMEOUT_NORQ_AWP,"",sFicInfoDistante)
+      M_nSrv_TimeoutNoRQAWP=Val(sParam)
+      sParam=INILit("SRV",VALREG_TIMEOUT_NORQ_WEBSERVICE,"",sFicInfoDistante)
+      m_nSrv_TimeoutNoRQWS=Val(sParam)
+      sParam=INILit("SRV",VALREG_TIMEOUT_TACHES,"",sFicInfoDistante)
+      m_nSrv_TimeoutTask=Val(sParam)
+      sParam=INILit("SRV",VALREG_NOIPCHECK,"1",sFicInfoDistante)
+      M_nSrv_NoIpCheck=Val(sParam)
+      sParam=INILit("SRV",VALREG_COOKIE_SESSION_HTTPONLY,"1",sFicInfoDistante)
+      m_nSrv_CookieSessionHTTPOnly=Val(sParam)
+      sParam=INILit("SRV",VALREG_CLUSTER_ACTIVATION,"0",sFicInfoDistante)
+      m_nModeCluster=val(sParam)
+     type : 458752
+   -
+     name : Exporte
+     procedure_id : 1705517619398077366
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //Exporte (<sFicExport> est chaîne)
+      //
+      // Paramètres :
+      //	sFicExport (chaîne) : <indiquez ici le rôle de sFicExport>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      Procédure Exporte(sFicExport est une chaine)
+      
+      clObjTemp est un CServeurInst = objet
+      //clObjTemp:m_sPwdWB = crypte(clObjTemp:m_sPwdWB,"CServeurInst",crypteRapide+crypteAnsi,encodeBASE64)
+      clObjTemp:m_sPwdFTP = Crypte(clObjTemp:m_sPwdFTP,"CServeurInst",crypteRapide+crypteAnsi,encodeBASE64)
+      clObjTemp:m_sPwdProxy = Crypte(clObjTemp:m_sPwdProxy,"CServeurInst",crypteRapide+crypteAnsi,encodeBASE64)
+      clObjTemp:m_sPwdCertificatClient = Crypte(clObjTemp:m_sPwdCertificatClient,"CServeurInst",crypteRapide+crypteAnsi,encodeBASE64)
+      
+      // Ces trois paramètres ne doivent pas être exportés
+      clObjTemp:m_sRepData = ""
+      clObjTemp:m_sNomSite = ""
+      clObjTemp:m_sRepStat = ""
+      
+      sBuffer est une chaine ANSI
+      WL.Sérialise(clObjTemp,sBuffer,psdXML)	
+      //XML=>ANSI donc fSauveTexte=OK
+      fSauveTexte(sFicExport,sBuffer)
+      
+     type : 458752
+   -
+     name : Importe
+     internal_properties : CAAAAAgAAABBMwSPm3TNxlHa93jMx5a/Mete/EbXt4sZEAtGmMXpeUtm2PjV8nWxUomfpsyyW3whXEgExnpBlZW8P3ANI98DKiIjVnZrA1X/sZkHCx0hsVAaY3ofznVk78fsJ2ycLN8+Gh70k7mMJCqMveY=
+     procedure_id : 1705518736089638146
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //Importe (<sFicImport> est chaîne ANSI, <sNomProjet> est chaîne ANSI, <nNbFichier> est entier)
+      //
+      // Paramètres :
+      //	sFicImport (chaîne ANSI) : <indiquez ici le rôle de sFicImport>
+      //	sNomProjet (chaîne ANSI) : <indiquez ici le rôle de sNomProjet>
+      //	nNbFichier (entier) : <indiquez ici le rôle de nNbFichier>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      Procédure Importe(sFicImport est une chaine,sNomProjet est une chaine <utile>, nNbFichier est un entier )
+      
+      bSauveSelect est un booleen = :m_bSelectionne
+      sPrefixe est une chaine=m_sPrefixeVersionDistante
+      
+      sNomSite est une chaine = :m_sNomSite
+      Désérialise(objet,fChargeTexte(sFicImport),psdXML)
+      
+      // Le flag de sélection ne doit pas être altéré par l'import
+      :m_bSelectionne = bSauveSelect
+      m_sPrefixeVersionDistante=sPrefixe
+      
+      sCle est une chaine ansi="CServeurInst"
+      sTemp est une chaine ansi//=Décrypte(:m_sPwdWB,sCle,crypteRapide+crypteAnsi,encodeBASE64)
+      //:m_sPwdWB = sTemp
+      sTemp =Décrypte(:m_sPwdFTP,sCle,crypteRapide+crypteAnsi,encodeBASE64)
+      :m_sPwdFTP = sTemp
+      sTemp =Décrypte(:m_sPwdProxy,sCle,crypteRapide+crypteAnsi,encodeBASE64)
+      :m_sPwdProxy = sTemp
+      sTemp =Décrypte(:m_sPwdCertificatClient,sCle,crypteRapide+crypteAnsi,encodeBASE64)
+      :m_sPwdCertificatClient = sTemp
+      
+      // Ces trois paramètres doivent être réinitialisés à l'import
+      :m_sRepData = sNomSite				// Il faut affecter le nom du répertoire des données
+      :m_sNomSite = sNomSite 				// et le nom de site par défaut 
+      :m_sRepStat = sNomSite+[fsep]+"Log"
+      
+      // Synchronise les tailles des tableaux de fichiers
+      Dimension(:m_tabFicDistant,nNbFichier)
+     type : 458752
+   -
+     name : Init
+     procedure_id : 1835411100948363794
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	sNomProjet (chaîne UNICODE) : <indiquez ici le rôle de sNomProjet>
+      //	bHistoGPUDefaut (booléen) : <indiquez ici le rôle de bHistoGPUDefaut>
+      //	nModeTransfert (entier) : <indiquez ici le rôle de nModeTransfert>
+      //	bHTTPSecurise (booléen) : <indiquez ici le rôle de bHTTPSecurise>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      Procédure Init( sNomProjet est une chaine, bHistoGPUDefaut est un booléen ,nModeTransfert est un entier,bHTTPSecurise est un booléen)
+      
+      :m_sDescription = ""
+      :m_sAdresse = ""
+      //:m_sLoginWB = ""
+      //:m_sPwdWB = ""
+      //:m_bHTTPAuthentifie = vrai
+      :m_bHTTPSecurise = bHTTPSecurise
+      :m_sAdresseFTP = ""
+      :m_sLoginFTP = ""
+      :m_sPwdFTP = ""
+      :m_nPortFTP = 21
+      :m_bFTPPassif = faux
+      :m_bProxyHTTP = faux
+      :m_sAdresseProxy = ""
+      :m_nPortProxy = 8080
+      :m_sLoginProxy = ""
+      :m_sPwdProxy = ""
+      
+      :m_nMaxConnect = 150
+      :m_nMaxConnectUser = 150
+      :m_nTimeoutRq = 5*60
+      :m_nTimeoutNoRq = TIMEOUT_NORQ_DEFAUT
+      :m_nTimeoutNoRqAWP=0 					//0 pour utiliser la config globale du serveur
+      :m_nTimeoutNoRqWebService=0				//0 pour utiliser la config globale du serveur
+      :m_nTimeoutTache=0						//0 pour utiliser la config globale du serveur
+      :m_nNoIpCheck=1
+      :m_nCookieSessionHTTPOnly=1				
+      
+      :m_sRepData = sNomProjet				// Il faut affecter le nom du répertoire des données
+      
+      :m_bTeste = Faux
+      :m_bRecup = Faux
+      :m_nEtatDistant = ETATDISTANT_EXISTE
+      :m_nVersionDistante = 0
+      
+      :m_sNomSite = ChaîneFormate(Remplace(sNomProjet," ","_"),ccSansAccent)	// et le nom de site par défaut (identique au nom de projet)
+      
+      :m_bGenereStat = Vrai
+      :m_sRepStat = :m_sRepData+[fsep]+"Log"
+      
+      :m_bWarningVersionMoteur = faux
+      
+      :m_sRepFicGPU = ""
+      :m_sRepFicDroitGPU = ""
+      :m_bHistoConnexionGPU = bHistoGPUDefaut
+      
+      
+      m_nSrv_TimeoutNoRq=10*60
+      m_nSrv_TimeoutNoRQAWP=10*60
+      m_nSrv_TimeoutNoRQWS=10*60
+      m_nSrv_TimeoutTask=10*60
+      m_nSrv_MaxConnect=150
+      m_nSrv_MaxConnectApp=150
+      m_nSrv_MaxReConnectApp=150
+      m_nSrv_NoIpCheck=1
+      m_nSrv_CookieSessionHTTPOnly=1
+      
+      m_nModeTransfert=nModeTransfert
+     type : 458752
+   -
+     name : sGetProtocole
+     procedure_id : 2053477620217654391
+     type_code : 12
+     code : |1-
+      // Résumé : Retourne le protocole à utiliser (http ou https)
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne ANSI : // 	Aucune
+      //
+      PROCEDURE sGetProtocole()
+      
+      si :m_bHTTPSecurise alors
+      	renvoyer "https://"
+      FIN
+      
+      renvoyer "http://"
+     type : 458752
+   -
+     name : ResetParametreDeploiement
+     procedure_id : 2060625000040157282
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	nNbFic (entier) : <indiquez ici le rôle de nNbFic>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE ResetParametreDeploiement( nNbFic est un entier )
+      
+      Dimension(:m_tabFicDistant,nNbFic)
+      :m_bTeste = Faux
+      :m_bRecup = Faux
+      :m_bWarningVersionMoteur = Faux
+      
+      pour nRangFic=1 _a_ nNbFic
+      	:m_tabFicDistant[nRangFic]:m_nOperation = CInstallWBData::OP_INSTALLER
+      fin
+     type : 458752
+   -
+     name : sGetHote
+     internal_properties : CAAAAAgAAACXYXa9SarkImtAa46gq1gpR1HEUMgRQ19rlrcM1PEXr3WApjTzvCFhHL/vsFxqPQ6briIcIBisXqxDckceItBqEztu/dvW+rqS9GzmFJS6wKGT0tWYTdj5fkZPpo17yTq7/9mrCGNCVhi6azA=
+     procedure_id : 2201606188814316343
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] sGetHote ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne ANSI : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE sGetHote()
+      //par défaut, l'hôte est le nom de la machine utilisée
+      sHote est une chaine=m_sAdresse
+      
+      //si on a précisé une adresse publique
+      si pas m_sAdresseSitemap~="" alors
+      	//c'est cette adresse qu'il faut utiliser
+      	//on en extrait le nom de domaine
+      	sHoteSiteMap est une chaine=m_sAdresseSitemap
+      	si Minuscule(sHoteSiteMap)[="http://" alors
+      		sHoteSiteMap=Milieu(sHoteSiteMap,7+1)
+      	sinon si Minuscule(sHoteSiteMap)[="https://" ALORS
+      		sHoteSiteMap=Milieu(sHoteSiteMap,8+1)
+      	FIN
+      	nPosition est un entier=Position(sHoteSiteMap,"/")
+      	//on prend la position avant /
+      	si nPosition>0 ALORS
+      		sHoteSiteMap=Gauche(sHoteSiteMap,nPosition-1)
+      	FIN
+      	//on se retrouve potentiellement avec un user:password@domain:port
+      	nPosition=Position(sHoteSiteMap,"@")
+      	si nPosition>0 ALORS
+      		//on prend la composante après @
+      		sHoteSiteMap=Milieu(sHoteSiteMap,nPosition+1)
+      	FIN
+      	nPosition=Position(sHoteSiteMap,":")
+      	SI nPosition>0 ALORS
+      		//on prend la composante avant :
+      		sHoteSiteMap=Gauche(sHoteSiteMap,nPosition-1)
+      	FIN
+      	//que reste-t-il ?
+      	si pas sHoteSiteMap~="" alors
+      		sHote=sHoteSiteMap
+      	FIN
+      	
+      FIN
+      
+      renvoyer sHote
+     type : 458752
+   -
+     name : AjouteLangue
+     procedure_id : 1492877147149551305
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //AjouteLangue (<nValeurNation>)
+      //
+      // Paramètres :
+      // 	nValeurNation : <indiquez ici le rôle de nValeurNation>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE AjouteLangue( nValeurNation)
+      
+      si TableauCherche(m_tabLangue,tcLinéaire,nValeurNation)<=0 alors
+      	TableauAjoute(m_tabLangue,nValeurNation)
+      FIN
+      
+     type : 458752
+   -
+     name : SupprimeLangue
+     procedure_id : 1492877507926822686
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //SupprimeLangue (<nValeurNation>)
+      //
+      // Paramètres :
+      // 	nValeurNation : <indiquez ici le rôle de nValeurNation>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE SupprimeLangue(nValeurNation)
+      
+      nIndice est un entier=TableauCherche(m_tabLangue,tcLinéaire,nValeurNation)
+      si nIndice>0 alors
+      	TableauSupprime(m_tabLangue,nIndice)
+      FIN
+      
+     type : 458752
+   -
+     name : SupprimeTouteLesLangues
+     procedure_id : 1492877941718620733
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      // SupprimeTouteLesLangues ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE SupprimeTouteLesLangues()
+      TableauSupprimeTout(m_tabLangue)
+      
+     type : 458752
+   -
+     name : sExtraitInfoCloud
+     procedure_id : 1262166689887980334
+     type_code : 12
+     code : |1+
+      procédure sExtraitInfoCloud(sLogin est une chaine, sMotDePasse est une chaine, sOffre est une chaine)
+      sInfoCloud				est une chaîne	= Décrypte(m_sServeurCloud,gsCleCryptageInfoCloud,crypteSécurisé,encodeBASE64)
+      sLogin									= ExtraitChaîne(sInfoCloud,1,RC)
+      sOffre									= ExtraitChaîne(sInfoCloud,3,RC)
+      sMotDePasse								= ExtraitChaîne(sInfoCloud,2,RC)
+      
+     type : 458752
+   -
+     name : SetInfoContrat
+     procedure_id : 1262167561822447208
+     type_code : 12
+     code : |1+
+      procédure SetInfoContrat(local sOffre est une chaine )
+      
+      sLogin est une chaîne
+      sMotDePasse est une chaîne
+      sOldOffre est une chaîne
+      sExtraitInfoCloud(sLogin,sMotDePasse,sOldOffre)
+      sInfoCloud est une chaîne=sLogin+RC
+      sInfoCloud+=sMotDePasse
+      sInfoCloud+=RC+sOffre
+      m_sServeurCloud=Crypte(sInfoCloud,gsCleCryptageInfoCloud,crypteSécurisé,encodeBASE64)
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+resources :
+ string_res :
+  identifier : 0x10d4759a03ae43e8
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

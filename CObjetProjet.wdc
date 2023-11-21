@@ -1,0 +1,1043 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : CObjetProjet
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x1b8504e600a0dd57
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAABeejZ5RKmdIX7+nh5uMjdH/gt1ZD0O3q+48ANir8mwWLSLY9p0Y0HdecHGbESHI+AzPI/rcIw0sqSM1WwBxAFsE42cg/I1ItmiQAwMgX8g3Z7wfACoGUy9U5hy8+3vaihO4uhnyL5jNYb2NjlW69KsoHHRXmZAJ/oJLm8nlZbiYFA8Vkunbe5g2y3qcSGyyfQkt3GRDXjUCHaDPfJPZ7ezokTRI9yPdEbbbu7GdTv0JjghPEoJ88KPAd5kXu90aBPrYav+ieGw1mMsE7o/+nQ2pLF75vjDxGlIN2qf69spt29Rct6NsntvfM0CmQ==
+     code : |1+
+      constant
+      	NUM_PARTIE_WDP		= 6
+      	
+      	SITE_DYNAMIQUE		= 0
+      	SITE_PHP			= 1
+      	SITE_STATIQUE		= 2
+      	SITE_AWP			= 3
+      	
+      	SAAS_DESACTIVE		= 0
+      	SAAS_AUTOMATIQUE	= 1
+      	SAAS_MANUEL			= 2
+      FIN
+      
+      STInfoConfig est une structure
+      	sNom						est une chaine unicode
+      	nProcesseur					est un entier
+      	sTabAideNouveautés			est une chaine unicode
+      	sRepExe						est une chaine unicode		// Nouveauté WX16 F+1
+      	bCompat64Bits				est un booléen				// Nouveauté WX16 F+2
+      	eCibleProduit				est un entier				// Nouveauté WX16 F+2
+      	sNomExecutable				est un chaine unicode		//Nouveauté WX17 F+3 nom du fichier généré
+      	bTelemetrieActive			est un booléen				//WX21
+      	eTypeConfig					est un eTYPECONFIGURATION	//Nouveauté WX25 pour applicatif	
+      	sPageIndex					est une chaîne UNICODE		//serialisation texte en 26
+      	sPageErreur					est une chaine UNICODE		//serialisation texte en 26
+      	sListeComposantNonIntegre	est une chaîne UNICODE		//listes des composants inclus dans la config mais pas inclus dans l'exe
+      	nQwid						est un entier sur 8 octets
+      	sLanguePrincipale			est une chaine UNICODE
+      	sCheminIconeExe				est une chaine UNICODE
+      FIN
+      
+      //Valeur de eCibleProduit
+      constant
+      	CibleAucune								= 0x00000000	//Aucune cible précisé, cible par défaut du produit courant
+      	
+      	CibleAppliWindows_CompatV10				= 0x00000001	//Application Windows 32 bits ou 64 bits
+      	CibleAppliPocket_CompatV26				= 0x00000002	//Application Pocket
+      	CibleAppliJava							= 0x00000004	//Application JAVA
+      	CibleAppliDotNetMixte					= 0x00000008	//Application .NET mixte
+      	CibleAppliDotNetCLR_AVERIFIER			= 0x00000010	//Application .NET CLR
+      	CibleWebserviceWindows					= 0x00000020	//WebService Windows 32 bits ou 64 bits
+      	CibleSitePHP							= 0x00000040	//Site PHP
+      	CibleSiteWebDevWindows					= 0x00000080	//Site WEBDEV Windows
+      	CibleSiteWebDevLinux					= 0x00000100	//Site WEBDEV Linux
+      	CibleAppliLinux32_CompatV27				= 0x00000200	//Application Linux 32 bits
+      	CibleAppliJavaAndroid					= 0x00000400	//Application Mobile Android
+      	CibleAppliWindows_32					= 0x00000800	//Application Windows 32 bits uniquement
+      	CibleAppliWindows_64					= 0x00001000	//Application Windows 64 bits uniquement
+      	CibleServiceWin32						= 0x00002000	//Service Win32
+      	CibleServiceWin64						= 0x00004000	//Service Win64
+      	CibleServiceLinux32_CompatV27			= 0x00008000	//Service Linux 32 bits
+      	CibleAppliDotNetWindowsPhone_CompatV19	= 0x00010000	//Application Mobile Windows Phone
+      	CibleAppliLinux64						= 0x00020000	//Application Linux 64 bits
+      	CibleServiceLinux64						= 0x00040000	//Service Linux 64 bits
+      	CibleWebserviceLinux					= 0x00080000	//WebService Linux 32 bits ou 64 bits
+      fin
+      
+      eTYPECONFIGURATION est une énumération
+      	eTypeUnknown			=	0
+      	eExecutableWindows		=	1
+      	eSite					=	2
+      	eBibliotheque			=	3
+      	eComposant				=	4
+      	eWebservice_SOAP		=	5
+      	eAssemblageDotNet		=	6
+      	eExecutableDotNet		=	7
+      	eJava					=	8
+      	eExecutableLinux		=	9
+      	eTodayScreen			=	10
+      	ePatternRAD				=	11
+      	eGadgetVista_Migration	=	12	// migré en Site
+      	eService				=	13
+      	eServiceLinux			=	14
+      	eAndroid				=	15
+      	eBibliPlanAction		=	16
+      	eWindowsPhone_Migration	=	17	// migré en Windows Universal Apps: ne devrait servir que dans la PRJ en phase de migration
+      	eAppleiOS				=	18
+      	eAppleMacOSX			=	19
+      	eApplicationUWA			=	20	// Universal Windows Application
+      	eExecutablePocket		=	21	// Configuration executable pour windows Mobile (anciennement config eExecutable que l'on pouvait ouvrir uniquement sous WM)
+      	eAppleWatch				=	22
+      	eWebservice_REST		=	23
+      	eAppleWidget			= 	24
+      	eServeurWebSocket		=	25
+      fin
+      
+      CObjetProjet est une classe
+      privee
+      	m_sNomLogique							est une chaine
+      	m_sFichier								est une chaine
+      	m_sNomConfigCourante					est une chaine
+      	
+      	m_sRepertoire							est une chaine unicode
+      	m_sMotDePasseAnalyseCrypté				est une chaîne UNICODE
+      	//m_sNomExe_OBSOLETE est une chaîne UNICODE
+      	m_sNomAnalyse							est une chaîne UNICODE
+      	//liste des composants séparés par TAB
+      	m_sListeComposant_OBSOLETE_PARCONFIG	est une chaîne UNICODE
+      	//m_sCheminProjetClientER_OBSOLETE est une chaîne UNICODE
+      	//m_sNomAssemblageDotNET_OBSOLETE est une chaîne UNICODE
+      	m_sUtiliseER							est une chaine UNICODE
+      	//GDS
+      	m_sCheminBaseGDS_OBSOLETE				est une chaîne UNICODE
+      	m_sCheminProjetGDS_OBSOLETE				est une chaîne UNICODE
+      	m_sLoginGDS_OBSOLETE					est une chaîne UNICODE
+      	
+      	//m_sMenuSauveAppli est une chaîne UNICODE OBSOLETE
+      	//m_sMenuSauveDonnees est une chaîne UNICODE OBSOLETE
+      	
+      	//données des configurations
+      	m_taInfoConfig							est un tableau de STInfoConfig
+      	
+      	m_sUtiliseGPU							est une chaîne UNICODE
+      	m_sInfoSaas								est une chaîne UNICODE
+      	m_sHistoriqueCnxGPU						est une chaîne UNICODE
+      	m_sTypeSite								est une chaîne UNICODE
+      	m_sNomPageIndex							est une chaîne UNICODE
+      	
+      	m_sListeLangue							est une chaine unicode
+      	//m_sLanguePrincipale est une chaine unicode deplacé dans la config
+      	m_sPageErreur							est une chaine unicode				//nom logique de la page d'erreur personnalisée du site
+      	m_bModeGPUCompatible					est un booléen						//Vrai si le GPU est en mode compat' (ancien GPU <=WX17)
+      	m_sRepDonneesExe						est une chaîne UNICODE
+      	//m_sCheminIconeExe est une chaîne UNICODE deplacé dans la config
+      	
+      	m_sUtiliseGPU_WEBDEV					est une chaîne UNICODE
+      	m_sHistoriqueCnxGPU_WEBDEV				est une chaîne UNICODE
+      	m_bModeGPUCompatible_WEBDEV				est un booléen						//Vrai si le GPU est en mode compat' (ancien GPU <=WX17)
+      Fin
+      
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1982996596826168663
+     type_code : 27
+     code : |1-
+      PROCEDURE Constructeur()
+      
+      m_sListeLangue = eot
+      m_sUtiliseGPU = eot
+      m_sHistoriqueCnxGPU = eot
+      m_bModeGPUCompatible = vrai
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1982996596826234199
+     type_code : 28
+     code : |1+
+      PROCEDURE Destructeur()
+      
+     type : 655360
+   -
+     name : bInit
+     internal_properties : CAAAAAgAAAAP6d5VPWLY0uswW/4g66ipJ3HUIEgxU19bFrcshMHX/0Uw5nQjrAFxnM/fYHxKTe47TlLM4HhE5qR7aj/W6pjyq6MmVXN+kuLKzKQ+TFxiaHnbKg1wtVBhll5nfuWDMaJT51EjgKeOzoBS86g=
+     procedure_id : 1982996699905473084
+     type_code : 12
+     code : |1+
+      PROCEDURE bInit(local sCheminWDP est une chaine,local sNomConfig est une chaîne="")
+      
+      gSansGuillemets(sCheminWDP)
+      
+      m_sFichier = sCheminWDP
+      m_sNomConfigCourante = sNomConfig
+      
+      bufPartieWDP est buffer
+      
+      format_texte est un booléen
+      clDialPRJ est CDialoguePRJWDinst
+      si clDialPRJ.bIsOK() ALORS
+      	bufPartieWDP = clDialPRJ.bufGetPartieWDP(sCheminWDP, m_sNomLogique)
+      	si taille(bufPartieWDP) = 0 ALORS
+      		// ce n'est pas le projet en cours et ce n'est pas un format binaire
+      		format_texte = vrai
+      	FIN
+      sinon
+      	// Lecture du fichier WDP
+      	clProjet est un objet CEltProjetFile(sCheminWDP)
+      	SI clProjet:bOuvre() ALORS
+      		// nom logique du projet
+      		:m_sNomLogique = clProjet.sNomLogique()
+      		// description
+      		bufPartieWDP = clProjet:sGetPartie(::NUM_PARTIE_WDP)
+      		clProjet.Ferme()
+      	sinon
+      		// Si YAML => DeserialiseYAML
+      		format_texte = Vrai
+      	FIN
+      	
+      FIN
+      
+      resultat est un booléen = vrai
+      si format_texte alors
+      	// tentative de chargement du format texte
+      	resultat = __bDeserialiseTexte(sCheminWDP)	
+      sinon
+      	// désérialisation du format binaire
+      	clWDBuf est un CWDBuffer(bufPartieWDP)
+      	__Deserialise(clWDBuf)
+      FIN
+      	
+      renvoyer vrai
+     type : 458752
+   -
+     name : sGetCheminBaseGDS_OBSOLETE
+     procedure_id : 1982997438639954835
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne UNICODE : // 	Aucune
+      //
+      PROCEDURE sGetCheminBaseGDS_OBSOLETE()
+      
+      renvoyer m_sCheminBaseGDS_OBSOLETE
+     type : 458752
+   -
+     name : sGetCheminProjetGDS_OSOLETE
+     procedure_id : 1982997601848750614
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne UNICODE : // 	Aucune
+      //
+      PROCEDURE sGetCheminProjetGDS_OSOLETE()
+      
+      renvoyer m_sCheminProjetGDS_OBSOLETE
+     type : 458752
+   -
+     name : sGetLoginGDS_OBSOLETE
+     procedure_id : 1982997743582769934
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne UNICODE : // 	Aucune
+      //
+      PROCEDURE sGetLoginGDS_OBSOLETE()
+      
+      renvoyer m_sLoginGDS_OBSOLETE
+     type : 458752
+   -
+     name : sGetAnalyse
+     procedure_id : 1982998044241822658
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne UNICODE : // 	Aucune
+      //
+      PROCEDURE sGetAnalyse()
+      
+      renvoyer m_sNomAnalyse
+     type : 458752
+   -
+     name : sGetMdpAnalyse
+     procedure_id : 1982998340595617497
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	bDecrypte (booléen - valeur par défaut=1) : <indiquez ici le rôle de bDecrypte>
+      // Valeur de retour :
+      // 	Type indéterminé :    // 	Aucune
+      //
+      PROCEDURE sGetMdpAnalyse(bDecrypte est un booléen = vrai)
+      
+      si bDecrypte ALORS
+      	renvoyer sDecrypteMDP(m_sMotDePasseAnalyseCrypté)	
+      sinon
+      	renvoyer m_sMotDePasseAnalyseCrypté
+      FIN
+     type : 458752
+   -
+     name : bUtiliseGPU
+     procedure_id : 1982999294078448216
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé : // 	Aucune
+      //
+      PROCEDURE bUtiliseGPU()
+      
+      renvoyer (m_sUtiliseGPU=EOT  ? Faux SINON Val(m_sUtiliseGPU))
+      
+     type : 458752
+   -
+     name : bHistoriqueConnexionGPU
+     procedure_id : 1982999543186609805
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé : // 	Aucune
+      //
+      PROCEDURE bHistoriqueConnexionGPU()
+      
+      renvoyer (m_sHistoriqueCnxGPU=EOT  ? Faux SINON Val(m_sHistoriqueCnxGPU))
+     type : 458752
+   -
+     name : nGetTypeSite
+     procedure_id : 1983001123734679996
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé : // 	Aucune
+      //
+      PROCEDURE nGetTypeSite()
+      
+      RENVOYER (m_sTypeSite=EOT  ? CObjetProjet::SITE_DYNAMIQUE SINON Val(m_sTypeSite))
+     type : 458752
+   -
+     name : nGetModeSaas
+     procedure_id : 1983001531756603455
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé : // 	Aucune
+      //
+      PROCEDURE nGetModeSaas()
+      
+      RENVOYER (m_sInfoSaas=EOT  ? CObjetProjet::SAAS_DESACTIVE SINON Val(m_sInfoSaas))
+     type : 458752
+   -
+     name : sGetPageAccueil
+     procedure_id : 1983001682080558726
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne UNICODE : // 	Aucune
+      //
+      PROCEDURE sGetPageAccueil()
+      
+      renvoyer m_sNomPageIndex
+     type : 458752
+   -
+     name : sGetElementGenere
+     procedure_id : 2000872177697108645
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	sNomConfig (valeur par défaut="") : <indiquez ici le rôle de sNomConfig>
+      // Valeur de retour :
+      // 	chaîne UNICODE :  // 	Aucune
+      //
+      PROCEDURE sGetElementGenere(sNomConfig="")
+      
+      si sNomConfig="" alors
+      	sNomConfig = m_sNomConfigCourante
+      FIN
+      
+      stInfo est un STInfoConfig
+      stInfo=stGetInfoConfigParNom(sNomConfig)
+      
+      renvoyer stInfo.sNomExecutable
+      //renvoyer m_sNomExe
+     type : 458752
+   -
+     name : sGetListeLangue
+     procedure_id : 2079167087259831316
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] sGetListeLangue ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne UNICODE : // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE sGetListeLangue()
+      
+      renvoyer m_sListeLangue
+     type : 458752
+   -
+     name : nGetLanguePrincipale
+     procedure_id : 2079167727210041335
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] nGetLanguePrincipale (<sNomConfig>)
+      //
+      // Paramètres :
+      //	sNomConfig : <indiquez ici le rôle de sConfig>
+      // Valeur de retour :
+      // 	Type indéterminé :  // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE nGetLanguePrincipale(sNomConfig)
+      
+      sLangue est une chaine=stGetInfoConfigParNom(sNomConfig).sLanguePrincipale
+      si sLangue = "" _ou_ sLangue = eot ALORS
+      	renvoyer 0
+      FIN
+      
+      renvoyer val(sLangue)
+     type : 458752
+   -
+     name : sGetRepertoire
+     procedure_id : 2079173658644423980
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] sGetRepertoire ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne UNICODE : // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE sGetRepertoire()
+      
+      renvoyer m_sRepertoire
+     type : 458752
+   -
+     name : sGetListeComposants
+     procedure_id : 2079174470393300067
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] sGetListeComposants ( [<sNomConfig>])
+      //
+      // Paramètres :
+      //	sNomConfig (valeur par défaut="") : <indiquez ici le rôle de sNomConfig>
+      // Valeur de retour :
+      // 	chaîne UNICODE : // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE sGetListeComposants(sNomConfig="")
+      
+      si sNomConfig="" alors
+      	sNomConfig = m_sNomConfigCourante
+      FIN
+      
+      renvoyer stGetInfoConfigParNom(sNomConfig).sListeComposantNonIntegre
+      
+     type : 458752
+   -
+     name : bUtiliseWDEtatU
+     procedure_id : 2079176922901920782
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] bUtiliseWDEtatU ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	variant : // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE bUtiliseWDEtatU()
+      
+      RENVOYER Val(m_sUtiliseER)
+     type : 458752
+   -
+     name : bUtiliseWDRestaure_OBSOLETE
+     procedure_id : 2079177519902448418
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] bUtiliseWDRestaure_OBSOLETE ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE bUtiliseWDRestaure_OBSOLETE()
+      
+      RENVOYER faux //Val(m_sMenuSauveAppli)
+     type : 458752
+   -
+     name : bUtiliseWDJournal_OBSOLETE
+     procedure_id : 2079177661636468075
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] bUtiliseWDJournal_OBSOLETE ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE bUtiliseWDJournal_OBSOLETE()
+      
+      RENVOYER faux //Val(m_sMenuSauveDonnees)
+     type : 458752
+   -
+     name : stGetInfoConfig
+     procedure_id : 2079179779055379324
+     type_code : 12
+     code : |1-
+      // Résumé : Récupère les infos d'une configuration à partir de son indice
+      // Syntaxe :
+      //[ <Résultat> = ] stGetInfoConfig (<nIndiceConfig> est entier)
+      //
+      // Paramètres :
+      //	nIndiceConfig (entier) : indice de la config (commence à 1)
+      // Valeur de retour :
+      // 	Type indéterminé : // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE stGetInfoConfig(nIndiceConfig est un entier)
+      
+      dbgAssertion(nIndiceConfig>0)
+      si nIndiceConfig <=0 alors renvoyer Null
+      
+      dbgAssertion(nIndiceConfig <= nGetNbConfig())
+      si nIndiceConfig > nGetNbConfig() alors renvoyer null
+      
+      renvoyer m_taInfoConfig[nIndiceConfig]
+       
+     type : 458752
+   -
+     name : nGetNbConfig
+     procedure_id : 2079180397530747745
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] nGetNbConfig ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	entier : // 	Aucune
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE nGetNbConfig()
+      
+      RENVOYER m_taInfoConfig..Occurrence
+     type : 458752
+   -
+     name : stGetInfoConfigParNom
+     procedure_id : 2103294099676656232
+     type_code : 12
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Paramètres :
+      //	sNomConfig (chaîne UNICODE) : <indiquez ici le rôle de sNomConfig>
+      // Valeur de retour :
+      // 	STInfoConfig : // 	Aucune
+      //
+      PROCEDURE stGetInfoConfigParNom( sNomConfig est une chaine unicode)
+      
+      stInfo est un STInfoConfig
+      
+      pour i=1 _a_ :nGetNbConfig()
+      	stInfo = :stGetInfoConfig(i)
+      	si ChaîneCompare(stInfo:sNom,sNomConfig,ccSansAccent+ccSansCasse+ccSansEspace)=0 ALORS
+      		renvoyer stInfo
+      	FIN
+      FIN
+      
+      dbgAssertion(faux,"Config non trouvée, on retourne la dernière")
+      renvoyer stInfo
+     type : 458752
+   -
+     name : __Deserialise
+     internal_properties : CAAAAAgAAABzWrI8h3XOjZmSc90Gzg5b2gwy4PVFtiWnCOJkEG+7V+D9wRnGTUNftIfEFRfiuaanU6k/WvuY+2rbG2w1qY8GDvJUHh1aHE7Gd9GAaNhz6gQ5WLwmigwbXteCvhJ8T7F2Kh2ljxqKNXMtiyA9wBJuxXQImILf7EQV5l4nA7X8fw==
+     procedure_id : 2164496070164846593
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      PROCEDURE privee __Deserialise(clBuf est un CWDBuffer)
+      
+      clBuf.GetStr(m_srepertoire) //fait
+      clBuf.GetStr(m_sMotDePasseAnalyseCrypté) //fait
+      sNomExe est une chaine
+      clBuf.GetStr(sNomExe)//fait ->par config
+      clBuf.GetStr(m_snomanalyse)//fait
+      
+      //liste des composants séparés par TAB
+      sListeComposant est une chaine
+      clBuf.GetStr(sListeComposant) //fait
+      sCheminProjetClientER_OBSOLETE est une chaine
+      clBuf.GetStr(sCheminProjetClientER_OBSOLETE)
+      sNomAssemblageDotNET est une chaine
+      clBuf.GetStr(sNomAssemblageDotNET) //fait - par config
+      clBuf.GetStr(m_sUtiliseER)//fait
+      
+      //GDS
+      clBuf.GetStr(m_sCheminBaseGDS_OBSOLETE)
+      clBuf.GetStr(m_sCheminProjetGDS_OBSOLETE)
+      clBuf.GetStr(m_sLoginGDS_OBSOLETE)
+      
+      sMenuSauveAppli_OBSOLETE est une chaine 
+      clBuf.GetStr(sMenuSauveAppli_OBSOLETE)
+      smenusauvedonnees_OBSOLETE est une chaine
+      clBuf.GetStr(smenusauvedonnees_OBSOLETE)
+      
+      //données des configurations
+      sNombreConfig est une chaîne UNICODE
+      clBuf.GetStr(sNombreConfig)
+      nNbConfig est un entier = val(sNombreConfig)
+      
+      sTMP est un chaine unicode
+      pour i = 1 _a_ nNbConfig
+      	stInfo est un STInfoConfig = allouer un STInfoConfig
+      	stInfo.eTypeConfig = eTypeUnknown
+      	
+      	//Désérialisation des infos de config
+      	//on boucle jusqu'à tomber sur le flag "--CONFIG"
+      	//et on remplit des infos au fur et à mesure à chaque itération
+      	clBuf.GetStr(sTMP)
+      	nRangInfo est un entier = 0
+      	tantque sTMP <> "--CONFIG"
+      		nRangInfo++
+      		
+      		selon nRangInfo
+      			cas 1
+      				stInfo.sNom = sTMP
+      			cas 2 
+      				stInfo.nProcesseur = val(sTMP)
+      			cas 3 
+      				stInfo.sTabAideNouveautés = sTMP
+      			cas 4
+      				stInfo.sRepExe = sTMP
+      			cas 5
+      				stInfo.bCompat64Bits = val(sTMP)
+      			cas 6
+      				stInfo.eCibleProduit = val(sTMP)
+      			cas 7
+      				stInfo.sNomExecutable = sTMP
+      			cas 8
+      				stInfo.bTelemetrieActive = Val(sTMP)			
+      			cas 9
+      				stInfo.eTypeConfig = EnumérationDepuisValeur(eTYPECONFIGURATION, val(sTMP),eTypeUnknown)
+      		FIN
+      		
+      		//info suivante
+      		clBuf.GetStr(sTMP)
+      	FIN
+      	
+      	selon stInfo.eTypeConfig
+      			
+      		CAS eAssemblageDotNet
+      			stInfo.sNomExecutable=sNomAssemblageDotNET
+      	
+      			
+      		autres cas
+      		si stInfo.sNomExecutable="" alors
+      			stInfo.sNomExecutable=sNomExe
+      		fin
+      			
+      			
+      	FIN
+      	//Ajout dans le tableau
+      	m_taInfoConfig.Ajoute(stInfo)
+      FIN
+      
+      POUR TOUT stConfig de m_taInfoConfig
+      	stConfig.sListeComposantNonIntegre=sListeComposant
+      FIN
+      
+      
+      clBuf.GetStr(m_sUtiliseGPU)//fait
+      clBuf.GetStr(m_sInfoSaas)//fait
+      clBuf.GetStr(m_sHistoriqueCnxGPU)//fait
+      clBuf.GetStr(m_stypesite)//fait
+      clBuf.GetStr(m_snompageindex)//fait
+      //recopie dans toutes les configs
+      pour tout stConfig de m_taInfoConfig
+      	stConfig.sPageIndex=m_sNomPageIndex
+      FIN
+      si clBuf.bendofbuffer() alors retour
+      clBuf.GetStr(m_sListeLangue)//fait
+      
+      SI clBuf.bEndOfBuffer() ALORS RETOUR
+      sLanguePrincipale est une chaine
+      clBuf.GetStr(sLanguePrincipale)
+      POUR TOUT stConfig de m_taInfoConfig
+      	stConfig.sLanguePrincipale=sLanguePrincipale
+      FIN
+      
+      SI clBuf.bEndOfBuffer() ALORS RETOUR
+      clBuf.GetStr(m_sPageErreur)//fait
+      POUR TOUT stConfig de m_taInfoConfig
+      	stConfig.sPageErreur=m_sPageErreur
+      FIN
+      
+      SI clBuf.bEndOfBuffer() ALORS RETOUR
+      m_bModeGPUCompatible = clBuf.bGetBool()//fait
+      
+      SI clBuf.bEndOfBuffer() ALORS RETOUR
+      clBuf.GetStr(m_sRepDonneesExe)//fait
+      
+      SI clBuf.bEndOfBuffer() ALORS RETOUR
+      sCheminIconeExe est une chaine UNICODE
+      clBuf.GetStr(sCheminIconeExe)
+      POUR TOUT stConfig de m_taInfoConfig
+      	stConfig.sCheminIconeExe=sCheminIconeExe
+      FIN
+      
+      SI clBuf.bEndOfBuffer() ALORS RETOUR
+      clBuf.GetStr(m_sUtiliseGPU_WEBDEV)//fait
+      SI clBuf.bEndOfBuffer() ALORS RETOUR
+      clBuf.GetStr(m_sHistoriqueCnxGPU_WEBDEV)//fait
+      SI clBuf.bEndOfBuffer() ALORS RETOUR
+      m_bModeGPUCompatible_WEBDEV = clBuf.bGetBool()//fait
+      SI clBuf.bEndOfBuffer() ALORS RETOUR
+      
+     type : 458752
+   -
+     name : sGetPageErreur
+     procedure_id : 2250595930859210275
+     type_code : 12
+     code : |1+
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //[ <Résultat> = ] sGetPageErreur ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne UNICODE : // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE sGetPageErreur()
+      renvoyer m_sPageErreur
+     type : 458752
+   -
+     name : bUtiliseGPU_WEBDEV
+     procedure_id : 2130762447121861858
+     type_code : 12
+     code : |1-
+      PROCEDURE bUtiliseGPU_WEBDEV()
+      
+      RENVOYER (m_sUtiliseGPU_WEBDEV=EOT  ? Faux SINON Val(m_sUtiliseGPU_WEBDEV))
+     type : 458752
+   -
+     name : bHistoriqueConnexionGPU_WEBDEV
+     procedure_id : 2130762721999832693
+     type_code : 12
+     code : |1+
+      PROCEDURE bHistoriqueConnexionGPU_WEBDEV()
+      
+      RENVOYER (m_sHistoriqueCnxGPU_WEBDEV=EOT  ? Faux SINON Val(m_sHistoriqueCnxGPU_WEBDEV))
+      
+     type : 458752
+   -
+     name : __bDeserialiseTexte
+     internal_properties : CAAAAAgAAAAW9lWL7ci+cTdM/MK/tq21Gpk9SoZ9Vk9K1NqLLt+BXWU+t6t6/DF7dXny2zSQYA+qrQ+PFN/WNggDTYmvyZpHqAok3wd59SbnpP0YLrEhCOwsfkzxN6oW2CGdLFaDkKgjW2fWlRvkCBK2FVfj9Zql/C7REX0lE0q1jQMbJgH8mMQNcj2DLbPizHLzWEr7wcXGrck3nLjNSLj4ze7I35+qsBk7IctSRrS3A/CuJ7/L0zsPAq6S+7JWCCQXgciRFf4R
+     procedure_id : 2227932753748266799
+     type_code : 12
+     code : |1+
+      // Traitement automatique des erreurs :   exécuter le bloc de code CAS ERREUR
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      procédure privée __bDeserialiseTexte(sCheminWDP) <métier>
+      
+      Fichier est un yaml = fChargeTexte(sCheminWDP)
+      
+      // Vérifie le type de fichier
+      SI Fichier.info.type<>4097 ALORS
+      	RENVOYER Faux
+      FIN
+      
+      m_sNomLogique				= Fichier.info.name
+      m_sRepertoire				= fExtraitChemin(sCheminWDP, fDisque+fRépertoire)
+      m_sMotDePasseAnalyseCrypté	= _GetProp(Fichier.project.analysis_password, "")
+      soit szNomAnalyse = _GetProp(Fichier.project.analysis, "")
+      // reconstruit le nom du wdd
+      si szNomAnalyse="" ALORS
+      	m_sNomAnalyse=""
+      sinon
+      	szNomAnalyse	= fExtraitChemin(szNomAnalyse,fFichier)
+      	m_sNomAnalyse	= fConstruitChemin(m_sRepertoire,szNomAnalyse,".wdd")
+      FIN
+      soit sRepDonneesExe = _GetProp(Fichier.project.data_directory, "")
+      m_sRepDonneesExe	= fConstruitChemin(m_sRepertoire,sRepDonneesExe)
+      
+      
+      m_sTypeSite					= _GetProp(Fichier.project.site_type, CObjetProjet::SITE_DYNAMIQUE)
+      m_sInfoSaas					= _GetProp(Fichier.project.saas_mode, CObjetProjet::SAAS_DESACTIVE )
+      m_sUtiliseGPU_WEBDEV		= _GetProp(Fichier.project.user_groupware_site.mode, 0)//GPU_Aucun
+      m_sHistoriqueCnxGPU_WEBDEV	= _GetProp(Fichier.project.user_groupware_site.connections_history, faux)
+      m_bModeGPUCompatible_WEBDEV	= _GetProp(Fichier.project.user_groupware_site.compatible_17, faux)
+      m_sUtiliseGPU				= _GetProp(Fichier.project.user_groupware_executable.mode, 0)//GPU_Aucun
+      m_sHistoriqueCnxGPU			= _GetProp(Fichier.project.user_groupware_executable.connections_history, Faux)
+      m_bModeGPUCompatible		= _GetProp(Fichier.project.user_groupware_executable.compatible_17, Faux)
+      
+      m_sListeLangue=""
+      pour tout langue de Fichier.languages
+      	m_sListeLangue+=[tab]+langue
+      FIN
+      
+      m_taInfoConfig.SupprimeTout()
+      
+      POUR TOUT VarConfig DE Fichier.project.configurations
+      	
+      	stConfig est un STInfoConfig 
+      	
+      	stConfig.nQwid=_GetProp(VarConfig.configuration_id,0)
+      	stConfig.sNom=VarConfig.name
+      	stConfig.eTypeConfig=EnumérationDepuisValeur(eTYPECONFIGURATION, _GetProp(VarConfig.type,eTypeUnknown),eTypeUnknown)
+      	stConfig.bCompat64Bits=_GetProp(VarConfig.__64bits__,faux)
+      	sTelemetrieActive est une chaine =_GetProp(VarConfig.telemetry.status, "use_project_parameters")//vérifier le chemin et valeur par défaut
+      	si sTelemetrieActive="use_project_parameters" ALORS
+      		sTelemetrieActive=_GetProp(Fichier.project.telemetry.status, "disabled")
+      	FIN
+      	stConfig.bTelemetrieActive=(sTelemetrieActive<>"disabled")
+      	stConfig.nProcesseur=_GetProp(VarConfig.processor,0)
+      	stConfig.sTabAideNouveautés=_GetProp(VarConfig.new_features_help.physical_name ,"")
+      	
+      	sRepGeneration est une chaîne
+      	SI Fichier.project.common_generation_directory..existe _et_ Fichier.project.common_generation_directory=True
+      		sRepGeneration=fConstruitChemin(m_sRepertoire, "Exe")
+      	SINON
+      		sRepGeneration=fConstruitChemin(m_sRepertoire, _GetProp(VarConfig.generation_directory, ""))
+      	FIN
+      	stConfig.sRepExe=sRepGeneration
+      	
+      	sNomExe est une chaine=_GetProp(VarConfig.generation_name, "")
+      	si sNomExe<>"" ALORS
+      		sNomExe=fConstruitChemin(sRepGeneration, sNomExe)
+      	FIN
+      	stConfig.sNomExecutable=sNomExe
+      	
+      	sPageErreur est une chaine= _GetProp(VarConfig.error_page_generation_name, "")
+      	si sPageErreur<>"" alors
+      		stConfig.sPageErreur=fConstruitChemin(m_sRepertoire,sPageErreur)
+      	fin
+      	sPageIndex  est une chaine= _GetProp(VarConfig.index_page_generation_name, "")
+      	SI sPageIndex<>"" ALORS
+      		stConfig.sPageIndex=fConstruitChemin(m_sRepertoire,sPageIndex)
+      	FIN
+      	
+      	sCheminIconeExe est une chaine= _GetProp(VarConfig.icon_filename, "")
+      	SI sCheminIconeExe<>"" ALORS
+      		stConfig.sCheminIconeExe=fConstruitChemin(m_sRepertoire,sCheminIconeExe)
+      	FIN
+      	
+      	
+      	stConfig.sLanguePrincipale= _GetProp(VarConfig.language, 0)
+      	
+      	m_taInfoConfig.ajoute(stConfig)
+      FIN
+      
+      
+      m_sUtiliseER=_GetProp(Fichier.project.report_and_queries_enabled,vrai)
+      
+      //informations sur les composants externes
+      si Fichier.project.elements.external_components.existe alors
+      	pour tout composantexterne de Fichier.project.elements.external_components
+      		pour TOUT config_composant de composantexterne.configurations 
+      			nQwId est un entier sur 8=_GetProp(config_composant.configuration_id,0)
+      			pour tout stConfig de m_taInfoConfig
+      				si stConfig.nQwid=nQwId ALORS
+      					SI _GetProp(config_composant.excluded_from_generation, Faux) ALORS
+      						stConfig.sListeComposantNonIntegre+=[TAB]+composantexterne.name
+      					FIN
+      				FIN
+      			FIN
+      		FIN
+      	FIN
+      fin
+      
+      renvoyer vrai
+      
+      
+      CAS ERREUR:
+      renvoyer faux
+      CAS EXCEPTION:
+      RENVOYER Faux
+     type : 458752
+   -
+     name : _GetProp
+     procedure_id : 2227937688735716926
+     type_code : 12
+     code : |1+
+      procédure privée _GetProp(Prop, ValeurParDefaut) <métier>
+      si PAS Prop.existe ALORS
+      	renvoyer ValeurParDefaut
+      FIN
+      
+      renvoyer Prop.Valeur
+     type : 458752
+   -
+     name : bModeGPUCompatible_WEBDEV
+     procedure_id : 2228001723580151279
+     type_code : 12
+     code : |1+
+      procédure bModeGPUCompatible_WEBDEV() <métier>
+      renvoyer m_bModeGPUCompatible_WEBDEV
+     type : 458752
+   -
+     name : sGetCheminIConeExe
+     procedure_id : 2229855051975311625
+     type_code : 12
+     code : |1+
+      procédure sGetCheminIConeExe(sNomConfig est une chaîne) : chaîne
+      RENVOYER stGetInfoConfigParNom(sNomConfig).sCheminIconeExe
+      
+     type : 458752
+  properties :
+   -
+     name : p_sNomLogique
+     identifier : 0x1cdab16835c6f0eb
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCEDURE p_sNomLogique()
+         RENVOYER :m_sNomLogique
+        type : 1966080
+      -
+        code : |1-
+         //PROCEDURE p_sNomLogique(Valeur)
+        type : 2031616
+     template_refs : []
+   -
+     name : p_sFichier
+     identifier : 0x1cdab49135d84918
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCEDURE p_sFichier()
+         
+         RENVOYER :m_sFichier
+        type : 1966080
+      -
+        code : |1-
+         //PROCEDURE p_sFichier(Valeur)
+        type : 2031616
+     template_refs : []
+   -
+     name : p_bModeGPUCompatible
+     identifier : 0x10ffb3f23c32a768
+     type_code : 103
+     p_codes :
+      -
+        code : |1+
+         PROCEDURE p_bModeGPUCompatible()
+         renvoyer m_bModeGPUCompatible
+        type : 1966080
+      -
+        code : |1-
+         //PROCEDURE p_bModeGPUCompatible(Valeur)
+        type : 2031616
+     template_refs : []
+   -
+     name : p_sRepDonneesExe
+     identifier : 0x162a2f5627360606
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCEDURE PUBLIQUE p_sRepDonneesExe() : chaîne
+         
+         RENVOYER m_sRepDonneesExe
+        type : 1966080
+     template_refs : []
+   -
+     name : p_sCheminIconeExe
+     identifier : 0x170ceda206aff202
+     type_code : 103
+     p_codes :
+      -
+        code : |1+
+         PROCEDURE PUBLIQUE p_sCheminIconeExe() : chaîne
+         RENVOYER m_taInfoConfig..Occurrence>0 ? m_taInfoConfig[1].sCheminIconeExe sinon ""
+        type : 1966080
+     template_refs : []
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+resources :
+ string_res :
+  identifier : 0x1b8504e6009ddd57
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ
